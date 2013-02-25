@@ -1,0 +1,85 @@
+{
+    font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif
+;
+}
+
+fieldset {
+    float: none;
+    width: auto;
+    padding-left: 12em;
+}
+
+fieldset {
+    margin: 20px 20px 20px 20px;
+    padding: 10px;
+    background-color: #F9F9F9;
+}
+
+label {
+    float: left;
+    width: 10em;
+    margin-right: 1em;
+    text-align: right;
+}
+
+legend {
+    margin-left: 2px;
+    color: #000000;
+    font-weight: bold;
+}
+
+fieldset input {
+    margin: 3px 3px 3px 3px;
+    list-style: none;
+}
+
+fieldset.submit {
+    border-style: none;
+}
+
+li {
+    display: inline;
+    float: right;
+}
+
+.nava {
+    display: block;
+    width: 100px;
+}
+
+.error {
+    color: red;
+}
+
+table {
+    border: 1px solid #DFDFDF;
+    background-color: #F9F9F9;
+    width: 100%;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
+    color: #333;
+}
+
+table td, table th {
+    border-top-color: white;
+    border-bottom: 1px solid #DFDFDF;
+    color: #555;
+}
+
+table th {
+    text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+    font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+    font-weight: normal;
+    padding: 7px 7px 8px;
+    text-align: left;
+    line-height: 1.3em;
+    font-size: 14px;
+}
+
+table td {
+    font-size: 12px;
+    padding: 4px 7px 2px;
+    vertical-align: top;
+}

@@ -1,0 +1,22 @@
+LEFT INNER JOIN
+ 
+ from recipe RECIPE inner join product_recipe_link LINK on RECIPE.id=LINK.recipeid 
+ inner join product PRODUCT on LINK.productid=PRODUCT.id where RECIPE.id=?
+ 
+_________________________________________
+ 
+LEFT JOIN 
+ 
+ from recipe RECIPE 
+ inner join LINK on RECIPE.id=LINK.recipeid 
+ inner join product PRODUCT on LINK.productid=PRODUCT.id where RECIPE.id=?
+  
+____________________________________________
+ 
+JOIN FETCH 
+ 
+ from recipe RECIPE 
+ inner join LINK on RECIPE.id=LINK.recipeid 
+ inner join product PRODUCT on LINK.productid=PRODUCT.id where RECIPE.id=?
+ 
+ products initialized !

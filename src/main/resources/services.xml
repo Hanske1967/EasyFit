@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="userService" class="be.fortemaison.webweights.service.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+
+    <bean id="unitService" class="be.fortemaison.webweights.service.UnitServiceImpl">
+        <property name="unitDAO" ref="unitDAO"/>
+    </bean>
+
+    <bean id="productService" class="be.fortemaison.webweights.service.ProductServiceImpl">
+        <property name="productDAO" ref="productDAO"/>
+    </bean>
+
+    <bean id="recipeService" class="be.fortemaison.webweights.service.RecipeServiceImpl">
+        <property name="recipeDAO" ref="recipeDAO"/>
+        <property name="productDAO" ref="productDAO"/>
+    </bean>
+
+    <bean id="consumptionService" class="be.fortemaison.webweights.service.ConsumptionServiceImpl">
+        <property name="consumptionDAO" ref="consumptionDAO"/>
+        <property name="productDAO" ref="productDAO"/>
+    </bean>
+
+
+</beans>
