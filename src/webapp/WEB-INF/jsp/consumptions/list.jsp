@@ -12,7 +12,7 @@
 <body>
 <jsp:include page="../navigation.jsp"/>
 
-<h2>
+<h2 class="date_header">
     <a href="./list?date=${consumptionForm.previousDate}"><<</a>
     ${consumptionForm.title} - ${consumptionForm.pointsLabel} points
     <a href="./list?date=${consumptionForm.nextDate}">>></a>
@@ -22,9 +22,8 @@
     <form id="consumptionDetail${type}" method="post" modelAttribute="consumptionDetailForm">
         <jsp:setProperty name="consumptionForm" property="typeIndex" value="${type}"/>
         <h3>${consumptionForm.consumptionDetailTitleForIndex} - ${consumptionForm.consumptionDetailsPointsForIndex}
-            points</h3>
+            points
 
-        <p>
             <c:choose>
                 <c:when test="${empty consumptionForm.id}">
                     <a href="javascript:;"
@@ -37,7 +36,7 @@
                         product...</a>
                 </c:otherwise>
             </c:choose>
-        </p>
+        </h3>
         <table>
             <tr>
                 <th>ID</th>
@@ -58,7 +57,6 @@
                 </tr>
             </c:forEach>
         </table>
-        <br/>
     </form>
 </c:forEach>
 </body>

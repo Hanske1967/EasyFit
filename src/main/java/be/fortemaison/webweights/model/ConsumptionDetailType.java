@@ -23,7 +23,7 @@ public class ConsumptionDetailType {
 
     public static final ConsumptionDetailType[] ALL = new ConsumptionDetailType[]{MATIN, DIX_HEURE, MIDI, QUATRE_HEURE, SOIR, SOIREE};
 
-    private int type;
+    private final int type;
 
     /**
      * @param type

@@ -18,11 +18,6 @@
                 <value>be/fortemaison/webweights/model/consumptiondetail.hbm.xml</value>
             </list>
         </property>
-        <property name="hibernateProperties">
-            <value>
-                hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
-            </value>
-        </property>
     </bean>
 
 

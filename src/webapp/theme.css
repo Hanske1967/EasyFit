@@ -1,6 +1,7 @@
-{
-    font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif
-;
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    color: #039;
+    background-color: #FFF;
 }
 
 fieldset {
@@ -37,16 +38,6 @@ fieldset.submit {
     border-style: none;
 }
 
-li {
-    display: inline;
-    float: right;
-}
-
-.nava {
-    display: block;
-    width: 100px;
-}
-
 .error {
     color: red;
 }
@@ -55,22 +46,18 @@ table {
     border: 1px solid #DFDFDF;
     background-color: #F9F9F9;
     width: 100%;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
     border-radius: 3px;
-    font-family: Arial, "Bitstream Vera Sans", Helvetica, Verdana, sans-serif;
     color: #333;
 }
 
 table td, table th {
     border-top-color: white;
     border-bottom: 1px solid #DFDFDF;
-    color: #555;
+    color: #039;
 }
 
 table th {
-    text-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
-    font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif;
+    text-shadow: rgba(255, 255, 255, 0.796875) 0 1 0;
     font-weight: normal;
     padding: 7px 7px 8px;
     text-align: left;
@@ -83,3 +70,58 @@ table td {
     padding: 4px 7px 2px;
     vertical-align: top;
 }
+
+h1 {
+    color: #69F;
+}
+
+.header {
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+nav ul {
+    list-style: none;
+    overflow: hidden;
+    display: inline;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav a:link, nav a:visited {
+    width: 8em;
+    display: block;
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+    float: right;
+    height: 30px;
+    padding: 6px 3px 0 3px;
+    clear: left;
+    background-color: #69F;
+    text-align: center;
+}
+
+nav a:hover, nav a:active {
+    background-color: #3C0;
+}
+
+.date_header {
+    display: block;
+    padding: 6px 3px 0 3px;
+    clear: left;
+}
+
+.date_header a {
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+}
+
+h3 a {
+    display: block;
+    float: right;
+    font-size: smaller;
+    font-weight: normal;
+}
+
