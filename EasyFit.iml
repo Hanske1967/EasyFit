@@ -27,8 +27,10 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
+          <unit-entry name="hibernate.cfg.xml" />
           <unit-entry name="sessionFactory" value="7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd" />
         </datasource-map>
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
       </configuration>
     </facet>
   </component>
@@ -42,17 +44,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="spring-3.1.0" level="project" />
     <orderEntry type="library" name="commons-dbcp-1.4" level="project" />
     <orderEntry type="library" name="aopalliance-1.0" level="project" />
     <orderEntry type="library" name="commons-logging-1.1.1-javadoc" level="project" />
     <orderEntry type="library" scope="TEST" name="junit-4.10" level="project" />
-    <orderEntry type="library" name="hibernate-3.6.10" level="project" />
+    <orderEntry type="library" name="hibernate-4.1.1" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.22-bin" level="project" />
     <orderEntry type="library" name="org.glassfish.web:javax.servlet.jsp.jstl:1.2.1" level="project" />
     <orderEntry type="library" name="javax.servlet.jsp-api-2.2.1-javadoc" level="project" />
     <orderEntry type="library" name="joda-time-2.1" level="project" />
-    <orderEntry type="library" name="spring-3.1.0" level="project" />
+    <orderEntry type="library" name="spring-framework-3.2.1.RELEASE" level="project" />
   </component>
 </module>
 

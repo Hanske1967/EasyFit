@@ -27,6 +27,12 @@ public class UserServiceImpl implements IUserService {
         this.userDAO = userDAO;
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public User findById (Integer id) {
+        return this.userDAO.findById(id);
+    }
+
     @Transactional(readOnly = true)
     public User findByUsername (String username) {
         return this.userDAO.findByUsername(username);

@@ -15,7 +15,6 @@
 <p>All units defined:</p>
 <table class="table">
     <tr class="th">
-        <th>ID</th>
         <th>Name</th>
         <th>Description</th>
         <th colspan="2">Actions</th>
@@ -23,15 +22,14 @@
 
     <c:forEach items="${units}" var="unit">
         <tr>
-            <td class="td">${unit.id}</td>
             <td class="td">${unit.name}</td>
             <td class="td">${unit.description}</td>
-            <td class="td"><a href="./update?key=${unit.id}">Edit</a></td>
+            <td class="td"><a href="./edit?key=${unit.id}">Edit</a></td>
             <td class="td"><a href="./delete?key=${unit.id}">Delete</a></td>
         </tr>
     </c:forEach>
 
 </table>
-<p><a href="./new">New unit</a></p>
+<p><a href="./edit">New unit</a></p>
 </body>
 </html>

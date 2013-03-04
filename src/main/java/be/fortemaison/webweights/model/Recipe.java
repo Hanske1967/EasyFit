@@ -9,21 +9,15 @@ import java.util.Set;
  * Time: 17:31
  * To change this template use File | Settings | File Templates.
  */
-public class Recipe {
-
-    private Integer id;
-
-    private String name;
-
-    private boolean favorite;
-
-    private Double point;
+public class Recipe extends ProductAncestor {
 
     private Set<RecipeDetail> recipeDetails;
 
-    private String description;
-
+    /**
+     *
+     */
     public Recipe () {
+        //
     }
 
     public Recipe (String name) {
@@ -41,46 +35,6 @@ public class Recipe {
         this.point = point;
         this.favorite = favorite;
         this.description = description;
-    }
-
-    public Double getPoint () {
-        return point;
-    }
-
-    public void setPoint (Double point) {
-        this.point = point;
-    }
-
-    public String getDescription () {
-        return description;
-    }
-
-    public void setDescription (String description) {
-        this.description = description;
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
-    }
-
-    public String getName () {
-        return name;
-    }
-
-    public void setName (String name) {
-        this.name = name;
-    }
-
-    public boolean isFavorite () {
-        return favorite;
-    }
-
-    public void setFavorite (boolean favorite) {
-        this.favorite = favorite;
     }
 
     public Set<RecipeDetail> getRecipeDetails () {

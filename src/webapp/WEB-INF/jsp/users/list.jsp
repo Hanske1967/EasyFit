@@ -23,13 +23,13 @@
     <c:forEach items="${users}" var="user">
         <tr>
             <td class="td">${user.userName}</td>
-            <td class="td">${user.updateDate}</td>
-            <td class="td"><a href="./edit?username=${user.userName}">Edit</a></td>
-            <td class="td"><a href="./delete?username=${user.userName}">Delete</a></td>
+            <td class="td">${user.updateDateLabel}</td>
+            <td class="td"><a href="./edit?key=${user.id}">Edit</a></td>
+            <td class="td"><a href="./delete?key=${user.id}">Delete</a></td>
         </tr>
     </c:forEach>
 
 </table>
-<p><a href="./new">New user</a></p>
+<p><a href="./edit">New user</a></p>
 </body>
 </html>

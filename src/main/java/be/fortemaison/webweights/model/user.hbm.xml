@@ -7,7 +7,11 @@
 
     <class name="User" table="user" batch-size="20">
 
-        <id name="username"/>
+        <id name="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="username"/>
 
         <property name="updateDate" type="date"/>
 

@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created with IntelliJ IDEA.
@@ -41,19 +42,6 @@ public class UnitController {
         return "units/list";
     }
 
-
-    /**
-     * Prepare new form for input
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String prepareNew (Model model) {
-        model.addAttribute(new UnitForm());
-        return "units/edit";
-    }
-
     /**
      * Prepare update form for input
      *
@@ -61,33 +49,20 @@ public class UnitController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/update", method = RequestMethod.GET, params = "key")
-    public String prepareUpdate (Integer key, Model model) {
-        Unit unit = this.unitService.findById(key);
-        if (unit != null) {
-            model.addAttribute(new UnitForm(unit));
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String prepareUpdate (@RequestParam(value = "key", required = false) Integer key, Model model) {
+        if (key == null) {
+            model.addAttribute(new UnitForm());
             return "units/edit";
+        } else {
+            Unit unit = this.unitService.findById(key);
+            if (unit != null) {
+                model.addAttribute(new UnitForm(unit));
+                return "units/edit";
+            }
         }
 
         return "units/list";
-    }
-
-    /**
-     * Process new form inpout, create new units and return to list
-     *
-     * @param unitForm
-     * @param result
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String processNew (@Validated UnitForm unitForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "units/edit";
-        }
-
-        this.unitService.update(unitForm.getUnit());
-        return "redirect:/units/list";
     }
 
     /**
@@ -98,7 +73,7 @@ public class UnitController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String processUpdate (@Validated UnitForm unitForm, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "units/edit";
@@ -108,16 +83,14 @@ public class UnitController {
         return "redirect:/units/list";
     }
 
-
     /**
      * Delete scale and redirect to list
      *
      * @param key
-     * @param model
      * @return
      */
-    @RequestMapping(value = "/delete", method = RequestMethod.GET, params = "key")
-    public String processDelete (Integer key, Model model) {
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String processDelete (@RequestParam(value = "key") Integer key) {
         Unit unit = this.unitService.findById(key);
         if (unit != null) {
             this.unitService.delete(unit);

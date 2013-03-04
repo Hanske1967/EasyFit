@@ -1,11 +1,13 @@
-USE webweight;
+USE webweights;
 
 CREATE TABLE user
 (
-  username   CHAR(20) PRIMARY KEY NOT NULL,
-  updatedate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  id         INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
+  username   CHAR(20)                            NOT NULL,
+  updatedate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
-CREATE UNIQUE INDEX username ON user (username);
+CREATE UNIQUE INDEX UK_user_username ON user (username);
+
 
 CREATE TABLE unit
 (
@@ -16,25 +18,15 @@ CREATE TABLE unit
 
 CREATE TABLE product
 (
-  id          INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name        CHAR(255)       NOT NULL,
-  unitid      INT             NOT NULL,
+  id          INT PRIMARY KEY     NOT NULL AUTO_INCREMENT,
+  name        CHAR(255)           NOT NULL,
+  unitid      INT                 NOT NULL,
   amount      DECIMAL(10, 2),
   point       DECIMAL(10, 2),
   description VARCHAR(255),
-  favorite    BIT DEFAULT 0,
-
+  favorite    BIT DEFAULT b'0',
+  classtype   CHAR(1) DEFAULT 'P' NOT NULL,
   FOREIGN KEY (unitid) REFERENCES unit (id)
-);
-
-
-CREATE TABLE recipe
-(
-  id          INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name        CHAR(255)       NOT NULL,
-  point       DECIMAL(10, 2),
-  favorite    BIT DEFAULT 0   NOT NULL,
-  description VARCHAR(255)
 );
 
 CREATE TABLE recipe_product_link
@@ -43,9 +35,8 @@ CREATE TABLE recipe_product_link
   recipeid  INT             NOT NULL,
   productid INT             NOT NULL,
   amount    DECIMAL(10, 2),
-  PRIMARY KEY (id),
   FOREIGN KEY (productid) REFERENCES product (id),
-  FOREIGN KEY (recipeid) REFERENCES recipe (id)
+  FOREIGN KEY (recipeid) REFERENCES product (id)
 );
 
 CREATE TABLE consumption
@@ -56,6 +47,7 @@ CREATE TABLE consumption
   points DECIMAL(10, 2),
   FOREIGN KEY (user) REFERENCES user (username)
 );
+
 
 CREATE TABLE consumptiondetail
 (

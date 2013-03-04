@@ -39,7 +39,6 @@
         </h3>
         <table>
             <tr>
-                <th>ID</th>
                 <th>Product</th>
                 <th>Points</th>
                 <th colspan="2">Actions</th>
@@ -47,7 +46,6 @@
 
             <c:forEach items="${consumptionForm.consumptionDetailsForIndex}" var="detail">
                 <tr>
-                    <td>${detail.id}</td>
                     <td>${detail.label}</td>
                     <td>${detail.pointsLabel}</td>
                     <td class="td"><a href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Edit</a>

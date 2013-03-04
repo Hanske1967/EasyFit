@@ -13,7 +13,7 @@ public class RecipeDetail {
 
     private Recipe recipe;
 
-    private Product product;
+    private ProductAncestor product;
 
     private Double amount;
 
@@ -52,11 +52,11 @@ public class RecipeDetail {
         this.recipe = recipe;
     }
 
-    public Product getProduct () {
+    public ProductAncestor getProduct () {
         return product;
     }
 
-    public void setProduct (Product product) {
+    public void setProduct (ProductAncestor product) {
         this.product = product;
     }
 
@@ -69,7 +69,6 @@ public class RecipeDetail {
     }
 
     /**
-     *
      * @return
      */
     @SuppressWarnings("JpaAttributeMemberSignatureInspection")

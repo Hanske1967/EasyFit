@@ -10,10 +10,10 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body onload="document.getElementById('amount').focus();">
 <jsp:include page="../navigation.jsp"/>
-<div name="form" class="myform">
-    <form:form id="form" action="./update" method="post" modelAttribute="recipeForm">
+<div name="formdiv" class="myform">
+    <form:form id="form" method="post" modelAttribute="recipeForm">
         <div class="header">
             <c:choose>
                 <c:when test="${empty recipeForm.id}"><h2>New recipe:</h2></c:when>
@@ -24,36 +24,37 @@
         </div>
         <fieldset>
 
-            <form:label path="id">
-                ID: <form:errors path="id" cssClass="error"/>
+            <form:hidden path="id"/>
+
+            <form:label path="amount">
+                Amount <form:errors path="amount" cssClass="error"/>
             </form:label>
-            <form:input readonly="true" path="id"/>
-            <br/>
+            <form:input path="amount"/>
+
+            <form:label path="unit">
+                Unit <form:errors path="unit" cssClass="error"/>
+            </form:label>
+            <form:select path="unit" items="${allUnits}"/>
 
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
             <form:input path="name"/>
-            <br/>
 
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>
             </form:label>
             <form:input path="description"/>
-            <br/>
 
             <form:label path="pointsLabel">
                 Points: <form:errors path="pointsLabel" cssClass="error"/>
             </form:label>
             <form:input readonly="true" path="pointsLabel"/>
-            <br/>
 
             <form:label path="favorite">
                 Favorite <form:errors path="favorite" cssClass="error"/>
             </form:label>
             <form:checkbox path="favorite"/>
-            <br/>
-
 
         </fieldset>
 

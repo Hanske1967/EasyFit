@@ -48,10 +48,10 @@ public class ProductController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (@RequestParam(value = "queryName", required = false) String queryName, Model model) {
         List<Product> products = null;
-        if (queryName == null || queryName.isEmpty()){
+        if (queryName == null || queryName.isEmpty()) {
             products = this.productService.findAll();
         } else {
-            StringBuilder sb = new StringBuilder(queryName.length()+2);
+            StringBuilder sb = new StringBuilder(queryName.length() + 2);
             sb.append(IConstants.PROCENT);
             sb.append(queryName);
             sb.append(IConstants.PROCENT);
@@ -107,7 +107,7 @@ public class ProductController {
 
         //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
         Unit unit = unitService.findById(Integer.decode(formProduct.getUnit()));
-        Product product = formProduct.getProduct();
+        Product product = (Product) formProduct.getProduct();
         product.setUnit(unit);
 
         this.productService.insert(product);
@@ -122,7 +122,7 @@ public class ProductController {
 
         //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
         Unit unit = unitService.findById(Integer.decode(formProduct.getUnit()));
-        Product product = formProduct.getProduct();
+        Product product = (Product) formProduct.getProduct();
         product.setUnit(unit);
 
         this.productService.update(product);

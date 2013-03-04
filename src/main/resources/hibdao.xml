@@ -20,6 +20,10 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="productRecipeDAO" class="be.fortemaison.webweights.dao.hibernate.ProductAndRecipeHibDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
     <bean id="consumptionDAO" class="be.fortemaison.webweights.dao.hibernate.ConsumptionHibDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>

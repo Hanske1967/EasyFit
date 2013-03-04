@@ -25,6 +25,12 @@ public class UserHibDao implements IUserDAO {
         this.sessionFactory = sessionFactory;
     }
 
+    @Override
+    public User findById (Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        return (User) session.get(User.class, id);
+    }
+
     @Transactional(readOnly = true)
     public User findByUsername (String username) {
         Session session = sessionFactory.getCurrentSession();
@@ -54,10 +60,10 @@ public class UserHibDao implements IUserDAO {
 
     @Transactional
     public void update (User user) {
-        Session session = sessionFactory.getCurrentSession();
-        if (findByUsername(user.getUsername()) == null) {
+        if (user.getId() == null) {
             insert(user);
         } else {
+            Session session = sessionFactory.getCurrentSession();
             session.update(user);
         }
     }

@@ -1,6 +1,7 @@
 package be.fortemaison.webweights.form;
 
 import be.fortemaison.webweights.model.Unit;
+import org.springframework.util.StringUtils;
 
 /**
  * Created with IntelliJ IDEA.
@@ -58,6 +59,6 @@ public class UnitForm {
     }
 
     public Unit getUnit () {
-        return new Unit(id == null ? null : Integer.decode(id), name, description);
+        return new Unit(StringUtils.isEmpty(id) ? null : Integer.decode(id), name, description);
     }
 }

@@ -5,14 +5,8 @@ body {
 }
 
 fieldset {
-    float: none;
-    width: auto;
-    padding-left: 12em;
-}
-
-fieldset {
     margin: 20px 20px 20px 20px;
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
     background-color: #F9F9F9;
 }
 
@@ -30,8 +24,13 @@ legend {
 }
 
 fieldset input {
-    margin: 3px 3px 3px 3px;
-    list-style: none;
+    display: block;
+    margin: 4px 4px 4px 4px;
+}
+
+fieldset select {
+    display: block;
+    margin: 4px 4px 4px 4px;
 }
 
 fieldset.submit {
@@ -71,12 +70,22 @@ table td {
     vertical-align: top;
 }
 
+li {
+    display: inline;
+    float: right;
+}
+
 h1 {
     color: #69F;
 }
 
 .header {
     font-family: Verdana, Geneva, sans-serif;
+}
+
+nav {
+    background-color: #69F;
+    height: 36px;
 }
 
 nav ul {
@@ -121,7 +130,7 @@ nav a:hover, nav a:active {
 h3 a {
     display: block;
     float: right;
-    font-size: smaller;
+    font-size: small;
     font-weight: normal;
 }
 

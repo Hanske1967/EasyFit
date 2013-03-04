@@ -16,7 +16,6 @@
 <p>All recipes defined:</p>
 <table>
     <tr>
-        <th>ID</th>
         <th>Favorite</th>
         <th>Name</th>
         <th>Points</th>
@@ -26,7 +25,6 @@
 
     <c:forEach items="${recipes}" var="recipe">
         <tr>
-            <td>${recipe.id}</td>
             <td><c:if test="${recipe.favorite}">*</c:if> &nbsp;</td>
             <td>${recipe.name}</td>
             <td>${recipe.pointsLabel}</td>

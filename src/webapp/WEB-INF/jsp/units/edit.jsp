@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body onload="document.getElementById('name').focus();">
 <jsp:include page="../navigation.jsp"/>
 <div id="stylized" class="myform">
     <form:form id="form" name="form" method="post" modelAttribute="unitForm">
@@ -33,14 +33,12 @@
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
-            <form:input path="name"/>
-            <br/>
+            <form:input path="name" maxlength="5"/>
 
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>
             </form:label>
-            <form:input path="description"/>
-            <br/>
+            <form:input path="description" maxlength="255"/>
 
         </fieldset>
 

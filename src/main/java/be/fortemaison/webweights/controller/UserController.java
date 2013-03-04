@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,50 +52,25 @@ public class UserController {
     }
 
     /**
-     * Prepare new form for input
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String prepareNew (Model model) {
-        model.addAttribute(new UserForm());
-        return "users/edit";
-    }
-
-    /**
      * Prepare update form for input
      *
      * @param model
      * @return
      */
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String prepareUpdate (@RequestParam(value = "username") String username, Model model) {
-        User user = this.userService.findByUsername(username);
-        if (user != null) {
-            model.addAttribute(new UserForm(user));
+    public String prepareUpdate (@RequestParam(value = "key", required = false) Integer key, Model model) {
+        if (key == null) {
+            model.addAttribute(new UserForm());
             return "users/edit";
+        } else {
+            User user = this.userService.findById(key);
+            if (user != null) {
+                model.addAttribute(new UserForm(user));
+                return "users/edit";
+            }
         }
 
         return "users/list";
-    }
-
-    /**
-     * Process new form inpout, create new users and return to list
-     *
-     * @param userForm
-     * @param result
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String processNew (@Validated UserForm userForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "users/edit";
-        }
-
-        this.userService.update(userForm.getUser());
-        return "redirect:/users/list";
     }
 
     /**
@@ -105,25 +81,27 @@ public class UserController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String processUpdate (@Validated UserForm userForm, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "users/edit";
         }
 
-        this.userService.update(userForm.getUser());
+        User user = userForm.getUser();
+        user.setUpdateDate(new Date());
+        this.userService.update(user);
         return "redirect:/users/list";
     }
 
     /**
-     * Delete scale and redirect to list
+     * Delete and redirect to list
      *
      * @param model
      * @return
      */
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String processDelete (@RequestParam(value = "username") String username, Model model) {
-        User user = this.userService.findByUsername(username);
+    public String processDelete (@RequestParam(value = "key") Integer key, Model model) {
+        User user = this.userService.findById(key);
         if (user != null) {
             this.userService.delete(user);
             return "redirect:/users/list";

@@ -1,8 +1,6 @@
 package be.fortemaison.webweights.form;
 
 import be.fortemaison.webweights.model.Recipe;
-import be.fortemaison.webweights.util.Utils;
-import org.springframework.format.annotation.NumberFormat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +12,10 @@ import java.util.List;
  * Time: 23:01
  * To change this template use File | Settings | File Templates.
  */
-public class RecipeForm {
-
-    private Integer id;
-
-    private String name;
-
-    private boolean favorite;
-
-    @NumberFormat(pattern = "###.#")
-    private Double points;
+public class RecipeForm extends ProductForm {
 
     private List<RecipeDetailForm> recipeDetailForms = new ArrayList<RecipeDetailForm>();
 
-    private String description;
 
     /**
      *
@@ -45,53 +33,20 @@ public class RecipeForm {
         this.favorite = recipe.isFavorite();
         this.points = recipe.getPoint();
         this.description = recipe.getDescription();
+        this.unit = recipe.getUnit().getName();
+        this.amount = recipe.getAmount();
     }
 
-    /**
-     * @param id
-     * @param name
-     * @param favorite
-     * @param description
-     */
-    public RecipeForm (Integer id, String name, boolean favorite, Double point, String description) {
-        this.id = id;
-        this.name = name;
-        this.favorite = favorite;
-        this.points = point;
-        this.description = description;
-    }
-
+    @Override
     public Double getPoints () {
         updatePoints();
         return points;
     }
 
-    public void setPoints (Double points) {
-        this.points = points;
-    }
-
-    public String getPointsLabel () {
-        return Utils.NUMBER_FORMATTER.format(getPoints());
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
-    }
-
-    public String getName () {
-        return name;
-    }
-
-    public void setName (String name) {
-        this.name = name;
-    }
-
-    public boolean isFavorite () {
-        return favorite;
+    @Override
+    public String getAmountLabel () {
+        updatePoints();
+        return super.getAmountLabel();
     }
 
     public void setFavorite (boolean favorite) {
@@ -123,21 +78,13 @@ public class RecipeForm {
     }
 
     private void updatePoints () {
+        this.points = 0.0;
         if (!this.recipeDetailForms.isEmpty()) {
-            this.points = 0.0;
             for (RecipeDetailForm detail : this.recipeDetailForms) {
                 Double morePoints = detail.getPoints();
                 this.points += morePoints == null ? 0.0 : morePoints;
             }
         }
-    }
-
-    public String getDescription () {
-        return description;
-    }
-
-    public void setDescription (String description) {
-        this.description = description;
     }
 
     /**

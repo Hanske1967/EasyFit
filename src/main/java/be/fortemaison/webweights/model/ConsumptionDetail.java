@@ -17,7 +17,7 @@ public class ConsumptionDetail {
 
     private Consumption consumption;
 
-    private Product product;
+    private ProductAncestor product;
 
     /**
      *
@@ -65,11 +65,11 @@ public class ConsumptionDetail {
         this.consumption = consumption;
     }
 
-    public Product getProduct () {
+    public ProductAncestor getProduct () {
         return product;
     }
 
-    public void setProduct (Product product) {
+    public void setProduct (ProductAncestor product) {
         this.product = product;
     }
 

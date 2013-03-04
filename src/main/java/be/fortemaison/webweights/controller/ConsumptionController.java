@@ -1,14 +1,14 @@
 package be.fortemaison.webweights.controller;
 
+import be.fortemaison.webweights.dao.IProductAndRecipeDAO;
 import be.fortemaison.webweights.form.ConsumptionDetailForm;
 import be.fortemaison.webweights.form.ConsumptionForm;
 import be.fortemaison.webweights.form.ProductForm;
 import be.fortemaison.webweights.model.Consumption;
 import be.fortemaison.webweights.model.ConsumptionDetail;
 import be.fortemaison.webweights.model.ConsumptionDetailType;
-import be.fortemaison.webweights.model.Product;
+import be.fortemaison.webweights.model.ProductAncestor;
 import be.fortemaison.webweights.service.IConsumptionService;
-import be.fortemaison.webweights.service.IProductService;
 import be.fortemaison.webweights.util.IConstants;
 import be.fortemaison.webweights.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +45,7 @@ public class ConsumptionController {
 
     private IConsumptionService consumptionService;
 
-    private IProductService productService;
+    private IProductAndRecipeDAO productAndRecipeDAO;
 
     private MessageSource messageSource;
 
@@ -55,8 +55,8 @@ public class ConsumptionController {
     }
 
     @Autowired
-    public void setProductService (IProductService productService) {
-        this.productService = productService;
+    public void setProductAndRecipeDAO (IProductAndRecipeDAO productService) {
+        this.productAndRecipeDAO = productService;
     }
 
     @Autowired
@@ -96,41 +96,6 @@ public class ConsumptionController {
             sectionTitles[i] = this.messageSource.getMessage(prefix + (i + 1), null, new RequestContext(request).getLocale());
         }
         consumptionForm.setConsumptionDetailHeaders(sectionTitles);
-
-        return "consumptions/list";
-    }
-
-    /**
-     * Update the consumption signaletic without updating product links
-     *
-     * @param consumptionForm
-     * @param result
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String processUpdate (@Validated ConsumptionForm consumptionForm, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "consumptions/edit";
-        }
-//  TODO complete here
-        return "redirect:/consumptions/list";
-    }
-
-    /**
-     * Delete product and all its product links, and redirect to list
-     *
-     * @param key
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/delete", method = RequestMethod.GET, params = "key")
-    public String processDelete (Integer key, Model model) {
-        Consumption consumption = this.consumptionService.findById(key);
-        if (consumption != null) {
-            this.consumptionService.delete(consumption);
-            return "redirect:/consumptions/list";
-        }
 
         return "consumptions/list";
     }
@@ -192,18 +157,18 @@ public class ConsumptionController {
         }
 
         //  Find product
-        List<Product> products = null;
+        List<ProductAncestor> products = null;
         if (queryName == null || queryName.isEmpty()) {
-            products = this.productService.findAll();
+            products = this.productAndRecipeDAO.findAll();
         } else {
             StringBuilder sb = new StringBuilder(queryName.length() + 2);
             sb.append(IConstants.PROCENT);
             sb.append(queryName);
             sb.append(IConstants.PROCENT);
-            products = this.productService.findByName(sb.toString());
+            products = this.productAndRecipeDAO.findByName(sb.toString());
         }
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
-        for (Product product : products) {
+        for (ProductAncestor product : products) {
             forms.add(new ProductForm(product));
         }
         modelMap.addAttribute("products", forms);
@@ -219,7 +184,7 @@ public class ConsumptionController {
      */
     @RequestMapping(value = "/adddetail2", method = RequestMethod.POST)
     public String processAddDetail2 (@RequestParam("productKey") Integer productKey, @ModelAttribute("consumptionDetailForm") ConsumptionDetailForm consumptionDetailForm, final Errors errors, final HttpServletResponse response) {
-        Product product = this.productService.findById(productKey);
+        ProductAncestor product = this.productAndRecipeDAO.findById(productKey);
         assert (product != null);
         consumptionDetailForm.setProduct(new ProductForm(product));
 
@@ -241,7 +206,7 @@ public class ConsumptionController {
         } else {
             consumption = this.consumptionService.findByIdWithDetails(conumptionId);
         }
-        Product product = this.productService.findById(consumptionDetailForm.getProduct().getId());
+        ProductAncestor product = this.productAndRecipeDAO.findById(consumptionDetailForm.getProduct().getId());
         assert (product != null);
 
         ConsumptionDetail consumptionDetail = new ConsumptionDetail(consumptionDetailForm.getType().getType());

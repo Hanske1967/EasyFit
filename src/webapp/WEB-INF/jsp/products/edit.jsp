@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body onload="document.getElementById('name').focus();">
 <jsp:include page="../navigation.jsp"/>
 <div id="stylized" class="myform">
     <form:form id="form" method="post" modelAttribute="productForm">
@@ -34,39 +34,32 @@
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
-            <form:input path="name"/>
-            <br/>
+            <form:input path="name" maxlength="255"/>
 
             <form:label path="amount">
                 Amount <form:errors path="amount" cssClass="error"/>
             </form:label>
             <form:input path="amount"/>
-            <br/>
 
             <form:label path="unit">
                 Unit <form:errors path="unit" cssClass="error"/>
             </form:label>
             <form:select path="unit" items="${allUnits}"/>
-            <br/>
 
             <form:label path="points">
                 Points <form:errors path="points" cssClass="error"/>
             </form:label>
             <form:input path="points"/>
-            <br/>
 
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>
             </form:label>
-            <form:input path="description"/>
-            <br/>
+            <form:input path="description" maxlength="255"/>
 
             <form:label path="favorite">
                 Favorite <form:errors path="favorite" cssClass="error"/>
             </form:label>
             <form:checkbox path="favorite"/>
-            <br/>
-
 
         </fieldset>
 

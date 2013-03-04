@@ -11,6 +11,8 @@ import java.util.Date;
  */
 public class User {
 
+    private Integer id;
+
     private String username;
 
     private Date updateDate;
@@ -27,6 +29,14 @@ public class User {
      */
     public User (String username) {
         this.username = username;
+    }
+
+    public Integer getId () {
+        return id;
+    }
+
+    public void setId (Integer id) {
+        this.id = id;
     }
 
     public String getUsername () {

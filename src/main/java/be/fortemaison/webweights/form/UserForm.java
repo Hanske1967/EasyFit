@@ -1,6 +1,7 @@
 package be.fortemaison.webweights.form;
 
 import be.fortemaison.webweights.model.User;
+import be.fortemaison.webweights.util.Utils;
 
 import java.util.Date;
 
@@ -12,6 +13,8 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 public class UserForm {
+
+    private Integer id;
 
     private String userName;
 
@@ -28,7 +31,17 @@ public class UserForm {
      *
      */
     public UserForm (final User user) {
+        this.id = user.getId();
         this.userName = user.getUsername();
+        this.updateDate = user.getUpdateDate();
+    }
+
+    public Integer getId () {
+        return id;
+    }
+
+    public void setId (Integer id) {
+        this.id = id;
     }
 
     public Date getUpdateDate () {
@@ -37,6 +50,10 @@ public class UserForm {
 
     public void setUpdateDate (Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public String getUpdateDateLabel () {
+        return Utils.DATE_FORMATTER.format(this.updateDate);
     }
 
     public String getUserName () {
@@ -48,6 +65,9 @@ public class UserForm {
     }
 
     public User getUser () {
-        return new User(userName);
+        User user = new User(userName);
+        user.setId(id);
+        user.setUpdateDate(updateDate);
+        return user;
     }
 }

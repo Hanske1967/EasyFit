@@ -5,11 +5,13 @@
 
 <hibernate-mapping package="be.fortemaison.webweights.model">
 
-    <class name="Product" table="product" batch-size="20">
+    <class name="ProductAncestor" table="product" batch-size="20">
 
         <id name="id">
             <generator class="native"/>
         </id>
+
+        <discriminator column="classtype" type="string"/>
 
         <property name="name"/>
 
@@ -22,6 +24,15 @@
         <property name="favorite" type="boolean"/>
 
         <many-to-one name="unit" column="unitid" class="Unit" lazy="false" not-null="true" cascade="none"/>
+
+        <subclass name="Product" discriminator-value="P"/>
+
+        <subclass name="Recipe" discriminator-value="R">
+            <set name="recipeDetails" inverse="true" cascade="all-delete-orphan">
+                <key column="recipeid"/>
+                <one-to-many class="RecipeDetail"/>
+            </set>
+        </subclass>
 
     </class>
 </hibernate-mapping>

@@ -14,14 +14,13 @@
 <h2>Products</h2>
 
 <div>
-    <form action="/products/list" method="get">
+    <form action="./list" method="get">
         <p>Name: <input type="text" name="queryName" value="${queryName}"/><input type="submit" value="Search"/></p>
     </form>
 </div>
-<p>All recipeDetails defined:</p>
+<p>All products defined:</p>
 <table>
     <tr>
-        <th>ID</th>
         <th>Favorite</th>
         <th>Name</th>
         <th>Amount</th>
@@ -33,7 +32,6 @@
 
     <c:forEach items="${products}" var="product">
         <tr>
-            <td>${product.id}</td>
             <td><c:if test="${product.favorite}">*</c:if> &nbsp;</td>
             <td>${product.name}</td>
             <td>${product.amountLabel}</td>

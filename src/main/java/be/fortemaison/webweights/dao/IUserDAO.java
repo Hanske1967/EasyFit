@@ -13,6 +13,8 @@ import java.util.List;
  */
 public interface IUserDAO {
 
+    public User findById (Integer id);
+
     public User findByUsername (String username);
 
     public List<User> findByName (String name);

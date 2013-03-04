@@ -1,6 +1,7 @@
 package be.fortemaison.webweights.form;
 
 import be.fortemaison.webweights.model.Product;
+import be.fortemaison.webweights.model.ProductAncestor;
 import be.fortemaison.webweights.model.Unit;
 import be.fortemaison.webweights.util.Utils;
 import org.springframework.format.annotation.NumberFormat;
@@ -14,21 +15,21 @@ import org.springframework.format.annotation.NumberFormat;
  */
 public class ProductForm {
 
-    private Integer id;
+    protected Integer id;
 
-    private String name;
+    protected String name;
 
-    private String unit;
-
-    @NumberFormat(pattern = "###.#")
-    private Double amount;
+    protected String unit;
 
     @NumberFormat(pattern = "###.#")
-    private Double points;
+    protected Double amount;
 
-    private String description;
+    @NumberFormat(pattern = "###.#")
+    protected Double points;
 
-    private Boolean favorite = Boolean.FALSE;
+    protected String description;
+
+    protected Boolean favorite = Boolean.FALSE;
 
     /**
      *
@@ -55,7 +56,7 @@ public class ProductForm {
         this.favorite = favorite;
     }
 
-    public ProductForm (final Product product) {
+    public ProductForm (final ProductAncestor product) {
         this.id = product.getId();
         this.name = product.getName();
         this.unit = product.getUnit().getName();
@@ -97,8 +98,8 @@ public class ProductForm {
         this.amount = amount;
     }
 
-    public String getAmountLabel(){
-        return Utils.NUMBER_FORMATTER.format(this.amount);
+    public String getAmountLabel () {
+        return this.amount == null ? "" : Utils.NUMBER_FORMATTER.format(this.amount);
     }
 
     public Double getPoints () {
@@ -109,8 +110,8 @@ public class ProductForm {
         this.points = point;
     }
 
-    public String getPointsLabel(){
-        return Utils.NUMBER_FORMATTER.format(this.points);
+    public String getPointsLabel () {
+        return this.points == null ? "" : Utils.NUMBER_FORMATTER.format(this.points);
     }
 
     public String getDescription () {
@@ -121,6 +122,10 @@ public class ProductForm {
         this.description = description;
     }
 
+    public boolean isFavorite () {
+        return favorite;
+    }
+
     public Boolean getFavorite () {
         return favorite;
     }
@@ -129,7 +134,7 @@ public class ProductForm {
         this.favorite = favorite;
     }
 
-    public Product getProduct() {
+    public ProductAncestor getProduct () {
         return new Product(id, name, new Unit(unit), amount, points, favorite, description);
     }
 

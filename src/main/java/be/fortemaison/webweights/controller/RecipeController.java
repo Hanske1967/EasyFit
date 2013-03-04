@@ -6,8 +6,10 @@ import be.fortemaison.webweights.form.RecipeForm;
 import be.fortemaison.webweights.model.Product;
 import be.fortemaison.webweights.model.Recipe;
 import be.fortemaison.webweights.model.RecipeDetail;
+import be.fortemaison.webweights.model.Unit;
 import be.fortemaison.webweights.service.IProductService;
 import be.fortemaison.webweights.service.IRecipeService;
+import be.fortemaison.webweights.service.IUnitService;
 import be.fortemaison.webweights.util.IConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,9 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -33,12 +33,19 @@ import java.util.Set;
  */
 @Controller
 @RequestMapping("/recipes")
-@SessionAttributes("recipeDetailForm")
+@SessionAttributes({"recipeForm", "recipeDetailForm"})
 public class RecipeController {
 
     private IRecipeService recipeService;
 
     private IProductService productService;
+
+    private IUnitService unitService;
+
+    @Autowired
+    public void setUnitService (IUnitService unitService) {
+        this.unitService = unitService;
+    }
 
     @Autowired
     public void setProductService (IProductService productService) {
@@ -62,7 +69,7 @@ public class RecipeController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String prepareEdit (@RequestParam(value = "key", required = false) Integer key, Model model) {
+    public String prepareEdit (@RequestParam(value = "key", required = false) Integer key, ModelMap modelMap) {
         RecipeForm recipeForm = new RecipeForm();
         if (key != null) {
             // update
@@ -74,7 +81,16 @@ public class RecipeController {
                 recipeForm.addProduct(linkForm);
             }
         }
-        model.addAttribute("recipeForm", recipeForm);
+        modelMap.addAttribute("recipeForm", recipeForm);
+
+        //  store all units for combo
+        List<Unit> units = unitService.findAll();
+        Map<String, String> allUnits = new LinkedHashMap<String, String>();
+        for (Unit unit : units) {
+            allUnits.put("" + unit.getId(), unit.getName());
+        }
+        modelMap.addAttribute("allUnits", allUnits);
+
         return "recipes/edit";
     }
 
@@ -98,7 +114,7 @@ public class RecipeController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String processUpdate (@Validated RecipeForm recipeForm, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "recipes/edit";
@@ -167,7 +183,16 @@ public class RecipeController {
      */
 
     @RequestMapping(value = "/adddetail1", method = RequestMethod.POST)
-    public String processAddDetail1 (@RequestParam(value = "key", required = true) Integer key, @RequestParam(value = "queryName", required = false) String queryName, ModelMap modelMap) {
+    public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "queryName", required = false) String queryName, @Validated RecipeForm recipeForm, BindingResult result, ModelMap modelMap) {
+
+        if (key == null) {
+            //  recipe yet to be inserted
+            if (recipeForm != null) {
+                Recipe recipe = insertRecipe(recipeForm);
+                key = recipe.getId();
+            }
+        }
+
         RecipeDetailForm recipeDetailForm = (RecipeDetailForm) modelMap.get("recipeDetailForm");
         if (recipeDetailForm == null) {
             recipeDetailForm = new RecipeDetailForm();
@@ -297,6 +322,9 @@ public class RecipeController {
         recipe.setName(recipeForm.getName());
         recipe.setDescription(recipeForm.getDescription());
         recipe.setFavorite(recipeForm.isFavorite());
+        Unit unit = unitService.findById(Integer.decode(recipeForm.getUnit()));
+        recipe.setUnit(unit);
+        recipe.setAmount(recipeForm.getAmount());
         recipe.updatePoints();
 
         this.recipeService.update(recipe);
@@ -310,6 +338,9 @@ public class RecipeController {
     private Recipe insertRecipe (RecipeForm recipeForm) {
         Recipe recipe = new Recipe(recipeForm.getName(), recipeForm.isFavorite());
         recipe.setDescription(recipeForm.getDescription());
+        Unit unit = unitService.findById(Integer.decode(recipeForm.getUnit()));
+        recipe.setUnit(unit);
+        recipe.setAmount(recipeForm.getAmount());
 
         for (RecipeDetailForm linkForm : recipeForm.getRecipeDetailForms()) {
             Product product = this.productService.findById(linkForm.getProduct().getId());
@@ -321,4 +352,5 @@ public class RecipeController {
         this.recipeService.insert(recipe);
         return recipe;
     }
+
 }

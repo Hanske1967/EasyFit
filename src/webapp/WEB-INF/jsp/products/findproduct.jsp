@@ -22,7 +22,6 @@
     <p>All recipeDetails defined:</p>
     <table>
         <tr>
-            <th>ID</th>
             <th>Favorite</th>
             <th>Name</th>
             <th>Amount</th>
@@ -34,7 +33,6 @@
 
         <c:forEach items="${products}" var="product">
             <tr>
-                <td>${product.id}</td>
                 <td><c:if test="${product.favorite}">*</c:if> &nbsp;</td>
                 <td>
                     <a href="javascript:;"

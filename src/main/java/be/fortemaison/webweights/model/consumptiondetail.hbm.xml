@@ -17,7 +17,7 @@
 
         <many-to-one name="consumption" class="Consumption" column="consumptionid"/>
 
-        <many-to-one name="product" class="Product" column="productid" cascade="none"/>
+        <many-to-one name="product" class="ProductAncestor" column="productid" cascade="none"/>
 
     </class>
 </hibernate-mapping>

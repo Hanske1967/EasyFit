@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
-<body>
+<body onload="document.getElementById('name').focus();">
 <jsp:include page="../navigation.jsp"/>
 <div name="form" class="myform">
     <form:form id="form" action="./update" method="post" modelAttribute="recipeForm">
@@ -23,37 +23,27 @@
             <form:errors path="*" cssClass="errorBox"/>
         </div>
         <fieldset>
-
-            <form:label path="id">
-                ID: <form:errors path="id" cssClass="error"/>
-            </form:label>
-            <form:input readonly="true" path="id"/>
-            <br/>
+            <form:hidden path="id"/>
 
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
             <form:input path="name"/>
-            <br/>
 
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>
             </form:label>
             <form:input path="description"/>
-            <br/>
 
             <form:label path="point">
                 Points: <form:errors path="point" cssClass="error"/>
             </form:label>
             <form:input readonly="true" path="point"/>
-            <br/>
 
             <form:label path="favorite">
                 Favorite <form:errors path="favorite" cssClass="error"/>
             </form:label>
             <form:checkbox path="favorite"/>
-            <br/>
-
 
         </fieldset>
 
