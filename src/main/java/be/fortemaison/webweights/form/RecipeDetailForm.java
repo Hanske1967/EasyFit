@@ -82,7 +82,7 @@ public class RecipeDetailForm {
         this.amount = amount;
     }
 
-    public String getAmountLabel(){
+    public String getAmountLabel () {
         return Utils.NUMBER_FORMATTER.format(this.amount);
     }
 
@@ -92,15 +92,16 @@ public class RecipeDetailForm {
                 || this.getProduct().getPoints() == null ? null : this.amount * this.product.getPoints() / this.product.getAmount();
     }
 
-    public String getPointsLabel(){
-        return Utils.NUMBER_FORMATTER.format(getPoints());
+    public String getPointsLabel () {
+        Double points = getPoints();
+        return points == null ? "" : Utils.NUMBER_FORMATTER.format(getPoints());
     }
 
     public String getProductName () {
         return this.product == null ? "" : this.product.getName();
     }
 
-    public String getProductUnit (){
+    public String getProductUnit () {
         return this.product == null ? "" : this.product.getUnit();
     }
 

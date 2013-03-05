@@ -8,7 +8,7 @@ DELETE FROM unit;
 DELETE FROM user;
 
 
-INSERT INTO user (username, updatedate) VALUES ('INGE', CURRENT_TIMESTAMP);
+INSERT INTO user (username, updatedate) VALUES (1, CURRENT_TIMESTAMP);
 INSERT INTO user (username, updatedate) VALUES ('HANS', CURRENT_TIMESTAMP);
 
 # SCALE
@@ -126,7 +126,7 @@ INSERT INTO consumptiondetail (type, amount, productid, consumptionid) VALUES
   (SELECT
      id
    FROM consumption
-   WHERE user = 'INGE' AND date = CURRENT_DATE)
+   WHERE user = 1 AND date = CURRENT_DATE)
 );
 
 INSERT INTO consumptiondetail (type, amount, productid, consumptionid) VALUES
@@ -140,7 +140,7 @@ INSERT INTO consumptiondetail (type, amount, productid, consumptionid) VALUES
   (SELECT
      id
    FROM consumption
-   WHERE user = 'INGE' AND date = CURRENT_DATE)
+   WHERE user = 1 AND date = CURRENT_DATE)
 );
 
 INSERT INTO consumptiondetail (type, amount, productid, consumptionid) VALUES
@@ -154,5 +154,5 @@ INSERT INTO consumptiondetail (type, amount, productid, consumptionid) VALUES
   (SELECT
      id
    FROM consumption
-   WHERE user = 'INGE' AND date = CURRENT_DATE)
+   WHERE user = 1 AND date = CURRENT_DATE)
 );

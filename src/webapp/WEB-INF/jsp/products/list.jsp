@@ -33,7 +33,7 @@
     <c:forEach items="${products}" var="product">
         <tr>
             <td><c:if test="${product.favorite}">*</c:if> &nbsp;</td>
-            <td>${product.name}</td>
+            <td><a href="./update?key=${product.id}">${product.name}</a></td>
             <td>${product.amountLabel}</td>
             <td>${product.unit}</td>
             <td>${product.pointsLabel}</td>

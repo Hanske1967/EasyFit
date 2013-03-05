@@ -40,7 +40,7 @@ import java.util.Set;
  */
 @Controller
 @RequestMapping("/consumptions")
-@SessionAttributes(value = "consumptionDetailForm")
+@SessionAttributes("consumptionDetailForm")
 public class ConsumptionController {
 
     private IConsumptionService consumptionService;

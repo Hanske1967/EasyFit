@@ -185,16 +185,16 @@ public class RecipeController {
     @RequestMapping(value = "/adddetail1", method = RequestMethod.POST)
     public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "queryName", required = false) String queryName, @Validated RecipeForm recipeForm, BindingResult result, ModelMap modelMap) {
 
-        if (key == null) {
-            //  recipe yet to be inserted
-            if (recipeForm != null) {
-                Recipe recipe = insertRecipe(recipeForm);
-                key = recipe.getId();
-            }
-        }
-
         RecipeDetailForm recipeDetailForm = (RecipeDetailForm) modelMap.get("recipeDetailForm");
         if (recipeDetailForm == null) {
+            if (key == null) {
+                //  recipe yet to be inserted
+                if (recipeForm != null) {
+                    Recipe recipe = insertRecipe(recipeForm);
+                    key = recipe.getId();
+                }
+            }
+
             recipeDetailForm = new RecipeDetailForm();
             recipeDetailForm.setRecipeId(key);
             modelMap.addAttribute("recipeDetailForm", recipeDetailForm);
@@ -215,6 +215,7 @@ public class RecipeController {
         for (Product product : products) {
             forms.add(new ProductForm(product));
         }
+
         modelMap.addAttribute("products", forms);
         modelMap.addAttribute("queryName", queryName);
 
@@ -227,7 +228,9 @@ public class RecipeController {
      * @return
      */
     @RequestMapping(value = "/adddetail2", method = RequestMethod.POST)
-    public String processAddDetail2 (@RequestParam("productKey") Integer productKey, @ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm, final Errors errors, final HttpServletResponse response) {
+    public String processAddDetail2 (@RequestParam("productKey") Integer
+                                             productKey, @ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm, final Errors errors,
+                                     final HttpServletResponse response) {
         Product product = this.productService.findById(productKey);
         assert (product != null);
         recipeDetailForm.setProduct(new ProductForm(product));
@@ -241,15 +244,28 @@ public class RecipeController {
      * @return
      */
     @RequestMapping(value = "/adddetail3", method = RequestMethod.POST)
-    public String processAddDetail3 (@ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm, final Errors errors, final SessionStatus status) {
+    public String processAddDetail3 (@ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm,
+                                     final Errors errors, final SessionStatus status) {
+
         Recipe recipe = this.recipeService.findByIdWithDetails(recipeDetailForm.getRecipeId());
         Product product = this.productService.findById(recipeDetailForm.getProduct().getId());
         assert (recipe != null);
         assert (product != null);
 
-        recipe.addRecipeDetail(new RecipeDetail(null, recipe, product, recipeDetailForm.getAmount()));
-
+        if (recipeDetailForm.getId() == null) {
+            //  new product added
+            recipe.addRecipeDetail(new RecipeDetail(null, recipe, product, recipeDetailForm.getAmount()));
+        } else {
+            //  amount updated
+            for (RecipeDetail detail : recipe.getRecipeDetails()) {
+                if (detail.getId() == recipeDetailForm.getId()) {
+                    detail.setAmount(recipeDetailForm.getAmount());
+                }
+            }
+        }
         this.recipeService.update(recipe);
+
+
         status.setComplete();
 
         return "redirect:/recipes/edit?key=" + recipe.getId();
@@ -264,7 +280,8 @@ public class RecipeController {
      * @return
      */
     @RequestMapping(value = "/removedetail", method = RequestMethod.GET)
-    public String processRemoveDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, Model model) {
+    public String processRemoveDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer
+            detailKey, Model model) {
         Recipe recipe = this.recipeService.findByIdWithDetails(key);
         Set<RecipeDetail> details = recipe.getRecipeDetails();
         RecipeDetail removedDetail = null;
@@ -292,7 +309,8 @@ public class RecipeController {
      * @return
      */
     @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
-    public String processEditProduct (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, @Validated RecipeDetailForm detailForm, BindingResult result, Model model) {
+    public String processEditProduct (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer
+            detailKey, @Validated RecipeDetailForm detailForm, BindingResult result, Model model) {
         Recipe recipe = this.recipeService.findByIdWithDetails(key);
         Set<RecipeDetail> details = recipe.getRecipeDetails();
         RecipeDetail editedDetail = null;
@@ -315,6 +333,7 @@ public class RecipeController {
      * @param recipeForm
      * @return
      */
+
     private Recipe updateRecipe (RecipeForm recipeForm) {
         Recipe recipe = this.recipeService.findByIdWithDetails(recipeForm.getId());
         assert (recipe != null);
