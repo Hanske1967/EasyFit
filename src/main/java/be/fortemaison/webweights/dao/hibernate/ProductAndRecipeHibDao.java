@@ -23,7 +23,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     @Transactional(readOnly = true)
     public List<ProductAncestor> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor r where r.name like ?").setString(0, name).list();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor r where r.name like ? order by r.name").setString(0, name).list();
         return result;
     }
 
@@ -31,7 +31,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     @Transactional(readOnly = true)
     public List<ProductAncestor> findAll () {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor").list();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p order by p.name").list();
         return result;
     }
 
@@ -39,7 +39,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     @Transactional(readOnly = true)
     public List<ProductAncestor> findFavorites () {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.favorite = ?").setBoolean(0, Boolean.TRUE).list();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.favorite = ? order by p.name").setBoolean(0, Boolean.TRUE).list();
         return result;
     }
 

@@ -29,25 +29,21 @@
                 Amount: <form:errors path="amount" cssClass="error"/>
             </form:label>
             <form:input path="amount"/>
-            <br/>
 
             <form:label path="productUnit">
                 Unit: <form:errors path="productUnit" cssClass="error"/>
             </form:label>
             <form:input readonly="true" path="productUnit"/>
-            <br/>
 
             <form:label path="productName">
                 Product: <form:errors path="productName" cssClass="error"/>
             </form:label>
             <form:input readonly="true" path="productName"/>
-            <br/>
 
             <form:label path="points">
                 Points: <form:errors path="points" cssClass="error"/>
             </form:label>
             <form:input readonly="true" path="points"/>
-            <br/>
         </fieldset>
 
         <p>

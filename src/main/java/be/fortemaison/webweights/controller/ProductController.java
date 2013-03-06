@@ -106,7 +106,7 @@ public class ProductController {
         }
 
         //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
-        Unit unit = unitService.findById(Integer.decode(formProduct.getUnit()));
+        Unit unit = unitService.findById(formProduct.getUnitId());
         Product product = (Product) formProduct.getProduct();
         product.setUnit(unit);
 
@@ -121,7 +121,7 @@ public class ProductController {
         }
 
         //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
-        Unit unit = unitService.findById(Integer.decode(formProduct.getUnit()));
+        Unit unit = unitService.findById(formProduct.getUnitId());
         Product product = (Product) formProduct.getProduct();
         product.setUnit(unit);
 

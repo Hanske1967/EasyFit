@@ -109,7 +109,7 @@ public class ConsumptionDetailForm {
     }
 
     public String getProductUnit () {
-        return this.product == null ? "" : this.product.getUnit();
+        return this.product == null ? "" : this.product.getUnitLabel();
     }
 
     public String getLabel () {

@@ -4,11 +4,9 @@ import be.fortemaison.webweights.dao.IProductAndRecipeDAO;
 import be.fortemaison.webweights.form.ConsumptionDetailForm;
 import be.fortemaison.webweights.form.ConsumptionForm;
 import be.fortemaison.webweights.form.ProductForm;
-import be.fortemaison.webweights.model.Consumption;
-import be.fortemaison.webweights.model.ConsumptionDetail;
-import be.fortemaison.webweights.model.ConsumptionDetailType;
-import be.fortemaison.webweights.model.ProductAncestor;
+import be.fortemaison.webweights.model.*;
 import be.fortemaison.webweights.service.IConsumptionService;
+import be.fortemaison.webweights.service.IUnitService;
 import be.fortemaison.webweights.util.IConstants;
 import be.fortemaison.webweights.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +24,7 @@ import org.springframework.web.servlet.support.RequestContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,11 +38,16 @@ import java.util.Set;
 @SessionAttributes("consumptionDetailForm")
 public class ConsumptionController {
 
+    public static final String CONSUMPTION_DETAIL_FORM = "consumptionDetailForm";
+
     private IConsumptionService consumptionService;
 
     private IProductAndRecipeDAO productAndRecipeDAO;
 
     private MessageSource messageSource;
+
+    @Autowired
+    private IUnitService unitService;
 
     @Autowired
     public void setMessageSource (MessageSource messageSource) {
@@ -116,13 +116,22 @@ public class ConsumptionController {
                 }
             }
 
-            ConsumptionDetailForm consumptionDetailForm = (ConsumptionDetailForm) modelMap.get("consumptionDetailForm");
+            ConsumptionDetailForm consumptionDetailForm = (ConsumptionDetailForm) modelMap.get(CONSUMPTION_DETAIL_FORM);
             if (consumptionDetailForm == null) {
                 consumptionDetailForm = new ConsumptionDetailForm(editedDetail);
             }
 
             consumptionDetailForm.setConsumptionId(key);
-            modelMap.addAttribute("consumptionDetailForm", consumptionDetailForm);
+            modelMap.addAttribute(CONSUMPTION_DETAIL_FORM, consumptionDetailForm);
+
+
+            //  store all units for combo
+            List<Unit> units = unitService.findAll();
+            Map<String, String> allUnits = new LinkedHashMap<String, String>();
+            for (Unit unit : units) {
+                allUnits.put("" + unit.getId(), unit.getName());
+            }
+            modelMap.addAttribute("allUnits", allUnits);
             return "/consumptions/editdetail";
         }
 
@@ -137,8 +146,9 @@ public class ConsumptionController {
      */
 
     @RequestMapping(value = "/adddetail1", method = RequestMethod.POST)
-    public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "date", required = false) String date, @RequestParam(value = "consumptionDetailType", required = true) int consumptionDetailType, @RequestParam(value = "queryName", required = false) String queryName, ModelMap modelMap) {
-        ConsumptionDetailForm consumptionDetailForm = (ConsumptionDetailForm) modelMap.get("consumptionDetailForm");
+    public String processAddDetail1 (@RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "date", required = false) String date, @RequestParam(value = "consumptionDetailType", required = false) Integer consumptionDetailType, ModelMap modelMap) {
+
+        ConsumptionDetailForm consumptionDetailForm = (ConsumptionDetailForm) modelMap.get(CONSUMPTION_DETAIL_FORM);
         if (consumptionDetailForm == null) {
             consumptionDetailForm = new ConsumptionDetailForm();
             consumptionDetailForm.setConsumptionId(key);
@@ -153,7 +163,7 @@ public class ConsumptionController {
 
             consumptionDetailForm.setDate(aDate);
             consumptionDetailForm.setType(ConsumptionDetailType.get(consumptionDetailType));
-            modelMap.addAttribute("consumptionDetailForm", consumptionDetailForm);
+            modelMap.addAttribute(CONSUMPTION_DETAIL_FORM, consumptionDetailForm);
         }
 
         //  Find product
@@ -183,7 +193,7 @@ public class ConsumptionController {
      * @return
      */
     @RequestMapping(value = "/adddetail2", method = RequestMethod.POST)
-    public String processAddDetail2 (@RequestParam("productKey") Integer productKey, @ModelAttribute("consumptionDetailForm") ConsumptionDetailForm consumptionDetailForm, final Errors errors, final HttpServletResponse response) {
+    public String processAddDetail2 (@RequestParam("productKey") Integer productKey, @ModelAttribute(CONSUMPTION_DETAIL_FORM) ConsumptionDetailForm consumptionDetailForm, final Errors errors, final HttpServletResponse response) {
         ProductAncestor product = this.productAndRecipeDAO.findById(productKey);
         assert (product != null);
         consumptionDetailForm.setProduct(new ProductForm(product));
@@ -197,22 +207,29 @@ public class ConsumptionController {
      * @return
      */
     @RequestMapping(value = "/adddetail3", method = RequestMethod.POST)
-    public String processAddDetail3 (@ModelAttribute("consumptionDetailForm") ConsumptionDetailForm consumptionDetailForm, final Errors errors, final SessionStatus status) {
-        Integer conumptionId = consumptionDetailForm.getConsumptionId();
-        Consumption consumption = null;
-        if (conumptionId == null) {
-            consumption = new Consumption(consumptionDetailForm.getDate());
-            this.consumptionService.update(consumption);
-        } else {
-            consumption = this.consumptionService.findByIdWithDetails(conumptionId);
-        }
-        ProductAncestor product = this.productAndRecipeDAO.findById(consumptionDetailForm.getProduct().getId());
-        assert (product != null);
+    public String processAddDetail3 (@ModelAttribute(CONSUMPTION_DETAIL_FORM) ConsumptionDetailForm consumptionDetailForm, final Errors errors, final SessionStatus status) {
 
-        ConsumptionDetail consumptionDetail = new ConsumptionDetail(consumptionDetailForm.getType().getType());
-        consumptionDetail.setProduct(product);
-        consumptionDetail.setAmount(consumptionDetailForm.getAmount());
-        consumption.addConsumptionDetail(consumptionDetail);
+        Integer consumptionId = consumptionDetailForm.getConsumptionId();
+        Consumption consumption = this.consumptionService.findByIdWithDetails(consumptionId);
+        if (consumptionDetailForm.getId() != null) {
+            for (ConsumptionDetail detail : consumption.getConsumptionDetails()) {
+                if (detail.getId().equals(consumptionDetailForm.getId())) {
+                    detail.setAmount(consumptionDetailForm.getAmount());
+                }
+            }
+        } else {
+            if (consumptionId == null) {
+                consumption = new Consumption(consumptionDetailForm.getDate());
+                this.consumptionService.update(consumption);
+            }
+            ProductAncestor product = this.productAndRecipeDAO.findById(consumptionDetailForm.getProduct().getId());
+            assert (product != null);
+
+            ConsumptionDetail consumptionDetail = new ConsumptionDetail(consumptionDetailForm.getType().getType());
+            consumptionDetail.setProduct(product);
+            consumptionDetail.setAmount(consumptionDetailForm.getAmount());
+            consumption.addConsumptionDetail(consumptionDetail);
+        }
 
         this.consumptionService.update(consumption);
         status.setComplete();

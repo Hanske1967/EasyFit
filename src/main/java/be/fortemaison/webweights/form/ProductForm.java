@@ -19,7 +19,9 @@ public class ProductForm {
 
     protected String name;
 
-    protected String unit;
+    protected Integer unitId;
+
+    protected String unitLabel;
 
     @NumberFormat(pattern = "###.#")
     protected Double amount;
@@ -46,10 +48,11 @@ public class ProductForm {
      * @param description
      * @param favorite
      */
-    public ProductForm (Integer id, String name, String unit, Double amount, Double point, String description, Boolean favorite) {
+    public ProductForm (Integer id, String name, Unit unit, Double amount, Double point, String description, Boolean favorite) {
         this.id = id;
         this.name = name;
-        this.unit = unit;
+        this.unitId = unit.getId();
+        this.unitLabel = unit.getName();
         this.amount = amount;
         this.points = point;
         this.description = description;
@@ -59,11 +62,28 @@ public class ProductForm {
     public ProductForm (final ProductAncestor product) {
         this.id = product.getId();
         this.name = product.getName();
-        this.unit = product.getUnit().getName();
+        this.unitId = product.getUnit().getId();
+        this.unitLabel = product.getUnit().getName();
         this.amount = product.getAmount();
         this.points = product.getPoint();
         this.description = product.getDescription();
         this.favorite = product.isFavorite();
+    }
+
+    public String getUnitLabel () {
+        return unitLabel;
+    }
+
+    public void setUnitLabel (String unitLabel) {
+        this.unitLabel = unitLabel;
+    }
+
+    public Integer getUnitId () {
+        return unitId;
+    }
+
+    public void setUnitId (Integer unitId) {
+        this.unitId = unitId;
     }
 
     public Integer getId () {
@@ -80,14 +100,6 @@ public class ProductForm {
 
     public void setName (String name) {
         this.name = name;
-    }
-
-    public String getUnit () {
-        return unit;
-    }
-
-    public void setUnit (String unit) {
-        this.unit = unit;
     }
 
     public Double getAmount () {
@@ -135,7 +147,7 @@ public class ProductForm {
     }
 
     public ProductAncestor getProduct () {
-        return new Product(id, name, new Unit(unit), amount, points, favorite, description);
+        return new Product(id, name, new Unit(unitId, unitLabel, null), amount, points, favorite, description);
     }
 
 }

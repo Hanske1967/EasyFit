@@ -60,7 +60,7 @@
             <c:forEach items="${recipeForm.recipeDetailForms}" var="detail">
                 <tr>
                     <td>${detail.amountLabel}</td>
-                    <td>${detail.product.unit}</td>
+                    <td>${detail.product.unitLabel}</td>
                     <td>${detail.product.name}</td>
                     <td>${detail.points}</td>
                     <td class="td"><a href="editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Edit</a></td>

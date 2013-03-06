@@ -33,7 +33,8 @@ public class RecipeForm extends ProductForm {
         this.favorite = recipe.isFavorite();
         this.points = recipe.getPoint();
         this.description = recipe.getDescription();
-        this.unit = recipe.getUnit().getName();
+        this.unitId = recipe.getUnit().getId();
+        this.unitLabel = recipe.getUnit().getName();
         this.amount = recipe.getAmount();
     }
 

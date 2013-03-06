@@ -13,9 +13,10 @@
 <jsp:include page="../navigation.jsp"/>
 
 <h2 class="date_header">
-    <a href="./list?date=${consumptionForm.previousDate}"><<</a>
+    <a href="./list?date=${consumptionForm.previousDate}"><img src="../images/Actions-go-previous-view-icon.png"
+                                                               alt="<<"></a>
     ${consumptionForm.title} - ${consumptionForm.pointsLabel} points
-    <a href="./list?date=${consumptionForm.nextDate}">>></a>
+    <a href="./list?date=${consumptionForm.nextDate}"><img src="../images/Actions-go-next-view-icon.png" alt=">>"></a>
 </h2>
 
 <c:forEach var="type" begin="1" end="6">
@@ -39,14 +40,16 @@
         </h3>
         <table>
             <tr>
-                <th>Product</th>
+                <th style="width: 400px">Product</th>
                 <th>Points</th>
                 <th colspan="2">Actions</th>
             </tr>
 
             <c:forEach items="${consumptionForm.consumptionDetailsForIndex}" var="detail">
                 <tr>
-                    <td>${detail.label}</td>
+                    <td style="width: 400px"><a
+                            href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">${detail.label}</a>
+                    </td>
                     <td>${detail.pointsLabel}</td>
                     <td class="td"><a href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Edit</a>
                     </td>

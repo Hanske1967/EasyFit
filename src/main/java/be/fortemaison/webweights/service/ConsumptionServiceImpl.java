@@ -2,7 +2,9 @@ package be.fortemaison.webweights.service;
 
 import be.fortemaison.webweights.dao.IConsumptionDAO;
 import be.fortemaison.webweights.dao.IProductDAO;
+import be.fortemaison.webweights.dao.IUserDAO;
 import be.fortemaison.webweights.model.Consumption;
+import be.fortemaison.webweights.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,16 +25,14 @@ public class ConsumptionServiceImpl implements IConsumptionService {
 
     private IProductDAO productDAO;
 
-    public IProductDAO getProductDAO () {
-        return productDAO;
+    private IUserDAO userDAO;
+
+    public void setUserDAO (IUserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 
     public void setProductDAO (IProductDAO productDAO) {
         this.productDAO = productDAO;
-    }
-
-    public IConsumptionDAO getConsumptionDAO () {
-        return consumptionDAO;
     }
 
     public void setConsumptionDAO (IConsumptionDAO consumptionDAO) {
@@ -76,6 +76,11 @@ public class ConsumptionServiceImpl implements IConsumptionService {
 
     @Transactional
     public void update (Consumption consumption) {
+        List<User> users = this.userDAO.findByName("INGE");
+        if (!users.isEmpty()) {
+            User inge = users.get(0);
+            consumption.setUser(inge);
+        }
         if (consumption.getId() == null) {
             this.consumptionDAO.insert(consumption);
         } else {

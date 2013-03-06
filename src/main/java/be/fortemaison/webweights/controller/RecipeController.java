@@ -85,9 +85,9 @@ public class RecipeController {
 
         //  store all units for combo
         List<Unit> units = unitService.findAll();
-        Map<String, String> allUnits = new LinkedHashMap<String, String>();
+        Map<Integer, String> allUnits = new LinkedHashMap<Integer, String>();
         for (Unit unit : units) {
-            allUnits.put("" + unit.getId(), unit.getName());
+            allUnits.put(unit.getId(), unit.getName());
         }
         modelMap.addAttribute("allUnits", allUnits);
 
@@ -341,7 +341,7 @@ public class RecipeController {
         recipe.setName(recipeForm.getName());
         recipe.setDescription(recipeForm.getDescription());
         recipe.setFavorite(recipeForm.isFavorite());
-        Unit unit = unitService.findById(Integer.decode(recipeForm.getUnit()));
+        Unit unit = unitService.findById(recipeForm.getUnitId());
         recipe.setUnit(unit);
         recipe.setAmount(recipeForm.getAmount());
         recipe.updatePoints();
@@ -357,7 +357,7 @@ public class RecipeController {
     private Recipe insertRecipe (RecipeForm recipeForm) {
         Recipe recipe = new Recipe(recipeForm.getName(), recipeForm.isFavorite());
         recipe.setDescription(recipeForm.getDescription());
-        Unit unit = unitService.findById(Integer.decode(recipeForm.getUnit()));
+        Unit unit = unitService.findById(recipeForm.getUnitId());
         recipe.setUnit(unit);
         recipe.setAmount(recipeForm.getAmount());
 

@@ -31,10 +31,10 @@
             </form:label>
             <form:input path="amount"/>
 
-            <form:label path="unit">
+            <form:label path="unitId">
                 Unit <form:errors path="unit" cssClass="error"/>
             </form:label>
-            <form:select path="unit" items="${allUnits}"/>
+            <form:select path="unitId" items="${allUnits}"/>
 
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>

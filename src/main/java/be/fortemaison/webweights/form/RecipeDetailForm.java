@@ -101,8 +101,4 @@ public class RecipeDetailForm {
         return this.product == null ? "" : this.product.getName();
     }
 
-    public String getProductUnit () {
-        return this.product == null ? "" : this.product.getUnit();
-    }
-
 }

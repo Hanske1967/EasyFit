@@ -120,6 +120,7 @@ nav a:hover, nav a:active {
     display: block;
     padding: 6px 3px 0 3px;
     clear: left;
+    vertical-align: middle;
 }
 
 .date_header a {
@@ -134,3 +135,10 @@ h3 a {
     font-weight: normal;
 }
 
+h2 {
+    font-size: large;
+}
+
+h3 {
+    font-size: medium;
+}

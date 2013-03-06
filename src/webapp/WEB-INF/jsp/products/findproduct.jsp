@@ -9,17 +9,16 @@
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
 </head>
-<body>
+<body onload="document.getElementById('queryName').focus()">
 <jsp:include page="../navigation.jsp"/>
 <h2>Products</h2>
 
-<form id="form" method="post">
+<form id="form" method="post" action="./adddetail1?">
     <div name="search">
-        <p>Name: <input type="text" name="queryName" value="${queryName}"/><input
-                onclick="document.getElementById('form').setAttribute('action', './adddetail1?')"
-                type="submit" value="Search"/></p>
+        <p>Name: <input type="text" id="queryName" name="queryName" value="${queryName}"/><input type="submit"
+                                                                                                 value="Search"/></p>
     </div>
-    <p>All recipeDetails defined:</p>
+    <p>All products & recipes defined:</p>
     <table>
         <tr>
             <th>Favorite</th>
@@ -39,7 +38,7 @@
                        onclick="document.getElementById('form').setAttribute('action', './adddetail2?productKey=${product.id}') ;document.getElementById('form').submit();">${product.name}</a>
                 </td>
                 <td>${product.amount}</td>
-                <td>${product.unit}</td>
+                <td>${product.unitLabel}</td>
                 <td>${product.pointsLabel}</td>
                 <td>${product.description}</td>
             </tr>
