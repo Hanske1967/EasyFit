@@ -11,26 +11,7 @@
     </list>
     <list id="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" name="Create first CSS" comment="Create first CSS" />
     <list id="7f667ef2-cacd-4603-a11f-d81071d0155a" name="EasyFit-7 Add week total points" comment="" />
-    <list default="true" id="d990a54b-f8eb-40fe-a52a-117eb855f1c7" name="EasyFit-12 Search product to add to consumption does not work" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionDetailForm.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionDetailForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ProductForm.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ProductForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/RecipeController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/RecipeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/RecipeDetailForm.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/RecipeDetailForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/RecipeForm.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/RecipeForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/services.xml" afterPath="$PROJECT_DIR$/src/main/resources/services.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/theme.css" afterPath="$PROJECT_DIR$/src/webapp/theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/validation.xml" afterPath="$PROJECT_DIR$/.idea/validation.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" />
+    <list default="true" id="d990a54b-f8eb-40fe-a52a-117eb855f1c7" name="EasyFit-12 Search product to add to consumption does not work" comment="EasyFit-12 Search product to add to consumption does not work">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebWeights.iws" />
@@ -49,7 +30,7 @@
     <file path="/clear.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880207193" ignored="false" />
     <file path="/Data Source" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360881591647" ignored="false" />
     <file path="/a.regexp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359410205111" ignored="false" />
-    <file path="/Dummy.txt" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362586588943" ignored="false" />
+    <file path="/Dummy.txt" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362603385541" ignored="false" />
     <file path="/product.hbm.xml" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362343643691" ignored="false" />
     <file path="/example.hql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359912598562" ignored="false" />
     <file path="/product_all.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359456053944" ignored="false" />
@@ -256,7 +237,7 @@
       <file leaf-file-name="list.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="123" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.26442307">
+            <state line="37" column="30" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.26442307">
               <folding />
             </state>
           </provider>
@@ -1718,7 +1699,11 @@
       <option name="type" value="BUG" />
       <updated>1362517755287</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="EasyFit-12 Search product to add to consumption does not work">
+      <created>1362603398999</created>
+      <updated>1362603398999</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers>
       <GitHub shared="false">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -1829,7 +1814,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-9 Search product to add to recipe does not work" />
+    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-12 Search product to add to consumption does not work" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1857,6 +1842,7 @@
     <MESSAGE value="First CSS" />
     <MESSAGE value="EasyFit-8 Merge Product with Recipe.&#10;CSS updated (small bug for edit form with select).&#10;ID added to users.&#10;" />
     <MESSAGE value="EasyFit-9 Search product to add to recipe does not work" />
+    <MESSAGE value="EasyFit-12 Search product to add to consumption does not work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1985,7 +1971,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="123" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.26442307">
+        <state line="37" column="30" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.26442307">
           <folding />
         </state>
       </provider>
