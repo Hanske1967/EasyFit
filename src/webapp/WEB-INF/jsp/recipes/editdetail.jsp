@@ -23,22 +23,22 @@
             <form:errors path="*" cssClass="errorBox"/>
         </div>
         <fieldset>
-            <form:hidden path="id"/>
+            <form:input readonly="true" path="id"/>
 
             <form:label path="amount">
                 Amount: <form:errors path="amount" cssClass="error"/>
             </form:label>
             <form:input path="amount"/>
 
-            <form:label path="productUnit">
-                Unit: <form:errors path="productUnit" cssClass="error"/>
+            <form:label path="product.unitLabel">
+                Unit:
             </form:label>
-            <form:input readonly="true" path="productUnit"/>
+            <form:input readonly="true" path="product.unitLabel"/>
 
-            <form:label path="productName">
-                Product: <form:errors path="productName" cssClass="error"/>
+            <form:label path="product.name">
+                Product:
             </form:label>
-            <form:input readonly="true" path="productName"/>
+            <form:input readonly="true" path="product.name"/>
 
             <form:label path="points">
                 Points: <form:errors path="points" cssClass="error"/>

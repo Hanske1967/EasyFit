@@ -97,8 +97,5 @@ public class RecipeDetailForm {
         return points == null ? "" : Utils.NUMBER_FORMATTER.format(getPoints());
     }
 
-    public String getProductName () {
-        return this.product == null ? "" : this.product.getName();
-    }
 
 }

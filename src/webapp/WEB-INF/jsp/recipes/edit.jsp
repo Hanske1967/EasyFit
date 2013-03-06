@@ -32,7 +32,7 @@
             <form:input path="amount"/>
 
             <form:label path="unitId">
-                Unit <form:errors path="unit" cssClass="error"/>
+                Unit <form:errors path="unitId" cssClass="error"/>
             </form:label>
             <form:select path="unitId" items="${allUnits}"/>
 
@@ -59,23 +59,25 @@
         </fieldset>
 
         <p>Products:</p>
-        <table>
+        <table id="product_table">
             <tr>
-                <th>Amount</th>
-                <th>Unit</th>
-                <th>Name</th>
-                <th>Points</th>
-                <th colspan="2">Actions</th>
+                <th id="th_amount">Amount</th>
+                <th id="th_unit">Unit</th>
+                <th id="th_name">Name</th>
+                <th id="th_points">Points</th>
+                <th id="th_actions" colspan="2">Actions</th>
             </tr>
 
             <c:forEach items="${recipeForm.recipeDetailForms}" var="detail">
                 <tr>
-                    <td>${detail.amount}</td>
-                    <td>${detail.product.unit}</td>
-                    <td>${detail.product.name}</td>
-                    <td>${detail.pointsLabel}</td>
-                    <td class="td"><a href="editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Edit</a></td>
-                    <td class="td"><a href="removedetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Delete</a>
+                    <td id="td_amount">${detail.amount}</td>
+                    <td id="td_unit">${detail.product.unitLabel}</td>
+                    <td id="td_name">${detail.product.name}</td>
+                    <td id="td_points">${detail.pointsLabel}</td>
+                    <td id="td_edit" class="td"><a href="editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Edit</a>
+                    </td>
+                    <td id="td_remove" class="td"><a
+                            href="removedetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

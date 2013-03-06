@@ -120,7 +120,6 @@ nav a:hover, nav a:active {
     display: block;
     padding: 6px 3px 0 3px;
     clear: left;
-    vertical-align: middle;
 }
 
 .date_header a {
@@ -141,4 +140,30 @@ h2 {
 
 h3 {
     font-size: medium;
+}
+
+#th_amount, #td_amount {
+    width: 60px;
+}
+
+#th_unit, #td_unit {
+    width: 60px;
+}
+
+#th_name, #td_name {
+    width: 400px;
+}
+
+#th_points, #td_points {
+    width: 60px;
+}
+
+#th_actions {
+    width: 60px;
+}
+
+#td_action {
+    width: 30px;
+    display: block;
+    float: left;
 }

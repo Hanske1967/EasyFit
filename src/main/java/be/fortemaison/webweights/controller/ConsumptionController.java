@@ -106,7 +106,9 @@ public class ConsumptionController {
      * @return
      */
     @RequestMapping(value = "/editdetail", method = RequestMethod.GET)
-    public String prepareEditDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, ModelMap modelMap, final HttpServletResponse response) {
+    public String prepareEditDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, ModelMap modelMap, final SessionStatus status) {
+
+        status.setComplete();
         Consumption consumption = this.consumptionService.findByIdWithDetails(key);
         if (consumption != null) {
             ConsumptionDetail editedDetail = null;
@@ -273,7 +275,7 @@ public class ConsumptionController {
      * @return
      */
     @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
-    public String processEditProduct (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, @Validated ConsumptionDetailForm detailForm, BindingResult result, Model model) {
+    public String processEditProduct (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, @Validated ConsumptionDetailForm detailForm, BindingResult result, Model model, final SessionStatus status) {
         Consumption consumption = this.consumptionService.findByIdWithDetails(key);
         Set<ConsumptionDetail> details = consumption.getConsumptionDetails();
         ConsumptionDetail editedDetail = null;
@@ -288,6 +290,7 @@ public class ConsumptionController {
             this.consumptionService.update(consumption);
         }
 
+        status.setComplete();
         return "redirect:/consumptions/list?date=" + Utils.DATE_FORMATTER.format(consumption.getDate());
     }
 

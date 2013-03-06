@@ -40,20 +40,21 @@
         </h3>
         <table>
             <tr>
-                <th style="width: 400px">Product</th>
-                <th>Points</th>
-                <th colspan="2">Actions</th>
+                <th id="th_name">Product</th>
+                <th id="th_points">Points</th>
+                <th id="th_actions" colspan="2">Actions</th>
             </tr>
 
             <c:forEach items="${consumptionForm.consumptionDetailsForIndex}" var="detail">
                 <tr>
-                    <td style="width: 400px"><a
+                    <td id="td_name"><a
                             href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">${detail.label}</a>
                     </td>
-                    <td>${detail.pointsLabel}</td>
-                    <td class="td"><a href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Edit</a>
+                    <td id="td_points">${detail.pointsLabel}</td>
+                    <td id="td_edit" class="td"><a
+                            href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Edit</a>
                     </td>
-                    <td class="td"><a
+                    <td id="td_remove" class="td"><a
                             href="./removedetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Delete</a></td>
                 </tr>
             </c:forEach>

@@ -35,7 +35,7 @@
             <td><c:if test="${product.favorite}">*</c:if> &nbsp;</td>
             <td><a href="./update?key=${product.id}">${product.name}</a></td>
             <td>${product.amountLabel}</td>
-            <td>${product.unit}</td>
+            <td>${product.unitLabel}</td>
             <td>${product.pointsLabel}</td>
             <td>${product.description}</td>
             <td class="td"><a href="./favorite?key=${product.id}">Favorite</a></td>

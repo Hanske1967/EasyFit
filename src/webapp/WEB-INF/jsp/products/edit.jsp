@@ -42,7 +42,7 @@
             <form:input path="amount"/>
 
             <form:label path="unitId">
-                Unit <form:errors path="unit" cssClass="error"/>
+                Unit <form:errors path="unitId" cssClass="error"/>
             </form:label>
             <form:select path="unitId" items="${allUnits}"/>
 

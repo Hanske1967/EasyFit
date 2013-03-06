@@ -73,9 +73,9 @@ public class ProductController {
 
         //  store all units for combo
         List<Unit> units = unitService.findAll();
-        Map<String, String> allUnits = new LinkedHashMap<String, String>();
+        Map<Integer, String> allUnits = new LinkedHashMap<Integer, String>();
         for (Unit unit : units) {
-            allUnits.put("" + unit.getId(), unit.getName());
+            allUnits.put(unit.getId(), unit.getName());
         }
         model.addAttribute("allUnits", allUnits);
 

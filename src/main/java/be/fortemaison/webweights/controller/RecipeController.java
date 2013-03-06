@@ -152,7 +152,10 @@ public class RecipeController {
      * @return
      */
     @RequestMapping(value = "/editdetail", method = RequestMethod.GET)
-    public String prepareEditDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, ModelMap modelMap, final HttpServletResponse response) {
+    public String prepareEditDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, ModelMap modelMap, final SessionStatus status) {
+
+        status.setComplete();
+
         Recipe recipe = this.recipeService.findByIdWithDetails(key);
         if (recipe != null) {
             RecipeDetail editedDetail = null;
@@ -310,7 +313,7 @@ public class RecipeController {
      */
     @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
     public String processEditProduct (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer
-            detailKey, @Validated RecipeDetailForm detailForm, BindingResult result, Model model) {
+            detailKey, @Validated RecipeDetailForm detailForm, BindingResult result, Model model, final SessionStatus status) {
         Recipe recipe = this.recipeService.findByIdWithDetails(key);
         Set<RecipeDetail> details = recipe.getRecipeDetails();
         RecipeDetail editedDetail = null;
@@ -325,6 +328,8 @@ public class RecipeController {
             this.recipeService.update(recipe);
             return "redirect:/recipes/update?key=" + key;
         }
+
+        status.setComplete();
 
         return "recipes/list";
     }
