@@ -6,91 +6,43 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list id="32bad4ac-c0c5-4a96-806a-3355ab51012c" name="Default" comment="Web context path bug fixed.">
+    <list default="true" id="7b83c180-948f-4319-bf07-705760435627" name="EasyFit-4 Datasource management via JNDI" comment="EasyFit-4 Datasource management via JNDI">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/images/Actions-go-next-view-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/images/Actions-go-previous-view-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/ProductCategory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/productcategory.hbm.xml" />
+      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\.idea\artifacts\EasyFits_war_Archive.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\html\Test.html" afterPath="" />
       <change type="MOVED" beforePath="C:\Devs\Workspace\EasyFit\.idea\libraries\spring_3_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/spring_framework_3_2_1_RELEASE.xml" />
-    </list>
-    <list id="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" name="Create first CSS" comment="Create first CSS" />
-    <list id="7f667ef2-cacd-4603-a11f-d81071d0155a" name="EasyFit-7 Add week total points" comment="" />
-    <list default="true" id="890c82e9-4dd8-408a-9b54-2d54c9f9f311" name="EasyFit-11 add category to product" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductCategoryDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductCategoryController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ProductCategoryForm.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductCategoryHibDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_collections_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_lang_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/list.jsp" />
-      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\src\main\resources\hibernate.cfg.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\src\main\resources\hibernate.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EasyFit.iml" afterPath="$PROJECT_DIR$/EasyFit.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/EasyFit_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/EasyFit_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/EasyFits_war_Archive.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/EasyFits_war_Archive.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductAndRecipeDAO.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductAndRecipeDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductDAO.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IProductService.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IProductService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Product.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/ProductAncestor.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/ProductAncestor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ProductForm.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ProductForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/RecipeController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/RecipeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/UserForm.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/UserForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/clear.sql" afterPath="$PROJECT_DIR$/install/sql/clear.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/create.sql" afterPath="$PROJECT_DIR$/install/sql/create.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/datasources.xml" afterPath="$PROJECT_DIR$/src/main/resources/datasources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/drop.sql" afterPath="$PROJECT_DIR$/install/sql/drop.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibdao.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibdao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/navigation.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/navigation.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/populate.sql" afterPath="$PROJECT_DIR$/install/sql/populate.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/product.hbm.xml" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/product.hbm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/theme.css" afterPath="$PROJECT_DIR$/src/webapp/theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/user.hbm.xml" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/user.hbm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/validation.xml" afterPath="$PROJECT_DIR$/.idea/validation.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/ProductHibDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/ProductHibDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/RecipeHibDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/RecipeHibDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/ScaleHibDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/ScaleHibDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebWeights.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/sessionFactory" changelist="7f667ef2-cacd-4603-a11f-d81071d0155a" time="1362517255880" ignored="false" />
     <file path="/web.xml" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362519422207" ignored="false" />
-    <file path="/applicationContext.xml" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362341350020" ignored="false" />
+    <file path="/applicationContext.xml" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755459816" ignored="false" />
     <file path="/DummyFile.xpath" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359364957280" ignored="false" />
     <file path="/dispatcher-servlet.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361137948025" ignored="false" />
     <file path="/ScaleController.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359747605591" ignored="false" />
     <file path="/Receipt.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359390722335" ignored="false" />
     <file path="/recipe.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360192395189" ignored="false" />
-    <file path="/Recipe.java" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362302529064" ignored="false" />
+    <file path="/Recipe.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739201128" ignored="false" />
     <file path="/hibernate.xml" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362342798496" ignored="false" />
-    <file path="/populate.sql" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362303922623" ignored="false" />
+    <file path="/populate.sql" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738530491" ignored="false" />
     <file path="/clear.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880207193" ignored="false" />
     <file path="/Data Source" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360881591647" ignored="false" />
     <file path="/a.regexp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359410205111" ignored="false" />
-    <file path="/Dummy.txt" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362729222935" ignored="false" />
-    <file path="/product.hbm.xml" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362691243026" ignored="false" />
+    <file path="/Dummy.txt" changelist="7b83c180-948f-4319-bf07-705760435627" time="1362771327660" ignored="false" />
+    <file path="/product.hbm.xml" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362736831850" ignored="false" />
     <file path="/example.hql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359912598562" ignored="false" />
     <file path="/product_all.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359456053944" ignored="false" />
-    <file path="/fragment.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362687938868" ignored="false" />
+    <file path="/fragment.java" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755068287" ignored="false" />
     <file path="/a.dummy" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362689230113" ignored="false" />
     <file path="/ProductController.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362695012537" ignored="false" />
     <file path="/Product.java" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362302437731" ignored="false" />
@@ -98,9 +50,9 @@
     <file path="/ScaleFormController.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359475405101" ignored="false" />
     <file path="/ScaleForm.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359752932138" ignored="false" />
     <file path="/scales.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359475058629" ignored="false" />
-    <file path="/list.jsp" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362694129867" ignored="false" />
-    <file path="/ProductForm.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362692981338" ignored="false" />
-    <file path="/edit.jsp" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362692178555" ignored="false" />
+    <file path="/list.jsp" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739517486" ignored="false" />
+    <file path="/ProductForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362736951335" ignored="false" />
+    <file path="/edit.jsp" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737417212" ignored="false" />
     <file path="/style.css" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359586295356" ignored="false" />
     <file path="/Scale.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359586810778" ignored="false" />
     <file path="/IProductDAO.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362694417613" ignored="false" />
@@ -119,7 +71,7 @@
     <file path="/theme.css" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362735811930" ignored="false" />
     <file path="/index.html" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359910688670" ignored="false" />
     <file path="/unit.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359922562336" ignored="false" />
-    <file path="/create.sql" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362304759539" ignored="false" />
+    <file path="/create.sql" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738494294" ignored="false" />
     <file path="/drop.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880262620" ignored="false" />
     <file path="/hibdao.xml" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362692244809" ignored="false" />
     <file path="/views.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359920770666" ignored="false" />
@@ -131,15 +83,15 @@
     <file path="/IRecipeService.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360360630029" ignored="false" />
     <file path="/IRecipeDAO.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360360704655" ignored="false" />
     <file path="/RecipeServiceImpl.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359928442944" ignored="false" />
-    <file path="/RecipeForm.java" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362522586059" ignored="false" />
-    <file path="/RecipeController.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362696229382" ignored="false" />
-    <file path="/RecipeHibDao.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360184660741" ignored="false" />
+    <file path="/RecipeForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739648395" ignored="false" />
+    <file path="/RecipeController.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739091801" ignored="false" />
+    <file path="/RecipeHibDao.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739350717" ignored="false" />
     <file path="/RecipeHibDaoTest.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360006376056" ignored="false" />
     <file path="/form.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360010725840" ignored="false" />
     <file path="/form.css" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360013671826" ignored="false" />
     <file path="/RecipeProductLink.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360254736729" ignored="false" />
     <file path="/recipeproductlink.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360272527121" ignored="false" />
-    <file path="/RecipeDetailForm.java" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362522308265" ignored="false" />
+    <file path="/RecipeDetailForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737778662" ignored="false" />
     <file path="/editdetail.jsp" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362696298305" ignored="false" />
     <file path="/search.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360613589270" ignored="false" />
     <file path="/find.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360615408734" ignored="false" />
@@ -150,15 +102,15 @@
     <file path="/UserForm.java" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362434112664" ignored="false" />
     <file path="/Comsumption.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360789079793" ignored="false" />
     <file path="/consumption.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360916024615" ignored="false" />
-    <file path="/ConsumptionDetail.java" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362303174986" ignored="false" />
+    <file path="/ConsumptionDetail.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738037636" ignored="false" />
     <file path="/ConsumptionDetailType.java" changelist="16df255c-5ea9-464c-95ee-0172529a2626" time="1362084819378" ignored="false" />
     <file path="/consumptiondetail.hbm.xml" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362303164153" ignored="false" />
-    <file path="/Consumption.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360943252543" ignored="false" />
+    <file path="/Consumption.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738264653" ignored="false" />
     <file path="/IConsumptionDAO.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360867286747" ignored="false" />
     <file path="/ConsumptionHibDao.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362734668234" ignored="false" />
     <file path="/IConsumptionService.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360916726228" ignored="false" />
-    <file path="/ConsumptionServiceImpl.java" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362586935007" ignored="false" />
-    <file path="/ConsumptionDetailForm.java" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362522547843" ignored="false" />
+    <file path="/ConsumptionServiceImpl.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737752524" ignored="false" />
+    <file path="/ConsumptionDetailForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739774505" ignored="false" />
     <file path="/ConsumptionForm.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360960761397" ignored="false" />
     <file path="/ConsumptionController.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362735305276" ignored="false" />
     <file path="/PersistentDateMidnight.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360913364899" ignored="false" />
@@ -187,9 +139,9 @@
     <file path="/pom.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361828561563" ignored="false" />
     <file path="/Groovy Console" changelist="16df255c-5ea9-464c-95ee-0172529a2626" time="1362082720470" ignored="false" />
     <file path="/dummy.sql" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362689951955" ignored="false" />
-    <file path="/a.sql" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362689951954" ignored="false" />
-    <file path="/ProductAncestor.java" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362302497907" ignored="false" />
-    <file path="/RecipeDetail.java" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362302594542" ignored="false" />
+    <file path="/a.sql" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738561057" ignored="false" />
+    <file path="/ProductAncestor.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737864106" ignored="false" />
+    <file path="/RecipeDetail.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737836114" ignored="false" />
     <file path="/hibernate.cfg.xml" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362344963650" ignored="false" />
     <file path="/IProductAndRecipeService.java" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362347132587" ignored="false" />
     <file path="/ProductAndRecipeServiceHibDao.java" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362346978772" ignored="false" />
@@ -210,6 +162,9 @@
     <file path="/IProductService.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362694258914" ignored="false" />
     <file path="/ControllerHelper.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362732169014" ignored="false" />
     <file path="/ProductCategory.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362732475603" ignored="false" />
+    <file path="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739867066" ignored="false" />
+    <file path="/a.txt" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755094144" ignored="false" />
+    <file path="/jndi-datasources.xml" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755672035" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,23 +190,6 @@
   </component>
   <component name="DebuggerManager">
     <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" line="285" class="be.fortemaison.webweights.controller.ConsumptionController" package="be.fortemaison.webweights.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -294,6 +232,8 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -337,22 +277,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IProductService.java" />
-        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductController.java" />
+        <option value="$PROJECT_DIR$/install/sql/populate.sql" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/RecipeController.java" />
-        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ControllerHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/ProductCategory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductAndRecipeDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java" />
-        <option value="$PROJECT_DIR$/src/webapp/theme.css" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Recipe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/RecipeHibDao.java" />
+        <option value="dbtable:/a6519c0f/7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd/webweights..product" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/RecipeForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionDetailForm.java" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/ProductHibDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/datasources.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/jdbc-datasources.xml" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/jndi-datasources.xml" />
+        <option value="$PROJECT_DIR$/out/artifacts/EasyFit/WEB-INF/classes/log4j.properties" />
       </list>
     </option>
   </component>
@@ -560,27 +500,15 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
+            <PATH_ELEMENT USER_OBJECT="WebWeights">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT=".idea/libraries">
+            <PATH_ELEMENT USER_OBJECT="src">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="EasyFit-7 Add week total points">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/webapp">
+            <PATH_ELEMENT USER_OBJECT="webapp/WEB-INF/jsp">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -590,20 +518,39 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
+            <PATH_ELEMENT USER_OBJECT="WebWeights">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/webapp">
+            <PATH_ELEMENT USER_OBJECT="src">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="WEB-INF/jsp/consumptions">
+            <PATH_ELEMENT USER_OBJECT="webapp/WEB-INF/jsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="users">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="WebWeights">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+        <subPane subId="EasyFit-7 Add week total points" />
         <subPane subId="Problems" />
         <subPane subId="Production">
           <PATH>
@@ -986,60 +933,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -1057,31 +950,34 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="409" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="404" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="104" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="103" />
     <property name="Database.TableEditor.Splitter" value="0.8999999" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="Downloaded.Files.Path" value="C:\Devs\repository" />
     <property name="options.splitter.details.proportions" value="0.35814607" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="Persistence.ERD.SimpleMode" value="false" />
-    <property name="options.lastSelected" value="project.validation" />
+    <property name="options.lastSelected" value="editor.preferences.tabs" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
     <property name="project.structure.side.proportion" value="0.28554913" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="Persistence.ERD.MergeEmbedded" value="false" />
     <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/commons-collections-3.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../apache-tomcat-7.0.35/webapps/easyfit" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="webweights" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
@@ -1095,7 +991,9 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="Persistence.ERD.MergeInherited" value="false" />
     <property name="GenerateAntBuildDialog.backupFiles" value="true" />
@@ -1103,13 +1001,24 @@
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
   </component>
+  <component name="PublishConfig" serverName="Tomcat stand-alone" serverId="d01b4532-10ae-488b-841c-8288bc312bf5">
+    <servers>
+      <server id="d01b4532-10ae-488b-841c-8288bc312bf5">
+        <serverdata>
+          <mappings>
+            <mapping deploy="webapps" local="$PROJECT_DIR$/out/artifacts" web="/easyfit" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
+  </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="be.fortemaison.webweights.dao.hibernate" />
       <recent name="be.fortemaison.webweights.service" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="be.fortemaison.webweights.dao" />
@@ -1119,20 +1028,19 @@
       <recent name="be.fortemaison.webweights.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Devs\Workspace\EasyFit\src\main\resources" />
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp\WEB-INF\jsp" />
       <recent name="C:\Devs\Workspace\WebWeights\src\resources" />
       <recent name="C:\Devs\Workspace\WebWeights\src\webapp\WEB-INF\jsp" />
       <recent name="C:\Devs\Workspace\WebWeights\src\java\be\fortemaison\webweights\model" />
-      <recent name="C:\Devs\Workspace\WebWeights\src\webapp\WEB-INF\jsp\products" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="be.fortemaison.webweights.dao.hibernate" />
       <recent name="be.fortemaison.webweights.service" />
       <recent name="be.fortemaison.webweights.dao" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="be.fortemaison.webweights.dao.hibernate" />
-      <recent name="be.fortemaison.webweights.dao" />
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="be.fortemaison.persistence" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp" />
@@ -1141,8 +1049,9 @@
       <recent name="C:\Devs\Workspace\EasyFit\src" />
       <recent name="C:\Devs\Workspace\EasyFit\src\main" />
     </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="be.fortemaison.persistence" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="be.fortemaison.webweights.dao.hibernate" />
+      <recent name="be.fortemaison.webweights.dao" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.WebWeights on Tomcat">
@@ -1391,6 +1300,17 @@
       <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
+    <configuration default="false" name="build" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="EasyFit" />
+      <setting name="path" value="$PROJECT_DIR$/build.gradle" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method>
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="false" name="JBoss 7.1.1.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 7.1.1.Final" show_console_on_std_out="true" show_console_on_std_err="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/EasyFits/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -1460,9 +1380,7 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="EasyFits:war Archive" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <configuration default="false" name="Jetty 8.1.8.v20121106" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 8.1.8.v20121106">
@@ -1601,13 +1519,11 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="EasyFits:war Archive" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <configuration default="false" name="WebWeights on Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.35">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/easyfit/consumptions/list" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost/easyfit/consumptions/list" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="EasyFit:war exploded">
@@ -1659,7 +1575,7 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
+        <option name="USE_ENV_VARIABLES" value="false" />
         <STARTUP>
           <option name="USE_DEFAULT" value="true" />
           <option name="SCRIPT" value="" />
@@ -1672,6 +1588,11 @@
           <option name="VM_PARAMETERS" value="" />
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
+        <EnvironmentVariables>
+          <option name="NAME" value="" />
+          <option name="VALUE" value="" />
+          <option name="IS_PREDEFINED" value="false" />
+        </EnvironmentVariables>
       </ConfigurationWrapper>
       <method>
         <option name="BuildArtifacts" enabled="true">
@@ -1679,22 +1600,11 @@
         </option>
       </method>
     </configuration>
-    <configuration default="false" name="build" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <module name="EasyFit" />
-      <setting name="path" value="$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JBoss Server.JBoss 7.1.1.Final" />
-      <item index="1" class="java.lang.String" itemvalue="Jetty Server.Jetty 8.1.8.v20121106" />
-      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.WebWeights on Tomcat" />
-      <item index="3" class="java.lang.String" itemvalue="Groovy.build" />
+      <item index="0" class="java.lang.String" itemvalue="Groovy.build" />
+      <item index="1" class="java.lang.String" itemvalue="JBoss Server.JBoss 7.1.1.Final" />
+      <item index="2" class="java.lang.String" itemvalue="Jetty Server.Jetty 8.1.8.v20121106" />
+      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.WebWeights on Tomcat" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.RecipeHibDaoTest" />
     </list>
     <recent_temporary>
@@ -1729,7 +1639,6 @@
   </component>
   <component name="TaskManager">
     <task id="Default" summary="Default task">
-      <changelist id="32bad4ac-c0c5-4a96-806a-3355ab51012c" name="Default" comment="" />
       <created>1359318448595</created>
       <updated>1362341936898</updated>
     </task>
@@ -1738,25 +1647,24 @@
       <updated>1362264418351</updated>
     </task>
     <task id="LOCAL-00015" summary="Create first CSS">
-      <changelist id="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" name="Create first CSS" comment="" />
       <created>1361828802772</created>
       <updated>1362341909326</updated>
     </task>
-    <task id="EasyFit-7" summary="Add week total points">
-      <changelist id="7f667ef2-cacd-4603-a11f-d81071d0155a" name="EasyFit-7 Add week total points" comment="" />
+    <task id="EasyFit-14" summary="Add green products">
+      <created>1362552299000</created>
+      <option name="issue" value="true" />
+      <option name="type" value="BUG" />
+      <updated>1362740025864</updated>
+    </task>
+    <task active="true" id="EasyFit-7" summary="Add week total points">
       <created>1362080226000</created>
       <option name="issue" value="true" />
       <option name="type" value="BUG" />
-      <updated>1362610178000</updated>
+      <updated>1362771315050</updated>
     </task>
-    <task active="true" id="EasyFit-11" summary="add category to product">
-      <changelist id="890c82e9-4dd8-408a-9b54-2d54c9f9f311" name="EasyFit-11 add category to product" comment="" />
-      <created>1362437072000</created>
-      <option name="issue" value="true" />
-      <option name="type" value="BUG" />
-      <updated>1362687358243</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="26" />
+    <option name="clearContext" value="false" />
+    <option name="searchClosedTasks" value="true" />
     <servers>
       <GitHub shared="false">
         <commitMessageFormat>{id} {summary}</commitMessageFormat>
@@ -1796,15 +1704,17 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5991903" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974428" sideWeight="0.4974227" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34952766" sideWeight="0.4974227" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25515464" sideWeight="0.6720648" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24613403" sideWeight="0.6356275" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22809279" sideWeight="0.67611337" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22809279" sideWeight="0.6702557" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24935567" sideWeight="0.6359946" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3508772" sideWeight="0.50322163" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26030928" sideWeight="0.6702557" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3508772" sideWeight="0.5006443" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36437246" sideWeight="0.5006443" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34952766" sideWeight="0.49806702" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26319176" sideWeight="0.23211876" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32947233" sideWeight="0.65629226" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.48389176" sideWeight="0.5721997" order="2" side_tool="false" content_ui="tabs" />
@@ -1815,8 +1725,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4002574" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839838" sideWeight="0.65629226" order="11" side_tool="true" content_ui="tabs" x="333" y="238" width="468" height="463" />
       <window_info id="Application Servers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22873712" sideWeight="0.3616734" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22744845" sideWeight="0.64912283" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36437246" sideWeight="0.49484536" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22744845" sideWeight="0.65047234" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36437246" sideWeight="0.49226806" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4493927" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" x="92" y="92" width="1416" height="676" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42645073" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1867,7 +1777,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-13 Unit never shown in combo (always first from combo shown)" />
+    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-4 Datasource management via JNDI" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1897,6 +1807,9 @@
     <MESSAGE value="EasyFit-9 Search product to add to recipe does not work" />
     <MESSAGE value="EasyFit-12 Search product to add to consumption does not work" />
     <MESSAGE value="EasyFit-13 Unit never shown in combo (always first from combo shown)" />
+    <MESSAGE value="EasyFit-11 add category to product" />
+    <MESSAGE value="EasyFit-14 Add green products" />
+    <MESSAGE value="EasyFit-4 Datasource management via JNDI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1914,129 +1827,116 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/RecipeForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="71" selection-start="688" selection-end="704" vertical-scroll-proportion="0.11888112" />
+        <state line="38" column="63" selection-start="978" selection-end="978" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-context-3.2.1.RELEASE-sources.jar!/org/springframework/ui/Model.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionDetailForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="10" selection-start="2220" selection-end="2220" vertical-scroll-proportion="0.33426574">
+        <state line="98" column="17" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.47912088" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="34" selection-start="489" selection-end="489" vertical-scroll-proportion="0.02514793" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="141" selection-start="1790" selection-end="1790" vertical-scroll-proportion="0.023776224" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/web.xml">
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="88" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.16231884">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/RecipeHibDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/datasources.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="41" selection-start="850" selection-end="850" vertical-scroll-proportion="0.53276354">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="9" selection-start="622" selection-end="622" vertical-scroll-proportion="0.45174825">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/services.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="454" selection-end="454" vertical-scroll-proportion="0.33186814">
+        <state line="7" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.17246377">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibdao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="4" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.589011">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/ProductCategory.java">
+    <entry file="file://$PROJECT_DIR$/out/artifacts/EasyFit/WEB-INF/classes/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="350" selection-end="350" vertical-scroll-proportion="0.2945055">
+        <state line="39" column="2" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.924612">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6-sources.jar!/org/apache/commons/lang/StringUtils.java">
+    <entry file="file://$PROJECT_DIR$/out/artifacts/EasyFit/WEB-INF/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="26" selection-start="7512" selection-end="7512" vertical-scroll-proportion="0.33193278">
+        <state line="9" column="99" selection-start="502" selection-end="502" vertical-scroll-proportion="0.32415253">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IProductAndRecipeDAO.java">
+    <entry file="file://$PROJECT_DIR$/out/artifacts/EasyFit/WEB-INF/dispatcher-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="11" selection-start="542" selection-end="542" vertical-scroll-proportion="0.5714286">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductController.java">
+    <entry file="file://$PROJECT_DIR$/out/artifacts/EasyFit/WEB-INF/classes/datasources.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="52" selection-start="2615" selection-end="2615" vertical-scroll-proportion="0.6738661">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2149#2166#0" expanded="true" />
-            <element signature="e#3661#3678#0" expanded="true" />
-            <element signature="e#3966#3983#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="12" selection-start="2028" selection-end="2028" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="47" selection-start="2488" selection-end="2488" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/RecipeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="205" column="0" selection-start="7175" selection-end="7789" vertical-scroll-proportion="0.16951567">
-          <folding>
-            <element signature="e#7451#7468#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webapp/theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="0" selection-start="2012" selection-end="2012" vertical-scroll-proportion="0.68951046">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java">
+    <entry file="file://$PROJECT_DIR$/out/artifacts/EasyFit/WEB-INF/classes/jdbc-datasources.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="146" selection-start="965" selection-end="965" vertical-scroll-proportion="0.11608391">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc-datasources.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="53" selection-start="7135" selection-end="7135" vertical-scroll-proportion="0.23361823">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4740#4756#0" expanded="true" />
-            <element signature="e#6859#6876#0" expanded="true" />
-            <element signature="e#7378#7391#0" expanded="true" />
-          </folding>
+        <state line="18" column="96" selection-start="994" selection-end="994" vertical-scroll-proportion="0.64830506">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jndi-datasources.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="61" selection-start="599" selection-end="599" vertical-scroll-proportion="0.2881356">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="128" selection-start="300" selection-end="300" vertical-scroll-proportion="0.1491228">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/be/fortemaison/webweights/dao/hibernate/ProductHibDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="88" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.5219298">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2047,10 +1947,10 @@
         <settings>
           <artifact-editor>
             <show-content>
-              <type id="jpa-descriptors" />
-              <type id="javaee-facet-resources" />
               <type id="library" />
+              <type id="javaee-facet-resources" />
               <type id="artifact" />
+              <type id="jpa-descriptors" />
             </show-content>
           </artifact-editor>
           <last-edited>EasyFit:war exploded</last-edited>

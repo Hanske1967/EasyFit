@@ -2267,14 +2267,15 @@
       <column name="name" sqlType="CHAR" length="255" precision="0" nullable="false" jdbcType="1" />
       <column name="unitid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="amount" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
-      <column name="point" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
+      <column name="points" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
       <column name="description" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="favorite" sqlType="BIT" length="1" precision="0" nullable="true" jdbcType="-7" def="YicwJw==" />
       <column name="classtype" sqlType="CHAR" length="1" precision="0" nullable="false" jdbcType="1" def="J1An" />
       <column name="productcategoryid" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="maxpoints" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
       <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="FP_PRODUCT_CATEGORY" columns="productcategoryid" ref-table="productcategory" ref-schema="" ref-catalog="webweights" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <foreign-key name="FK_PRODUCT_USERS" columns="unitid" ref-table="unit" ref-schema="" ref-catalog="webweights" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FP_PRODUCT_CATEGORY" columns="productcategoryid" ref-table="productcategory" ref-schema="" ref-catalog="webweights" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <exported-key name="consumptiondetail_ibfk_2" table="consumptiondetail" schema="" catalog="webweights" columns="productid" />
       <exported-key name="recipe_product_link_ibfk_1" table="recipe_product_link" schema="" catalog="webweights" columns="productid" />
       <exported-key name="recipe_product_link_ibfk_2" table="recipe_product_link" schema="" catalog="webweights" columns="recipeid" />

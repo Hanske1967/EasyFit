@@ -24,7 +24,7 @@ public class ScaleHibDaoTest extends TestCase {
     @Before
     public void setUp () throws Exception {
         this.context =
-                new ClassPathXmlApplicationContext(new String[]{"./resources/datasources.xml", "./resources/hibernate.xml", "./resources/hibdao.xml"});
+                new ClassPathXmlApplicationContext(new String[]{"./resources/jdbc-datasources.xml", "./resources/hibernate.xml", "./resources/hibdao.xml"});
     }
 
     private IUnitDAO getScaleDAO () {

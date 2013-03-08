@@ -26,7 +26,7 @@ public class RecipeHibDaoTest extends TestCase {
     @Before
     public void setUp () throws Exception {
         this.context =
-                new ClassPathXmlApplicationContext(new String[]{"/datasources.xml", "/hibernate.xml", "/hibdao.xml"});
+                new ClassPathXmlApplicationContext(new String[]{"/jdbc-datasources.xml", "/hibernate.xml", "/hibdao.xml"});
     }
 
     private IRecipeDAO getRecipeDAO () {

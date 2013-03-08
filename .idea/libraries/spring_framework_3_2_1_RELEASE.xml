@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="spring-3.1.0" type="spring">
-    <properties version="3.1.0" />
+  <library name="spring-framework-3.2.1.RELEASE">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-aop-3.2.1.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-aspects-3.2.1.RELEASE.jar!/" />
@@ -45,13 +44,12 @@
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-webmvc-portlet-3.2.1.RELEASE-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-core-3.2.1.RELEASE-sources.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-core-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-aop-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-aspects-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-beans-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-context-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-context-support-3.2.1.RELEASE-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-core-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-expression-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-instrument-3.2.1.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-instrument-tomcat-3.2.1.RELEASE-sources.jar!/" />
