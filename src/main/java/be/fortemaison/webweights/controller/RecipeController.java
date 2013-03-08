@@ -33,29 +33,20 @@ import java.util.*;
 @SessionAttributes({"recipeForm", "recipeDetailForm"})
 public class RecipeController {
 
+    @Autowired
     private IRecipeService recipeService;
 
+    @Autowired
     private IProductService productService;
 
+    @Autowired
     private IUnitService unitService;
 
     @Autowired
     private IProductCategoryDAO productCategoryDAO;
 
     @Autowired
-    public void setUnitService (IUnitService unitService) {
-        this.unitService = unitService;
-    }
-
-    @Autowired
-    public void setProductService (IProductService productService) {
-        this.productService = productService;
-    }
-
-    @Autowired
-    public void setRecipeService (IRecipeService recipeService) {
-        this.recipeService = recipeService;
-    }
+    private IProductCategoryDAO categoryDAO;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (Model model) {
@@ -90,6 +81,13 @@ public class RecipeController {
             allUnits.put(unit.getId(), unit.getName());
         }
         modelMap.addAttribute("allUnits", allUnits);
+
+        List<ProductCategory> categories = this.categoryDAO.findAll();
+        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>();
+        for (ProductCategory category : categories) {
+            categoryForms.put(category.getId(), category.getName());
+        }
+        modelMap.addAttribute("allCategories", categoryForms);
 
         return "recipes/edit";
     }
@@ -350,10 +348,13 @@ public class RecipeController {
         recipe.setName(recipeForm.getName());
         recipe.setDescription(recipeForm.getDescription());
         recipe.setFavorite(recipeForm.isFavorite());
+        recipe.setAmount(recipeForm.getAmount());
+
         Unit unit = unitService.findById(recipeForm.getUnitId());
         recipe.setUnit(unit);
-        recipe.setAmount(recipeForm.getAmount());
-        recipe.updatePoints();
+
+        ProductCategory category = this.productCategoryDAO.findById(recipeForm.getCategoryId());
+        recipe.setCategory(category);
 
         this.recipeService.update(recipe);
         return recipe;
@@ -366,9 +367,13 @@ public class RecipeController {
     private Recipe insertRecipe (RecipeForm recipeForm) {
         Recipe recipe = new Recipe(recipeForm.getName(), recipeForm.isFavorite());
         recipe.setDescription(recipeForm.getDescription());
+        recipe.setAmount(recipeForm.getAmount());
+
         Unit unit = unitService.findById(recipeForm.getUnitId());
         recipe.setUnit(unit);
-        recipe.setAmount(recipeForm.getAmount());
+
+        ProductCategory category = this.productCategoryDAO.findById(recipeForm.getCategoryId());
+        recipe.setCategory(category);
 
         for (RecipeDetailForm linkForm : recipeForm.getRecipeDetailForms()) {
             Product product = this.productService.findById(linkForm.getProduct().getId());

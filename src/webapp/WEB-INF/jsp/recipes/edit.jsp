@@ -41,6 +41,11 @@
             </form:label>
             <form:input path="name"/>
 
+            <form:label path="categoryId">
+                Category <form:errors path="categoryId" cssClass="error"/>
+            </form:label>
+            <form:select path="categoryId" items="${allCategories}"/>
+
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>
             </form:label>

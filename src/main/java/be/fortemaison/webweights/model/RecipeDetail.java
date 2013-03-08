@@ -71,10 +71,22 @@ public class RecipeDetail {
     /**
      * @return
      */
-    @SuppressWarnings("JpaAttributeMemberSignatureInspection")
     public Double getPoints () {
-        return this.amount == null
+        Double result = null;
+        if (this.amount == null
                 || this.product.getAmount() == null
-                || this.getProduct().getPoint() == null ? null : this.amount * this.product.getPoint() / this.product.getAmount();
+                || this.product.getPoints() == null) {
+            result = Double.NaN;
+        }
+
+        result = this.amount * this.product.getPoints() / this.product.getAmount();
+
+        if (this.product.getMaxPoints() != null && this.product.getMaxPoints() > 0) {
+            if (result > this.product.getMaxPoints().doubleValue()) {
+                result = this.product.getMaxPoints().doubleValue();
+            }
+        }
+
+        return result;
     }
 }

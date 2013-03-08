@@ -87,9 +87,7 @@ public class RecipeDetailForm {
     }
 
     public Double getPoints () {
-        return this.amount == null
-                || this.product.getAmount() == null
-                || this.getProduct().getPoints() == null ? null : this.amount * this.product.getPoints() / this.product.getAmount();
+        return this.product.getPoints();
     }
 
     public String getPointsLabel () {

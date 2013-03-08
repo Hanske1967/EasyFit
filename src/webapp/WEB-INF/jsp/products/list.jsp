@@ -35,6 +35,7 @@
         <th>Amount</th>
         <th>Unit</th>
         <th>Points</th>
+        <th>Max Points</th>
         <th>Category</th>
         <th>Description</th>
         <th colspan="2">Actions</th>
@@ -47,6 +48,7 @@
             <td>${product.amountLabel}</td>
             <td>${product.unitLabel}</td>
             <td>${product.pointsLabel}</td>
+            <td>${product.maxPoints}</td>
             <td>${product.categoryLabel}</td>
             <td>${product.description}</td>
             <td class="td"><a href="./favorite?key=${product.id}">Favorite</a></td>

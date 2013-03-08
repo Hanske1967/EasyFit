@@ -19,9 +19,11 @@
 
         <property name="amount" type="double"/>
 
-        <property name="point" type="double"/>
+        <property name="points" type="double"/>
 
         <property name="favorite" type="boolean"/>
+
+        <property name="maxPoints" type="integer"/>
 
         <many-to-one name="unit" column="unitid" class="Unit" lazy="false" not-null="true" cascade="none"/>
 

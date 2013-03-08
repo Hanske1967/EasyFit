@@ -33,7 +33,7 @@ CREATE TABLE product
   name              CHAR(255)           NOT NULL,
   unitid            INT                 NOT NULL,
   amount            DECIMAL(10, 2),
-  point             DECIMAL(10, 2),
+  points            DECIMAL(10, 2),
   description       VARCHAR(255),
   favorite          BIT DEFAULT b'0',
   classtype         CHAR(1) DEFAULT 'P' NOT NULL,

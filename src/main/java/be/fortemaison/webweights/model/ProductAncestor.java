@@ -17,7 +17,9 @@ public class ProductAncestor {
 
     protected Double amount;
 
-    protected Double point;
+    protected Double points;
+
+    protected Integer maxPoints;
 
     protected String description;
 
@@ -25,6 +27,13 @@ public class ProductAncestor {
 
     protected ProductCategory category;
 
+    public Integer getMaxPoints () {
+        return maxPoints;
+    }
+
+    public void setMaxPoints (Integer maxPoints) {
+        this.maxPoints = maxPoints;
+    }
 
     public ProductCategory getCategory () {
         return category;
@@ -33,7 +42,6 @@ public class ProductAncestor {
     public void setCategory (ProductCategory category) {
         this.category = category;
     }
-
 
     public Boolean isFavorite () {
         return favorite;
@@ -87,12 +95,12 @@ public class ProductAncestor {
         this.unit = unit;
     }
 
-    public Double getPoint () {
-        return point;
+    public Double getPoints () {
+        return points;
     }
 
-    public void setPoint (Double point) {
-        this.point = point;
+    public void setPoints (Double points) {
+        this.points = points;
     }
 
 }

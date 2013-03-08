@@ -76,7 +76,6 @@ public class ConsumptionForm {
     }
 
     public Double getPoints () {
-        updatePointss();
         return points;
     }
 
@@ -106,32 +105,18 @@ public class ConsumptionForm {
 
     public void setConsumptionDetailForms (List<ConsumptionDetailForm> consumptionDetailForms) {
         this.consumptionDetailForms = consumptionDetailForms;
-        this.updatePointss();
     }
 
     public void addConsumptionDetailForm (ConsumptionDetailForm product) {
         this.consumptionDetailForms.add(product);
-        this.updatePointss();
     }
 
     public void removeConsumptionDetailForm (ConsumptionDetailForm product) {
         this.consumptionDetailForms.remove(product);
-        this.updatePointss();
     }
 
     public void clearConsumptionDetailForm () {
         this.consumptionDetailForms.clear();
-        this.updatePointss();
-    }
-
-    private void updatePointss () {
-        if (!this.consumptionDetailForms.isEmpty()) {
-            this.points = 0.0;
-            for (ConsumptionDetailForm detail : this.consumptionDetailForms) {
-                Double morePointss = detail.getPoints();
-                this.points += morePointss == null ? 0.0 : morePointss;
-            }
-        }
     }
 
     /**

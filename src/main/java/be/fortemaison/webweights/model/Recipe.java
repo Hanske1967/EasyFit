@@ -32,7 +32,7 @@ public class Recipe extends ProductAncestor {
     public Recipe (Integer id, String name, boolean favorite, Double point, String description) {
         this.id = id;
         this.name = name;
-        this.point = point;
+        this.points = point;
         this.favorite = favorite;
         this.description = description;
     }
@@ -55,11 +55,16 @@ public class Recipe extends ProductAncestor {
 
     public void updatePoints () {
         if (!this.recipeDetails.isEmpty()) {
-            this.point = 0.0;
+            this.points = 0.0;
             for (RecipeDetail detail : this.recipeDetails) {
                 Double morePoints = detail.getPoints();
-                this.point += morePoints == null ? 0.0 : morePoints;
+                this.points += morePoints == null ? 0.0 : morePoints;
             }
         }
     }
+
+    public Double getPoints () {
+        return this.points;
+    }
+
 }

@@ -81,6 +81,7 @@ public class ConsumptionServiceImpl implements IConsumptionService {
             User inge = users.get(0);
             consumption.setUser(inge);
         }
+
         if (consumption.getId() == null) {
             this.consumptionDAO.insert(consumption);
         } else {

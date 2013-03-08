@@ -96,12 +96,14 @@ public class RecipeHibDao implements IRecipeDAO {
 
     @Transactional
     public void insert (Recipe recipe) {
+        recipe.updatePoints();
         Session session = sessionFactory.getCurrentSession();
         session.save(recipe);
     }
 
     @Transactional
     public void update (Recipe recipe) {
+        recipe.updatePoints();
         Session session = sessionFactory.getCurrentSession();
         session.update(recipe);
     }

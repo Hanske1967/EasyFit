@@ -31,22 +31,22 @@ public class RecipeForm extends ProductForm {
         this.id = recipe.getId();
         this.name = recipe.getName();
         this.favorite = recipe.isFavorite();
-        this.points = recipe.getPoint();
+        this.points = recipe.getPoints();
         this.description = recipe.getDescription();
         this.unitId = recipe.getUnit().getId();
         this.unitLabel = recipe.getUnit().getName();
         this.amount = recipe.getAmount();
+        this.categoryId = recipe.getCategory() == null ? null : recipe.getCategory().getId();
+        this.categoryLabel = recipe.getCategory() == null ? "" : recipe.getCategory().getName();
     }
 
     @Override
     public Double getPoints () {
-        updatePoints();
         return points;
     }
 
     @Override
     public String getAmountLabel () {
-        updatePoints();
         return super.getAmountLabel();
     }
 
@@ -60,33 +60,20 @@ public class RecipeForm extends ProductForm {
 
     public void setRecipeDetailForms (List<RecipeDetailForm> recipeDetailForms) {
         this.recipeDetailForms = recipeDetailForms;
-        this.updatePoints();
     }
 
     public void addProduct (RecipeDetailForm product) {
         this.recipeDetailForms.add(product);
-        this.updatePoints();
     }
 
     public void removeProduct (RecipeDetailForm product) {
         this.recipeDetailForms.remove(product);
-        this.updatePoints();
     }
 
     public void clearProducts () {
         this.recipeDetailForms.clear();
-        this.updatePoints();
     }
 
-    private void updatePoints () {
-        this.points = 0.0;
-        if (!this.recipeDetailForms.isEmpty()) {
-            for (RecipeDetailForm detail : this.recipeDetailForms) {
-                Double morePoints = detail.getPoints();
-                this.points += morePoints == null ? 0.0 : morePoints;
-            }
-        }
-    }
 
     /**
      * Get recipe from this form, WITHOUT product.

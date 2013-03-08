@@ -19,6 +19,7 @@
         <th>Favorite</th>
         <th>Name</th>
         <th>Points</th>
+        <th>Category</th>
         <th>Description</th>
         <th colspan="2">Actions</th>
     </tr>
@@ -28,6 +29,7 @@
             <td><c:if test="${recipe.favorite}">*</c:if> &nbsp;</td>
             <td><a href="./edit?key=${recipe.id}">${recipe.name}</a></td>
             <td>${recipe.pointsLabel}</td>
+            <td>${recipe.categoryLabel}</td>
             <td>${recipe.description}</td>
             <td class="td"><a href="./favorite?key=${recipe.id}">Favorite</a></td>
             <td class="td"><a href="./delete?key=${recipe.id}">Delete</a></td>

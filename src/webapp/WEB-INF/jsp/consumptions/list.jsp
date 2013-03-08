@@ -19,7 +19,7 @@
     <p>${consumptionForm.title}</p>
     <a href="./list?date=${consumptionForm.nextDate}"><img src="../images/Actions-go-next-view-icon.png" alt=">>"></a>
 
-    <p>Today: ${consumptionForm.pointsLabel} points</p>
+    <p>Consummed: ${consumptionForm.pointsLabel} points</p>
 </h2>
 
 <c:forEach var="type" begin="1" end="6">

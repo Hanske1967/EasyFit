@@ -28,6 +28,8 @@ public class ConsumptionDetailForm {
 
     private Double amount;
 
+    private Double points;
+
     /**
      *
      */
@@ -42,6 +44,7 @@ public class ConsumptionDetailForm {
         this.id = detail.getId();
         this.amount = detail.getAmount();
         this.type = ConsumptionDetailType.get(detail.getType());
+        this.points = detail.getPoints();
         this.product = new ProductForm(detail.getProduct());
     }
 
@@ -93,11 +96,8 @@ public class ConsumptionDetailForm {
         this.amount = amount;
     }
 
-    public double getPoints () {
-        double result = this.amount == null
-                || this.product.getAmount() == null
-                || this.getProduct().getPoints() == null ? 0.0 : this.amount * this.product.getPoints() / this.product.getAmount();
-        return result;
+    public Double getPoints () {
+        return this.points;
     }
 
     public String getPointsLabel () {

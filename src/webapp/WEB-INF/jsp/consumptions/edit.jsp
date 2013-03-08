@@ -35,10 +35,10 @@
             </form:label>
             <form:input path="description"/>
 
-            <form:label path="point">
-                Points: <form:errors path="point" cssClass="error"/>
+            <form:label path="points">
+                Points: <form:errors path="points" cssClass="error"/>
             </form:label>
-            <form:input readonly="true" path="point"/>
+            <form:input readonly="true" path="points"/>
 
             <form:label path="favorite">
                 Favorite <form:errors path="favorite" cssClass="error"/>

@@ -30,6 +30,8 @@ public class ProductForm {
     @NumberFormat(pattern = "###.#")
     protected Double points;
 
+    protected Integer maxPoints;
+
     protected String description;
 
     protected Boolean favorite = Boolean.FALSE;
@@ -52,11 +54,20 @@ public class ProductForm {
         this.unitId = product.getUnit().getId();
         this.unitLabel = product.getUnit().getName();
         this.amount = product.getAmount();
-        this.points = product.getPoint();
+        this.points = product.getPoints();
+        this.maxPoints = product.getMaxPoints();
         this.description = product.getDescription();
         this.favorite = product.isFavorite();
         this.categoryId = product.getCategory() == null ? null : product.getCategory().getId();
         this.categoryLabel = product.getCategory() == null ? "" : product.getCategory().getName();
+    }
+
+    public Integer getMaxPoints () {
+        return maxPoints;
+    }
+
+    public void setMaxPoints (Integer maxPoints) {
+        this.maxPoints = maxPoints;
     }
 
     public String getCategoryLabel () {
@@ -164,6 +175,7 @@ public class ProductForm {
         Product product = new Product(name, unit, amount, points, favorite, description);
         product.setId(id);
         product.setCategory(category);
+        product.setMaxPoints(maxPoints);
 
         return product;
     }

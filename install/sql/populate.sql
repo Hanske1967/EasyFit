@@ -29,7 +29,7 @@ INSERT INTO productcategory (name) VALUE ('Brood');
 INSERT INTO productcategory (name) VALUE ('Beleg');
 
 # PRODUCT
-INSERT INTO product (name, unitid, amount, point, favorite, description, classtype, productcategoryid)
+INSERT INTO product (name, unitid, amount, points, favorite, description, classtype, productcategoryid)
   VALUES ('light kaas', (SELECT
                            id
                          FROM unit
@@ -39,7 +39,7 @@ INSERT INTO product (name, unitid, amount, point, favorite, description, classty
            FROM productcategory
            WHERE name = 'Kaas'));
 
-INSERT INTO product (name, unitid, amount, point, favorite, description, classtype, productcategoryid)
+INSERT INTO product (name, unitid, amount, points, favorite, description, classtype, productcategoryid)
   VALUES ('boterham', (SELECT
                          id
                        FROM unit
@@ -50,7 +50,7 @@ INSERT INTO product (name, unitid, amount, point, favorite, description, classty
            WHERE name = 'Brood')
   );
 
-INSERT INTO product (name, unitid, amount, point, favorite, description, classtype, productcategoryid)
+INSERT INTO product (name, unitid, amount, points, favorite, description, classtype, productcategoryid)
   VALUES ('croissant', (SELECT
                           id
                         FROM unit
@@ -60,7 +60,7 @@ INSERT INTO product (name, unitid, amount, point, favorite, description, classty
            FROM productcategory
            WHERE name = 'Brood'));
 
-INSERT INTO product (name, unitid, amount, point, favorite, description, classtype, productcategoryid)
+INSERT INTO product (name, unitid, amount, points, favorite, description, classtype, productcategoryid)
   VALUES ('confituur', (SELECT
                           id
                         FROM unit
@@ -70,11 +70,11 @@ INSERT INTO product (name, unitid, amount, point, favorite, description, classty
            FROM productcategory
            WHERE name = 'Beleg'));
 
-INSERT INTO product (name, unitid, amount, point, favorite, description, classtype, productcategoryid)
+INSERT INTO product (name, unitid, amount, points, maxpoints, favorite, description, classtype, productcategoryid)
   VALUES ('thee', (SELECT
                      id
                    FROM unit
-                   WHERE name = 'ml'), 250.0, 0.5, FALSE, 'thee zonder suiker', 'P',
+                   WHERE name = 'ml'), 250.0, 0.5, 2, FALSE, 'thee zonder suiker', 'P',
           (SELECT
              ID
            FROM productcategory
@@ -82,14 +82,14 @@ INSERT INTO product (name, unitid, amount, point, favorite, description, classty
   );
 
 # RECIPE
-INSERT INTO product (name, favorite, point, description, classtype, unitid, amount, productcategoryid)
+INSERT INTO product (name, favorite, points, description, classtype, unitid, amount, productcategoryid)
   VALUES ('croissant confituur', TRUE, 4, 'Croissant met light confituur', 'R',
           (SELECT
              ID
            FROM productcategory
            WHERE name = 'Brood'));
 
-INSERT INTO product (name, favorite, point, description, classtype, unitid, amount, productcategoryid)
+INSERT INTO product (name, favorite, points, description, classtype, unitid, amount, productcategoryid)
   VALUES ('boterham met kaas', TRUE, 4, 'Boterham met Mardesous', 'R',
           (SELECT
              ID

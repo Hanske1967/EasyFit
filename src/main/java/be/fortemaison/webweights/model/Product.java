@@ -25,7 +25,7 @@ public class Product extends ProductAncestor {
         this.name = name;
         this.unit = unit;
         this.amount = amount;
-        this.point = point;
+        this.points = point;
         this.favorite = favorite;
         this.description = description;
     }

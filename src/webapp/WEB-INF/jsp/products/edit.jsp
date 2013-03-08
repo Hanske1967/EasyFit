@@ -51,6 +51,11 @@
             </form:label>
             <form:input path="points"/>
 
+            <form:label path="maxPoints">
+                Max Points <form:errors path="maxPoints" cssClass="error"/>
+            </form:label>
+            <form:input path="maxPoints"/>
+
             <form:label path="categoryId">
                 Category <form:errors path="categoryId" cssClass="error"/>
             </form:label>
