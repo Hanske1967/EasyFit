@@ -15,5 +15,15 @@
 
         <property name="updateDate" type="date"/>
 
+        <property name="firstName"/>
+
+        <property name="lastName"/>
+
+        <property name="targetWeight"/>
+
+        <property name="dayPoints"/>
+
+        <property name="extraPoints"/>
+
     </class>
 </hibernate-mapping>

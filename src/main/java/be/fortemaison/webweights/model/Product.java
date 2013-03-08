@@ -30,20 +30,4 @@ public class Product extends ProductAncestor {
         this.description = description;
     }
 
-    /**
-     * @param name
-     * @param unit
-     * @param point
-     */
-    public Product (Integer id, String name, Unit unit, Double amount, Double point, Boolean favorite, String description) {
-        this.id = id;
-        this.name = name;
-        this.unit = unit;
-        this.amount = amount;
-        this.point = point;
-        this.favorite = favorite;
-        this.description = description;
-    }
-
-
 }

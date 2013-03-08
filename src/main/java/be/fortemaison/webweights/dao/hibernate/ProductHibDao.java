@@ -2,6 +2,7 @@ package be.fortemaison.webweights.dao.hibernate;
 
 import be.fortemaison.webweights.dao.IProductDAO;
 import be.fortemaison.webweights.model.Product;
+import be.fortemaison.webweights.model.ProductCategory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -36,6 +37,25 @@ public class ProductHibDao implements IProductDAO {
     public List<Product> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
         List<Product> result = (List<Product>) session.createQuery("from Product where name like ? order by favorite desc, name").setString(0, name).list();
+        return result;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Product> findByCategory (ProductCategory category) {
+        Session session = sessionFactory.getCurrentSession();
+        List<Product> result = (List<Product>) session.createQuery("from Product where category = :cat order by name").setEntity("cat", category).list();
+        return result;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Product> findByNameAndCategory (String name, ProductCategory category) {
+        Session session = sessionFactory.getCurrentSession();
+        List<Product> result = (List<Product>) session.createQuery("from Product where name like :name and category = :cat order by name")
+                .setString("name", name)
+                .setEntity("cat", category)
+                .list();
         return result;
     }
 

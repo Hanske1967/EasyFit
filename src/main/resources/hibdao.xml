@@ -28,5 +28,9 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="productCategoryDAO" class="be.fortemaison.webweights.dao.hibernate.ProductCategoryHibDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
 
 </beans>

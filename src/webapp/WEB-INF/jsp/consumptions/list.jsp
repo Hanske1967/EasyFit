@@ -15,8 +15,11 @@
 <h2 class="date_header">
     <a href="./list?date=${consumptionForm.previousDate}"><img src="../images/Actions-go-previous-view-icon.png"
                                                                alt="<<"></a>
-    ${consumptionForm.title} - ${consumptionForm.pointsLabel} points
+
+    <p>${consumptionForm.title}</p>
     <a href="./list?date=${consumptionForm.nextDate}"><img src="../images/Actions-go-next-view-icon.png" alt=">>"></a>
+
+    <p>Today: ${consumptionForm.pointsLabel} points</p>
 </h2>
 
 <c:forEach var="type" begin="1" end="6">
@@ -42,7 +45,7 @@
             <tr>
                 <th id="th_name">Product</th>
                 <th id="th_points">Points</th>
-                <th id="th_actions" colspan="2">Actions</th>
+                <th id="th_actions">Actions</th>
             </tr>
 
             <c:forEach items="${consumptionForm.consumptionDetailsForIndex}" var="detail">
@@ -51,10 +54,7 @@
                             href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">${detail.label}</a>
                     </td>
                     <td id="td_points">${detail.pointsLabel}</td>
-                    <td id="td_edit" class="td"><a
-                            href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Edit</a>
-                    </td>
-                    <td id="td_remove" class="td"><a
+                    <td id="td_action" class="td"><a
                             href="./removedetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Delete</a></td>
                 </tr>
             </c:forEach>

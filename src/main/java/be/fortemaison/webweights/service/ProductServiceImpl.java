@@ -2,6 +2,9 @@ package be.fortemaison.webweights.service;
 
 import be.fortemaison.webweights.dao.IProductDAO;
 import be.fortemaison.webweights.model.Product;
+import be.fortemaison.webweights.model.ProductCategory;
+import be.fortemaison.webweights.util.IConstants;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +37,42 @@ public class ProductServiceImpl implements IProductService {
 
     @Transactional(readOnly = true)
     public List<Product> findByName (String name) {
-        return this.productDAO.findByName(name);
+        if (StringUtils.isEmpty(name)) {
+            return this.productDAO.findAll();
+        }
+        StringBuilder sb = new StringBuilder(name.length() + 2);
+        sb.append(IConstants.PROCENT);
+        sb.append(name);
+        sb.append(IConstants.PROCENT);
+
+        return this.productDAO.findByName(sb.toString());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Product> findByCategory (ProductCategory category) {
+        if (category == null) {
+            return this.productDAO.findAll();
+        }
+        return this.productDAO.findByCategory(category);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Product> findByNameAndCategory (String name, ProductCategory category) {
+        if (StringUtils.isEmpty(name) && (category == null)) {
+            return this.findAll();
+        }
+
+        if (category == null) {
+            return this.findByName(name);
+        }
+
+        if (StringUtils.isEmpty(name)) {
+            return this.findByCategory(category);
+        }
+
+        return this.productDAO.findByNameAndCategory(name, category);
     }
 
     @Transactional(readOnly = true)
@@ -68,7 +106,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Transactional
-    public void updatePavorite (Integer id, boolean favorite){
+    public void updatePavorite (Integer id, boolean favorite) {
         Product product = findById(id);
         product.setFavorite(favorite);
         update(product);

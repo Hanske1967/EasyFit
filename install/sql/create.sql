@@ -2,12 +2,16 @@ USE webweights;
 
 CREATE TABLE user
 (
-  id         INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
-  username   CHAR(20)                            NOT NULL,
-  updatedate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+  id           INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
+  username     CHAR(20)                            NOT NULL,
+  updatedate   TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  firstname    CHAR(30),
+  lastname     CHAR(100),
+  targetweight INT,
+  daypoints    INT,
+  extrapoints  INT DEFAULT 0                       NOT NULL
 );
 CREATE UNIQUE INDEX UK_user_username ON user (username);
-
 
 CREATE TABLE unit
 (
@@ -16,17 +20,26 @@ CREATE TABLE unit
   description VARCHAR(255)
 );
 
+CREATE TABLE productcategory
+(
+  id   INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  name CHAR(50)        NOT NULL
+);
+CREATE UNIQUE INDEX name_UNIQUE ON productcategory (name);
+
 CREATE TABLE product
 (
-  id          INT PRIMARY KEY     NOT NULL AUTO_INCREMENT,
-  name        CHAR(255)           NOT NULL,
-  unitid      INT                 NOT NULL,
-  amount      DECIMAL(10, 2),
-  point       DECIMAL(10, 2),
-  description VARCHAR(255),
-  favorite    BIT DEFAULT b'0',
-  classtype   CHAR(1) DEFAULT 'P' NOT NULL,
-  FOREIGN KEY (unitid) REFERENCES unit (id)
+  id                INT PRIMARY KEY     NOT NULL AUTO_INCREMENT,
+  name              CHAR(255)           NOT NULL,
+  unitid            INT                 NOT NULL,
+  amount            DECIMAL(10, 2),
+  point             DECIMAL(10, 2),
+  description       VARCHAR(255),
+  favorite          BIT DEFAULT b'0',
+  classtype         CHAR(1) DEFAULT 'P' NOT NULL,
+  productcategoryid INT,
+  FOREIGN KEY (unitid) REFERENCES unit (id),
+  FOREIGN KEY (productcategoryid) REFERENCES productcategory (id)
 );
 
 CREATE TABLE recipe_product_link

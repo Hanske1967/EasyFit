@@ -1,6 +1,7 @@
 package be.fortemaison.webweights.dao;
 
 import be.fortemaison.webweights.model.Product;
+import be.fortemaison.webweights.model.ProductCategory;
 
 import java.util.List;
 
@@ -17,6 +18,10 @@ public interface IProductDAO {
 
     public List<Product> findByName (String name);
 
+    public List<Product> findByCategory (ProductCategory category);
+
+    public List<Product> findByNameAndCategory (String name, ProductCategory category);
+
     public List<Product> findFavorites ();
 
     public List<Product> findAll ();
@@ -26,5 +31,6 @@ public interface IProductDAO {
     public void update (Product product);
 
     public void delete (Product product);
+
 
 }

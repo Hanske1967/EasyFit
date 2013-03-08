@@ -1,11 +1,12 @@
 package be.fortemaison.webweights.controller;
 
+import be.fortemaison.webweights.dao.IProductCategoryDAO;
 import be.fortemaison.webweights.form.ProductForm;
 import be.fortemaison.webweights.model.Product;
+import be.fortemaison.webweights.model.ProductCategory;
 import be.fortemaison.webweights.model.Unit;
 import be.fortemaison.webweights.service.IProductService;
 import be.fortemaison.webweights.service.IUnitService;
-import be.fortemaison.webweights.util.IConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,9 +32,17 @@ import java.util.Map;
 @RequestMapping("/products")
 public class ProductController {
 
+
+    private IProductCategoryDAO categoryDAO;
+
     private IProductService productService;
 
     private IUnitService unitService;
+
+    @Autowired
+    public void setCategoryDAO (IProductCategoryDAO categoryDAO) {
+        this.categoryDAO = categoryDAO;
+    }
 
     @Autowired
     public void setUnitService (IUnitService unitService) {
@@ -46,31 +55,44 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String prepareList (@RequestParam(value = "queryName", required = false) String queryName, Model model) {
-        List<Product> products = null;
-        if (queryName == null || queryName.isEmpty()) {
-            products = this.productService.findAll();
-        } else {
-            StringBuilder sb = new StringBuilder(queryName.length() + 2);
-            sb.append(IConstants.PROCENT);
-            sb.append(queryName);
-            sb.append(IConstants.PROCENT);
-            products = this.productService.findByName(sb.toString());
+    public String prepareList (@RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "category", required = false) Integer categoryId, Model model) {
+
+        ProductCategory category = null;
+
+        List<ProductCategory> categories = this.categoryDAO.findAll();
+        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>();
+        for (ProductCategory cat : categories) {
+            categoryForms.put(cat.getId(), cat.getName());
+            if (categoryId != null && cat.getId().equals(categoryId)) {
+                category = cat;
+            }
         }
+        model.addAttribute("allCategories", categoryForms);
+
+        List<Product> products = this.productService.findByNameAndCategory(queryName, category);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (Product product : products) {
             forms.add(new ProductForm(product));
         }
         model.addAttribute("products", forms);
+
         model.addAttribute("queryName", queryName);
+        model.addAttribute("category", category);
         return "products/list";
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String prepareNew (Model model) {
-        ProductForm productForm = new ProductForm();
-        model.addAttribute("productForm", productForm);
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String prepareEdit (@RequestParam(value = "key", required = false) Integer key, Model model) {
+        if (key == null) {
+            ProductForm productForm = new ProductForm();
+            model.addAttribute("productForm", productForm);
+        } else {
+            Product product = this.productService.findById(key);
+            ProductForm productForm = new ProductForm(product);
+            model.addAttribute("productForm", productForm);
+        }
 
+        // TODO Move this code in ControllerHelper
         //  store all units for combo
         List<Unit> units = unitService.findAll();
         Map<Integer, String> allUnits = new LinkedHashMap<Integer, String>();
@@ -79,51 +101,31 @@ public class ProductController {
         }
         model.addAttribute("allUnits", allUnits);
 
-        return "products/edit";
-    }
-
-    @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public String prepareUpdate (Integer key, Model model) {
-        Product product = this.productService.findById(key);
-        ProductForm productForm = new ProductForm(product);
-        model.addAttribute("productForm", productForm);
-
-        //  store all units for combo
-        List<Unit> units = unitService.findAll();
-        Map<String, String> allUnits = new LinkedHashMap<String, String>();
-        for (Unit unit : units) {
-            allUnits.put("" + unit.getId(), unit.getName());
+        List<ProductCategory> categories = this.categoryDAO.findAll();
+        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>();
+        for (ProductCategory category : categories) {
+            categoryForms.put(category.getId(), category.getName());
         }
-        model.addAttribute("allUnits", allUnits);
+        model.addAttribute("allCategories", categoryForms);
 
         return "products/edit";
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String processNew (@Validated ProductForm formProduct, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "products/edit";
-        }
-
-        //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
-        Unit unit = unitService.findById(formProduct.getUnitId());
-        Product product = (Product) formProduct.getProduct();
-        product.setUnit(unit);
-
-        this.productService.insert(product);
-        return "redirect:/products/list";
-    }
-
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String processUpdate (@Validated ProductForm formProduct, BindingResult result, Model model) {
         if (result.hasErrors()) {
             return "products/edit";
         }
 
+        Product product = (Product) formProduct.getProduct();
+
         //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
         Unit unit = unitService.findById(formProduct.getUnitId());
-        Product product = (Product) formProduct.getProduct();
         product.setUnit(unit);
+
+        //  Category returned by formProduct contains only the ID in the name property of Category instance.
+        ProductCategory category = this.categoryDAO.findById(formProduct.getCategoryId());
+        product.setCategory(category);
 
         this.productService.update(product);
         return "redirect:/products/list";

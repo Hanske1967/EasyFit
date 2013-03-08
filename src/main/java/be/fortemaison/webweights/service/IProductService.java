@@ -1,6 +1,7 @@
 package be.fortemaison.webweights.service;
 
 import be.fortemaison.webweights.model.Product;
+import be.fortemaison.webweights.model.ProductCategory;
 
 import java.util.List;
 
@@ -16,6 +17,10 @@ public interface IProductService {
     public Product findById (Integer id);
 
     public List<Product> findByName (String name);
+
+    public List<Product> findByCategory (ProductCategory category);
+
+    public List<Product> findByNameAndCategory (String name, ProductCategory category);
 
     public List<Product> findFavorites ();
 

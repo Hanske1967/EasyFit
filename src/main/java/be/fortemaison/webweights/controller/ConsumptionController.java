@@ -1,13 +1,13 @@
 package be.fortemaison.webweights.controller;
 
 import be.fortemaison.webweights.dao.IProductAndRecipeDAO;
+import be.fortemaison.webweights.dao.IProductCategoryDAO;
 import be.fortemaison.webweights.form.ConsumptionDetailForm;
 import be.fortemaison.webweights.form.ConsumptionForm;
 import be.fortemaison.webweights.form.ProductForm;
 import be.fortemaison.webweights.model.*;
 import be.fortemaison.webweights.service.IConsumptionService;
 import be.fortemaison.webweights.service.IUnitService;
-import be.fortemaison.webweights.util.IConstants;
 import be.fortemaison.webweights.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -40,29 +40,20 @@ public class ConsumptionController {
 
     public static final String CONSUMPTION_DETAIL_FORM = "consumptionDetailForm";
 
+    @Autowired
     private IConsumptionService consumptionService;
 
+    @Autowired
     private IProductAndRecipeDAO productAndRecipeDAO;
 
+    @Autowired
     private MessageSource messageSource;
 
     @Autowired
     private IUnitService unitService;
 
     @Autowired
-    public void setMessageSource (MessageSource messageSource) {
-        this.messageSource = messageSource;
-    }
-
-    @Autowired
-    public void setProductAndRecipeDAO (IProductAndRecipeDAO productService) {
-        this.productAndRecipeDAO = productService;
-    }
-
-    @Autowired
-    public void setConsumptionService (IConsumptionService consumptionService) {
-        this.consumptionService = consumptionService;
-    }
+    private IProductCategoryDAO productCategoryDAO;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (@RequestParam(value = "date", required = false) String date, Model model, HttpServletRequest request) {
@@ -108,7 +99,6 @@ public class ConsumptionController {
     @RequestMapping(value = "/editdetail", method = RequestMethod.GET)
     public String prepareEditDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, ModelMap modelMap, final SessionStatus status) {
 
-        status.setComplete();
         Consumption consumption = this.consumptionService.findByIdWithDetails(key);
         if (consumption != null) {
             ConsumptionDetail editedDetail = null;
@@ -148,7 +138,14 @@ public class ConsumptionController {
      */
 
     @RequestMapping(value = "/adddetail1", method = RequestMethod.POST)
-    public String processAddDetail1 (@RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "date", required = false) String date, @RequestParam(value = "consumptionDetailType", required = false) Integer consumptionDetailType, ModelMap modelMap) {
+    public String processAddDetail1 (
+            @RequestParam(value = "queryName", required = false) String queryName,
+            @RequestParam(value = "category", required = false) Integer categoryId,
+            @RequestParam(value = "key", required = false) Integer key,
+            @RequestParam(value = "date", required = false) String date,
+            @RequestParam(value = "consumptionDetailType", required = false) Integer consumptionDetailType,
+            ModelMap modelMap,
+            final SessionStatus status) {
 
         ConsumptionDetailForm consumptionDetailForm = (ConsumptionDetailForm) modelMap.get(CONSUMPTION_DETAIL_FORM);
         if (consumptionDetailForm == null) {
@@ -168,17 +165,22 @@ public class ConsumptionController {
             modelMap.addAttribute(CONSUMPTION_DETAIL_FORM, consumptionDetailForm);
         }
 
-        //  Find product
-        List<ProductAncestor> products = null;
-        if (queryName == null || queryName.isEmpty()) {
-            products = this.productAndRecipeDAO.findAll();
-        } else {
-            StringBuilder sb = new StringBuilder(queryName.length() + 2);
-            sb.append(IConstants.PROCENT);
-            sb.append(queryName);
-            sb.append(IConstants.PROCENT);
-            products = this.productAndRecipeDAO.findByName(sb.toString());
+        // TODO Move this code in ControllerHelper
+        //  all product categories for filtering
+        ProductCategory cat = null;
+        List<ProductCategory> categories = this.productCategoryDAO.findAll();
+        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>();
+        for (ProductCategory category : categories) {
+            categoryForms.put(category.getId(), category.getName());
+            if (categoryId != null && category.getId().equals(categoryId)) {
+                cat = category;
+            }
         }
+        modelMap.addAttribute("allCategories", categoryForms);
+
+        //  Find product
+
+        List<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (ProductAncestor product : products) {
             forms.add(new ProductForm(product));
@@ -195,7 +197,10 @@ public class ConsumptionController {
      * @return
      */
     @RequestMapping(value = "/adddetail2", method = RequestMethod.POST)
-    public String processAddDetail2 (@RequestParam("productKey") Integer productKey, @ModelAttribute(CONSUMPTION_DETAIL_FORM) ConsumptionDetailForm consumptionDetailForm, final Errors errors, final HttpServletResponse response) {
+    public String processAddDetail2 (
+            @RequestParam("productKey") Integer productKey,
+            @ModelAttribute(CONSUMPTION_DETAIL_FORM) ConsumptionDetailForm consumptionDetailForm,
+            final Errors errors, final HttpServletResponse response) {
         ProductAncestor product = this.productAndRecipeDAO.findById(productKey);
         assert (product != null);
         consumptionDetailForm.setProduct(new ProductForm(product));
@@ -212,7 +217,13 @@ public class ConsumptionController {
     public String processAddDetail3 (@ModelAttribute(CONSUMPTION_DETAIL_FORM) ConsumptionDetailForm consumptionDetailForm, final Errors errors, final SessionStatus status) {
 
         Integer consumptionId = consumptionDetailForm.getConsumptionId();
-        Consumption consumption = this.consumptionService.findByIdWithDetails(consumptionId);
+        Consumption consumption = null;
+        if (consumptionId == null) {
+            consumption = new Consumption(consumptionDetailForm.getDate());
+        } else {
+            consumption = this.consumptionService.findByIdWithDetails(consumptionId);
+        }
+
         if (consumptionDetailForm.getId() != null) {
             for (ConsumptionDetail detail : consumption.getConsumptionDetails()) {
                 if (detail.getId().equals(consumptionDetailForm.getId())) {
@@ -220,10 +231,6 @@ public class ConsumptionController {
                 }
             }
         } else {
-            if (consumptionId == null) {
-                consumption = new Consumption(consumptionDetailForm.getDate());
-                this.consumptionService.update(consumption);
-            }
             ProductAncestor product = this.productAndRecipeDAO.findById(consumptionDetailForm.getProduct().getId());
             assert (product != null);
 

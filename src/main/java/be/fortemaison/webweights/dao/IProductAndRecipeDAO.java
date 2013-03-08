@@ -1,6 +1,7 @@
 package be.fortemaison.webweights.dao;
 
 import be.fortemaison.webweights.model.ProductAncestor;
+import be.fortemaison.webweights.model.ProductCategory;
 
 import java.util.List;
 
@@ -19,5 +20,11 @@ public interface IProductAndRecipeDAO {
 
     public List<ProductAncestor> findFavorites ();
 
+    public List<ProductAncestor> findByCategory (ProductCategory category);
+
+    public List<ProductAncestor> findByNameAndCategory (String queryName, ProductCategory category);
+
     public ProductAncestor findById (Integer key);
+
 }
+

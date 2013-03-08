@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Web Weights - Products</title>
+    <title>EasyFit - Products</title>
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
@@ -15,7 +15,16 @@
 
 <div>
     <form action="./list" method="get">
-        <p>Name: <input type="text" name="queryName" value="${queryName}"/><input type="submit" value="Search"/></p>
+        <p>Name:
+            <input type="text" name="queryName" value="${queryName}"/>
+            <select name="category" value="${category}">
+                <option value="">---</option>
+                <c:forEach items="${allCategories}" var="cat">
+                    <option value="${cat.key}">${cat.value}</option>
+                </c:forEach>
+            </select>
+            <input type="submit" value="Search"/>
+        </p>
     </form>
 </div>
 <p>All products defined:</p>
@@ -26,6 +35,7 @@
         <th>Amount</th>
         <th>Unit</th>
         <th>Points</th>
+        <th>Category</th>
         <th>Description</th>
         <th colspan="2">Actions</th>
     </tr>
@@ -33,19 +43,19 @@
     <c:forEach items="${products}" var="product">
         <tr>
             <td><c:if test="${product.favorite}">*</c:if> &nbsp;</td>
-            <td><a href="./update?key=${product.id}">${product.name}</a></td>
+            <td><a href="./edit?key=${product.id}">${product.name}</a></td>
             <td>${product.amountLabel}</td>
             <td>${product.unitLabel}</td>
             <td>${product.pointsLabel}</td>
+            <td>${product.categoryLabel}</td>
             <td>${product.description}</td>
             <td class="td"><a href="./favorite?key=${product.id}">Favorite</a></td>
-            <td class="td"><a href="./update?key=${product.id}">Edit</a></td>
             <td class="td"><a href="./delete?key=${product.id}">Delete</a></td>
         </tr>
     </c:forEach>
 
 </table>
 
-<p><a href="./new">New product</a></p>
+<p><a href="./edit">New product</a></p>
 </body>
 </html>

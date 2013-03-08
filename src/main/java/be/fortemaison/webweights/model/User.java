@@ -17,6 +17,17 @@ public class User {
 
     private Date updateDate;
 
+    private String firstName;
+
+    private String lastName;
+
+    private Integer targetWeight;
+
+    private Integer dayPoints;
+
+    private Integer extraPoints;
+
+
     /**
      *
      */
@@ -30,6 +41,47 @@ public class User {
     public User (String username) {
         this.username = username;
     }
+
+    public Integer getExtraPoints () {
+        return extraPoints;
+    }
+
+    public void setExtraPoints (Integer extraPoints) {
+        this.extraPoints = extraPoints;
+    }
+
+    public Integer getDayPoints () {
+        return dayPoints;
+    }
+
+    public void setDayPoints (Integer dayPoints) {
+        this.dayPoints = dayPoints;
+    }
+
+    public Integer getTargetWeight () {
+        return targetWeight;
+    }
+
+    public void setTargetWeight (Integer targetWeight) {
+        this.targetWeight = targetWeight;
+    }
+
+    public String getLastName () {
+        return lastName;
+    }
+
+    public void setLastName (String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName () {
+        return firstName;
+    }
+
+    public void setFirstName (String firstName) {
+        this.firstName = firstName;
+    }
+
 
     public Integer getId () {
         return id;

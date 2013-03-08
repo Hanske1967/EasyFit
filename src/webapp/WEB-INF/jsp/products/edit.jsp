@@ -6,7 +6,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>WegWeights - New product</title>
+    <title>EasyFit - New product</title>
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
@@ -50,6 +50,11 @@
                 Points <form:errors path="points" cssClass="error"/>
             </form:label>
             <form:input path="points"/>
+
+            <form:label path="categoryId">
+                Category <form:errors path="categoryId" cssClass="error"/>
+            </form:label>
+            <form:select path="categoryId" items="${allCategories}"/>
 
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>

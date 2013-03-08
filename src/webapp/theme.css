@@ -2,6 +2,7 @@ body {
     font-family: Verdana, Geneva, sans-serif;
     color: #039;
     background-color: #FFF;
+    font-size: 12px;
 }
 
 fieldset {
@@ -10,7 +11,7 @@ fieldset {
     background-color: #F9F9F9;
 }
 
-label {
+fieldset label {
     float: left;
     width: 10em;
     margin-right: 1em;
@@ -110,6 +111,7 @@ nav a:link, nav a:visited {
     clear: left;
     background-color: #69F;
     text-align: center;
+    font-size: 16px;
 }
 
 nav a:hover, nav a:active {
@@ -122,9 +124,18 @@ nav a:hover, nav a:active {
     clear: left;
 }
 
+.date_header p {
+    vertical-align: top;
+    display: inline;
+}
+
 .date_header a {
     text-decoration: none;
-    padding: 0 10px 0 10px;
+    border-width: 0;
+}
+
+.date_header img {
+    border-width: 0;
 }
 
 h3 a {
@@ -135,11 +146,7 @@ h3 a {
 }
 
 h2 {
-    font-size: large;
-}
-
-h3 {
-    font-size: medium;
+    font-size: 16px;
 }
 
 #th_amount, #td_amount {
@@ -151,7 +158,7 @@ h3 {
 }
 
 #th_name, #td_name {
-    width: 400px;
+    width: 200px;
 }
 
 #th_points, #td_points {
@@ -159,11 +166,11 @@ h3 {
 }
 
 #th_actions {
-    width: 60px;
+    width: 40px;
 }
 
-#td_action {
-    width: 30px;
+#td_action a {
+    width: 20px;
     display: block;
     float: left;
 }

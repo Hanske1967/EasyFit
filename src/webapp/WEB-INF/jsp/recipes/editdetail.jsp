@@ -6,7 +6,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>WegWeights - Recipe</title>
+    <title>EasyFit - Recipe</title>
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
 </head>
@@ -23,7 +23,7 @@
             <form:errors path="*" cssClass="errorBox"/>
         </div>
         <fieldset>
-            <form:input readonly="true" path="id"/>
+            <form:hidden path="id"/>
 
             <form:label path="amount">
                 Amount: <form:errors path="amount" cssClass="error"/>

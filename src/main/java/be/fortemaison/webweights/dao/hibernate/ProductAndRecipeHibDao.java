@@ -2,6 +2,8 @@ package be.fortemaison.webweights.dao.hibernate;
 
 import be.fortemaison.webweights.dao.IProductAndRecipeDAO;
 import be.fortemaison.webweights.model.ProductAncestor;
+import be.fortemaison.webweights.model.ProductCategory;
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +25,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     @Transactional(readOnly = true)
     public List<ProductAncestor> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor r where r.name like ? order by r.name").setString(0, name).list();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor r where r.name like :name order by r.name").setString("name", name).list();
         return result;
     }
 
@@ -39,7 +41,39 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     @Transactional(readOnly = true)
     public List<ProductAncestor> findFavorites () {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.favorite = ? order by p.name").setBoolean(0, Boolean.TRUE).list();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.favorite = :favorite order by p.name").setBoolean("favorite", Boolean.TRUE).list();
+        return result;
+    }
+
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ProductAncestor> findByCategory (ProductCategory category) {
+        Session session = sessionFactory.getCurrentSession();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.category = :category order by p.name").setEntity("category", category).list();
+        return result;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ProductAncestor> findByNameAndCategory (String name, ProductCategory category) {
+        if (StringUtils.isEmpty(name) && (category == null)) {
+            return this.findAll();
+        }
+
+        if (category == null) {
+            return this.findByName(name);
+        }
+
+        if (StringUtils.isEmpty(name)) {
+            return this.findByCategory(category);
+        }
+
+        Session session = sessionFactory.getCurrentSession();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.name like :queryName and p.category = :category order by p.name")
+                .setString("queryName", name)
+                .setEntity("category", category)
+                .list();
         return result;
     }
 

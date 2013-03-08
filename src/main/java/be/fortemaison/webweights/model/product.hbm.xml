@@ -25,6 +25,9 @@
 
         <many-to-one name="unit" column="unitid" class="Unit" lazy="false" not-null="true" cascade="none"/>
 
+        <many-to-one name="category" column="productcategoryid" class="ProductCategory" lazy="false" not-null="true"
+                     cascade="none"/>
+
         <subclass name="Product" discriminator-value="P"/>
 
         <subclass name="Recipe" discriminator-value="R">

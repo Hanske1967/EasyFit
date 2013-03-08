@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Web Weights - Products</title>
+    <title>EasyFit - Products</title>
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
@@ -15,9 +15,18 @@
 
 <form id="form" method="post" action="./adddetail1?">
     <div name="search">
-        <p>Name: <input type="text" id="queryName" name="queryName" value="${queryName}"/><input type="submit"
-                                                                                                 value="Search"/></p>
+        <p>Name:
+            <input type="text" name="queryName" value="${queryName}"/>
+            <select name="category" value="${category}">
+                <option value="">---</option>
+                <c:forEach items="${allCategories}" var="cat">
+                    <option value="${cat.key}">${cat.value}</option>
+                </c:forEach>
+            </select>
+            <input type="submit" value="Search"/>
+        </p>
     </div>
+
     <p>All products & recipes defined:</p>
     <table>
         <tr>

@@ -6,7 +6,7 @@
 <%@ page session="false" %>
 <html>
 <head>
-    <title>WegWeights - Unit</title>
+    <title>EasyFit - Units</title>
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>

@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Web Weights - Users</title>
+    <title>EasyFit - Users</title>
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
@@ -16,15 +16,24 @@
 <table class="table">
     <tr class="th">
         <th>User name</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Target weight</th>
+        <th>Day points</th>
+        <th>Extra points</th>
         <th>Update date</th>
-        <th colspan="2">Actions</th>
+        <th>Actions</th>
     </tr>
 
     <c:forEach items="${users}" var="user">
         <tr>
-            <td class="td">${user.userName}</td>
+            <td class="td"><a href="./edit?key=${user.id}">${user.userName}</a></td>
+            <td class="td">${user.firstName}</td>
+            <td class="td">${user.lastName}</td>
+            <td class="td">${user.targetWeight}</td>
+            <td class="td">${user.dayPoints}</td>
+            <td class="td">${user.extraPoints}</td>
             <td class="td">${user.updateDateLabel}</td>
-            <td class="td"><a href="./edit?key=${user.id}">Edit</a></td>
             <td class="td"><a href="./delete?key=${user.id}">Delete</a></td>
         </tr>
     </c:forEach>

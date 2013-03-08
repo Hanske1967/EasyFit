@@ -1,16 +1,13 @@
 package be.fortemaison.webweights.controller;
 
+import be.fortemaison.webweights.dao.IProductCategoryDAO;
 import be.fortemaison.webweights.form.ProductForm;
 import be.fortemaison.webweights.form.RecipeDetailForm;
 import be.fortemaison.webweights.form.RecipeForm;
-import be.fortemaison.webweights.model.Product;
-import be.fortemaison.webweights.model.Recipe;
-import be.fortemaison.webweights.model.RecipeDetail;
-import be.fortemaison.webweights.model.Unit;
+import be.fortemaison.webweights.model.*;
 import be.fortemaison.webweights.service.IProductService;
 import be.fortemaison.webweights.service.IRecipeService;
 import be.fortemaison.webweights.service.IUnitService;
-import be.fortemaison.webweights.util.IConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,6 +38,9 @@ public class RecipeController {
     private IProductService productService;
 
     private IUnitService unitService;
+
+    @Autowired
+    private IProductCategoryDAO productCategoryDAO;
 
     @Autowired
     public void setUnitService (IUnitService unitService) {
@@ -186,7 +186,7 @@ public class RecipeController {
      */
 
     @RequestMapping(value = "/adddetail1", method = RequestMethod.POST)
-    public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "queryName", required = false) String queryName, @Validated RecipeForm recipeForm, BindingResult result, ModelMap modelMap) {
+    public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "category", required = false) Integer categoryId, @Validated RecipeForm recipeForm, BindingResult result, ModelMap modelMap) {
 
         RecipeDetailForm recipeDetailForm = (RecipeDetailForm) modelMap.get("recipeDetailForm");
         if (recipeDetailForm == null) {
@@ -203,17 +203,21 @@ public class RecipeController {
             modelMap.addAttribute("recipeDetailForm", recipeDetailForm);
         }
 
-        //  Find product
-        List<Product> products = null;
-        if (queryName == null || queryName.isEmpty()) {
-            products = this.productService.findAll();
-        } else {
-            StringBuilder sb = new StringBuilder(queryName.length() + 2);
-            sb.append(IConstants.PROCENT);
-            sb.append(queryName);
-            sb.append(IConstants.PROCENT);
-            products = this.productService.findByName(sb.toString());
+        // TODO Move this code in ControllerHelper
+        //  all product categories for filtering
+        ProductCategory cat = null;
+        List<ProductCategory> categories = this.productCategoryDAO.findAll();
+        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>();
+        for (ProductCategory category : categories) {
+            categoryForms.put(category.getId(), category.getName());
+            if (categoryId != null && category.getId().equals(categoryId)) {
+                cat = category;
+            }
         }
+        modelMap.addAttribute("allCategories", categoryForms);
+
+        //  Find product
+        List<Product> products = this.productService.findByNameAndCategory(queryName, cat);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (Product product : products) {
             forms.add(new ProductForm(product));

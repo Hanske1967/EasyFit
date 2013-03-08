@@ -35,8 +35,8 @@ public class ConsumptionHibDao implements IConsumptionDAO {
     public Consumption findByIdWithDetails (Integer id) {
         Session session = sessionFactory.getCurrentSession();
         Consumption result = (Consumption) session
-                .createQuery("from Consumption r left join fetch r.consumptionDetails link left join fetch link.product where r.id = ?")
-                .setInteger(0, id)
+                .createQuery("from Consumption r left join fetch r.consumptionDetails link left join fetch link.product where r.id = :id")
+                .setInteger("id", id)
                 .uniqueResult();
 
         return result;

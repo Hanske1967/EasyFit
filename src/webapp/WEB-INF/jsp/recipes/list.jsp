@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Web Weights - Recipes</title>
+    <title>EasyFit - Recipes</title>
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
@@ -30,7 +30,6 @@
             <td>${recipe.pointsLabel}</td>
             <td>${recipe.description}</td>
             <td class="td"><a href="./favorite?key=${recipe.id}">Favorite</a></td>
-            <td class="td"><a href="./edit?key=${recipe.id}">Edit</a></td>
             <td class="td"><a href="./delete?key=${recipe.id}">Delete</a></td>
         </tr>
     </c:forEach>

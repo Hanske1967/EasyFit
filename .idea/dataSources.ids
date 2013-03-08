@@ -2245,11 +2245,11 @@
     </table>
     <table name="consumption" schema="" catalog="webweights" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
-      <column name="user" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="user" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
       <column name="date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91" />
       <column name="points" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
       <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="consumption_ibfk_1" columns="user" ref-table="user" ref-schema="" ref-catalog="webweights" ref-columns="username" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FK_consumption_user" columns="user" ref-table="user" ref-schema="" ref-catalog="webweights" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <exported-key name="consumptiondetail_ibfk_1" table="consumptiondetail" schema="" catalog="webweights" columns="consumptionid" />
     </table>
     <table name="consumptiondetail" schema="" catalog="webweights" type="TABLE">
@@ -2271,11 +2271,20 @@
       <column name="description" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <column name="favorite" sqlType="BIT" length="1" precision="0" nullable="true" jdbcType="-7" def="YicwJw==" />
       <column name="classtype" sqlType="CHAR" length="1" precision="0" nullable="false" jdbcType="1" def="J1An" />
+      <column name="productcategoryid" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
       <primary-key name="PRIMARY" columns="id" />
-      <foreign-key name="product_ibfk_1" columns="unitid" ref-table="unit" ref-schema="" ref-catalog="webweights" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FP_PRODUCT_CATEGORY" columns="productcategoryid" ref-table="productcategory" ref-schema="" ref-catalog="webweights" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="FK_PRODUCT_USERS" columns="unitid" ref-table="unit" ref-schema="" ref-catalog="webweights" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <exported-key name="consumptiondetail_ibfk_2" table="consumptiondetail" schema="" catalog="webweights" columns="productid" />
       <exported-key name="recipe_product_link_ibfk_1" table="recipe_product_link" schema="" catalog="webweights" columns="productid" />
       <exported-key name="recipe_product_link_ibfk_2" table="recipe_product_link" schema="" catalog="webweights" columns="recipeid" />
+    </table>
+    <table name="productcategory" schema="" catalog="webweights" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="CHAR" length="50" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <exported-key name="FP_PRODUCT_CATEGORY" table="product" schema="" catalog="webweights" columns="productcategoryid" />
+      <index name="name_UNIQUE" unique="true" columns="name" />
     </table>
     <table name="recipe_product_link" schema="" catalog="webweights" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
@@ -2291,12 +2300,17 @@
       <column name="name" sqlType="CHAR" length="5" precision="0" nullable="false" jdbcType="1" />
       <column name="description" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
       <primary-key name="PRIMARY" columns="id" />
-      <exported-key name="product_ibfk_1" table="product" schema="" catalog="webweights" columns="unitid" />
+      <exported-key name="FK_PRODUCT_USERS" table="product" schema="" catalog="webweights" columns="unitid" />
     </table>
     <table name="user" schema="" catalog="webweights" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
       <column name="username" sqlType="CHAR" length="20" precision="0" nullable="false" jdbcType="1" />
       <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="firstname" sqlType="CHAR" length="30" precision="0" nullable="true" jdbcType="1" />
+      <column name="lastname" sqlType="CHAR" length="100" precision="0" nullable="true" jdbcType="1" />
+      <column name="targetweight" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="daypoints" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="extrapoints" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA==" />
       <primary-key name="PRIMARY" columns="id" />
       <exported-key name="FK_consumption_user" table="consumption" schema="" catalog="webweights" columns="user" />
       <index name="UK_user_username" unique="true" columns="username" />
