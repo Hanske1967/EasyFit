@@ -19,7 +19,9 @@
     <p>${consumptionForm.title}</p>
     <a href="./list?date=${consumptionForm.nextDate}"><img src="../images/Actions-go-next-view-icon.png" alt=">>"></a>
 
-    <p>Consummed: ${consumptionForm.pointsLabel} points</p>
+    <p>Consumed: ${consumptionForm.pointsLabel} pts,
+        Available: ${consumptionForm.dayPointsLeftLabel}/${consumptionForm.dayPoints},
+        Extra: ${consumptionForm.extraPointsLeftLabel}/${consumptionForm.extraPoints}</p>
 </h2>
 
 <c:forEach var="type" begin="1" end="6">

@@ -87,6 +87,14 @@ public class Consumption {
     }
 
     public Double getPoints () {
+        return this.points;
+    }
+
+    public void setPoints (Double points) {
+        this.points = points;
+    }
+
+    public void updatePoints () {
         if (!this.consumptionDetails.isEmpty()) {
             this.points = 0.0;
             for (ConsumptionDetail detail : this.consumptionDetails) {
@@ -94,11 +102,5 @@ public class Consumption {
                 this.points += morePoints == null ? 0.0 : morePoints;
             }
         }
-
-        return this.points;
-    }
-
-    public void setPoints (Double points) {
-        this.points = points;
     }
 }

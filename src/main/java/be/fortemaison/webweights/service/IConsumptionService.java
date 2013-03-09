@@ -32,5 +32,13 @@ public interface IConsumptionService {
 
     public void delete (Consumption consumption);
 
+    // week related API
+
+    /**
+     * @param date the date in the week to search for
+     * @param firstWeekDay is the index of the day beginning the week, as defined in <code>org.joda.time.DateTimeConstants</code>
+     * @return 7 consumptions, one for each day of the week containing the given date.
+     */
+    public List<Consumption> findForWeek (Date date, int firstWeekDay);
 
 }

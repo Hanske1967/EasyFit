@@ -22,6 +22,10 @@ public interface IConsumptionDAO {
 
     public Consumption findByDateWithDetails (Date date);
 
+    public List<Consumption> findBetweenDates (Date startDate, Date endDate);
+
+    public List<Consumption> findBetweenDatesWithDetails (Date startDate, Date endDate);
+
     public List<Consumption> findAll ();
 
     public List<Consumption> findAllWithDetails ();

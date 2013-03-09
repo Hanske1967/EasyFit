@@ -7,7 +7,6 @@ import be.fortemaison.webweights.util.Utils;
 import org.joda.time.DateMidnight;
 import org.springframework.format.annotation.NumberFormat;
 
-import java.text.DateFormat;
 import java.util.*;
 
 /**
@@ -33,6 +32,16 @@ public class ConsumptionForm {
     private int typeIndex = 1;
 
     private String[] sectionTitle;
+
+
+    private Integer dayPoints;
+
+    private Integer extraPoints;
+
+    private Double dayPointsLeft;
+
+    private Double extraPointsLeft;
+
 
     /**
      *
@@ -135,7 +144,7 @@ public class ConsumptionForm {
      * @return
      */
     public String getTitle () {
-        return "Agenda " + DateFormat.getDateInstance().format(this.date);
+        return Utils.DATE_FORMATTER.format(this.date);
     }
 
     /**
@@ -206,5 +215,45 @@ public class ConsumptionForm {
         return result;
     }
 
+
+    public Integer getDayPoints () {
+        return dayPoints;
+    }
+
+    public void setDayPoints (Integer dayPoints) {
+        this.dayPoints = dayPoints;
+    }
+
+    public Integer getExtraPoints () {
+        return extraPoints;
+    }
+
+    public void setExtraPoints (Integer extraPoints) {
+        this.extraPoints = extraPoints;
+    }
+
+    public Double getDayPointsLeft () {
+        return dayPointsLeft;
+    }
+
+    public String getDayPointsLeftLabel () {
+        return Utils.NUMBER_FORMATTER.format(dayPointsLeft);
+    }
+
+    public void setDayPointsLeft (Double dayPointsLeft) {
+        this.dayPointsLeft = dayPointsLeft;
+    }
+
+    public Double getExtraPointsLeft () {
+        return extraPointsLeft;
+    }
+
+    public String getExtraPointsLeftLabel () {
+        return Utils.NUMBER_FORMATTER.format(extraPointsLeft);
+    }
+
+    public void setExtraPointsLeft (Double extraPointsLeft) {
+        this.extraPointsLeft = extraPointsLeft;
+    }
 
 }

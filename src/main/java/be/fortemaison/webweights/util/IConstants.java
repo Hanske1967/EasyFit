@@ -9,9 +9,9 @@ package be.fortemaison.webweights.util;
  */
 public interface IConstants {
 
-    String DATE_FORMAT = "dd/MM/yyyy";
+    String DATE_FORMAT = "E dd/MM/yyyy";
 
-    String DECIMAL_PATTERN = "# ###.#";
+    String DECIMAL_PATTERN = "# ###.#;-# ###.#;0";
 
     String PROCENT = "%";
 

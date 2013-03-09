@@ -5,6 +5,7 @@ import be.fortemaison.webweights.dao.IProductDAO;
 import be.fortemaison.webweights.dao.IUserDAO;
 import be.fortemaison.webweights.model.Consumption;
 import be.fortemaison.webweights.model.User;
+import org.joda.time.DateMidnight;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -76,11 +77,10 @@ public class ConsumptionServiceImpl implements IConsumptionService {
 
     @Transactional
     public void update (Consumption consumption) {
-        List<User> users = this.userDAO.findByName("INGE");
-        if (!users.isEmpty()) {
-            User inge = users.get(0);
-            consumption.setUser(inge);
-        }
+        //  TODO remove hardcoded user INGE
+        User user = this.userDAO.findByUsername("INGE");
+        consumption.setUser(user);
+
 
         if (consumption.getId() == null) {
             this.consumptionDAO.insert(consumption);
@@ -92,6 +92,26 @@ public class ConsumptionServiceImpl implements IConsumptionService {
     @Transactional
     public void delete (Consumption consumption) {
         this.consumptionDAO.delete(consumption);
+    }
+
+    /**
+     * if dayOfWeek(date) = FRIDAY(5) and firstWeekDay = WEDNESDAY => firstDay: WEDNESDAY(3) of this week, lastDay: TUESDAY(firstDay-1) of next week
+     * if dayOfWeek(date) = FRIDAY(5) and firstWeekDay = SUNDAY => firstDay: SUNDAY(7) of this week, lastDay: SATURDAY(6 = (firstDay-1 = 0 ? 7 : firstDay-1)) of next week
+     * if dayOfWeek(date) = FRIDAY(5) and firstWeekDay = MONDAY => firstDay: MONDAY(1) of this week, lastDay: SUNDAY(7 = (firstDay-1 = 0 ? 7 : firstDay-1)) of next week
+     * if dayOfWeek(date) = FRIDAY(5) and firstWeekDay = FRIDAY => firstDay: FRIDAY(1) of this week, lastDay: THURSDAY(7 = (firstDay-1 = 0 ? 7 : firstDay-1)) of next week
+     *
+     * @param date the date in the week to search for
+     * @param firstWeekDay is the index of the day beginning the week, as defined in <code>org.joda.time.DateTimeConstants</code>
+     * @return
+     */
+    @Override
+    public List<Consumption> findForWeek (Date date, int firstWeekDay) {
+        DateMidnight dm = new DateMidnight(date.getTime());
+        DateMidnight firstDay = dm.withDayOfWeek(firstWeekDay);
+        DateMidnight lastDay = dm.withDayOfWeek((firstWeekDay - 1) == 0 ? 7 : firstWeekDay - 1); // plusDay(7) to go to next week
+
+        List<Consumption> result = this.consumptionDAO.findBetweenDates(firstDay.toDate(), lastDay.toDate());
+        return result;
     }
 
 }

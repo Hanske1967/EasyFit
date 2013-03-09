@@ -17,8 +17,6 @@ public interface IUserService {
 
     public User findByUsername (String name);
 
-    public List<User> findByName (String name);
-
     public List<User> findAll ();
 
     public void update (User user);

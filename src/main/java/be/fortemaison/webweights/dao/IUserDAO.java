@@ -15,9 +15,7 @@ public interface IUserDAO {
 
     public User findById (Integer id);
 
-    public User findByUsername (String username);
-
-    public List<User> findByName (String name);
+    public User findByUsername (String name);
 
     public List<User> findAll ();
 

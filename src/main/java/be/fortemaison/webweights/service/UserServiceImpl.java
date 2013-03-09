@@ -39,11 +39,6 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Transactional(readOnly = true)
-    public List<User> findByName (String name) {
-        return this.userDAO.findByName(name);
-    }
-
-    @Transactional(readOnly = true)
     public List<User> findAll () {
         return this.userDAO.findAll();
     }

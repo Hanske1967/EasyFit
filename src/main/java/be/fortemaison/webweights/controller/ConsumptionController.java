@@ -8,7 +8,9 @@ import be.fortemaison.webweights.form.ProductForm;
 import be.fortemaison.webweights.model.*;
 import be.fortemaison.webweights.service.IConsumptionService;
 import be.fortemaison.webweights.service.IUnitService;
+import be.fortemaison.webweights.service.IUserService;
 import be.fortemaison.webweights.util.Utils;
+import org.joda.time.DateTimeConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -55,6 +57,9 @@ public class ConsumptionController {
     @Autowired
     private IProductCategoryDAO productCategoryDAO;
 
+    @Autowired
+    private IUserService userService;
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (@RequestParam(value = "date", required = false) String date, Model model, HttpServletRequest request) {
         Date aDate = null;
@@ -78,8 +83,30 @@ public class ConsumptionController {
             }
         }
 
+        //  TODO remove hardcoded values (always INGE)
+        //  find left points for week
+        User user = this.userService.findByUsername("INGE");
+
+        Double extraPointsLeft = user.getExtraPoints().doubleValue();
+        List<Consumption> week = this.consumptionService.findForWeek(aDate, DateTimeConstants.MONDAY);
+        for (Consumption c : week) {
+            if (c.getPoints() != null && c.getPoints() > user.getDayPoints()) {
+                extraPointsLeft -= (c.getPoints() - user.getDayPoints());
+            }
+        }
+        consumptionForm.setExtraPointsLeft(extraPointsLeft);
+
+        consumptionForm.setDayPoints(user.getDayPoints());
+        consumptionForm.setExtraPoints(user.getExtraPoints());
+
+        Double pointsLeft = user.getDayPoints().doubleValue() - (consumption == null ? 0 : consumption.getPoints());
+        pointsLeft = pointsLeft < 0 ? 0 : pointsLeft;
+        consumptionForm.setDayPointsLeft(pointsLeft);
+
+
         model.addAttribute("consumptionForm", consumptionForm);
 
+        //  labels of consumption type (lunch, diner...)
         int maxTitles = ConsumptionDetailType.ALL.length;
         String[] sectionTitles = new String[maxTitles];
         String prefix = "ConsumptionDetailType.";
