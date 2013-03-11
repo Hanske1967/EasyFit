@@ -6,32 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e197f8ed-8963-42df-ab0c-2cf6668138c1" name="EasyFit-24 Foreign key error (consumption - user)" comment="">
-      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\install\sql\example.hql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EasyFit.iml" afterPath="$PROJECT_DIR$/EasyFit.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Recipe.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Recipe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/create.sql" afterPath="$PROJECT_DIR$/install/sql/create.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc-datasources.xml" afterPath="$PROJECT_DIR$/src/main/resources/jdbc-datasources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/populate.sql" afterPath="$PROJECT_DIR$/install/sql/populate.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/theme.css" afterPath="$PROJECT_DIR$/src/webapp/theme.css" />
+    <list default="true" id="e197f8ed-8963-42df-ab0c-2cf6668138c1" name="EasyFit-24 Foreign key error (consumption - user)" comment="EasyFit-24 Foreign key error (consumption - user)">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebWeights.iws" />
@@ -50,7 +26,7 @@
     <file path="/clear.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880207193" ignored="false" />
     <file path="/Data Source" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360881591647" ignored="false" />
     <file path="/a.regexp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359410205111" ignored="false" />
-    <file path="/Dummy.txt" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363033354324" ignored="false" />
+    <file path="/Dummy.txt" changelist="e197f8ed-8963-42df-ab0c-2cf6668138c1" time="1363039144501" ignored="false" />
     <file path="/product.hbm.xml" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362736831850" ignored="false" />
     <file path="/example.hql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359912598562" ignored="false" />
     <file path="/product_all.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359456053944" ignored="false" />
@@ -179,6 +155,7 @@
     <file path="/WeekConsumptionForm.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362780949728" ignored="false" />
     <file path="/jdbc-datasources.xml" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362910992613" ignored="false" />
     <file path="/Samsung" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362911099696" ignored="false" />
+    <file path="/.gitignore" changelist="e197f8ed-8963-42df-ab0c-2cf6668138c1" time="1363039338443" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,10 +294,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsumptionController.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ConsumptionController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="255" column="0" selection-start="10253" selection-end="10253" vertical-scroll-proportion="0.31306306">
+            <state line="255" column="0" selection-start="10253" selection-end="10253" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="422" selection-end="422" vertical-scroll-proportion="0.9256017">
               <folding />
             </state>
           </provider>
@@ -361,7 +347,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" />
         <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
         <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
         <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
@@ -377,6 +362,7 @@
         <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
         <option value="$PROJECT_DIR$/install/sql/create.sql" />
         <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1096,250 +1082,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="webapp">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="webapp">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="WEB-INF">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="webapp">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="WEB-INF">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="jsp">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="webapp">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="WEB-INF">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="jsp">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="consumptions">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="be/fortemaison/webweights">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="be/fortemaison/webweights">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="service">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="be/fortemaison/webweights">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="model">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EasyFit">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="be/fortemaison/webweights">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="controller">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -2076,7 +1818,11 @@
       <option name="type" value="BUG" />
       <updated>1363039124878</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="EasyFit-24 Foreign key error (consumption - user)">
+      <created>1363039156457</created>
+      <updated>1363039156457</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <option name="clearContext" value="false" />
     <option name="searchClosedTasks" value="true" />
     <servers>
@@ -2191,7 +1937,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-7 Add week total points" />
+    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-24 Foreign key error (consumption - user)" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2225,6 +1971,7 @@
     <MESSAGE value="EasyFit-14 Add green products" />
     <MESSAGE value="EasyFit-4 Datasource management via JNDI" />
     <MESSAGE value="EasyFit-7 Add week total points" />
+    <MESSAGE value="EasyFit-24 Foreign key error (consumption - user)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2242,13 +1989,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="77" selection-start="1527" selection-end="1527" vertical-scroll-proportion="-11.115385">
@@ -2351,7 +2091,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="0" selection-start="10253" selection-end="10253" vertical-scroll-proportion="0.31306306">
+        <state line="255" column="0" selection-start="10253" selection-end="10253" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="422" selection-end="422" vertical-scroll-proportion="0.9256017">
           <folding />
         </state>
       </provider>
