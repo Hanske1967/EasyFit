@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="be.fortemaison.easyfit.model">
+
+    <class name="ConsumptionDetail" table="consumptiondetail">
+
+        <id name="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="type"/>
+
+        <property name="amount"/>
+
+        <many-to-one name="consumption" class="Consumption" column="consumptionid"/>
+
+        <many-to-one name="product" class="ProductAncestor" column="productid" cascade="none"/>
+
+    </class>
+</hibernate-mapping>

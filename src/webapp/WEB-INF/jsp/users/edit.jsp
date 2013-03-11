@@ -36,17 +36,17 @@
             <form:label path="userName">
                 User name:<form:errors path="userName" cssClass="error"/>
             </form:label>
-            <form:input path="userName" maxlength="20" autofocus="true"/>
+            <form:input path="userName" size="10" maxlength="20" autofocus="true"/>
 
             <form:label path="firstName">
                 First name:<form:errors path="firstName" cssClass="error"/>
             </form:label>
-            <form:input path="firstName" maxlength="30"/>
+            <form:input path="firstName" size="30" maxlength="30"/>
 
             <form:label path="lastName">
                 Last name:<form:errors path="lastName" cssClass="error"/>
             </form:label>
-            <form:input path="lastName" maxlength="100"/>
+            <form:input path="lastName" size="50" maxlength="100"/>
 
             <form:label path="targetWeight">
                 Target weight:<form:errors path="targetWeight" cssClass="error"/>

@@ -14,13 +14,13 @@
         </property>
         <property name="mappingResources">
             <list>
-                <value>be/fortemaison/webweights/model/unit.hbm.xml</value>
-                <value>be/fortemaison/webweights/model/product.hbm.xml</value>
-                <value>be/fortemaison/webweights/model/productcategory.hbm.xml</value>
-                <value>be/fortemaison/webweights/model/recipeproductlink.hbm.xml</value>
-                <value>be/fortemaison/webweights/model/user.hbm.xml</value>
-                <value>be/fortemaison/webweights/model/consumption.hbm.xml</value>
-                <value>be/fortemaison/webweights/model/consumptiondetail.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/unit.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/product.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/productcategory.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/recipeproductlink.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/user.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/consumption.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/consumptiondetail.hbm.xml</value>
             </list>
         </property>
     </bean>

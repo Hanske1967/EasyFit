@@ -39,7 +39,7 @@
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
-            <form:input path="name"/>
+            <form:input path="name" size="50" maxlength="255"/>
 
             <form:label path="categoryId">
                 Category <form:errors path="categoryId" cssClass="error"/>
@@ -49,7 +49,7 @@
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>
             </form:label>
-            <form:input path="description"/>
+            <form:input path="description" size="50" maxlength="255"/>
 
             <form:label path="pointsLabel">
                 Points: <form:errors path="pointsLabel" cssClass="error"/>

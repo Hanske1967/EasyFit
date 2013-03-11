@@ -5,24 +5,24 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="userService" class="be.fortemaison.webweights.service.UserServiceImpl">
+    <bean id="userService" class="be.fortemaison.easyfit.service.UserServiceImpl">
         <property name="userDAO" ref="userDAO"/>
     </bean>
 
-    <bean id="unitService" class="be.fortemaison.webweights.service.UnitServiceImpl">
+    <bean id="unitService" class="be.fortemaison.easyfit.service.UnitServiceImpl">
         <property name="unitDAO" ref="unitDAO"/>
     </bean>
 
-    <bean id="productService" class="be.fortemaison.webweights.service.ProductServiceImpl">
+    <bean id="productService" class="be.fortemaison.easyfit.service.ProductServiceImpl">
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
-    <bean id="recipeService" class="be.fortemaison.webweights.service.RecipeServiceImpl">
+    <bean id="recipeService" class="be.fortemaison.easyfit.service.RecipeServiceImpl">
         <property name="recipeDAO" ref="recipeDAO"/>
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
-    <bean id="consumptionService" class="be.fortemaison.webweights.service.ConsumptionServiceImpl">
+    <bean id="consumptionService" class="be.fortemaison.easyfit.service.ConsumptionServiceImpl">
         <property name="consumptionDAO" ref="consumptionDAO"/>
         <property name="productDAO" ref="productDAO"/>
         <property name="userDAO" ref="userDAO"/>

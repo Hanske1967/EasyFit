@@ -30,6 +30,6 @@
         </property>
     </bean>
 
-    <context:component-scan base-package="be.fortemaison.webweights.controller"/>
+    <context:component-scan base-package="be.fortemaison.easyfit.controller"/>
 
 </beans>
