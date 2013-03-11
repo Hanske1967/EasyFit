@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
-<body onload="document.getElementById('userName').focus();">
+<body>
 
 <jsp:include page="../navigation.jsp"/>
 <div id="stylized" class="myform">
@@ -36,7 +36,7 @@
             <form:label path="userName">
                 User name:<form:errors path="userName" cssClass="error"/>
             </form:label>
-            <form:input path="userName" maxlength="20"/>
+            <form:input path="userName" maxlength="20" autofocus="true"/>
 
             <form:label path="firstName">
                 First name:<form:errors path="firstName" cssClass="error"/>
@@ -70,17 +70,6 @@
         </p>
     </form:form>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#form").submit(function () {
-                $.post($(this).attr("action"), $(this).serialize(), function (html) {
-                    $("#myform").replaceWith(html);
-                    $('html, body').animate({ scrollTop: $("#message").offset().top }, 500);
-                });
-                return false;
-            });
-        });
-    </script>
 </div>
 </body>
 </html>

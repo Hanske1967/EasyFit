@@ -3,6 +3,7 @@ package be.fortemaison.webweights.dao.hibernate;
 import be.fortemaison.webweights.dao.IProductAndRecipeDAO;
 import be.fortemaison.webweights.model.ProductAncestor;
 import be.fortemaison.webweights.model.ProductCategory;
+import be.fortemaison.webweights.util.IConstants;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,8 +25,17 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     @Override
     @Transactional(readOnly = true)
     public List<ProductAncestor> findByName (String name) {
+        String param = name;
+        if (!name.contains(IConstants.PROCENT)) {
+            StringBuilder sb = new StringBuilder(name.length() + 2);
+            sb.append(IConstants.PROCENT);
+            sb.append(name);
+            sb.append(IConstants.PROCENT);
+            param = sb.toString();
+        }
+
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor r where r.name like :name order by r.name").setString("name", name).list();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor r where r.name like :name order by r.name").setString("name", param).list();
         return result;
     }
 

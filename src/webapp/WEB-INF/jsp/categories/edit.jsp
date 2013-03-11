@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
-<body onload="document.getElementById('name').focus();">
+<body>
 <jsp:include page="../navigation.jsp"/>
 <div id="stylized" class="myform">
     <form:form id="form" name="form" method="post" modelAttribute="productCategoryForm">
@@ -33,7 +33,7 @@
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
-            <form:input path="name" maxlength="50"/>
+            <form:input path="name" maxlength="50" size="50" autofocus="true"/>
 
         </fieldset>
 

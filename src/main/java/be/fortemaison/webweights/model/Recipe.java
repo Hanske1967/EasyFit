@@ -1,5 +1,6 @@
 package be.fortemaison.webweights.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Set;
  */
 public class Recipe extends ProductAncestor {
 
-    private Set<RecipeDetail> recipeDetails;
+    private Set<RecipeDetail> recipeDetails = new HashSet<RecipeDetail>();
 
     /**
      *

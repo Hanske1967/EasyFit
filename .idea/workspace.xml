@@ -2,43 +2,55 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="EasyFits:war Archive" />
+      <artifact name="EasyFit:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" name="EasyFit-7 Add week total points" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Consumption.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Consumption.java" />
+    <list default="true" id="e197f8ed-8963-42df-ab0c-2cf6668138c1" name="EasyFit-24 Foreign key error (consumption - user)" comment="">
+      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\install\sql\example.hql" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionForm.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/util/IConstants.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/util/IConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IConsumptionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IConsumptionDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IConsumptionService.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IConsumptionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IUserDAO.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IUserDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IUserService.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/UserHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/UserHibDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EasyFit.iml" afterPath="$PROJECT_DIR$/EasyFit.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Recipe.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Recipe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/create.sql" afterPath="$PROJECT_DIR$/install/sql/create.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc-datasources.xml" afterPath="$PROJECT_DIR$/src/main/resources/jdbc-datasources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/populate.sql" afterPath="$PROJECT_DIR$/install/sql/populate.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/theme.css" afterPath="$PROJECT_DIR$/src/webapp/theme.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebWeights.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/sessionFactory" changelist="7f667ef2-cacd-4603-a11f-d81071d0155a" time="1362517255880" ignored="false" />
+    <file path="/sessionFactory" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363037758887" ignored="false" />
     <file path="/web.xml" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362519422207" ignored="false" />
     <file path="/applicationContext.xml" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755459816" ignored="false" />
-    <file path="/DummyFile.xpath" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359364957280" ignored="false" />
+    <file path="/DummyFile.xpath" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363034255386" ignored="false" />
     <file path="/dispatcher-servlet.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361137948025" ignored="false" />
     <file path="/ScaleController.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359747605591" ignored="false" />
     <file path="/Receipt.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359390722335" ignored="false" />
     <file path="/recipe.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360192395189" ignored="false" />
-    <file path="/Recipe.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739201128" ignored="false" />
+    <file path="/Recipe.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363037063981" ignored="false" />
     <file path="/hibernate.xml" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362342798496" ignored="false" />
-    <file path="/populate.sql" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738530491" ignored="false" />
+    <file path="/populate.sql" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363036197971" ignored="false" />
     <file path="/clear.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880207193" ignored="false" />
     <file path="/Data Source" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360881591647" ignored="false" />
     <file path="/a.regexp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359410205111" ignored="false" />
-    <file path="/Dummy.txt" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362824280144" ignored="false" />
+    <file path="/Dummy.txt" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363033354324" ignored="false" />
     <file path="/product.hbm.xml" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362736831850" ignored="false" />
     <file path="/example.hql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359912598562" ignored="false" />
     <file path="/product_all.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359456053944" ignored="false" />
@@ -50,14 +62,14 @@
     <file path="/ScaleFormController.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359475405101" ignored="false" />
     <file path="/ScaleForm.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359752932138" ignored="false" />
     <file path="/scales.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359475058629" ignored="false" />
-    <file path="/list.jsp" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362781820413" ignored="false" />
+    <file path="/list.jsp" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363037274932" ignored="false" />
     <file path="/ProductForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362736951335" ignored="false" />
-    <file path="/edit.jsp" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737417212" ignored="false" />
+    <file path="/edit.jsp" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363037455227" ignored="false" />
     <file path="/style.css" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359586295356" ignored="false" />
     <file path="/Scale.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359586810778" ignored="false" />
     <file path="/IProductDAO.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362694417613" ignored="false" />
-    <file path="/ProductHibDao.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362694482051" ignored="false" />
-    <file path="/ProductServiceImpl.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362734131554" ignored="false" />
+    <file path="/ProductHibDao.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038088434" ignored="false" />
+    <file path="/ProductServiceImpl.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038013449" ignored="false" />
     <file path="/ScaleServiceImpl.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359722574695" ignored="false" />
     <file path="/ThemeResolver.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359730186674" ignored="false" />
     <file path="/theme.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361054496120" ignored="false" />
@@ -68,10 +80,10 @@
     <file path="/fragment.js" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359753108626" ignored="false" />
     <file path="/list.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359843088902" ignored="false" />
     <file path="/theme-default.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359843068252" ignored="false" />
-    <file path="/theme.css" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362735811930" ignored="false" />
+    <file path="/theme.css" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363035040177" ignored="false" />
     <file path="/index.html" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359910688670" ignored="false" />
     <file path="/unit.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359922562336" ignored="false" />
-    <file path="/create.sql" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738494294" ignored="false" />
+    <file path="/create.sql" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038511381" ignored="false" />
     <file path="/drop.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880262620" ignored="false" />
     <file path="/hibdao.xml" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362692244809" ignored="false" />
     <file path="/views.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359920770666" ignored="false" />
@@ -92,16 +104,16 @@
     <file path="/RecipeProductLink.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360254736729" ignored="false" />
     <file path="/recipeproductlink.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360272527121" ignored="false" />
     <file path="/RecipeDetailForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737778662" ignored="false" />
-    <file path="/editdetail.jsp" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362696298305" ignored="false" />
+    <file path="/editdetail.jsp" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038263551" ignored="false" />
     <file path="/search.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360613589270" ignored="false" />
     <file path="/find.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360615408734" ignored="false" />
-    <file path="/findproduct.jsp" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362695240882" ignored="false" />
+    <file path="/findproduct.jsp" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363037292809" ignored="false" />
     <file path="/User.java" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362433998388" ignored="false" />
     <file path="/user.hbm.xml" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362434024159" ignored="false" />
     <file path="/UserHibDao.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362781983147" ignored="false" />
     <file path="/UserForm.java" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362434112664" ignored="false" />
     <file path="/Comsumption.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360789079793" ignored="false" />
-    <file path="/consumption.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360916024615" ignored="false" />
+    <file path="/consumption.hbm.xml" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038669334" ignored="false" />
     <file path="/ConsumptionDetail.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362738037636" ignored="false" />
     <file path="/ConsumptionDetailType.java" changelist="16df255c-5ea9-464c-95ee-0172529a2626" time="1362084819378" ignored="false" />
     <file path="/consumptiondetail.hbm.xml" changelist="7fed11e8-443e-4c31-8d90-e4b4f9b19dd3" time="1362303164153" ignored="false" />
@@ -112,7 +124,7 @@
     <file path="/ConsumptionServiceImpl.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362782520990" ignored="false" />
     <file path="/ConsumptionDetailForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362739774505" ignored="false" />
     <file path="/ConsumptionForm.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362827272138" ignored="false" />
-    <file path="/ConsumptionController.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362825964692" ignored="false" />
+    <file path="/ConsumptionController.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038368307" ignored="false" />
     <file path="/PersistentDateMidnight.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360913364899" ignored="false" />
     <file path="/messages.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360921916992" ignored="false" />
     <file path="/a.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360923580959" ignored="false" />
@@ -149,7 +161,7 @@
     <file path="/Test.html" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362426656114" ignored="false" />
     <file path="/*.regexp" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362431706270" ignored="false" />
     <file path="/UnitForm.java" changelist="2e3a5fcb-2b60-478d-b336-8fa285aebd71" time="1362435674312" ignored="false" />
-    <file path="/ProductAndRecipeHibDao.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362734323647" ignored="false" />
+    <file path="/ProductAndRecipeHibDao.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038112576" ignored="false" />
     <file path="F:/Devs/Workspace/EasyFit/install/sql/clear.sql" changelist="c38c636e-3560-46bf-9a5b-f6d33d06abb6" time="1362679204357" ignored="false" />
     <file path="F:/Devs/Workspace/EasyFit/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" changelist="c38c636e-3560-46bf-9a5b-f6d33d06abb6" time="1362679238558" ignored="false" />
     <file path="F:/Devs/Workspace/EasyFit/src/main/java/be/fortemaison/webweights/controller/ProductController.java" changelist="c38c636e-3560-46bf-9a5b-f6d33d06abb6" time="1362679238558" ignored="false" />
@@ -165,6 +177,8 @@
     <file path="/a.txt" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755094144" ignored="false" />
     <file path="/jndi-datasources.xml" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755672035" ignored="false" />
     <file path="/WeekConsumptionForm.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362780949728" ignored="false" />
+    <file path="/jdbc-datasources.xml" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362910992613" ignored="false" />
+    <file path="/Samsung" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362911099696" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,9 +203,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -234,6 +245,41 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" line="47" class="be.fortemaison.webweights.dao.hibernate.ProductHibDao" package="be.fortemaison.webweights.dao.hibernate">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint class_name="java.lang.NullPointerException" package_name="java.lang">
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+    </exception_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -244,28 +290,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IConstants.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/util/IConstants.java">
+      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="28" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
+            <state line="21" column="38" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsumptionForm.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionForm.java">
+      <file leaf-file-name="user.hbm.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/user.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="15" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.26153848">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/util/Utils.java">
+      <file leaf-file-name="consumption.hbm.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
+            <state line="13" column="60" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConsumptionController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="255" column="0" selection-start="10253" selection-end="10253" vertical-scroll-proportion="0.31306306">
               <folding />
             </state>
           </provider>
@@ -306,22 +361,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/out/artifacts/EasyFit/WEB-INF/classes/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IConsumptionService.java" />
-        <option value="dbtable:/a6519c0f/7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd/webweights..consumption" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/WeekConsumptionForm.java" />
-        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IUserDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/UserHibDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IConsumptionDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Consumption.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/util/IConstants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java" />
+        <option value="$PROJECT_DIR$/install/sql/create.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml" />
       </list>
     </option>
   </component>
@@ -508,12 +563,16 @@
       <sortByType Scope="false" ProjectPane="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
+      <pane id="PackagesPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyFit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1194,7 +1253,33 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="util">
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="EasyFit">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="be/fortemaison/webweights">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="service">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -1224,6 +1309,10 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="model">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -1250,23 +1339,19 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="form">
+            <PATH_ELEMENT USER_OBJECT="controller">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
+      <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1302,7 +1387,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="false" />
@@ -1313,7 +1398,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../apache-tomcat-7.0.35/webapps/easyfit" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/install/sql" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="webweights" />
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
@@ -1349,12 +1434,12 @@
     </servers>
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="junit.framework.TestCase" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="be.fortemaison.webweights.dao.hibernate" />
       <recent name="be.fortemaison.webweights.service" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="be.fortemaison.webweights.dao" />
@@ -1375,19 +1460,19 @@
       <recent name="be.fortemaison.webweights.service" />
       <recent name="be.fortemaison.webweights.dao" />
     </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="be.fortemaison.persistence" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="be.fortemaison.webweights.dao.hibernate" />
+      <recent name="be.fortemaison.webweights.dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Devs\Workspace\EasyFit\install\sql" />
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp" />
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp\WEB-INF" />
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp\WEB-INF\jsp" />
       <recent name="C:\Devs\Workspace\EasyFit\src" />
-      <recent name="C:\Devs\Workspace\EasyFit\src\main" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="be.fortemaison.webweights.dao.hibernate" />
-      <recent name="be.fortemaison.webweights.dao" />
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="be.fortemaison.persistence" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.WebWeights on Tomcat">
@@ -1978,14 +2063,20 @@
       <created>1359318448595</created>
       <updated>1362341936898</updated>
     </task>
-    <task active="true" id="EasyFit-7" summary="Add week total points">
-      <changelist id="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" name="EasyFit-7 Add week total points" comment="" />
+    <task id="EasyFit-7" summary="Add week total points">
       <created>1362080226000</created>
       <option name="issue" value="true" />
       <option name="type" value="BUG" />
-      <updated>1362776572000</updated>
+      <updated>1363039124023</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task active="true" id="EasyFit-24" summary="Foreign key error (consumption - user)">
+      <changelist id="e197f8ed-8963-42df-ab0c-2cf6668138c1" name="EasyFit-24 Foreign key error (consumption - user)" comment="" />
+      <created>1363035500000</created>
+      <option name="issue" value="true" />
+      <option name="type" value="BUG" />
+      <updated>1363039124878</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <option name="clearContext" value="false" />
     <option name="searchClosedTasks" value="true" />
     <servers>
@@ -2027,38 +2118,38 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34952766" sideWeight="0.4974227" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34817815" sideWeight="0.4974227" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25515464" sideWeight="0.6720648" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24613403" sideWeight="0.6356275" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22744845" sideWeight="0.23346828" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22809279" sideWeight="0.6356275" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22551547" sideWeight="0.65182185" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24935567" sideWeight="0.6359946" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6261808" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26030928" sideWeight="0.6702557" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3508772" sideWeight="0.5006443" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38191634" sideWeight="0.49806702" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34952766" sideWeight="0.49806702" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38191634" sideWeight="0.4974227" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26319176" sideWeight="0.23211876" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32947233" sideWeight="0.65629226" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.48389176" sideWeight="0.5721997" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32253712" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22072072" sideWeight="0.37618405" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24291237" sideWeight="0.64912283" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24291237" sideWeight="0.61808366" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4002574" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839838" sideWeight="0.65629226" order="11" side_tool="true" content_ui="tabs" x="333" y="238" width="468" height="463" />
       <window_info id="Application Servers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22873712" sideWeight="0.3616734" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22744845" sideWeight="0.64912283" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22744845" sideWeight="0.65182185" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36437246" sideWeight="0.49226806" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4493927" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" x="92" y="92" width="1416" height="676" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42645073" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24935567" sideWeight="0.6707153" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270525" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974428" sideWeight="0.4974227" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32388663" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6261808" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39811066" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2100,7 +2191,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-4 Datasource management via JNDI" />
+    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-7 Add week total points" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2133,6 +2224,7 @@
     <MESSAGE value="EasyFit-11 add category to product" />
     <MESSAGE value="EasyFit-14 Add green products" />
     <MESSAGE value="EasyFit-4 Datasource management via JNDI" />
+    <MESSAGE value="EasyFit-7 Add week total points" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2150,114 +2242,116 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IUserDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="15" selection-start="345" selection-end="345" vertical-scroll-proportion="0.39285713">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/IConsumptionDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="29" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+        <state line="35" column="77" selection-start="1527" selection-end="1527" vertical-scroll-proportion="-11.115385">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/IConsumptionService.java">
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="29" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.0">
+        <state line="62" column="37" selection-start="2458" selection-end="2458" vertical-scroll-proportion="0.2093596">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../../joda-time-2.1/joda-time-2.1-sources.jar!/org/joda/time/base/AbstractInstant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/RecipeHibDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="0" selection-start="7896" selection-end="7896" vertical-scroll-proportion="0.0">
+        <state line="21" column="72" selection-start="615" selection-end="615" vertical-scroll-proportion="-0.3579952">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/commons-logging-1.1.1.jar!/org/apache/commons/logging/impl/Log4JLogger.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="19" selection-start="2053" selection-end="2053" vertical-scroll-proportion="-13.44">
+        <state line="71" column="59" selection-start="2526" selection-end="2526" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/ConsumptionDetail.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="211" selection-end="211" vertical-scroll-proportion="-2.2505496">
+        <state line="42" column="37" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/Consumption.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductHibDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="85" selection-start="1966" selection-end="1966" vertical-scroll-proportion="0.0">
+        <state line="38" column="0" selection-start="1168" selection-end="1475" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ProductAndRecipeHibDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="11.769231">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="45" selection-start="1232" selection-end="1232" vertical-scroll-proportion="0.6280788">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/service/ConsumptionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="71" selection-start="3968" selection-end="3968" vertical-scroll-proportion="0.0">
+        <state line="78" column="0" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/dao/hibernate/ConsumptionHibDao.java">
+    <entry file="file://$PROJECT_DIR$/install/sql/create.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="72" selection-start="4526" selection-end="4526" vertical-scroll-proportion="0.0">
+        <state line="60" column="67" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.35416666">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/text/DecimalFormat.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="431" column="11" selection-start="18041" selection-end="18041" vertical-scroll-proportion="0.0">
+        <state line="21" column="38" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/user.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/model/consumption.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="60" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/controller/ConsumptionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="3548" selection-end="3548" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="70" selection-start="256" selection-end="256" vertical-scroll-proportion="-3.2692308">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_13/src.zip!/java/text/SimpleDateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="565" column="80" selection-start="22054" selection-end="22054" vertical-scroll-proportion="0.61538464">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/util/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/util/IConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/webweights/form/ConsumptionForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="15" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.26153848">
+        <state line="255" column="0" selection-start="10253" selection-end="10253" vertical-scroll-proportion="0.31306306">
           <folding />
         </state>
       </provider>
@@ -2270,9 +2364,9 @@
           <artifact-editor>
             <show-content>
               <type id="library" />
-              <type id="javaee-facet-resources" />
-              <type id="artifact" />
               <type id="jpa-descriptors" />
+              <type id="artifact" />
+              <type id="javaee-facet-resources" />
             </show-content>
           </artifact-editor>
           <last-edited>EasyFit:war exploded</last-edited>
@@ -2288,7 +2382,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Hibernate (EasyFit)|Hibernate</last-edited>
+          <last-edited>Spring (EasyFit)|Spring</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

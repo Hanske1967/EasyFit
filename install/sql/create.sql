@@ -1,4 +1,6 @@
-USE webweights;
+CREATE DATABASE easyfit;
+
+USE easyfit;
 
 CREATE TABLE user
 (
@@ -34,6 +36,7 @@ CREATE TABLE product
   unitid            INT                 NOT NULL,
   amount            DECIMAL(10, 2),
   points            DECIMAL(10, 2),
+  maxpoints         INT,
   description       VARCHAR(255),
   favorite          BIT DEFAULT b'0',
   classtype         CHAR(1) DEFAULT 'P' NOT NULL,
@@ -55,10 +58,10 @@ CREATE TABLE recipe_product_link
 CREATE TABLE consumption
 (
   id     INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  user   CHAR(20),
+  userid INT,
   date   DATE            NOT NULL,
   points DECIMAL(10, 2),
-  FOREIGN KEY (user) REFERENCES user (username)
+  FOREIGN KEY (userid) REFERENCES user (id)
 );
 
 

@@ -4,7 +4,6 @@ import be.fortemaison.webweights.dao.IConsumptionDAO;
 import be.fortemaison.webweights.dao.IProductDAO;
 import be.fortemaison.webweights.dao.IUserDAO;
 import be.fortemaison.webweights.model.Consumption;
-import be.fortemaison.webweights.model.User;
 import org.joda.time.DateMidnight;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -77,11 +76,6 @@ public class ConsumptionServiceImpl implements IConsumptionService {
 
     @Transactional
     public void update (Consumption consumption) {
-        //  TODO remove hardcoded user INGE
-        User user = this.userDAO.findByUsername("INGE");
-        consumption.setUser(user);
-
-
         if (consumption.getId() == null) {
             this.consumptionDAO.insert(consumption);
         } else {

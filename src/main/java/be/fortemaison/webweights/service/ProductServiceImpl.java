@@ -3,7 +3,6 @@ package be.fortemaison.webweights.service;
 import be.fortemaison.webweights.dao.IProductDAO;
 import be.fortemaison.webweights.model.Product;
 import be.fortemaison.webweights.model.ProductCategory;
-import be.fortemaison.webweights.util.IConstants;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,12 +39,8 @@ public class ProductServiceImpl implements IProductService {
         if (StringUtils.isEmpty(name)) {
             return this.productDAO.findAll();
         }
-        StringBuilder sb = new StringBuilder(name.length() + 2);
-        sb.append(IConstants.PROCENT);
-        sb.append(name);
-        sb.append(IConstants.PROCENT);
 
-        return this.productDAO.findByName(sb.toString());
+        return this.productDAO.findByName(name);
     }
 
     @Override

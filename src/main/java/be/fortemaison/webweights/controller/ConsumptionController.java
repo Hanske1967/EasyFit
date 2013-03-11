@@ -251,6 +251,10 @@ public class ConsumptionController {
             consumption = this.consumptionService.findByIdWithDetails(consumptionId);
         }
 
+        //  TODO remove hardcoded user INGE
+        User user = this.userService.findByUsername("INGE");
+        consumption.setUser(user);
+
         if (consumptionDetailForm.getId() != null) {
             for (ConsumptionDetail detail : consumption.getConsumptionDetails()) {
                 if (detail.getId().equals(consumptionDetailForm.getId())) {

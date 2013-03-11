@@ -16,7 +16,7 @@
 <div>
     <form action="./list" method="get">
         <p>Name:
-            <input type="text" name="queryName" value="${queryName}"/>
+            <input type="text" name="queryName" value="${queryName}" autofocus="true"/>
             <select name="category" value="${category}">
                 <option value="">---</option>
                 <c:forEach items="${allCategories}" var="cat">

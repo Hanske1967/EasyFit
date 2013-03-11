@@ -3,6 +3,7 @@ package be.fortemaison.webweights.dao.hibernate;
 import be.fortemaison.webweights.dao.IProductDAO;
 import be.fortemaison.webweights.model.Product;
 import be.fortemaison.webweights.model.ProductCategory;
+import be.fortemaison.webweights.util.IConstants;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -35,8 +36,17 @@ public class ProductHibDao implements IProductDAO {
 
     @Transactional(readOnly = true)
     public List<Product> findByName (String name) {
+        String param = name;
+        if (!name.contains(IConstants.PROCENT)) {
+            StringBuilder sb = new StringBuilder(name.length() + 2);
+            sb.append(IConstants.PROCENT);
+            sb.append(name);
+            sb.append(IConstants.PROCENT);
+            param = sb.toString();
+        }
+
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where name like ? order by favorite desc, name").setString(0, name).list();
+        List<Product> result = (List<Product>) session.createQuery("from Product where name like ? order by favorite desc, name").setString(0, param).list();
         return result;
     }
 

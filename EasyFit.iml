@@ -16,11 +16,11 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset1" name="XML Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/jdbc-datasources.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/hibdao.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/hibernate.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/services.xml</file>
-          <file>jar://$MODULE_DIR$/lib/spring-jdbc.jar!/org/springframework/jdbc/support/sql-error-codes.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/jndi-datasources.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/datasources.xml</file>
+          <file>jar://$MODULE_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-jdbc-3.2.1.RELEASE.jar!/org/springframework/jdbc/support/sql-error-codes.xml</file>
         </fileset>
       </configuration>
     </facet>

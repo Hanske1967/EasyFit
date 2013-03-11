@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
-<body onload="document.getElementById('name').focus();">
+<body>
 <jsp:include page="../navigation.jsp"/>
 <div name="form" class="myform">
     <form:form id="form" action="./update" method="post" modelAttribute="recipeForm">
@@ -28,7 +28,7 @@
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
-            <form:input path="name"/>
+            <form:input path="name" autofocus="true"/>
 
             <form:label path="description">
                 Description <form:errors path="description" cssClass="error"/>

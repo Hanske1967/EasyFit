@@ -9,14 +9,15 @@
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
 </head>
 </head>
-<body onload="document.getElementById('queryName').focus()">
+<body
+">
 <jsp:include page="../navigation.jsp"/>
 <h2>Products</h2>
 
 <form id="form" method="post" action="./adddetail1?">
     <div name="search">
         <p>Name:
-            <input type="text" name="queryName" value="${queryName}"/>
+            <input type="text" name="queryName" value="${queryName}" autofocus="true"/>
             <select name="category" value="${category}">
                 <option value="">---</option>
                 <c:forEach items="${allCategories}" var="cat">
