@@ -26,7 +26,7 @@
     <file path="/clear.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880207193" ignored="false" />
     <file path="/Data Source" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360881591647" ignored="false" />
     <file path="/a.regexp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359410205111" ignored="false" />
-    <file path="/Dummy.txt" changelist="e197f8ed-8963-42df-ab0c-2cf6668138c1" time="1363039144501" ignored="false" />
+    <file path="/Dummy.txt" changelist="e197f8ed-8963-42df-ab0c-2cf6668138c1" time="1363039352158" ignored="false" />
     <file path="/product.hbm.xml" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362736831850" ignored="false" />
     <file path="/example.hql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359912598562" ignored="false" />
     <file path="/product_all.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359456053944" ignored="false" />
@@ -155,7 +155,7 @@
     <file path="/WeekConsumptionForm.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362780949728" ignored="false" />
     <file path="/jdbc-datasources.xml" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362910992613" ignored="false" />
     <file path="/Samsung" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362911099696" ignored="false" />
-    <file path="/.gitignore" changelist="e197f8ed-8963-42df-ab0c-2cf6668138c1" time="1363039338443" ignored="false" />
+    <file path="/.gitignore" changelist="e197f8ed-8963-42df-ab0c-2cf6668138c1" time="1363039450364" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -306,7 +306,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="422" selection-end="422" vertical-scroll-proportion="0.9256017">
+            <state line="33" column="8" selection-start="437" selection-end="437" vertical-scroll-proportion="0.81400436">
               <folding />
             </state>
           </provider>
@@ -1086,6 +1086,20 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="EasyFit">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="ProjectPane">
@@ -1822,7 +1836,11 @@
       <created>1363039156457</created>
       <updated>1363039156457</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="EasyFit-24 Foreign key error (consumption - user)">
+      <created>1363039356032</created>
+      <updated>1363039356032</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <option name="clearContext" value="false" />
     <option name="searchClosedTasks" value="true" />
     <servers>
@@ -1864,7 +1882,7 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34817815" sideWeight="0.4974227" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34817815" sideWeight="0.4974227" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25515464" sideWeight="0.6720648" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22744845" sideWeight="0.23346828" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2098,7 +2116,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="422" selection-end="422" vertical-scroll-proportion="0.9256017">
+        <state line="33" column="8" selection-start="437" selection-end="437" vertical-scroll-proportion="0.81400436">
           <folding />
         </state>
       </provider>
