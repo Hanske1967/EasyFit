@@ -11,9 +11,7 @@ import java.util.Set;
  * Time: 21:47
  * To change this template use File | Settings | File Templates.
  */
-public class Consumption {
-
-    private Integer id;
+public class Consumption extends CommonAncestor {
 
     private User user;
 
@@ -60,14 +58,6 @@ public class Consumption {
         for (ConsumptionDetail detail : this.consumptionDetails) {
             detail.setConsumption(null);
         }
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
     }
 
     public User getUser () {

@@ -174,3 +174,46 @@ h2 {
     display: block;
     float: left;
 }
+
+#login {
+    margin-top: 50px;
+}
+
+.center-640 {
+    margin: 0px auto 0px;
+    max-width: 640px;
+}
+
+#login_header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #9FAE00;
+    font-size: 18px;
+    font-weight: 700;
+    height: 45px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+#login_form {
+    font-size: 10pt;
+    padding: 30px 20px 28px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#gray_frame {
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    background-color: #EDEAE5;
+    overflow: hidden;
+
+    border: 1px solid #D8CFBD;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    position: relative;
+}

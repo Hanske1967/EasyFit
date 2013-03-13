@@ -21,7 +21,6 @@
         <th>Target weight</th>
         <th>Day points</th>
         <th>Extra points</th>
-        <th>Update date</th>
         <th>Actions</th>
     </tr>
 
@@ -33,7 +32,6 @@
             <td class="td">${user.targetWeight}</td>
             <td class="td">${user.dayPoints}</td>
             <td class="td">${user.extraPoints}</td>
-            <td class="td">${user.updateDateLabel}</td>
             <td class="td"><a href="./delete?key=${user.id}">Delete</a></td>
         </tr>
     </c:forEach>

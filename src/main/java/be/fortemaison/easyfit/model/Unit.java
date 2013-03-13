@@ -7,9 +7,7 @@ package be.fortemaison.easyfit.model;
  * Time: 15:39
  * To change this template use File | Settings | File Templates.
  */
-public class Unit {
-
-    private Integer id;
+public class Unit extends CommonAncestor {
 
     private String name;
 
@@ -64,14 +62,6 @@ public class Unit {
 
     public void setName (String name) {
         this.name = name;
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
     }
 
     @Override

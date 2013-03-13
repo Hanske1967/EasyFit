@@ -46,7 +46,7 @@ public class ProductHibDao implements IProductDAO {
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where name like ? order by favorite desc, name").setString(0, param).list();
+        List<Product> result = (List<Product>) session.createQuery("from Product where name like :name order by favorite desc, name").setString("name", param).list();
         return result;
     }
 
@@ -72,7 +72,7 @@ public class ProductHibDao implements IProductDAO {
     @Transactional(readOnly = true)
     public List<Product> findFavorites () {
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where favorite = ? order by favorite desc, name").setBoolean(0, Boolean.TRUE).list();
+        List<Product> result = (List<Product>) session.createQuery("from Product where favorite = :fav order by favorite desc, name").setBoolean("fav", Boolean.TRUE).list();
         return result;
     }
 

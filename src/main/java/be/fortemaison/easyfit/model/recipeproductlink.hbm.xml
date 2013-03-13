@@ -16,5 +16,12 @@
         <many-to-one name="product" class="Product" column="productid" cascade="none"/>
 
         <property name="amount" type="double"/>
+
+        <component name="technicalSegment" class="TechnicalSegment">
+            <property name="creationDate" type="timestamp"/>
+            <property name="creationUser"/>
+            <property name="updateDate" type="timestamp"/>
+            <property name="updateUser"/>
+        </component>
     </class>
 </hibernate-mapping>

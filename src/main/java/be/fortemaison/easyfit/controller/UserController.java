@@ -3,17 +3,18 @@ package be.fortemaison.easyfit.controller;
 import be.fortemaison.easyfit.form.UserForm;
 import be.fortemaison.easyfit.model.User;
 import be.fortemaison.easyfit.service.IUserService;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,6 +27,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/users")
 public class UserController {
+
+    @Autowired
+    private Context context;
+
+    @ModelAttribute("context")
+    public Context getContext () {
+        return context;
+    }
 
     private IUserService userService;
 
@@ -88,7 +97,8 @@ public class UserController {
         }
 
         User user = userForm.getUser();
-        user.setUpdateDate(new Date());
+        ContextThreadLocal.set(getContext());
+
         this.userService.update(user);
         return "redirect:/users/list";
     }

@@ -7,9 +7,7 @@ package be.fortemaison.easyfit.model;
  * Time: 15:35
  * To change this template use File | Settings | File Templates.
  */
-public class ProductAncestor {
-
-    protected Integer id;
+public class ProductAncestor extends CommonAncestor {
 
     protected String name;
 
@@ -69,14 +67,6 @@ public class ProductAncestor {
 
     public void setDescription (String description) {
         this.description = description;
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
     }
 
     public String getName () {

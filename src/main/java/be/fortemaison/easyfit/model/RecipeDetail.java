@@ -7,9 +7,7 @@ package be.fortemaison.easyfit.model;
  * Time: 17:31
  * To change this template use File | Settings | File Templates.
  */
-public class RecipeDetail {
-
-    private Integer id;
+public class RecipeDetail extends CommonAncestor {
 
     private Recipe recipe;
 
@@ -34,14 +32,6 @@ public class RecipeDetail {
         this.recipe = recipe;
         this.product = product;
         this.amount = amount;
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
     }
 
     public Recipe getRecipe () {

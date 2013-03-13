@@ -34,8 +34,8 @@ public class RecipeHibDao implements IRecipeDAO {
     public Recipe findByIdWithDetails (Integer id) {
         Session session = sessionFactory.getCurrentSession();
         Recipe result = (Recipe) session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.id = ?")
-                .setInteger(0, id)
+                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.id = :id")
+                .setInteger("id", id)
                 .uniqueResult();
 
         return result;
@@ -44,7 +44,7 @@ public class RecipeHibDao implements IRecipeDAO {
     @Transactional(readOnly = true)
     public List<Recipe> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r where r.name like ?").setString(0, name).list();
+        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r where r.name like :name").setString("name", name).list();
         return result;
     }
 
@@ -52,8 +52,8 @@ public class RecipeHibDao implements IRecipeDAO {
     public List<Recipe> findByNameWithDetails (String name) {
         Session session = sessionFactory.getCurrentSession();
         List<Recipe> result = session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.name like ?")
-                .setString(0, name)
+                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.name like :name")
+                .setString("name", name)
                 .list();
 
         return result;
@@ -62,7 +62,7 @@ public class RecipeHibDao implements IRecipeDAO {
     @Transactional(readOnly = true)
     public List<Recipe> findFavorites () {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.favorite = ?").setBoolean(0, Boolean.TRUE).list();
+        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.favorite = :fav").setBoolean("fav", Boolean.TRUE).list();
         return result;
     }
 
@@ -70,8 +70,8 @@ public class RecipeHibDao implements IRecipeDAO {
     public List<Recipe> findFavoritesWithDetails () {
         Session session = sessionFactory.getCurrentSession();
         List<Recipe> result = session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.favorite = ?")
-                .setBoolean(0, Boolean.TRUE)
+                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.favorite = :fav")
+                .setBoolean("fav", Boolean.TRUE)
                 .list();
 
         return result;

@@ -13,8 +13,6 @@
 
         <property name="username"/>
 
-        <property name="updateDate" type="date"/>
-
         <property name="firstName"/>
 
         <property name="lastName"/>
@@ -24,6 +22,15 @@
         <property name="dayPoints"/>
 
         <property name="extraPoints"/>
+
+        <property name="password"/>
+
+        <component name="technicalSegment" class="TechnicalSegment">
+            <property name="creationDate" column="creationdate" type="timestamp"/>
+            <property name="creationUser" column="creationuser"/>
+            <property name="updateDate" column="updatedate" type="timestamp"/>
+            <property name="updateUser" column="updateuser"/>
+        </component>
 
     </class>
 </hibernate-mapping>

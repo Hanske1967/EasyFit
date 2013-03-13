@@ -1,9 +1,6 @@
 package be.fortemaison.easyfit.form;
 
 import be.fortemaison.easyfit.model.User;
-import be.fortemaison.easyfit.util.Utils;
-
-import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,9 +15,6 @@ public class UserForm {
 
     private String userName;
 
-    private Date updateDate;
-
-
     private String firstName;
 
     private String lastName;
@@ -30,6 +24,8 @@ public class UserForm {
     private Integer dayPoints;
 
     private Integer extraPoints;
+
+    public String password;
 
 
     /**
@@ -45,7 +41,6 @@ public class UserForm {
     public UserForm (final User user) {
         this.id = user.getId();
         this.userName = user.getUsername();
-        this.updateDate = user.getUpdateDate();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.targetWeight = user.getTargetWeight();
@@ -61,16 +56,12 @@ public class UserForm {
         this.id = id;
     }
 
-    public Date getUpdateDate () {
-        return updateDate;
+    public String getPassword () {
+        return password;
     }
 
-    public void setUpdateDate (Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public String getUpdateDateLabel () {
-        return Utils.DATE_FORMATTER.format(this.updateDate);
+    public void setPassword (String password) {
+        this.password = password;
     }
 
     public String getUserName () {
@@ -127,12 +118,10 @@ public class UserForm {
     public User getUser () {
         User user = new User(userName);
         user.setId(id);
-        user.setUpdateDate(updateDate);
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setDayPoints(dayPoints);
         user.setExtraPoints(extraPoints);
-        ;
         user.setTargetWeight(targetWeight);
         return user;
     }

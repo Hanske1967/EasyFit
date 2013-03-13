@@ -35,7 +35,7 @@ public class UnitHibDao implements IUnitDAO {
     @Transactional(readOnly = true)
     public List<Unit> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        List<Unit> result = (List<Unit>) session.createQuery("from Unit where name like ?").setString(0, name).list();
+        List<Unit> result = (List<Unit>) session.createQuery("from Unit where name like :name").setString("name", name).list();
         return result;
     }
 

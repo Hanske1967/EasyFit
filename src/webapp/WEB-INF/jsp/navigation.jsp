@@ -1,5 +1,7 @@
 <div>
-    <h1>EasyFit</h1>
+    <header>
+        <h1><a href="${pageContext.servletContext.contextPath}//home">EasyFit</a></h1>
+    </header>
     <nav>
         <ul>
             <li><a href="${pageContext.servletContext.contextPath}/consumptions/list">Agenda</a></li>

@@ -7,9 +7,7 @@ package be.fortemaison.easyfit.model;
  * Time: 17:31
  * To change this template use File | Settings | File Templates.
  */
-public class ProductCategory {
-
-    private Integer id;
+public class ProductCategory extends CommonAncestor {
 
     private String name;
 
@@ -23,14 +21,6 @@ public class ProductCategory {
 
     public ProductCategory (String name) {
         this.name = name;
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
     }
 
     public String getName () {

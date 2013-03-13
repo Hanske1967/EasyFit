@@ -12,6 +12,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
             </props>
         </property>
+        <property name="entityInterceptor" ref="technicalSegmentInterceptor"/>
         <property name="mappingResources">
             <list>
                 <value>be/fortemaison/easyfit/model/unit.hbm.xml</value>
@@ -32,6 +33,8 @@
     </bean>
 
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+    <bean id="technicalSegmentInterceptor" class="be.fortemaison.easyfit.interceptor.TechnicalSegmentInterceptor"/>
 
     <tx:annotation-driven/>
 

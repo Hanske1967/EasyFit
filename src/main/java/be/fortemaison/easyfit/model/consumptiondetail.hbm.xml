@@ -19,5 +19,11 @@
 
         <many-to-one name="product" class="ProductAncestor" column="productid" cascade="none"/>
 
+        <component name="technicalSegment" class="TechnicalSegment">
+            <property name="creationDate" type="timestamp"/>
+            <property name="creationUser"/>
+            <property name="updateDate" type="timestamp"/>
+            <property name="updateUser"/>
+        </component>
     </class>
 </hibernate-mapping>

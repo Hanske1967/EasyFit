@@ -5,10 +5,12 @@ import be.fortemaison.easyfit.dao.IProductCategoryDAO;
 import be.fortemaison.easyfit.form.ConsumptionDetailForm;
 import be.fortemaison.easyfit.form.ConsumptionForm;
 import be.fortemaison.easyfit.form.ProductForm;
+import be.fortemaison.easyfit.form.UserForm;
 import be.fortemaison.easyfit.model.*;
 import be.fortemaison.easyfit.service.IConsumptionService;
 import be.fortemaison.easyfit.service.IUnitService;
 import be.fortemaison.easyfit.service.IUserService;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.Utils;
 import org.joda.time.DateTimeConstants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,8 +62,18 @@ public class ConsumptionController {
     @Autowired
     private IUserService userService;
 
+    @Autowired
+    private Context context;
+
+    @ModelAttribute("context")
+    public Context getContext () {
+        return context;
+    }
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (@RequestParam(value = "date", required = false) String date, Model model, HttpServletRequest request) {
+        ContextThreadLocal.set(context);
+
         Date aDate = null;
         try {
             aDate = date == null ? new Date() : Utils.DATE_FORMATTER.parse(date);
@@ -83,9 +95,8 @@ public class ConsumptionController {
             }
         }
 
-        //  TODO remove hardcoded values (always INGE)
         //  find left points for week
-        User user = this.userService.findByUsername("INGE");
+        User user = getContext().getUser();
 
         Double extraPointsLeft = user.getExtraPoints().doubleValue();
         List<Consumption> week = this.consumptionService.findForWeek(aDate, DateTimeConstants.MONDAY);
@@ -114,6 +125,8 @@ public class ConsumptionController {
             sectionTitles[i] = this.messageSource.getMessage(prefix + (i + 1), null, new RequestContext(request).getLocale());
         }
         consumptionForm.setConsumptionDetailHeaders(sectionTitles);
+
+        model.addAttribute("userForm", new UserForm(user));
 
         return "consumptions/list";
     }
@@ -251,8 +264,7 @@ public class ConsumptionController {
             consumption = this.consumptionService.findByIdWithDetails(consumptionId);
         }
 
-        //  TODO remove hardcoded user INGE
-        User user = this.userService.findByUsername("INGE");
+        User user = getContext().getUser();
         consumption.setUser(user);
 
         if (consumptionDetailForm.getId() != null) {
@@ -271,6 +283,7 @@ public class ConsumptionController {
             consumption.addConsumptionDetail(consumptionDetail);
         }
 
+        ContextThreadLocal.set(getContext());
         this.consumptionService.update(consumption);
         status.setComplete();
 

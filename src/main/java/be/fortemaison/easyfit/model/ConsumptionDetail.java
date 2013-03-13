@@ -7,9 +7,7 @@ package be.fortemaison.easyfit.model;
  * Time: 22:06
  * To change this template use File | Settings | File Templates.
  */
-public class ConsumptionDetail {
-
-    private Integer id;
+public class ConsumptionDetail extends CommonAncestor {
 
     private int type;
 
@@ -31,14 +29,6 @@ public class ConsumptionDetail {
      */
     public ConsumptionDetail (int type) {
         this.type = type;
-    }
-
-    public Integer getId () {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
     }
 
     public int getType () {

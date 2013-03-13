@@ -30,6 +30,13 @@
         <many-to-one name="category" column="productcategoryid" class="ProductCategory" lazy="false" not-null="true"
                      cascade="none"/>
 
+        <component name="technicalSegment" class="TechnicalSegment">
+            <property name="creationDate" type="timestamp"/>
+            <property name="creationUser"/>
+            <property name="updateDate" type="timestamp"/>
+            <property name="updateUser"/>
+        </component>
+
         <subclass name="Product" discriminator-value="P"/>
 
         <subclass name="Recipe" discriminator-value="R">

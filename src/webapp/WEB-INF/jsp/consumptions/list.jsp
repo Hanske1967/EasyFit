@@ -13,6 +13,7 @@
 <jsp:include page="../navigation.jsp"/>
 
 <h2 class="date_header">
+    <p>${userForm.userName}</p>
     <a href="./list?date=${consumptionForm.previousDate}"><img src="../images/Actions-go-previous-view-icon.png"
                                                                alt="<<"></a>
 
