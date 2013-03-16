@@ -22,8 +22,6 @@ public interface IProductDAO {
 
     public List<Product> findByNameAndCategory (String name, ProductCategory category);
 
-    public List<Product> findFavorites ();
-
     public List<Product> findAll ();
 
     public void insert (Product product);

@@ -1,12 +1,12 @@
 package be.fortemaison.easyfit.controller;
 
 import be.fortemaison.easyfit.dao.IProductCategoryDAO;
+import be.fortemaison.easyfit.dao.IProductDAO;
+import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.form.ProductForm;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
 import be.fortemaison.easyfit.model.Unit;
-import be.fortemaison.easyfit.service.IProductService;
-import be.fortemaison.easyfit.service.IUnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,27 +32,14 @@ import java.util.Map;
 @RequestMapping("/products")
 public class ProductController {
 
-
+    @Autowired
     private IProductCategoryDAO categoryDAO;
 
-    private IProductService productService;
-
-    private IUnitService unitService;
+    @Autowired
+    private IProductDAO productDAO;
 
     @Autowired
-    public void setCategoryDAO (IProductCategoryDAO categoryDAO) {
-        this.categoryDAO = categoryDAO;
-    }
-
-    @Autowired
-    public void setUnitService (IUnitService unitService) {
-        this.unitService = unitService;
-    }
-
-    @Autowired
-    public void setProductService (IProductService productService) {
-        this.productService = productService;
-    }
+    private IUnitDAO unitDAO;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (@RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "category", required = false) Integer categoryId, Model model) {
@@ -69,7 +56,7 @@ public class ProductController {
         }
         model.addAttribute("allCategories", categoryForms);
 
-        List<Product> products = this.productService.findByNameAndCategory(queryName, category);
+        List<Product> products = this.productDAO.findByNameAndCategory(queryName, category);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (Product product : products) {
             forms.add(new ProductForm(product));
@@ -87,14 +74,14 @@ public class ProductController {
             ProductForm productForm = new ProductForm();
             model.addAttribute("productForm", productForm);
         } else {
-            Product product = this.productService.findById(key);
+            Product product = this.productDAO.findById(key);
             ProductForm productForm = new ProductForm(product);
             model.addAttribute("productForm", productForm);
         }
 
         // TODO Move this code in ControllerHelper
         //  store all units for combo
-        List<Unit> units = unitService.findAll();
+        List<Unit> units = unitDAO.findAll();
         Map<Integer, String> allUnits = new LinkedHashMap<Integer, String>();
         for (Unit unit : units) {
             allUnits.put(unit.getId(), unit.getName());
@@ -120,23 +107,24 @@ public class ProductController {
         Product product = (Product) formProduct.getProduct();
 
         //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
-        Unit unit = unitService.findById(formProduct.getUnitId());
+        Unit unit = unitDAO.findById(formProduct.getUnitId());
         product.setUnit(unit);
 
         //  Category returned by formProduct contains only the ID in the name property of Category instance.
         ProductCategory category = this.categoryDAO.findById(formProduct.getCategoryId());
         product.setCategory(category);
 
-        this.productService.update(product);
+        this.productDAO.update(product);
         return "redirect:/products/list";
     }
 
     @RequestMapping(value = "/favorite", method = RequestMethod.GET, params = "key")
     public String processFavorite (Integer key, Model model) {
-        Product product = this.productService.findById(key);
+        Product product = this.productDAO.findById(key);
         if (product != null) {
-            product.setFavorite(!product.isFavorite());
-            this.productService.update(product);
+            //  FIXME create a new favorite in place of changing Shared !
+            product.setShared(!product.isShared());
+            this.productDAO.update(product);
             return "redirect:/products/list";
         }
 
@@ -152,9 +140,9 @@ public class ProductController {
      */
     @RequestMapping(value = "/delete", method = RequestMethod.GET, params = "key")
     public String processDelete (Integer key, Model model) {
-        Product product = this.productService.findById(key);
+        Product product = this.productDAO.findById(key);
         if (product != null) {
-            this.productService.delete(product);
+            this.productDAO.delete(product);
             return "redirect:/products/list";
         }
 

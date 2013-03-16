@@ -30,11 +30,16 @@
         </div>
         <fieldset>
             <form:hidden path="id"/>
+
             <form:label path="name">
                 Name <form:errors path="name" cssClass="error"/>
             </form:label>
             <form:input path="name" maxlength="50" size="50" autofocus="true"/>
 
+            <form:label path="shared">
+                Shared <form:errors path="shared" cssClass="error"/>
+            </form:label>
+            <form:checkbox path="shared"/>
         </fieldset>
 
         <p>

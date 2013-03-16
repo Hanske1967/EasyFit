@@ -43,7 +43,7 @@
 
     <c:forEach items="${products}" var="product">
         <tr>
-            <td><c:if test="${product.favorite}">*</c:if> &nbsp;</td>
+            <td><c:if test="${product.shared}">*</c:if> &nbsp;</td>
             <td><a href="./edit?key=${product.id}">${product.name}</a></td>
             <td>${product.amountLabel}</td>
             <td>${product.unitLabel}</td>

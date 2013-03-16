@@ -1,0 +1,13 @@
+select prod.id, prod.name, (select id from FavoriteProduct fav where fav.productAncestor = prod) as favid from Product prod
+=> il faut alors lister toutes les colonnes
+
+
+from FavoriteProduct fav right outer join fav.productAncestor prod
+=> donne tous les favorites de tout le monde
+
+
+from FavoriteProduct fav right outer join fav.productAncestor prod where fav.user.username = 'INGE'
+=> ne liste que les favorites de INGE sans les autres produits
+
+
+Donner 2 écrans: un tableau avec tous les produits, et un autre tableau avec juste les favorits (2 tabs)

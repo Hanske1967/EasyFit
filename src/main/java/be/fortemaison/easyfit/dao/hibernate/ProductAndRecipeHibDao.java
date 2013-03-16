@@ -3,6 +3,7 @@ package be.fortemaison.easyfit.dao.hibernate;
 import be.fortemaison.easyfit.dao.IProductAndRecipeDAO;
 import be.fortemaison.easyfit.model.ProductAncestor;
 import be.fortemaison.easyfit.model.ProductCategory;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.IConstants;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.Session;
@@ -51,10 +52,9 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     @Transactional(readOnly = true)
     public List<ProductAncestor> findFavorites () {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.favorite = :favorite order by p.name").setBoolean("favorite", Boolean.TRUE).list();
+        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid order by p.name").setInteger("userid", ContextThreadLocal.get().getUser().getId()).list();
         return result;
     }
-
 
     @Override
     @Transactional(readOnly = true)

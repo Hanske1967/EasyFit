@@ -26,12 +26,12 @@
 
     <c:forEach items="${recipes}" var="recipe">
         <tr>
-            <td><c:if test="${recipe.favorite}">*</c:if> &nbsp;</td>
+            <td><c:if test="${recipe.shared}">*</c:if> &nbsp;</td>
             <td><a href="./edit?key=${recipe.id}">${recipe.name}</a></td>
             <td>${recipe.pointsLabel}</td>
             <td>${recipe.categoryLabel}</td>
             <td>${recipe.description}</td>
-            <td class="td"><a href="./favorite?key=${recipe.id}">Favorite</a></td>
+            <td class="td"><a href="./shared?key=${recipe.id}">Favorite</a></td>
             <td class="td"><a href="./delete?key=${recipe.id}">Delete</a></td>
         </tr>
     </c:forEach>

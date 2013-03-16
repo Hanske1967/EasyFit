@@ -40,10 +40,10 @@
             </form:label>
             <form:input readonly="true" path="points"/>
 
-            <form:label path="favorite">
-                Favorite <form:errors path="favorite" cssClass="error"/>
+            <form:label path="shared">
+                Favorite <form:errors path="shared" cssClass="error"/>
             </form:label>
-            <form:checkbox path="favorite"/>
+            <form:checkbox path="shared"/>
 
         </fieldset>
 

@@ -30,7 +30,7 @@ public class RecipeForm extends ProductForm {
     public RecipeForm (Recipe recipe) {
         this.id = recipe.getId();
         this.name = recipe.getName();
-        this.favorite = recipe.isFavorite();
+        this.shared = recipe.isShared();
         this.points = recipe.getPoints();
         this.description = recipe.getDescription();
         this.unitId = recipe.getUnit().getId();
@@ -51,7 +51,7 @@ public class RecipeForm extends ProductForm {
     }
 
     public void setFavorite (boolean favorite) {
-        this.favorite = favorite;
+        this.shared = favorite;
     }
 
     public List<RecipeDetailForm> getRecipeDetailForms () {
@@ -81,7 +81,7 @@ public class RecipeForm extends ProductForm {
      * @return recipe from this form, WITHOUT product.
      */
     public Recipe getRecipe () {
-        Recipe recipe = new Recipe(id, name, favorite, points, description);
+        Recipe recipe = new Recipe(id, name, shared, points, description);
         return recipe;
     }
 }

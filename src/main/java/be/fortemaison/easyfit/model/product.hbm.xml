@@ -21,7 +21,7 @@
 
         <property name="points" type="double"/>
 
-        <property name="favorite" type="boolean"/>
+        <property name="shared" type="boolean"/>
 
         <property name="maxPoints" type="integer"/>
 

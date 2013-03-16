@@ -23,6 +23,7 @@ CREATE TABLE unit
 (
   id           INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
   name         CHAR(5)                             NOT NULL,
+  shared       BIT DEFAULT 1                       NOT NULL,
   description  VARCHAR(255),
   creationdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   creationuser CHAR(20),
@@ -34,12 +35,14 @@ CREATE TABLE productcategory
 (
   id           INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
   name         CHAR(50)                            NOT NULL,
+  shared       BIT DEFAULT 1                       NOT NULL,
   creationdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   creationuser CHAR(20),
   updatedate   TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   updateuser   CHAR(20)
 );
 CREATE UNIQUE INDEX name_UNIQUE ON productcategory (name);
+
 
 CREATE TABLE product
 (
@@ -50,7 +53,7 @@ CREATE TABLE product
   points            DECIMAL(10, 2),
   maxpoints         INT,
   description       VARCHAR(255),
-  favorite          BIT DEFAULT b'0',
+  shared            BIT DEFAULT 1                       NOT NULL,
   classtype         CHAR(1) DEFAULT 'P'                 NOT NULL,
   productcategoryid INT,
   creationdate      TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -60,6 +63,17 @@ CREATE TABLE product
   FOREIGN KEY (unitid) REFERENCES unit (id),
   FOREIGN KEY (productcategoryid) REFERENCES productcategory (id)
 );
+
+CREATE TABLE favoriteproduct
+(
+  id        INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+  productid INT              NOT NULL,
+  userid    INT              NOT NULL,
+  FOREIGN KEY (productid) REFERENCES product (id),
+  FOREIGN KEY (userid) REFERENCES user (id)
+);
+CREATE UNIQUE INDEX UK_favoriteproduct ON favoriteproduct (productid, userid);
+
 
 CREATE TABLE recipe_product_link
 (

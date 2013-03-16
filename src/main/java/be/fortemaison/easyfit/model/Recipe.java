@@ -25,16 +25,16 @@ public class Recipe extends ProductAncestor {
         this.name = name;
     }
 
-    public Recipe (String name, boolean favorite) {
+    public Recipe (String name, boolean shared) {
         this.name = name;
-        this.favorite = favorite;
+        this.shared = shared;
     }
 
-    public Recipe (Integer id, String name, boolean favorite, Double point, String description) {
+    public Recipe (Integer id, String name, boolean shared, Double point, String description) {
         this.id = id;
         this.name = name;
         this.points = point;
-        this.favorite = favorite;
+        this.shared = shared;
         this.description = description;
     }
 

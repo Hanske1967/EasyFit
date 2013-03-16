@@ -2,15 +2,13 @@ package be.fortemaison.easyfit.controller;
 
 import be.fortemaison.easyfit.dao.IProductAndRecipeDAO;
 import be.fortemaison.easyfit.dao.IProductCategoryDAO;
+import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.form.ConsumptionDetailForm;
 import be.fortemaison.easyfit.form.ConsumptionForm;
 import be.fortemaison.easyfit.form.ProductForm;
 import be.fortemaison.easyfit.form.UserForm;
 import be.fortemaison.easyfit.model.*;
 import be.fortemaison.easyfit.service.IConsumptionService;
-import be.fortemaison.easyfit.service.IUnitService;
-import be.fortemaison.easyfit.service.IUserService;
-import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.Utils;
 import org.joda.time.DateTimeConstants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,13 +52,10 @@ public class ConsumptionController {
     private MessageSource messageSource;
 
     @Autowired
-    private IUnitService unitService;
+    private IUnitDAO unitDAO;
 
     @Autowired
     private IProductCategoryDAO productCategoryDAO;
-
-    @Autowired
-    private IUserService userService;
 
     @Autowired
     private Context context;
@@ -72,7 +67,6 @@ public class ConsumptionController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (@RequestParam(value = "date", required = false) String date, Model model, HttpServletRequest request) {
-        ContextThreadLocal.set(context);
 
         Date aDate = null;
         try {
@@ -82,7 +76,8 @@ public class ConsumptionController {
             aDate = new Date();
         }
 
-        Consumption consumption = this.consumptionService.findByDateWithDetails(aDate);
+        ConsumptionWeek week = this.consumptionService.findForWeek(aDate, DateTimeConstants.MONDAY);
+        Consumption consumption = week.getCurrentConsumption();
         ConsumptionForm consumptionForm = null;
         if (consumption == null) {
             consumptionForm = new ConsumptionForm(aDate);
@@ -95,25 +90,10 @@ public class ConsumptionController {
             }
         }
 
-        //  find left points for week
-        User user = getContext().getUser();
-
-        Double extraPointsLeft = user.getExtraPoints().doubleValue();
-        List<Consumption> week = this.consumptionService.findForWeek(aDate, DateTimeConstants.MONDAY);
-        for (Consumption c : week) {
-            if (c.getPoints() != null && c.getPoints() > user.getDayPoints()) {
-                extraPointsLeft -= (c.getPoints() - user.getDayPoints());
-            }
-        }
-        consumptionForm.setExtraPointsLeft(extraPointsLeft);
-
-        consumptionForm.setDayPoints(user.getDayPoints());
-        consumptionForm.setExtraPoints(user.getExtraPoints());
-
-        Double pointsLeft = user.getDayPoints().doubleValue() - (consumption == null ? 0 : consumption.getPoints());
-        pointsLeft = pointsLeft < 0 ? 0 : pointsLeft;
-        consumptionForm.setDayPointsLeft(pointsLeft);
-
+        consumptionForm.setExtraPointsLeft(week.getExtraPointsLeft());
+        consumptionForm.setDayPoints(week.getDayPoints());
+        consumptionForm.setExtraPoints(week.getExtraPoints());
+        consumptionForm.setDayPointsLeft(week.getDayPointsLeft());
 
         model.addAttribute("consumptionForm", consumptionForm);
 
@@ -126,7 +106,7 @@ public class ConsumptionController {
         }
         consumptionForm.setConsumptionDetailHeaders(sectionTitles);
 
-        model.addAttribute("userForm", new UserForm(user));
+        model.addAttribute("userForm", new UserForm(getContext().getUser()));
 
         return "consumptions/list";
     }
@@ -158,7 +138,7 @@ public class ConsumptionController {
 
 
             //  store all units for combo
-            List<Unit> units = unitService.findAll();
+            List<Unit> units = unitDAO.findAll();
             Map<String, String> allUnits = new LinkedHashMap<String, String>();
             for (Unit unit : units) {
                 allUnits.put("" + unit.getId(), unit.getName());
@@ -264,9 +244,6 @@ public class ConsumptionController {
             consumption = this.consumptionService.findByIdWithDetails(consumptionId);
         }
 
-        User user = getContext().getUser();
-        consumption.setUser(user);
-
         if (consumptionDetailForm.getId() != null) {
             for (ConsumptionDetail detail : consumption.getConsumptionDetails()) {
                 if (detail.getId().equals(consumptionDetailForm.getId())) {
@@ -283,7 +260,6 @@ public class ConsumptionController {
             consumption.addConsumptionDetail(consumptionDetail);
         }
 
-        ContextThreadLocal.set(getContext());
         this.consumptionService.update(consumption);
         status.setComplete();
 

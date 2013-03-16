@@ -11,6 +11,7 @@ public class ProductCategory extends CommonAncestor {
 
     private String name;
 
+    private Boolean shared = Boolean.TRUE;
 
     /**
      *
@@ -21,6 +22,18 @@ public class ProductCategory extends CommonAncestor {
 
     public ProductCategory (String name) {
         this.name = name;
+    }
+
+    public Boolean isShared () {
+        return shared;
+    }
+
+    public Boolean getShared () {
+        return shared;
+    }
+
+    public void setShared (Boolean shared) {
+        this.shared = shared;
     }
 
     public String getName () {

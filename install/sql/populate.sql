@@ -13,53 +13,59 @@ INSERT INTO user (id, username, updatedate, firstname, lastname, targetweight, d
 INSERT INTO user (id, username, updatedate, firstname, lastname, targetweight, daypoints, extrapoints) VALUES (3, 'THAIS', '2013-03-11 00:00:00', 'Thaïs', 'Fortemaison', 66, 35, 40);
 
 # UNIT
-INSERT INTO unit (id, name, description) VALUES (13, 'ml', 'milliliter');
-INSERT INTO unit (id, name, description) VALUES (14, 'g', 'gramme');
-INSERT INTO unit (id, name, description) VALUES (15, 'klp', 'kleine lepel');
-INSERT INTO unit (id, name, description) VALUES (16, 'glp', 'groote lepel');
-INSERT INTO unit (id, name, description) VALUES (17, 'stuk', 'stuk of snede');
-INSERT INTO unit (id, name, description) VALUES (18, 'kop', 'coffie kop');
+INSERT INTO unit (id, name, shared, description, creationdate, creationuser, updatedate, updateuser) VALUES (13, 'ml', TRUE, 'milliliter', '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO unit (id, name, shared, description, creationdate, creationuser, updatedate, updateuser) VALUES (14, 'g', TRUE, 'gramme', '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO unit (id, name, shared, description, creationdate, creationuser, updatedate, updateuser) VALUES (15, 'klp', TRUE, 'kleine lepel', '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO unit (id, name, shared, description, creationdate, creationuser, updatedate, updateuser) VALUES (16, 'glp', TRUE, 'groote lepel', '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO unit (id, name, shared, description, creationdate, creationuser, updatedate, updateuser) VALUES (17, 'stuk', TRUE, 'stuk of snede', '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO unit (id, name, shared, description, creationdate, creationuser, updatedate, updateuser) VALUES (18, 'kop', TRUE, 'coffie kop', '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
 
 
 #PRODUCT CATEGORY
-INSERT INTO productcategory (id, name) VALUES (8, 'Beleg');
-INSERT INTO productcategory (id, name) VALUES (7, 'Brood');
-INSERT INTO productcategory (id, name) VALUES (5, 'Drank');
-INSERT INTO productcategory (id, name) VALUES (12, 'Flakes');
-INSERT INTO productcategory (id, name) VALUES (1, 'Fruit');
-INSERT INTO productcategory (id, name) VALUES (2, 'Groenten');
-INSERT INTO productcategory (id, name) VALUES (6, 'Kaas');
-INSERT INTO productcategory (id, name) VALUES (10, 'Pasta & rijst');
-INSERT INTO productcategory (id, name) VALUES (11, 'Sauces');
-INSERT INTO productcategory (id, name) VALUES (3, 'Snoep');
-INSERT INTO productcategory (id, name) VALUES (4, 'Vlees');
-INSERT INTO productcategory (id, name) VALUES (9, 'Zuivelproducten');
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (1, 'Fruit', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (2, 'Groenten', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (3, 'Snoep', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (4, 'Vlees', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (5, 'Drank', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (6, 'Kaas', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (7, 'Brood', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (8, 'Beleg', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (9, 'Zuivelproducten', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (10, 'Pasta & rijst', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (11, 'Sauces', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (12, 'Flakes', TRUE, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO productcategory (id, name, shared, creationdate, creationuser, updatedate, updateuser) VALUES (13, 'Vis', TRUE, '2013-03-13 21:41:44', 'INGE', '2013-03-13 21:41:44', 'INGE');
+
 
 
 # PRODUCT
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (12, 'light kaas', 17, 3.5, 2, 'Maredsous light', FALSE, 'P', 8, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (13, 'boterham', 17, 1, 2.5, 'Grijze brood', FALSE, 'P', 7, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (14, 'croissant', 17, 1, 4.5, 'Croissant', FALSE, 'P', 7, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (15, 'confituur', 15, 1, 1.5, 'Light confituur', FALSE, 'P', 8, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (16, 'thee', 13, 250, 0.5, 'thee zonder suiker', TRUE, 'P', 5, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (17, 'croissant confituur', 17, 1, 7.5, 'Croissant met light confituur', TRUE, 'R', 7, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (18, 'boterham met kaas', 17, 1, 4.21, 'Boterham met Mardesous', TRUE, 'R', 7, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (20, 'yaourth', 13, 20, 2, 'Yaourth Bio', FALSE, 'P', 6, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (21, 'Sandwich bio', 17, 1, 5.07, 'Sand Bio', FALSE, 'R', 7, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (22, 'Ham', 17, 1, 2, 'Snijt ham', FALSE, 'P', 8, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (25, 'bolognese sauce', 13, 500, 14.2, 'Bolognese sauce', FALSE, 'R', 11, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (26, 'concasse tomate', 13, 250, 3, 'Boite de concassé de tomates', FALSE, 'P', 2, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (27, 'ajuin', 17, 1, 0.5, 'Ajuin', FALSE, 'P', 2, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (28, 'Gehackt', 14, 500, 8, 'Gehackt vark', FALSE, 'P', 4, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (29, 'Rode wijn', 13, 50, 4, 'Kleine fless rode wijn', FALSE, 'P', 5, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (32, 'café', 13, 20, 0, 'Café noir', FALSE, 'P', 5, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (33, 'Lait écrémé', 13, 20, 2, 'Lait écrémé delhaize', FALSE, 'P', 5, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (34, 'Café lait', 13, 25, 0.5, 'café lait', FALSE, 'R', 5, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (37, 'San JF', 17, 1, 7.12, 'Sandwich Jambon Fromage', FALSE, 'R', 2, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (38, 'Appel', 17, 1, 0, 'Appel', FALSE, 'P', 1, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (39, 'Riz', 14, 100, 3, 'Riz complet', FALSE, 'P', 10, 7);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (40, 'Flakes', 14, 25, 4, 'Flakes choco', FALSE, 'P', 12, null);
-INSERT INTO product (id, name, unitid, amount, points, description, favorite, classtype, productcategoryid, maxpoints) VALUES (41, 'Sinaasappelsap', 13, 25, 2, 'Sinaasappelsap blik', FALSE, 'P', 1, null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (12, 'light kaas', 17, 3.5, 2, null, 'Maredsous light', TRUE, 'P', 8, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (13, 'boterham', 17, 1, 2.5, null, 'Grijze brood', TRUE, 'P', 7, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (14, 'croissant', 17, 1, 4.5, null, 'Croissant', TRUE, 'P', 7, '2013-03-12 22:44:37', null, '2013-03-12 22:44:37', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (15, 'confituur', 15, 1, 1.5, null, 'Light confituur', TRUE, 'P', 8, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (16, 'thee', 13, 250, 0.5, null, 'thee zonder suiker', TRUE, 'P', 5, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (17, 'croissant confituur', 17, 1, 7.5, null, 'Croissant met light confituur', TRUE, 'R', 7, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (18, 'boterham met kaas', 17, 1, 4.21, null, 'Boterham met Mardesous', TRUE, 'R', 7, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (20, 'yaourth', 13, 20, 2, null, 'Yaourth Bio', TRUE, 'P', 6, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (21, 'Sandwich bio', 17, 1, 5.07, null, 'Sand Bio', TRUE, 'R', 7, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (22, 'Ham', 17, 1, 2, null, 'Snijt ham', TRUE, 'P', 8, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (25, 'bolognese sauce', 13, 500, 14.2, null, 'Bolognese sauce', TRUE, 'R', 11, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (26, 'concasse tomate', 13, 250, 3, null, 'Boite de concassé de tomates', TRUE, 'P', 2, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (27, 'ajuin', 17, 1, 0.5, null, 'Ajuin', TRUE, 'P', 2, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (28, 'Gehackt', 14, 500, 8, null, 'Gehackt vark', TRUE, 'P', 4, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (29, 'Rode wijn', 13, 50, 4, null, 'Kleine fless rode wijn', TRUE, 'P', 5, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (32, 'café', 13, 20, 0, null, 'Café noir', TRUE, 'P', 5, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (33, 'Lait écrémé', 13, 20, 2, null, 'Lait écrémé delhaize', TRUE, 'P', 5, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (34, 'Café lait', 13, 25, 0.5, null, 'café lait', TRUE, 'R', 5, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (37, 'San JF', 17, 1, 7.12, null, 'Sandwich Jambon Fromage', TRUE, 'R', 2, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (38, 'Appel', 17, 1, 0, null, 'Appel', TRUE, 'P', 1, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (39, 'Riz', 14, 100, 3, 7, 'Riz complet', TRUE, 'P', 10, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (40, 'Flakes', 14, 25, 4, null, 'Flakes choco', TRUE, 'P', 12, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (41, 'Sinaasappelsap', 13, 25, 2, null, 'Sinaasappelsap blik', TRUE, 'P', 1, '2013-03-12 22:44:38', null, '2013-03-12 22:44:38', null);
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (42, 'testpro', 15, 12, 10, null, 'testpro20', TRUE, 'P', 8, '2013-03-13 21:22:05', null, '2013-03-13 21:21:59', 'INGE');
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (43, 'Sandwich thon', 17, 1, 17.67, null, 'Sandwich au thon', TRUE, 'R', 7, '2013-03-13 21:40:42', 'INGE', '2013-03-13 21:43:05', 'INGE');
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (44, 'Thon', 14, 30, 2, null, 'Thon nature', TRUE, 'P', 13, '2013-03-13 21:42:03', 'INGE', '2013-03-13 21:42:03', 'INGE');
+INSERT INTO product (id, name, unitid, amount, points, maxpoints, description, shared, classtype, productcategoryid, creationdate, creationuser, updatedate, updateuser) VALUES (45, 'Mayonnaise', 15, 1, 1, null, '1 klp mayonnaise', TRUE, 'P', 11, '2013-03-13 21:42:34', 'INGE', '2013-03-13 21:42:34', 'INGE');
 
 # RECIPE
 INSERT INTO recipe_product_link (id, recipeid, productid, amount) VALUES (1, 17, 14, 1);
@@ -78,3 +84,12 @@ INSERT INTO recipe_product_link (id, recipeid, productid, amount) VALUES (26, 37
 INSERT INTO recipe_product_link (id, recipeid, productid, amount) VALUES (27, 37, 38, 2);
 INSERT INTO recipe_product_link (id, recipeid, productid, amount) VALUES (28, 18, 13, 1);
 INSERT INTO recipe_product_link (id, recipeid, productid, amount) VALUES (29, 17, 15, 2);
+
+#FAVORITES
+INSERT INTO FAVORITEPRODUCT (userid, productid) VALUES (1, 16);
+INSERT INTO FAVORITEPRODUCT (userid, productid) VALUES (1, 17);
+INSERT INTO FAVORITEPRODUCT (userid, productid) VALUES (1, 18);
+INSERT INTO FAVORITEPRODUCT (userid, productid) VALUES (2, 40);
+INSERT INTO FAVORITEPRODUCT (userid, productid) VALUES (2, 43);
+INSERT INTO FAVORITEPRODUCT (userid, productid) VALUES (2, 34);
+

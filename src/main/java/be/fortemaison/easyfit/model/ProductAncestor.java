@@ -21,9 +21,35 @@ public class ProductAncestor extends CommonAncestor {
 
     protected String description;
 
-    protected Boolean favorite = false;
-
     protected ProductCategory category;
+
+    protected Boolean shared = Boolean.TRUE;
+
+    protected FavoriteProduct favoriteProduct;
+
+    public FavoriteProduct getFavoriteProduct () {
+        return favoriteProduct;
+    }
+
+    public void setFavoriteProduct (FavoriteProduct favoriteProduct) {
+        this.favoriteProduct = favoriteProduct;
+    }
+
+    public Boolean isShared () {
+        return shared;
+    }
+
+    public Boolean getShared () {
+        return shared;
+    }
+
+    public void setShared (Boolean shared) {
+        this.shared = shared;
+    }
+
+    public void setShared (boolean shared) {
+        this.shared = shared;
+    }
 
     public Integer getMaxPoints () {
         return maxPoints;
@@ -39,18 +65,6 @@ public class ProductAncestor extends CommonAncestor {
 
     public void setCategory (ProductCategory category) {
         this.category = category;
-    }
-
-    public Boolean isFavorite () {
-        return favorite;
-    }
-
-    public Boolean getFavorite () {
-        return favorite;
-    }
-
-    public void setFavorite (Boolean favorite) {
-        this.favorite = favorite;
     }
 
     public Double getAmount () {

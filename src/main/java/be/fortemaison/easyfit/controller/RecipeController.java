@@ -1,13 +1,13 @@
 package be.fortemaison.easyfit.controller;
 
 import be.fortemaison.easyfit.dao.IProductCategoryDAO;
+import be.fortemaison.easyfit.dao.IProductDAO;
+import be.fortemaison.easyfit.dao.IRecipeDAO;
+import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.form.ProductForm;
 import be.fortemaison.easyfit.form.RecipeDetailForm;
 import be.fortemaison.easyfit.form.RecipeForm;
 import be.fortemaison.easyfit.model.*;
-import be.fortemaison.easyfit.service.IProductService;
-import be.fortemaison.easyfit.service.IRecipeService;
-import be.fortemaison.easyfit.service.IUnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,13 +34,13 @@ import java.util.*;
 public class RecipeController {
 
     @Autowired
-    private IRecipeService recipeService;
+    private IRecipeDAO recipeDAO;
 
     @Autowired
-    private IProductService productService;
+    private IProductDAO productDAO;
 
     @Autowired
-    private IUnitService unitService;
+    private IUnitDAO unitDAO;
 
     @Autowired
     private IProductCategoryDAO productCategoryDAO;
@@ -48,9 +48,10 @@ public class RecipeController {
     @Autowired
     private IProductCategoryDAO categoryDAO;
 
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (Model model) {
-        List<Recipe> recipes = this.recipeService.findAll();
+        List<Recipe> recipes = this.recipeDAO.findAll();
         List<RecipeForm> forms = new ArrayList<RecipeForm>(recipes.size());
         for (Recipe recipe : recipes) {
             forms.add(new RecipeForm(recipe));
@@ -64,7 +65,7 @@ public class RecipeController {
         RecipeForm recipeForm = new RecipeForm();
         if (key != null) {
             // update
-            Recipe recipe = this.recipeService.findByIdWithDetails(key);
+            Recipe recipe = this.recipeDAO.findByIdWithDetails(key);
             recipeForm = new RecipeForm(recipe);
 
             for (RecipeDetail link : recipe.getRecipeDetails()) {
@@ -75,7 +76,7 @@ public class RecipeController {
         modelMap.addAttribute("recipeForm", recipeForm);
 
         //  store all units for combo
-        List<Unit> units = unitService.findAll();
+        List<Unit> units = unitDAO.findAll();
         Map<Integer, String> allUnits = new LinkedHashMap<Integer, String>();
         for (Unit unit : units) {
             allUnits.put(unit.getId(), unit.getName());
@@ -94,10 +95,10 @@ public class RecipeController {
 
     @RequestMapping(value = "/favorite", method = RequestMethod.GET, params = "key")
     public String processFavorite (Integer key, Model model) {
-        Recipe recipe = this.recipeService.findById(key);
+        Recipe recipe = this.recipeDAO.findById(key);
         if (recipe != null) {
-            recipe.setFavorite(!recipe.isFavorite());
-            this.recipeService.update(recipe);
+            recipe.setShared(!recipe.isShared());
+            this.recipeDAO.update(recipe);
             return "redirect:/recipes/list";
         }
 
@@ -135,9 +136,9 @@ public class RecipeController {
      */
     @RequestMapping(value = "/delete", method = RequestMethod.GET, params = "key")
     public String processDelete (Integer key, Model model) {
-        Recipe recipe = this.recipeService.findById(key);
+        Recipe recipe = this.recipeDAO.findById(key);
         if (recipe != null) {
-            this.recipeService.delete(recipe);
+            this.recipeDAO.delete(recipe);
             return "redirect:/recipes/list";
         }
 
@@ -154,7 +155,7 @@ public class RecipeController {
 
         status.setComplete();
 
-        Recipe recipe = this.recipeService.findByIdWithDetails(key);
+        Recipe recipe = this.recipeDAO.findByIdWithDetails(key);
         if (recipe != null) {
             RecipeDetail editedDetail = null;
             for (RecipeDetail detail : recipe.getRecipeDetails()) {
@@ -215,7 +216,7 @@ public class RecipeController {
         modelMap.addAttribute("allCategories", categoryForms);
 
         //  Find product
-        List<Product> products = this.productService.findByNameAndCategory(queryName, cat);
+        List<Product> products = this.productDAO.findByNameAndCategory(queryName, cat);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (Product product : products) {
             forms.add(new ProductForm(product));
@@ -236,7 +237,7 @@ public class RecipeController {
     public String processAddDetail2 (@RequestParam("productKey") Integer
                                              productKey, @ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm, final Errors errors,
                                      final HttpServletResponse response) {
-        Product product = this.productService.findById(productKey);
+        Product product = this.productDAO.findById(productKey);
         assert (product != null);
         recipeDetailForm.setProduct(new ProductForm(product));
 
@@ -252,8 +253,8 @@ public class RecipeController {
     public String processAddDetail3 (@ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm,
                                      final Errors errors, final SessionStatus status) {
 
-        Recipe recipe = this.recipeService.findByIdWithDetails(recipeDetailForm.getRecipeId());
-        Product product = this.productService.findById(recipeDetailForm.getProduct().getId());
+        Recipe recipe = this.recipeDAO.findByIdWithDetails(recipeDetailForm.getRecipeId());
+        Product product = this.productDAO.findById(recipeDetailForm.getProduct().getId());
         assert (recipe != null);
         assert (product != null);
 
@@ -268,7 +269,7 @@ public class RecipeController {
                 }
             }
         }
-        this.recipeService.update(recipe);
+        this.recipeDAO.update(recipe);
 
 
         status.setComplete();
@@ -287,7 +288,7 @@ public class RecipeController {
     @RequestMapping(value = "/removedetail", method = RequestMethod.GET)
     public String processRemoveDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer
             detailKey, Model model) {
-        Recipe recipe = this.recipeService.findByIdWithDetails(key);
+        Recipe recipe = this.recipeDAO.findByIdWithDetails(key);
         Set<RecipeDetail> details = recipe.getRecipeDetails();
         RecipeDetail removedDetail = null;
         for (RecipeDetail detail : details) {
@@ -298,7 +299,7 @@ public class RecipeController {
 
         if (recipe != null && removedDetail != null) {
             recipe.removeRecipeDetail(removedDetail);
-            this.recipeService.update(recipe);
+            this.recipeDAO.update(recipe);
             return "redirect:/recipes/edit?key=" + key;
         }
 
@@ -316,7 +317,7 @@ public class RecipeController {
     @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
     public String processEditProduct (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer
             detailKey, @Validated RecipeDetailForm detailForm, BindingResult result, Model model, final SessionStatus status) {
-        Recipe recipe = this.recipeService.findByIdWithDetails(key);
+        Recipe recipe = this.recipeDAO.findByIdWithDetails(key);
         Set<RecipeDetail> details = recipe.getRecipeDetails();
         RecipeDetail editedDetail = null;
         for (RecipeDetail detail : details) {
@@ -327,7 +328,7 @@ public class RecipeController {
 
         if (recipe != null && editedDetail != null) {
             editedDetail.setAmount(detailForm.getAmount());
-            this.recipeService.update(recipe);
+            this.recipeDAO.update(recipe);
             return "redirect:/recipes/update?key=" + key;
         }
 
@@ -342,21 +343,21 @@ public class RecipeController {
      */
 
     private Recipe updateRecipe (RecipeForm recipeForm) {
-        Recipe recipe = this.recipeService.findByIdWithDetails(recipeForm.getId());
+        Recipe recipe = this.recipeDAO.findByIdWithDetails(recipeForm.getId());
         assert (recipe != null);
 
         recipe.setName(recipeForm.getName());
         recipe.setDescription(recipeForm.getDescription());
-        recipe.setFavorite(recipeForm.isFavorite());
+        recipe.setShared(recipeForm.getShared());
         recipe.setAmount(recipeForm.getAmount());
 
-        Unit unit = unitService.findById(recipeForm.getUnitId());
+        Unit unit = unitDAO.findById(recipeForm.getUnitId());
         recipe.setUnit(unit);
 
         ProductCategory category = this.productCategoryDAO.findById(recipeForm.getCategoryId());
         recipe.setCategory(category);
 
-        this.recipeService.update(recipe);
+        this.recipeDAO.update(recipe);
         return recipe;
     }
 
@@ -365,24 +366,24 @@ public class RecipeController {
      * @return
      */
     private Recipe insertRecipe (RecipeForm recipeForm) {
-        Recipe recipe = new Recipe(recipeForm.getName(), recipeForm.isFavorite());
+        Recipe recipe = new Recipe(recipeForm.getName(), recipeForm.getShared());
         recipe.setDescription(recipeForm.getDescription());
         recipe.setAmount(recipeForm.getAmount());
 
-        Unit unit = unitService.findById(recipeForm.getUnitId());
+        Unit unit = unitDAO.findById(recipeForm.getUnitId());
         recipe.setUnit(unit);
 
         ProductCategory category = this.productCategoryDAO.findById(recipeForm.getCategoryId());
         recipe.setCategory(category);
 
         for (RecipeDetailForm linkForm : recipeForm.getRecipeDetailForms()) {
-            Product product = this.productService.findById(linkForm.getProduct().getId());
+            Product product = this.productDAO.findById(linkForm.getProduct().getId());
             if (product != null) {
                 recipe.addRecipeDetail(new RecipeDetail(null, recipe, product, linkForm.getAmount()));
             }
         }
 
-        this.recipeService.insert(recipe);
+        this.recipeDAO.insert(recipe);
         return recipe;
     }
 

@@ -13,6 +13,8 @@
 
         <property name="name"/>
 
+        <property name="shared" type="boolean"/>
+
         <component name="technicalSegment" class="TechnicalSegment">
             <property name="creationDate" type="timestamp"/>
             <property name="creationUser"/>

@@ -21,12 +21,12 @@ public class Product extends ProductAncestor {
      * @param unit
      * @param point
      */
-    public Product (String name, Unit unit, Double amount, Double point, Boolean favorite, String description) {
+    public Product (String name, Unit unit, Double amount, Double point, Boolean shared, String description) {
         this.name = name;
         this.unit = unit;
         this.amount = amount;
         this.points = point;
-        this.favorite = favorite;
+        this.shared = shared;
         this.description = description;
     }
 

@@ -13,6 +13,8 @@ public class Unit extends CommonAncestor {
 
     private String description;
 
+    private Boolean shared = Boolean.TRUE;
+
     /**
      *
      */
@@ -40,12 +42,23 @@ public class Unit extends CommonAncestor {
         this.description = description;
     }
 
-
     /**
      * @param name
      */
     public Unit (String name) {
         this.name = name;
+    }
+
+    public Boolean isShared () {
+        return shared;
+    }
+
+    public void setShared (Boolean shared) {
+        this.shared = shared;
+    }
+
+    public Boolean getShared () {
+        return shared;
     }
 
     public String getDescription () {

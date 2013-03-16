@@ -67,10 +67,10 @@
             </form:label>
             <form:input path="description" size="50" maxlength="255"/>
 
-            <form:label path="favorite">
-                Favorite <form:errors path="favorite" cssClass="error"/>
+            <form:label path="shared">
+                Favorite <form:errors path="shared" cssClass="error"/>
             </form:label>
-            <form:checkbox path="favorite"/>
+            <form:checkbox path="shared"/>
 
         </fieldset>
 

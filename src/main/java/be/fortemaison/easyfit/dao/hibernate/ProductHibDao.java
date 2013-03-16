@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -36,6 +37,10 @@ public class ProductHibDao implements IProductDAO {
 
     @Transactional(readOnly = true)
     public List<Product> findByName (String name) {
+        if (StringUtils.isEmpty(name)) {
+            return this.findAll();
+        }
+
         String param = name;
         if (!name.contains(IConstants.PROCENT)) {
             StringBuilder sb = new StringBuilder(name.length() + 2);
@@ -46,13 +51,17 @@ public class ProductHibDao implements IProductDAO {
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where name like :name order by favorite desc, name").setString("name", param).list();
+        List<Product> result = (List<Product>) session.createQuery("from Product where name like :name order by name").setString("name", param).list();
         return result;
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<Product> findByCategory (ProductCategory category) {
+        if (category == null) {
+            return this.findAll();
+        }
+
         Session session = sessionFactory.getCurrentSession();
         List<Product> result = (List<Product>) session.createQuery("from Product where category = :cat order by name").setEntity("cat", category).list();
         return result;
@@ -61,6 +70,18 @@ public class ProductHibDao implements IProductDAO {
     @Override
     @Transactional(readOnly = true)
     public List<Product> findByNameAndCategory (String name, ProductCategory category) {
+        if (StringUtils.isEmpty(name) && (category == null)) {
+            return this.findAll();
+        }
+
+        if (category == null) {
+            return this.findByName(name);
+        }
+
+        if (StringUtils.isEmpty(name)) {
+            return this.findByCategory(category);
+        }
+
         Session session = sessionFactory.getCurrentSession();
         List<Product> result = (List<Product>) session.createQuery("from Product where name like :name and category = :cat order by name")
                 .setString("name", name)
@@ -70,16 +91,9 @@ public class ProductHibDao implements IProductDAO {
     }
 
     @Transactional(readOnly = true)
-    public List<Product> findFavorites () {
-        Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where favorite = :fav order by favorite desc, name").setBoolean("fav", Boolean.TRUE).list();
-        return result;
-    }
-
-    @Transactional(readOnly = true)
     public List<Product> findAll () {
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product order by favorite desc, name").list();
+        List<Product> result = (List<Product>) session.createQuery("from Product order by name").list();
         return result;
     }
 
@@ -102,3 +116,11 @@ public class ProductHibDao implements IProductDAO {
     }
 
 }
+
+
+
+
+
+
+
+

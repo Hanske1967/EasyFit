@@ -60,24 +60,6 @@ public class RecipeHibDao implements IRecipeDAO {
     }
 
     @Transactional(readOnly = true)
-    public List<Recipe> findFavorites () {
-        Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.favorite = :fav").setBoolean("fav", Boolean.TRUE).list();
-        return result;
-    }
-
-    @Transactional(readOnly = true)
-    public List<Recipe> findFavoritesWithDetails () {
-        Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.favorite = :fav")
-                .setBoolean("fav", Boolean.TRUE)
-                .list();
-
-        return result;
-    }
-
-    @Transactional(readOnly = true)
     public List<Recipe> findAll () {
         Session session = sessionFactory.getCurrentSession();
         List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe").list();

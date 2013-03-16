@@ -21,10 +21,6 @@ public interface IRecipeDAO {
 
     public List<Recipe> findByNameWithDetails (String name);
 
-    public List<Recipe> findFavorites ();
-
-    public List<Recipe> findFavoritesWithDetails ();
-
     public List<Recipe> findAll ();
 
     public List<Recipe> findAllWithDetails ();

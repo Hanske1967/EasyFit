@@ -42,7 +42,7 @@
 
         <c:forEach items="${products}" var="product">
             <tr>
-                <td><c:if test="${product.favorite}">*</c:if> &nbsp;</td>
+                <td><c:if test="${product.shared}">*</c:if> &nbsp;</td>
                 <td>
                     <a href="javascript:;"
                        onclick="document.getElementById('form').setAttribute('action', './adddetail2?productKey=${product.id}') ;document.getElementById('form').submit();">${product.name}</a>

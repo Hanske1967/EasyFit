@@ -6,7 +6,6 @@ import sun.misc.BASE64Encoder;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.MessageFormat;
 
 /**
  * Created with IntelliJ IDEA.
@@ -49,14 +48,4 @@ public final class PasswordService {
         return hash;
     }
 
-    /**
-     * @param args
-     */
-    public static final void main (String args[]) {
-        String pwd = "hans est un sot ! hans est un sot ! hans est un sot !";
-        String hash = PasswordService.getInstance().encrypt(pwd);
-        System.out.println(MessageFormat.format("{0} => {1}   Chars:({2})", new String[]{pwd, hash, "" + hash.length()}));
-
-
-    }
 }

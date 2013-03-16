@@ -34,7 +34,7 @@ public class ProductForm {
 
     protected String description;
 
-    protected Boolean favorite = Boolean.FALSE;
+    protected Boolean shared = Boolean.TRUE;
 
     protected Integer categoryId;
 
@@ -57,7 +57,7 @@ public class ProductForm {
         this.points = product.getPoints();
         this.maxPoints = product.getMaxPoints();
         this.description = product.getDescription();
-        this.favorite = product.isFavorite();
+        this.shared = product.isShared();
         this.categoryId = product.getCategory() == null ? null : product.getCategory().getId();
         this.categoryLabel = product.getCategory() == null ? "" : product.getCategory().getName();
     }
@@ -151,16 +151,16 @@ public class ProductForm {
         this.description = description;
     }
 
-    public boolean isFavorite () {
-        return favorite;
+    public boolean getShared () {
+        return shared;
     }
 
     public Boolean getFavorite () {
-        return favorite;
+        return shared;
     }
 
-    public void setFavorite (Boolean favorite) {
-        this.favorite = favorite;
+    public void setShared (Boolean shared) {
+        this.shared = shared;
     }
 
     /**
@@ -172,7 +172,7 @@ public class ProductForm {
         ProductCategory category = new ProductCategory(categoryLabel);
         category.setId(categoryId);
 
-        Product product = new Product(name, unit, amount, points, favorite, description);
+        Product product = new Product(name, unit, amount, points, shared, description);
         product.setId(id);
         product.setCategory(category);
         product.setMaxPoints(maxPoints);

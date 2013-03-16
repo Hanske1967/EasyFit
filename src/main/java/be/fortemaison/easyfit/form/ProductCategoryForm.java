@@ -15,6 +15,7 @@ public class ProductCategoryForm {
 
     private String name;
 
+    private Boolean shared;
 
     /**
      *
@@ -30,12 +31,22 @@ public class ProductCategoryForm {
         this.name = name;
     }
 
+
     /**
      * @param category
      */
     public ProductCategoryForm (ProductCategory category) {
         this.id = category.getId();
         this.name = category.getName();
+        this.shared = category.isShared();
+    }
+
+    public Boolean getShared () {
+        return shared;
+    }
+
+    public void setShared (Boolean shared) {
+        this.shared = shared;
     }
 
     public Integer getId () {
@@ -60,6 +71,7 @@ public class ProductCategoryForm {
     public ProductCategory toProductCategory () {
         ProductCategory result = new ProductCategory(name);
         result.setId(id);
+        result.setShared(shared);
         return result;
     }
 }
