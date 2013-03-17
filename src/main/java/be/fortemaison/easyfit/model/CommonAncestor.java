@@ -1,5 +1,7 @@
 package be.fortemaison.easyfit.model;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: hansk_000
@@ -7,7 +9,7 @@ package be.fortemaison.easyfit.model;
  * Time: 22:25
  * To change this template use File | Settings | File Templates.
  */
-public class CommonAncestor implements Auditable {
+public class CommonAncestor implements Auditable, Serializable {
 
     protected Integer id;
 

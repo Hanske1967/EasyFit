@@ -1,8 +1,8 @@
 package be.fortemaison.easyfit.controller;
 
+import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.form.UnitForm;
 import be.fortemaison.easyfit.model.Unit;
-import be.fortemaison.easyfit.service.IUnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/units")
 public class UnitController {
 
-    private IUnitService unitService;
-
     @Autowired
-    public void setUnitService (IUnitService unitService) {
-        this.unitService = unitService;
-    }
+    private IUnitDAO unitDAO;
 
     /**
      * List view with all units
@@ -38,7 +34,7 @@ public class UnitController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (Model model) {
-        model.addAttribute("units", this.unitService.findAll());
+        model.addAttribute("units", this.unitDAO.findAll());
         return "units/list";
     }
 
@@ -55,7 +51,7 @@ public class UnitController {
             model.addAttribute(new UnitForm());
             return "units/edit";
         } else {
-            Unit unit = this.unitService.findById(key);
+            Unit unit = this.unitDAO.findById(key);
             if (unit != null) {
                 model.addAttribute(new UnitForm(unit));
                 return "units/edit";
@@ -79,7 +75,7 @@ public class UnitController {
             return "units/edit";
         }
 
-        this.unitService.update(unitForm.getUnit());
+        this.unitDAO.update(unitForm.getUnit());
         return "redirect:/units/list";
     }
 
@@ -91,9 +87,9 @@ public class UnitController {
      */
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String processDelete (@RequestParam(value = "key") Integer key) {
-        Unit unit = this.unitService.findById(key);
+        Unit unit = this.unitDAO.findById(key);
         if (unit != null) {
-            this.unitService.delete(unit);
+            this.unitDAO.delete(unit);
             return "redirect:/units/list";
         }
 

@@ -1,8 +1,8 @@
 package be.fortemaison.easyfit.controller;
 
+import be.fortemaison.easyfit.dao.IUserDAO;
 import be.fortemaison.easyfit.form.UserForm;
 import be.fortemaison.easyfit.model.User;
-import be.fortemaison.easyfit.service.IUserService;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.PasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class HomeController {
 
 
     @Autowired
-    private IUserService userService;
+    private IUserDAO userDAO;
 
     @Autowired
     private Context context;
@@ -48,7 +48,7 @@ public class HomeController {
     public String prepareHome (ModelMap model) {
         Map<Integer, String> userMap = new HashMap<Integer, String>();
         MessageFormat mf = new MessageFormat("{0} - {1} {2}");
-        List<User> users = this.userService.findAll();
+        List<User> users = this.userDAO.findAll();
         userMap.put(null, "-- Choose a user --");
         for (User user : users) {
             userMap.put(user.getId(), mf.format(new String[]{user.getUsername(), user.getFirstName(), user.getLastName()}));
@@ -75,7 +75,7 @@ public class HomeController {
         if (userForm.getId() == null) {
             return "redirect:home";
         }
-        User user = this.userService.findById(userForm.getId());
+        User user = this.userDAO.findById(userForm.getId());
 
         if (user != null) {
             //  TODO make password mandatory
@@ -98,7 +98,7 @@ public class HomeController {
 
     @RequestMapping(value = "/changepwd", method = RequestMethod.POST)
     public String handleChangePassword (@ModelAttribute("userForm") UserForm userForm, Model model) {
-        User user = this.userService.findById(userForm.getId());
+        User user = this.userDAO.findById(userForm.getId());
 
         if (user != null) {
             //  TODO compare with old one
@@ -108,7 +108,7 @@ public class HomeController {
             user.setPassword(hash);
             getContext().setUser(user);
 
-            this.userService.update(user);
+            this.userDAO.update(user);
             return "redirect:consumptions/list";
         }
 

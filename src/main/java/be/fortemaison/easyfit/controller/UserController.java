@@ -1,15 +1,13 @@
 package be.fortemaison.easyfit.controller;
 
+import be.fortemaison.easyfit.dao.IUserDAO;
 import be.fortemaison.easyfit.form.UserForm;
 import be.fortemaison.easyfit.model.User;
-import be.fortemaison.easyfit.service.IUserService;
-import be.fortemaison.easyfit.util.ContextThreadLocal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,19 +27,8 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private Context context;
+    private IUserDAO userDAO;
 
-    @ModelAttribute("context")
-    public Context getContext () {
-        return context;
-    }
-
-    private IUserService userService;
-
-    @Autowired
-    public void setUserService (IUserService userService) {
-        this.userService = userService;
-    }
 
     /**
      * List view with all users
@@ -51,7 +38,7 @@ public class UserController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (Model model) {
-        List<User> users = this.userService.findAll();
+        List<User> users = this.userDAO.findAll();
         List<UserForm> userForms = new ArrayList<UserForm>(users.size());
         for (User user : users) {
             userForms.add(new UserForm(user));
@@ -72,7 +59,7 @@ public class UserController {
             model.addAttribute(new UserForm());
             return "users/edit";
         } else {
-            User user = this.userService.findById(key);
+            User user = this.userDAO.findById(key);
             if (user != null) {
                 model.addAttribute(new UserForm(user));
                 return "users/edit";
@@ -97,9 +84,8 @@ public class UserController {
         }
 
         User user = userForm.getUser();
-        ContextThreadLocal.set(getContext());
 
-        this.userService.update(user);
+        this.userDAO.update(user);
         return "redirect:/users/list";
     }
 
@@ -111,9 +97,9 @@ public class UserController {
      */
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String processDelete (@RequestParam(value = "key") Integer key, Model model) {
-        User user = this.userService.findById(key);
+        User user = this.userDAO.findById(key);
         if (user != null) {
-            this.userService.delete(user);
+            this.userDAO.delete(user);
             return "redirect:/users/list";
         }
 

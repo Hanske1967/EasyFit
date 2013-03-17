@@ -4,6 +4,9 @@ import be.fortemaison.easyfit.dao.IConsumptionDAO;
 import be.fortemaison.easyfit.dao.IProductDAO;
 import be.fortemaison.easyfit.dao.IUserDAO;
 import be.fortemaison.easyfit.model.Consumption;
+import be.fortemaison.easyfit.model.ConsumptionWeek;
+import be.fortemaison.easyfit.model.User;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import org.joda.time.DateMidnight;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -99,12 +102,35 @@ public class ConsumptionServiceImpl implements IConsumptionService {
      * @return
      */
     @Override
-    public List<Consumption> findForWeek (Date date, int firstWeekDay) {
+    public ConsumptionWeek findForWeek (Date date, int firstWeekDay) {
+        ConsumptionWeek result = new ConsumptionWeek(date);
+
         DateMidnight dm = new DateMidnight(date.getTime());
         DateMidnight firstDay = dm.withDayOfWeek(firstWeekDay);
         DateMidnight lastDay = dm.withDayOfWeek((firstWeekDay - 1) == 0 ? 7 : firstWeekDay - 1); // plusDay(7) to go to next week
 
-        List<Consumption> result = this.consumptionDAO.findBetweenDates(firstDay.toDate(), lastDay.toDate());
+        Consumption consumption = this.findByDateWithDetails(date);
+        List<Consumption> consumptions = this.consumptionDAO.findBetweenDates(firstDay.toDate(), lastDay.toDate());
+        result.setConsumptions(consumptions);
+        result.setCurrentConsumption(consumption);
+
+        User user = ContextThreadLocal.get().getUser();
+
+        Double extraPointsLeft = user.getExtraPoints().doubleValue();
+        for (Consumption c : consumptions) {
+            if (c.getPoints() != null && c.getPoints() > user.getDayPoints()) {
+                extraPointsLeft -= (c.getPoints() - user.getDayPoints());
+            }
+        }
+        result.setExtraPointsLeft(extraPointsLeft);
+
+        result.setDayPoints(user.getDayPoints());
+        result.setExtraPoints(user.getExtraPoints());
+
+        Double pointsLeft = user.getDayPoints().doubleValue() - (consumption == null ? 0.0 : consumption.getPoints());
+        pointsLeft = pointsLeft < 0 ? 0 : pointsLeft;
+        result.setDayPointsLeft(pointsLeft);
+
         return result;
     }
 

@@ -55,6 +55,9 @@ public class UnitHibDao implements IUnitDAO {
 
     @Transactional
     public void update (Unit unit) {
+        if (unit.getId() == null) {
+            insert(unit);
+        }
         Session session = sessionFactory.getCurrentSession();
         session.update(unit);
     }

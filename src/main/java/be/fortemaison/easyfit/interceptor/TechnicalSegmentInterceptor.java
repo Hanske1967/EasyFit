@@ -35,8 +35,10 @@ public class TechnicalSegmentInterceptor extends EmptyInterceptor {
             tc.setUpdateUser(username);
             tc.setUpdateDate(now);
 
-            tc.setCreationDate(now);
-            tc.setCreationUser(username);
+            if (tc.getCreationUser() == null) {
+                tc.setCreationDate(now);
+                tc.setCreationUser(username);
+            }
         }
 
         return true;

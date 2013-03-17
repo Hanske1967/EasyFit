@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: hansk_000
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class Context {
+public class Context implements Serializable {
 
     private User user;
 

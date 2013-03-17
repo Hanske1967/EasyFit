@@ -53,12 +53,6 @@ public class ProductHibDaoTest extends TestCase {
     }
 
     @Test
-    public void testFindFavorites () throws Exception {
-        List<Product> s = getProductDAO().findFavorites();
-        assertNotNull(s);
-    }
-
-    @Test
     public void testInsert () throws Exception {
         //
     }

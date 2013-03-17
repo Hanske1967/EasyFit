@@ -56,10 +56,11 @@ public class ProductCategoryHibDao implements IProductCategoryDAO {
     public void update (ProductCategory category) {
         if (category.getId() == null) {
             insert(category);
-        } else {
-            Session session = sessionFactory.getCurrentSession();
-            session.update(category);
         }
+        ;
+
+        Session session = sessionFactory.getCurrentSession();
+        session.update(category);
     }
 
     @Override

@@ -99,12 +99,18 @@ public class ProductHibDao implements IProductDAO {
 
     @Transactional
     public void insert (Product product) {
+        if (product.getId() != null) {
+            update(product);
+        }
         Session session = sessionFactory.getCurrentSession();
         session.save(product);
     }
 
     @Transactional
     public void update (Product product) {
+        if (product.getId() == null) {
+            insert(product);
+        }
         Session session = sessionFactory.getCurrentSession();
         session.update(product);
     }
