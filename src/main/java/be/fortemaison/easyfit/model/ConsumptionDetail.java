@@ -64,14 +64,15 @@ public class ConsumptionDetail extends CommonAncestor {
     }
 
     public Double getPoints () {
-        Double result = null;
+
         if (this.amount == null
                 || this.product.getAmount() == null
-                || this.product.getPoints() == null) {
-            result = Double.NaN;
+                || this.product.getPoints() == null
+                || this.product.getAmount() == 0.0) {
+            return 0.0;
         }
 
-        result = this.amount * this.product.getPoints() / this.product.getAmount();
+        Double result = this.amount * this.product.getPoints() / this.product.getAmount();
 
         if (this.product.getMaxPoints() != null && this.product.getMaxPoints() > 0) {
             if (result > this.product.getMaxPoints().doubleValue()) {
