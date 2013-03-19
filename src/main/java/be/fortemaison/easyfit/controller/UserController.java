@@ -3,6 +3,7 @@ package be.fortemaison.easyfit.controller;
 import be.fortemaison.easyfit.dao.IUserDAO;
 import be.fortemaison.easyfit.form.UserForm;
 import be.fortemaison.easyfit.model.User;
+import be.fortemaison.easyfit.util.PasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,6 +85,19 @@ public class UserController {
         }
 
         User user = userForm.getUser();
+        if (user.getId() != null) {
+            //  update
+            user = this.userDAO.findById(user.getId());
+
+            if (userForm.getPassword() != null) {
+                user.setPassword(PasswordService.getInstance().encrypt(userForm.getPassword()));
+            }
+            user.setDayPoints(userForm.getDayPoints());
+            user.setExtraPoints(userForm.getExtraPoints());
+            user.setFirstName(userForm.getFirstName());
+            user.setLastName(userForm.getLastName());
+            user.setTargetWeight(userForm.getTargetWeight());
+        }
 
         this.userDAO.update(user);
         return "redirect:/users/list";

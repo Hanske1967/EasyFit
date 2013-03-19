@@ -2,6 +2,7 @@ package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IProductCategoryDAO;
 import be.fortemaison.easyfit.model.ProductCategory;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.IConstants;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,7 +33,10 @@ public class ProductCategoryHibDao implements IProductCategoryDAO {
     public List<ProductCategory> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
         String qName = IConstants.PROCENT + name + IConstants.PROCENT;
-        List<ProductCategory> categories = session.createQuery("from ProductCategory pc where pc.name like :name order by pc.name").setString("name", qName).list();
+        List<ProductCategory> categories = session.createQuery("from ProductCategory pc where (pc.shared = :shared or pc.technicalSegment.creationUser = :username) and pc.name like :name order by pc.name").setString("name", qName)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .list();
         return categories;
     }
 
@@ -40,7 +44,10 @@ public class ProductCategoryHibDao implements IProductCategoryDAO {
     @Transactional(readOnly = true)
     public List<ProductCategory> findAll () {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductCategory> categories = session.createQuery("from ProductCategory pc order by pc.name").list();
+        List<ProductCategory> categories = session.createQuery("from ProductCategory pc where (pc.shared = :shared or pc.technicalSegment.creationUser = :username)order by pc.name")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .list();
         return categories;
     }
 

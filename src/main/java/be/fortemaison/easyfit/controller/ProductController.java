@@ -105,6 +105,16 @@ public class ProductController {
         }
 
         Product product = (Product) formProduct.getProduct();
+        if (product.getId() != null) {
+            // product update
+            product = productDAO.findById(formProduct.getId());
+
+            product.setShared(formProduct.getShared());
+            product.setAmount(formProduct.getAmount());
+            product.setMaxPoints(formProduct.getMaxPoints());
+            product.setPoints(formProduct.getPoints());
+            product.setDescription(formProduct.getDescription());
+        }
 
         //  Unit returned by formProduct contains only the ID in the name property of Unit instance.
         Unit unit = unitDAO.findById(formProduct.getUnitId());

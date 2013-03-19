@@ -36,10 +36,11 @@ public class Unit extends CommonAncestor {
      * @param name
      * @param description
      */
-    public Unit (Integer id, String name, String description) {
+    public Unit (Integer id, String name, String description, Boolean shared) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.shared = shared;
     }
 
     /**

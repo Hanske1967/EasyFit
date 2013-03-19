@@ -2,6 +2,7 @@ package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.model.Unit;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -35,7 +36,11 @@ public class UnitHibDao implements IUnitDAO {
     @Transactional(readOnly = true)
     public List<Unit> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        List<Unit> result = (List<Unit>) session.createQuery("from Unit where name like :name").setString("name", name).list();
+        List<Unit> result = (List<Unit>) session.createQuery("from Unit u where u.name like :name and (u.shared = :shared or u.technicalSegment.creationUser = :username)")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setString("name", name)
+                .list();
         return result;
     }
 
@@ -43,7 +48,10 @@ public class UnitHibDao implements IUnitDAO {
     @Transactional(readOnly = true)
     public List<Unit> findAll () {
         Session session = sessionFactory.getCurrentSession();
-        List<Unit> result = (List<Unit>) session.createQuery("from Unit").list();
+        List<Unit> result = (List<Unit>) session.createQuery("from Unit u where u.shared = :shared or u.technicalSegment.creationUser = :username")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .list();
         return result;
     }
 

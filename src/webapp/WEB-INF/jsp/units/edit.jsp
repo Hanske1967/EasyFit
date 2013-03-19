@@ -41,6 +41,11 @@
             </form:label>
             <form:input path="description" maxlength="255"/>
 
+            <form:label path="shared">
+                Shared <form:errors path="shared" cssClass="error"/>
+            </form:label>
+            <form:checkbox path="shared"/>
+
         </fieldset>
 
         <p>

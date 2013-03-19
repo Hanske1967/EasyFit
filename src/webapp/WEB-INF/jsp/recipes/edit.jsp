@@ -57,7 +57,7 @@
             <form:input readonly="true" path="pointsLabel"/>
 
             <form:label path="shared">
-                Favorite <form:errors path="shared" cssClass="error"/>
+                Shared <form:errors path="shared" cssClass="error"/>
             </form:label>
             <form:checkbox path="shared"/>
 

@@ -79,7 +79,15 @@ public class ProductCategoryController {
             return "categories/edit";
         }
 
-        this.categoryDAO.update(categoryForm.toProductCategory());
+        ProductCategory category = categoryForm.toProductCategory();
+        if (category.getId() != null) {
+            category = this.categoryDAO.findById(category.getId());
+
+            category.setName(categoryForm.getName());
+            category.setShared(categoryForm.getShared());
+        }
+
+        this.categoryDAO.update(category);
         return "redirect:/categories/list";
     }
 

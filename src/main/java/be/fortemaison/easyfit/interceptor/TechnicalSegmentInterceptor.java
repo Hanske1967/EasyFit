@@ -3,6 +3,7 @@ package be.fortemaison.easyfit.interceptor;
 import be.fortemaison.easyfit.model.Auditable;
 import be.fortemaison.easyfit.model.TechnicalSegment;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
+import org.apache.log4j.Logger;
 import org.hibernate.EmptyInterceptor;
 import org.hibernate.type.Type;
 
@@ -28,9 +29,17 @@ public class TechnicalSegmentInterceptor extends EmptyInterceptor {
             Type[] types) {
 
         if (entity instanceof Auditable) {
+
+            Logger.getLogger(this.getClass()).debug("## onSave : " + entity.getClass());
+            Logger.getLogger(this.getClass()).debug(" tc.creationUser: " + ((Auditable) entity).getTechnicalSegment().getCreationUser());
+            Logger.getLogger(this.getClass()).debug(" tc.creationDate: " + ((Auditable) entity).getTechnicalSegment().getCreationDate());
+            Logger.getLogger(this.getClass()).debug(" tc.updateUser: " + ((Auditable) entity).getTechnicalSegment().getUpdateUser());
+            Logger.getLogger(this.getClass()).debug(" tc.updateDate: " + ((Auditable) entity).getTechnicalSegment().getUpdateDate());
+
             Date now = new Date();
             String username = ContextThreadLocal.get().getUser().getUsername();
             TechnicalSegment tc = ((Auditable) entity).getTechnicalSegment();
+            Logger.getLogger(this.getClass()).debug(" ContextThreadLocal.user: " + username);
 
             tc.setUpdateUser(username);
             tc.setUpdateDate(now);
@@ -39,9 +48,11 @@ public class TechnicalSegmentInterceptor extends EmptyInterceptor {
                 tc.setCreationDate(now);
                 tc.setCreationUser(username);
             }
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public boolean onFlushDirty (
@@ -53,14 +64,25 @@ public class TechnicalSegmentInterceptor extends EmptyInterceptor {
             Type[] types) {
 
         if (entity instanceof Auditable) {
+
+            Logger.getLogger(this.getClass()).debug("### - onFlushDirty : " + entity.getClass());
+            Logger.getLogger(this.getClass()).debug(" tc.creationUser: " + ((Auditable) entity).getTechnicalSegment().getCreationUser());
+            Logger.getLogger(this.getClass()).debug(" tc.creationDate: " + ((Auditable) entity).getTechnicalSegment().getCreationDate());
+            Logger.getLogger(this.getClass()).debug(" tc.updateUser: " + ((Auditable) entity).getTechnicalSegment().getUpdateUser());
+            Logger.getLogger(this.getClass()).debug(" tc.updateDate: " + ((Auditable) entity).getTechnicalSegment().getUpdateDate());
+
             Date now = new Date();
             String username = ContextThreadLocal.get().getUser().getUsername();
             TechnicalSegment tc = ((Auditable) entity).getTechnicalSegment();
 
+            Logger.getLogger(this.getClass()).debug(" ContextThreadLocal.user: " + username);
+
             tc.setUpdateUser(username);
             tc.setUpdateDate(now);
+
+            return true;
         }
 
-        return true;
+        return false;
     }
 }

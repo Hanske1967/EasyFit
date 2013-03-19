@@ -18,6 +18,8 @@ public class UnitForm {
 
     private String description;
 
+    private Boolean shared = Boolean.TRUE;
+
     /**
      *
      */
@@ -32,6 +34,15 @@ public class UnitForm {
         this.id = unit.getId().toString();
         this.name = unit.getName();
         this.description = unit.getDescription();
+        this.shared = unit.isShared();
+    }
+
+    public Boolean getShared () {
+        return shared;
+    }
+
+    public void setShared (Boolean shared) {
+        this.shared = shared;
     }
 
     public String getId () {
@@ -59,6 +70,6 @@ public class UnitForm {
     }
 
     public Unit getUnit () {
-        return new Unit(StringUtils.isEmpty(id) ? null : Integer.decode(id), name, description);
+        return new Unit(StringUtils.isEmpty(id) ? null : Integer.decode(id), name, description, shared);
     }
 }

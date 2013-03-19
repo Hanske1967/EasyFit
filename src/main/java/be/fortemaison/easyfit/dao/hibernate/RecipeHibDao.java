@@ -2,6 +2,7 @@ package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IRecipeDAO;
 import be.fortemaison.easyfit.model.Recipe;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,7 +45,7 @@ public class RecipeHibDao implements IRecipeDAO {
     @Transactional(readOnly = true)
     public List<Recipe> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r where r.name like :name").setString("name", name).list();
+        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r where (shared = :shared or technicalSegment.creationUser = :username) and r.name like :name").setString("name", name).list();
         return result;
     }
 
@@ -52,8 +53,10 @@ public class RecipeHibDao implements IRecipeDAO {
     public List<Recipe> findByNameWithDetails (String name) {
         Session session = sessionFactory.getCurrentSession();
         List<Recipe> result = session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where r.name like :name")
+                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.shared = :shared or r.technicalSegment.creationUser = :username) and r.name like :name")
                 .setString("name", name)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
                 .list();
 
         return result;
@@ -62,7 +65,10 @@ public class RecipeHibDao implements IRecipeDAO {
     @Transactional(readOnly = true)
     public List<Recipe> findAll () {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe").list();
+        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe where (technicalSegment.creationUser = :username or shared = :shared)")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .list();
         return result;
     }
 
@@ -70,7 +76,9 @@ public class RecipeHibDao implements IRecipeDAO {
     public List<Recipe> findAllWithDetails () {
         Session session = sessionFactory.getCurrentSession();
         List<Recipe> result = session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product")
+                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.technicalSegment.creationUser = :username or r.shared = :shared)")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
                 .list();
 
         return result;

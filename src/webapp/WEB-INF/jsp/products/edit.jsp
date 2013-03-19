@@ -68,7 +68,7 @@
             <form:input path="description" size="50" maxlength="255"/>
 
             <form:label path="shared">
-                Favorite <form:errors path="shared" cssClass="error"/>
+                Shared <form:errors path="shared" cssClass="error"/>
             </form:label>
             <form:checkbox path="shared"/>
 

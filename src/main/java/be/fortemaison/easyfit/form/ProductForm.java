@@ -2,8 +2,6 @@ package be.fortemaison.easyfit.form;
 
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductAncestor;
-import be.fortemaison.easyfit.model.ProductCategory;
-import be.fortemaison.easyfit.model.Unit;
 import be.fortemaison.easyfit.util.Utils;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -164,17 +162,13 @@ public class ProductForm {
     }
 
     /**
-     * @return
+     * @return product created from this <code>ProductForm</code>.
+     *         Unit and ProductCategory dependancies are not initialized !
      */
     public ProductAncestor getProduct () {
-        Unit unit = new Unit(unitId, unitLabel, null);
 
-        ProductCategory category = new ProductCategory(categoryLabel);
-        category.setId(categoryId);
-
-        Product product = new Product(name, unit, amount, points, shared, description);
+        Product product = new Product(name, null, amount, points, shared, description);
         product.setId(id);
-        product.setCategory(category);
         product.setMaxPoints(maxPoints);
 
         return product;

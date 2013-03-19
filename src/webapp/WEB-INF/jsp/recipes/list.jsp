@@ -16,7 +16,7 @@
 <p>All recipes defined:</p>
 <table>
     <tr>
-        <th>Favorite</th>
+        <th>Shared</th>
         <th>Name</th>
         <th>Points</th>
         <th>Category</th>

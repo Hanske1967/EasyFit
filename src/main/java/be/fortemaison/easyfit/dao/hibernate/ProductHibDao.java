@@ -3,6 +3,7 @@ package be.fortemaison.easyfit.dao.hibernate;
 import be.fortemaison.easyfit.dao.IProductDAO;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
+import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.IConstants;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -51,7 +52,11 @@ public class ProductHibDao implements IProductDAO {
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where name like :name order by name").setString("name", param).list();
+        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
+                .setString("name", param)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .list();
         return result;
     }
 
@@ -63,7 +68,11 @@ public class ProductHibDao implements IProductDAO {
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where category = :cat order by name").setEntity("cat", category).list();
+        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and category = :cat order by name")
+                .setEntity("cat", category)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .list();
         return result;
     }
 
@@ -83,9 +92,11 @@ public class ProductHibDao implements IProductDAO {
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where name like :name and category = :cat order by name")
+        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name and category = :cat order by name")
                 .setString("name", name)
                 .setEntity("cat", category)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
                 .list();
         return result;
     }
@@ -93,7 +104,10 @@ public class ProductHibDao implements IProductDAO {
     @Transactional(readOnly = true)
     public List<Product> findAll () {
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product order by name").list();
+        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) order by name")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .list();
         return result;
     }
 

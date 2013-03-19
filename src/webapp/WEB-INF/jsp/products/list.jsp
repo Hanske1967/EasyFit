@@ -30,7 +30,7 @@
 <p>All products defined:</p>
 <table>
     <tr>
-        <th>Favorite</th>
+        <th>Shared</th>
         <th>Name</th>
         <th>Amount</th>
         <th>Unit</th>

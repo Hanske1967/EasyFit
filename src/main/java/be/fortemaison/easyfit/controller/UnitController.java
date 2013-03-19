@@ -75,7 +75,17 @@ public class UnitController {
             return "units/edit";
         }
 
-        this.unitDAO.update(unitForm.getUnit());
+        Unit unit = unitForm.getUnit();
+        if (unit.getId() != null) {
+            //  update from existing
+            unit = this.unitDAO.findById(unit.getId());
+
+            unit.setName(unitForm.getName());
+            unit.setDescription(unitForm.getDescription());
+            unit.setShared(unitForm.getShared());
+        }
+
+        this.unitDAO.update(unit);
         return "redirect:/units/list";
     }
 
