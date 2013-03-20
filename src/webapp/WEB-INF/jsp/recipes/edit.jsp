@@ -77,10 +77,8 @@
                 <tr>
                     <td id="td_amount">${detail.amount}</td>
                     <td id="td_unit">${detail.product.unitLabel}</td>
-                    <td id="td_name" class="td"><a href="
-                    javascript:;"
-                                                   onclick="document.getElementById('form').setAttribute('action', './editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}') ;
-                                                           document.getElementById('form').submit();">${detail.product.name}</a>
+                    <td id="td_edit" class="td"><a
+                            href="editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">${detail.product.name}</a>
                     </td>
                     <td id="td_points">${detail.pointsLabel}</td>
                     </td>

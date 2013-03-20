@@ -20,6 +20,8 @@ public class RecipeDetailForm {
 
     private Double amount;
 
+    private Double totalPoints;
+
     /**
      *
      */
@@ -28,26 +30,21 @@ public class RecipeDetailForm {
     }
 
     /**
-     * @param id
-     * @param product
-     * @param amount
-     */
-    public RecipeDetailForm (Integer id, ProductForm product, Double amount) {
-        assert (product != null);
-
-        this.id = id;
-        this.product = product;
-        this.amount = amount;
-    }
-
-
-    /**
      * @param detail
      */
     public RecipeDetailForm (RecipeDetail detail) {
         this.id = detail.getId();
         this.amount = detail.getAmount();
         this.product = new ProductForm(detail.getProduct());
+        this.totalPoints = detail.getPoints();
+    }
+
+    public Double getTotalPoints () {
+        return totalPoints;
+    }
+
+    public void setTotalPoints (Double totalPoints) {
+        this.totalPoints = totalPoints;
     }
 
     public Integer getRecipeId () {
@@ -86,13 +83,8 @@ public class RecipeDetailForm {
         return Utils.NUMBER_FORMATTER.format(this.amount);
     }
 
-    public Double getPoints () {
-        return this.product.getPoints();
-    }
-
     public String getPointsLabel () {
-        Double points = getPoints();
-        return points == null ? "" : Utils.NUMBER_FORMATTER.format(getPoints());
+        return this.totalPoints == null ? "" : Utils.NUMBER_FORMATTER.format(this.totalPoints);
     }
 
 

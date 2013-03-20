@@ -71,7 +71,7 @@ public class RecipeController {
             recipeForm = new RecipeForm(recipe);
 
             for (RecipeDetail link : recipe.getRecipeDetails()) {
-                RecipeDetailForm linkForm = new RecipeDetailForm(link.getId(), new ProductForm(link.getProduct()), link.getAmount());
+                RecipeDetailForm linkForm = new RecipeDetailForm(link);
                 recipeForm.addProduct(linkForm);
             }
         }
@@ -152,7 +152,7 @@ public class RecipeController {
      * @param modelMap
      * @return
      */
-    @RequestMapping(value = "/editdetail", method = RequestMethod.POST)
+    @RequestMapping(value = "/editdetail", method = RequestMethod.GET)
     public String prepareEditDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, ModelMap modelMap, final SessionStatus status) {
 
         Recipe recipe = this.recipeDAO.findByIdWithDetails(key);

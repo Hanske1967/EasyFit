@@ -40,10 +40,10 @@
             </form:label>
             <form:input readonly="true" path="product.name"/>
 
-            <form:label path="points">
-                Points: <form:errors path="points" cssClass="error"/>
+            <form:label path="pointsLabel">
+                Points: <form:errors path="pointsLabel" cssClass="error"/>
             </form:label>
-            <form:input readonly="true" path="points"/>
+            <form:input readonly="true" path="pointsLabel"/>
         </fieldset>
 
         <p>
