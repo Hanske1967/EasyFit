@@ -70,16 +70,19 @@
                 <th id="th_unit">Unit</th>
                 <th id="th_name">Name</th>
                 <th id="th_points">Points</th>
-                <th id="th_actions" colspan="2">Actions</th>
+                <th id="th_actions">Actions</th>
             </tr>
 
             <c:forEach items="${recipeForm.recipeDetailForms}" var="detail">
                 <tr>
                     <td id="td_amount">${detail.amount}</td>
                     <td id="td_unit">${detail.product.unitLabel}</td>
-                    <td id="td_name">${detail.product.name}</td>
+                    <td id="td_name" class="td"><a href="
+                    javascript:;"
+                                                   onclick="document.getElementById('form').setAttribute('action', './editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}') ;
+                                                           document.getElementById('form').submit();">${detail.product.name}</a>
+                    </td>
                     <td id="td_points">${detail.pointsLabel}</td>
-                    <td id="td_edit" class="td"><a href="editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Edit</a>
                     </td>
                     <td id="td_remove" class="td"><a
                             href="removedetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Delete</a>
@@ -107,17 +110,6 @@
         </p>
     </form:form>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#form").submit(function () {
-                $.post($(this).attr("action"), $(this).serialize(), function (html) {
-                    $("#myform").replaceWith(html);
-                    $('html, body').animate({ scrollTop: $("#message").offset().top }, 500);
-                });
-                return false;
-            });
-        });
-    </script>
 </div>
 </body>
 </html>

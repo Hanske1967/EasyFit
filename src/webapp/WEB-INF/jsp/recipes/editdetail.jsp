@@ -10,8 +10,7 @@
     <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
 </head>
-<body
-">
+<body>
 <jsp:include page="../navigation.jsp"/>
 <div class="myform">
     <form:form id="form" method="post" modelAttribute="recipeDetailForm" action="./adddetail3?">
@@ -51,18 +50,6 @@
             <button type="submit">Submit</button>
         </p>
     </form:form>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#form").submit(function () {
-                $.post($(this).attr("action"), $(this).serialize(), function (html) {
-                    $("#myform").replaceWith(html);
-                    $('html, body').animate({ scrollTop: $("#message").offset().top }, 500);
-                });
-                return false;
-            });
-        });
-    </script>
 </div>
 </body>
 </html>

@@ -26,12 +26,14 @@ import java.util.*;
  * User: Hans
  * Date: 26/01/13
  * Time: 23:36
- * To change this template use File | Settings | File Templates.
+ * To change this template use File | ettings | File Templates.
  */
 @Controller
 @RequestMapping("/recipes")
-@SessionAttributes({"recipeForm", "recipeDetailForm"})
+@SessionAttributes("recipeDetailForm")
 public class RecipeController {
+
+    public static final String RECIPE_DETAIL_FORM = "recipeDetailForm";
 
     @Autowired
     private IRecipeDAO recipeDAO;
@@ -150,10 +152,8 @@ public class RecipeController {
      * @param modelMap
      * @return
      */
-    @RequestMapping(value = "/editdetail", method = RequestMethod.GET)
+    @RequestMapping(value = "/editdetail", method = RequestMethod.POST)
     public String prepareEditDetail (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer detailKey, ModelMap modelMap, final SessionStatus status) {
-
-        status.setComplete();
 
         Recipe recipe = this.recipeDAO.findByIdWithDetails(key);
         if (recipe != null) {
@@ -164,13 +164,10 @@ public class RecipeController {
                 }
             }
 
-            RecipeDetailForm recipeDetailForm = (RecipeDetailForm) modelMap.get("recipeDetailForm");
-            if (recipeDetailForm == null) {
-                recipeDetailForm = new RecipeDetailForm(editedDetail);
-            }
-
+            RecipeDetailForm recipeDetailForm = new RecipeDetailForm(editedDetail);
             recipeDetailForm.setRecipeId(key);
-            modelMap.addAttribute("recipeDetailForm", recipeDetailForm);
+            modelMap.addAttribute(RECIPE_DETAIL_FORM, recipeDetailForm);
+
             return "/recipes/editdetail";
         }
 
@@ -187,7 +184,7 @@ public class RecipeController {
     @RequestMapping(value = "/adddetail1", method = RequestMethod.POST)
     public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "category", required = false) Integer categoryId, @Validated RecipeForm recipeForm, BindingResult result, ModelMap modelMap) {
 
-        RecipeDetailForm recipeDetailForm = (RecipeDetailForm) modelMap.get("recipeDetailForm");
+        RecipeDetailForm recipeDetailForm = (RecipeDetailForm) modelMap.get(RECIPE_DETAIL_FORM);
         if (recipeDetailForm == null) {
             if (key == null) {
                 //  recipe yet to be inserted
@@ -199,7 +196,7 @@ public class RecipeController {
 
             recipeDetailForm = new RecipeDetailForm();
             recipeDetailForm.setRecipeId(key);
-            modelMap.addAttribute("recipeDetailForm", recipeDetailForm);
+            modelMap.addAttribute(RECIPE_DETAIL_FORM, recipeDetailForm);
         }
 
         // TODO Move this code in ControllerHelper
@@ -235,7 +232,7 @@ public class RecipeController {
      */
     @RequestMapping(value = "/adddetail2", method = RequestMethod.POST)
     public String processAddDetail2 (@RequestParam("productKey") Integer
-                                             productKey, @ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm, final Errors errors,
+                                             productKey, @ModelAttribute(RECIPE_DETAIL_FORM) RecipeDetailForm recipeDetailForm, final Errors errors,
                                      final HttpServletResponse response) {
         Product product = this.productDAO.findById(productKey);
         assert (product != null);
@@ -250,7 +247,7 @@ public class RecipeController {
      * @return
      */
     @RequestMapping(value = "/adddetail3", method = RequestMethod.POST)
-    public String processAddDetail3 (@ModelAttribute("recipeDetailForm") RecipeDetailForm recipeDetailForm,
+    public String processAddDetail3 (@ModelAttribute(RECIPE_DETAIL_FORM) RecipeDetailForm recipeDetailForm,
                                      final Errors errors, final SessionStatus status) {
 
         Recipe recipe = this.recipeDAO.findByIdWithDetails(recipeDetailForm.getRecipeId());
@@ -302,37 +299,6 @@ public class RecipeController {
             this.recipeDAO.update(recipe);
             return "redirect:/recipes/edit?key=" + key;
         }
-
-        return "recipes/list";
-    }
-
-    /**
-     * Remove a product from the recipe
-     *
-     * @param key is the Recipe identifier
-     * @param detailKey is the detail identifier
-     * @param model
-     * @return
-     */
-    @RequestMapping(value = "/editProduct", method = RequestMethod.POST)
-    public String processEditProduct (@RequestParam("key") Integer key, @RequestParam("detailKey") Integer
-            detailKey, @Validated RecipeDetailForm detailForm, BindingResult result, Model model, final SessionStatus status) {
-        Recipe recipe = this.recipeDAO.findByIdWithDetails(key);
-        Set<RecipeDetail> details = recipe.getRecipeDetails();
-        RecipeDetail editedDetail = null;
-        for (RecipeDetail detail : details) {
-            if (detail.getId().equals(detailKey)) {
-                editedDetail = detail;
-            }
-        }
-
-        if (recipe != null && editedDetail != null) {
-            editedDetail.setAmount(detailForm.getAmount());
-            this.recipeDAO.update(recipe);
-            return "redirect:/recipes/update?key=" + key;
-        }
-
-        status.setComplete();
 
         return "recipes/list";
     }
