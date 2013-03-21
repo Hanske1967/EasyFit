@@ -109,6 +109,7 @@ public class ProductController {
             // product update
             product = productDAO.findById(formProduct.getId());
 
+            product.setName(formProduct.getName());
             product.setShared(formProduct.getShared());
             product.setAmount(formProduct.getAmount());
             product.setMaxPoints(formProduct.getMaxPoints());
