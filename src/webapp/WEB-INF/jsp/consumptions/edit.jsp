@@ -4,24 +4,37 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page session="false" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>EasyFit - Recipe</title>
+    <title>EasyFit - Agenda</title>
     <meta charset="UTF-8">
-    <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EasyFit, track what you eat and stay fit !">
+    <meta name="author" content="Hans Fortemaison">
+
+    <!-- Le styles -->
+    <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
+    <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
+    <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 </head>
-<body>
+
+<body onload="javascript:; document.getElementById('name').setAttribute('class', 'active'); document.getElementById('name').focus()">
+
 <jsp:include page="../navigation.jsp"/>
+
 <div name="form" class="myform">
+
     <form:form id="form" action="./update" method="post" modelAttribute="recipeForm">
-        <div class="header">
+        <legend>
             <c:choose>
                 <c:when test="${empty recipeForm.id}"><h2>New recipe:</h2></c:when>
                 <c:otherwise><h2>Update recipe:</h2></c:otherwise>
             </c:choose>
 
             <form:errors path="*" cssClass="errorBox"/>
-        </div>
+        </legend>
+
         <fieldset>
             <form:hidden path="id"/>
 
@@ -47,8 +60,11 @@
 
         </fieldset>
 
-        <p>Products:</p>
-        <table>
+
+        <table class="table">
+            <caption>Products:</caption>
+
+            <thead>
             <tr>
                 <th>Amount</th>
                 <th>Unit</th>
@@ -56,29 +72,34 @@
                 <th>Points</th>
                 <th colspan="2">Actions</th>
             </tr>
+            </thead>
 
+            <tbody>
             <c:forEach items="${recipeForm.recipeDetailForms}" var="detail">
                 <tr>
                     <td>${detail.amountLabel}</td>
                     <td>${detail.product.unitLabel}</td>
                     <td>${detail.product.name}</td>
-                    <td>${detail.points}</td>
-                    <td class="td"><a href="editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Edit</a></td>
-                    <td class="td"><a href="removedetail?key=${recipeForm.id}&amp;detailKey=${detail.id}">Delete</a>
+                    <td><span class="badge badge-info">${detail.points}</span></td>
+
+                    <td class="td"><a href="editdetail?key=${recipeForm.id}&amp;detailKey=${detail.id}"><i
+                            title="Delete" class="icon-edit"></i></a></td>
+                    <td class="td"><a href="removedetail?key=${recipeForm.id}&amp;detailKey=${detail.id}"><i
+                            title="Delete" class="icon-remove"></i></a>
                     </td>
                 </tr>
             </c:forEach>
-
+            </tbody>
         </table>
 
         <c:choose>
             <c:when test="${empty recipeForm.id}">
-                <a href="javascript:;"
+                <a class="btn btn-primary" href="javascript:;"
                    onclick="document.getElementById('form').setAttribute('action', './adddetail1') ;document.getElementById('form').submit();">Add
                     product...</a>
             </c:when>
             <c:otherwise>
-                <a href="javascript:;"
+                <a class="btn btn-primary" href="javascript:;"
                    onclick="document.getElementById('form').setAttribute('action', './adddetail1?key=' + ${recipeForm.id}) ;document.getElementById('form').submit();">Add
                     product...</a>
             </c:otherwise>
@@ -89,17 +110,6 @@
         </p>
     </form:form>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#form").submit(function () {
-                $.post($(this).attr("action"), $(this).serialize(), function (html) {
-                    $("#myform").replaceWith(html);
-                    $('html, body').animate({ scrollTop: $("#message").offset().top }, 500);
-                });
-                return false;
-            });
-        });
-    </script>
 </div>
 </body>
 </html>

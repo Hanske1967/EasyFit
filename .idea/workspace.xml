@@ -6,21 +6,48 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e27ba2-f9f3-44ff-9361-16a9400cf6c1" name="EasyFit-38 Updating a recipeDetail does not work" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java" />
+    <list default="true" id="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" name="EasyFit-53 Integrate boostrap lib" comment="EasyFit-53 Integrate boostrap lib">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/assets/img/glyphicons-halflings-white.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/assets/img/glyphicons-halflings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/assets/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/assets/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/assets/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/assets/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/scripts.jsp" />
+      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\src\main\resources\theme.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\src\webapp\images\Actions-go-next-view-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\src\webapp\images\Actions-go-previous-view-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Devs\Workspace\EasyFit\src\webapp\theme.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/sql/clear.sql" afterPath="$PROJECT_DIR$/install/sql/clear.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/dispatcher-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/theme.css" afterPath="$PROJECT_DIR$/src/webapp/theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/list.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/navigation.jsp" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/navigation.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebWeights.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/sessionFactory" changelist="1448e788-bbe3-44ca-b8d6-282f58f49e4a" time="1363297503048" ignored="false" />
-    <file path="/web.xml" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362519422207" ignored="false" />
+    <file path="/web.xml" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365168084678" ignored="false" />
     <file path="/applicationContext.xml" changelist="65114bd7-229e-486f-a5f4-8be4abe07561" time="1362755459816" ignored="false" />
     <file path="/DummyFile.xpath" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363034255386" ignored="false" />
-    <file path="/dispatcher-servlet.xml" changelist="439238bf-35a0-45fd-85ec-31611821dcaf" time="1363205771978" ignored="false" />
+    <file path="/dispatcher-servlet.xml" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365172915276" ignored="false" />
     <file path="/ScaleController.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359747605591" ignored="false" />
     <file path="/Receipt.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359390722335" ignored="false" />
     <file path="/recipe.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360192395189" ignored="false" />
@@ -30,7 +57,7 @@
     <file path="/clear.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880207193" ignored="false" />
     <file path="/Data Source" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360881591647" ignored="false" />
     <file path="/a.regexp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359410205111" ignored="false" />
-    <file path="/Dummy.txt" changelist="a7e27ba2-f9f3-44ff-9361-16a9400cf6c1" time="1363813767584" ignored="false" />
+    <file path="/Dummy.txt" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365200525371" ignored="false" />
     <file path="/product.hbm.xml" changelist="1448e788-bbe3-44ca-b8d6-282f58f49e4a" time="1363295240259" ignored="false" />
     <file path="/example.hql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359912598562" ignored="false" />
     <file path="/product_all.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359456053944" ignored="false" />
@@ -42,9 +69,9 @@
     <file path="/ScaleFormController.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359475405101" ignored="false" />
     <file path="/ScaleForm.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359752932138" ignored="false" />
     <file path="/scales.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359475058629" ignored="false" />
-    <file path="/list.jsp" changelist="70a677cb-3f99-4900-9dc6-be8b5d9dfe3a" time="1363727873034" ignored="false" />
+    <file path="/list.jsp" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365200218500" ignored="false" />
     <file path="/ProductForm.java" changelist="c36dc74d-8687-4d92-8b3c-37edb3c16fbd" time="1363726307648" ignored="false" />
-    <file path="/edit.jsp" changelist="a7e27ba2-f9f3-44ff-9361-16a9400cf6c1" time="1363814782360" ignored="false" />
+    <file path="/edit.jsp" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365200403952" ignored="false" />
     <file path="/style.css" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359586295356" ignored="false" />
     <file path="/Scale.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359586810778" ignored="false" />
     <file path="/IProductDAO.java" changelist="890c82e9-4dd8-408a-9b54-2d54c9f9f311" time="1362694417613" ignored="false" />
@@ -55,7 +82,7 @@
     <file path="/theme.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361054496120" ignored="false" />
     <file path="$PROJECT_DIR$/src/be/fortemaison/webweights/dao/hibernate/ScaleHibDao.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359732552436" ignored="false" />
     <file path="/log4j.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359733376766" ignored="false" />
-    <file path="/log4j.properties" changelist="70a677cb-3f99-4900-9dc6-be8b5d9dfe3a" time="1363729058884" ignored="false" />
+    <file path="/log4j.properties" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365200590041" ignored="false" />
     <file path="/styles.css" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359735129392" ignored="false" />
     <file path="/fragment.js" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359753108626" ignored="false" />
     <file path="/list.properties" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359843088902" ignored="false" />
@@ -71,7 +98,7 @@
     <file path="/navigation.html" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361399161036" ignored="false" />
     <file path="/UnitController.java" changelist="c36dc74d-8687-4d92-8b3c-37edb3c16fbd" time="1363726139513" ignored="false" />
     <file path="/services.xml" changelist="d990a54b-f8eb-40fe-a52a-117eb855f1c7" time="1362587180535" ignored="false" />
-    <file path="/home.jsp" changelist="439238bf-35a0-45fd-85ec-31611821dcaf" time="1363118107266" ignored="false" />
+    <file path="/home.jsp" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365187657361" ignored="false" />
     <file path="/IRecipeService.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360360630029" ignored="false" />
     <file path="/IRecipeDAO.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360360704655" ignored="false" />
     <file path="/RecipeServiceImpl.java" changelist="394f5a45-6b11-4ba9-bbf4-9d54ee4f4701" time="1363209185580" ignored="false" />
@@ -84,10 +111,10 @@
     <file path="/RecipeProductLink.java" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360254736729" ignored="false" />
     <file path="/recipeproductlink.hbm.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360272527121" ignored="false" />
     <file path="/RecipeDetailForm.java" changelist="43488ec6-d5ec-44db-b65f-e69d967a2860" time="1362737778662" ignored="false" />
-    <file path="/editdetail.jsp" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363038263551" ignored="false" />
+    <file path="/editdetail.jsp" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365199312787" ignored="false" />
     <file path="/search.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360613589270" ignored="false" />
     <file path="/find.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360615408734" ignored="false" />
-    <file path="/findproduct.jsp" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1363037292809" ignored="false" />
+    <file path="/findproduct.jsp" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365193117103" ignored="false" />
     <file path="/User.java" changelist="439238bf-35a0-45fd-85ec-31611821dcaf" time="1363086051135" ignored="false" />
     <file path="/user.hbm.xml" changelist="439238bf-35a0-45fd-85ec-31611821dcaf" time="1363127107381" ignored="false" />
     <file path="/UserHibDao.java" changelist="e71a01a0-b23d-465d-bcfe-dd4440e6c79e" time="1362781983147" ignored="false" />
@@ -127,7 +154,7 @@
     <file path="$PROJECT_DIR$/../spring-mvc-showcase/src/main/webapp/WEB-INF/views/views/html.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361398117528" ignored="false" />
     <file path="$PROJECT_DIR$/../spring-mvc-showcase/src/main/webapp/WEB-INF/web.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361398117528" ignored="false" />
     <file path="/messages.css" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361398519550" ignored="false" />
-    <file path="/navigation.jsp" changelist="439238bf-35a0-45fd-85ec-31611821dcaf" time="1363114727916" ignored="false" />
+    <file path="/navigation.jsp" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365165732530" ignored="false" />
     <file path="/pom.xml" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1361828561563" ignored="false" />
     <file path="/Groovy Console" changelist="16df255c-5ea9-464c-95ee-0172529a2626" time="1362082720470" ignored="false" />
     <file path="/dummy.sql" changelist="439238bf-35a0-45fd-85ec-31611821dcaf" time="1363085925281" ignored="false" />
@@ -176,6 +203,9 @@
     <file path="/favoriteproduct.hbm.xml" changelist="1448e788-bbe3-44ca-b8d6-282f58f49e4a" time="1363296242919" ignored="false" />
     <file path="/favorites.txt" changelist="1448e788-bbe3-44ca-b8d6-282f58f49e4a" time="1363297525847" ignored="false" />
     <file path="/ConsumptionWeek.java" changelist="1448e788-bbe3-44ca-b8d6-282f58f49e4a" time="1363469915627" ignored="false" />
+    <file path="/scripts.jsp" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365165458469" ignored="false" />
+    <file path="/test.html" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365154843300" ignored="false" />
+    <file path="/Agenda.html" changelist="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" time="1365188221921" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,24 +230,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java" line="236" class="be.fortemaison.easyfit.controller.RecipeController" package="be.fortemaison.easyfit.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -260,6 +272,9 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <exception_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -269,41 +284,7 @@
     <favorites_list name="EasyFit" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="editdetail.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="91" selection-start="1248" selection-end="1248" vertical-scroll-proportion="-14.384615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecipeController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="271" column="0" selection-start="9847" selection-end="9876" vertical-scroll-proportion="0.36744186">
-              <folding>
-                <element signature="e#1777#1789#0" expanded="true" />
-                <element signature="e#2855#2872#0" expanded="true" />
-                <element signature="e#3163#3180#0" expanded="true" />
-                <element signature="e#7287#7304#0" expanded="true" />
-                <element signature="e#7788#7801#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="0" selection-start="4431" selection-end="4431" vertical-scroll-proportion="-28.961538">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -338,22 +319,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="dbtable:/a6519c0f/7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd/easyfit..user" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/ProductCategoryController.java" />
-        <option value="dbtable:/a6519c0f/7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd/easyfit..productcategory" />
-        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp" />
-        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
-        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/UnitHibDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/RecipeHibDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/ProductHibDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/ProductCategoryHibDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/findproduct.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp" />
         <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp" />
         <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java" />
-        <option value="$PROJECT_DIR$/src/webapp/theme.css" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/list.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/list.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/list.jsp" />
+        <option value="$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
       </list>
     </option>
   </component>
@@ -1285,24 +1266,6 @@
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -1360,7 +1323,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="recipes" />
+              <option name="myItemId" value="users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyFit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyFit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="units" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyFit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EasyFit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1395,30 +1406,8 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyFit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyfit" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1437,18 +1426,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyfit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1492,7 +1469,7 @@
     <property name="Downloaded.Files.Path" value="C:\Devs\repository" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
-    <property name="options.lastSelected" value="reference.idesettings.debugger.stepping" />
+    <property name="options.lastSelected" value="preferences.applicationServers" />
     <property name="Persistence.ERD.SimpleMode" value="false" />
     <property name="project.structure.side.proportion" value="0.28554913" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
@@ -1561,11 +1538,11 @@
       <recent name="be.fortemaison.webweights.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Devs\Workspace\EasyFit\src\webapp\assets" />
+      <recent name="C:\Devs\Workspace\EasyFit\src\webapp" />
+      <recent name="C:\Devs\Workspace\EasyFit\src\webapp\assets\js" />
       <recent name="C:\Devs\Workspace\EasyFit\src\main\java\be\fortemaison\easyfit\model" />
       <recent name="C:\Devs\Workspace\EasyFit\src\main\resources" />
-      <recent name="C:\Devs\Workspace\EasyFit\src\webapp\WEB-INF\jsp" />
-      <recent name="C:\Devs\Workspace\WebWeights\src\resources" />
-      <recent name="C:\Devs\Workspace\WebWeights\src\webapp\WEB-INF\jsp" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="be.fortemaison.webweights.dao.hibernate" />
@@ -1577,11 +1554,11 @@
       <recent name="be.fortemaison.webweights.dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Devs\Workspace\EasyFit\install\sql" />
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp" />
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp\WEB-INF" />
       <recent name="C:\Devs\Workspace\EasyFit\src\webapp\WEB-INF\jsp" />
-      <recent name="C:\Devs\Workspace\EasyFit\src" />
+      <recent name="C:\Devs\Workspace\EasyFit\src\webapp\assets" />
+      <recent name="C:\Devs\Workspace\EasyFit\install\sql" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="be.fortemaison.persistence" />
@@ -1944,6 +1921,16 @@
         <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
+    <configuration default="false" name="WebWeights on Tomcat JavaScript" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" value="http://localhost:8080/easyfit/home" />
+        <mapping local-file="$PROJECT_DIR$/src/webapp" url="http://localhost:8080/easyfit/" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="Jetty 8.1.8.v20121106" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 8.1.8.v20121106">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/easyfit/consumptions/list" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -2083,9 +2070,9 @@
         <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
-    <configuration default="false" name="WebWeights on Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.35">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost/easyfit/home" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+    <configuration default="false" name="WebWeights on Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/easyfit/home" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="EasyFit:war exploded">
           <settings>
@@ -2161,13 +2148,14 @@
         </option>
       </method>
     </configuration>
-    <list size="6">
+    <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Groovy.build" />
       <item index="1" class="java.lang.String" itemvalue="JBoss Server.JBoss 7.1.1.Final" />
-      <item index="2" class="java.lang.String" itemvalue="Jetty Server.Jetty 8.1.8.v20121106" />
-      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.WebWeights on Tomcat" />
-      <item index="4" class="java.lang.String" itemvalue="Application.PasswordService" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.RecipeHibDaoTest" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.WebWeights on Tomcat JavaScript" />
+      <item index="3" class="java.lang.String" itemvalue="Jetty Server.Jetty 8.1.8.v20121106" />
+      <item index="4" class="java.lang.String" itemvalue="Tomcat Server.WebWeights on Tomcat" />
+      <item index="5" class="java.lang.String" itemvalue="Application.PasswordService" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.RecipeHibDaoTest" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -2211,12 +2199,18 @@
       <option name="type" value="BUG" />
       <updated>1363729507187</updated>
     </task>
-    <task active="true" id="EasyFit-38" summary="Updating a recipeDetail does not work">
-      <changelist id="a7e27ba2-f9f3-44ff-9361-16a9400cf6c1" name="EasyFit-38 Updating a recipeDetail does not work" comment="" />
+    <task id="EasyFit-38" summary="Updating a recipeDetail does not work">
       <created>1363722303000</created>
       <option name="issue" value="true" />
       <option name="type" value="BUG" />
-      <updated>1363729508187</updated>
+      <updated>1364921168626</updated>
+    </task>
+    <task active="true" id="EasyFit-53" summary="Integrate boostrap lib">
+      <changelist id="ed42fe53-e5a8-43d9-b63a-4ec4cc3167c1" name="EasyFit-53 Integrate boostrap lib" comment="" />
+      <created>1364908498000</created>
+      <option name="issue" value="true" />
+      <option name="type" value="BUG" />
+      <updated>1364921169520</updated>
     </task>
     <option name="localTasksCounter" value="38" />
     <servers>
@@ -2256,30 +2250,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41295546" sideWeight="0.4974227" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25515464" sideWeight="0.61808366" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22487113" sideWeight="0.50472337" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22551547" sideWeight="0.6774629" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22551547" sideWeight="0.6346414" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24935567" sideWeight="0.6359946" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26030928" sideWeight="0.65182185" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36707154" sideWeight="0.4954897" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3653586" sideWeight="0.4954897" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38191634" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26319176" sideWeight="0.23211876" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32947233" sideWeight="0.65629226" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="left" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.48389176" sideWeight="0.5721997" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32253712" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32341" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22072072" sideWeight="0.37618405" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793522" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24291237" sideWeight="0.61808366" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4002574" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839838" sideWeight="0.65629226" order="12" side_tool="true" content_ui="tabs" x="333" y="238" width="468" height="463" />
       <window_info id="Application Servers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22873712" sideWeight="0.3616734" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22487113" sideWeight="0.6329285" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36437246" sideWeight="0.49226806" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28479382" sideWeight="0.6359946" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36400542" sideWeight="0.49226806" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4493927" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" x="92" y="92" width="1416" height="676" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42645073" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2375,6 +2369,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
+      <option name="time" value="1" />
     </breakpoint-manager>
   </component>
   <component name="XPathView.XPathProjectComponent">
@@ -2386,107 +2381,115 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp">
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="18" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.78955007" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="18" selection-start="546" selection-end="546" vertical-scroll-proportion="0.29608127">
+        <state line="21" column="121" selection-start="1078" selection-end="1078" vertical-scroll-proportion="0.30267063">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp">
+    <entry file="jar://$PROJECT_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-webmvc-3.2.1.RELEASE.jar!/META-INF/spring-form.tld">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="75" selection-start="1902" selection-end="1902" vertical-scroll-proportion="0.33381712" />
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a6519c0f/7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd/easyfit..unit">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/a6519c0f/7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd/easyfit..product">
-      <provider editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/RecipeHibDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="76" selection-start="714" selection-end="714" vertical-scroll-proportion="0.43589744" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/UnitHibDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1834" selection-end="1974" vertical-scroll-proportion="0.26638177" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/ProductHibDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="0" selection-start="3611" selection-end="3752" vertical-scroll-proportion="0.17663817" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/dao/hibernate/ProductCategoryHibDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="1.1860465" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="100" selection-start="1483" selection-end="1483" vertical-scroll-proportion="0.76975167" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/interceptor/TechnicalSegmentInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="527" selection-end="527" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/form/RecipeDetailForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="109" selection-start="785" selection-end="785" vertical-scroll-proportion="0.0">
+        <state line="200" column="8" selection-start="6616" selection-end="6616" vertical-scroll-proportion="0.33285713">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp">
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/editdetail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="91" selection-start="1248" selection-end="1248" vertical-scroll-proportion="-14.384615">
+        <state line="57" column="53" selection-start="2296" selection-end="2296" vertical-scroll-proportion="0.39465874">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="0" selection-start="4431" selection-end="4431" vertical-scroll-proportion="-28.961538">
+        <state line="123" column="38" selection-start="5389" selection-end="5389" vertical-scroll-proportion="2.875371">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/webapp/theme.css">
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/editdetail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="200" column="17" selection-start="2831" selection-end="2831" vertical-scroll-proportion="0.023923445">
+        <state line="58" column="47" selection-start="2270" selection-end="2270" vertical-scroll-proportion="0.5443959">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java">
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="271" column="0" selection-start="9847" selection-end="9876" vertical-scroll-proportion="0.36744186">
-          <folding>
-            <element signature="e#1777#1789#0" expanded="true" />
-            <element signature="e#2855#2872#0" expanded="true" />
-            <element signature="e#3163#3180#0" expanded="true" />
-            <element signature="e#7287#7304#0" expanded="true" />
-            <element signature="e#7788#7801#0" expanded="true" />
-          </folding>
+        <state line="56" column="137" selection-start="2304" selection-end="2304" vertical-scroll-proportion="0.123726346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="125" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.40611354">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/consumptions/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.75667655">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/recipes/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="132" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.3231441">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/products/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="92" selection-start="2065" selection-end="2065" vertical-scroll-proportion="0.21810089">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/categories/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.62882096">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1694" selection-end="1737" vertical-scroll-proportion="0.77729255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="61" selection-start="912" selection-end="912" vertical-scroll-proportion="0.2670623">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/units/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="2721" selection-end="2794" vertical-scroll-proportion="0.7176128">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webapp/WEB-INF/jsp/users/edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="1" selection-start="3475" selection-end="3475" vertical-scroll-proportion="0.77729255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="2" selection-start="1387" selection-end="1387" vertical-scroll-proportion="1.5315316">
+          <folding />
         </state>
       </provider>
     </entry>

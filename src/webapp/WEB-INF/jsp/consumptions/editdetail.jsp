@@ -1,67 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page session="false" %>
-<html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>EasyFit - Recipe</title>
-    <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
+    <title>EasyFit - Agenda</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EasyFit, track what you eat and stay fit !">
+    <meta name="author" content="Hans Fortemaison">
+
+    <!-- Le styles -->
+    <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
+    <style>
+        .btn {
+            margin-top: 20px;
+        }
+    </style>
+
+    <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
+
+    <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
+
 </head>
-<body>
-<jsp:include page="../navigation.jsp"/>
-<div class="myform">
-    <form:form id="form" method="post" modelAttribute="consumptionDetailForm" action="./adddetail3?">
-        <div class="header">
-            <c:choose>
-                <c:when test="${empty consumptionDetailForm.id}"><h2>Add product:</h2></c:when>
-                <c:otherwise><h2>Update product:</h2></c:otherwise>
-            </c:choose>
+<body onload="javascript:; document.getElementById('nav_agenda').setAttribute('class', 'active');
+ document.getElementById('focusedInput').focus()">
 
-            <form:errors path="*" cssClass="errorBox"/>
-        </div>
-        <fieldset>
-            <form:hidden path="id"/>
+<div class="container">
+    <jsp:include page="../navigation.jsp"/>
+    <div class="form">
+        <form:form id="form" method="post" modelAttribute="consumptionDetailForm" action="./adddetail3?">
+            <fieldset>
+                <legend>
+                    <c:choose>
+                        <c:when test="${empty consumptionDetailForm.id}">Add product:</c:when>
+                        <c:otherwise>Update product:</c:otherwise>
+                    </c:choose>
 
-            <form:label path="amount">
-                Amount: <form:errors path="amount" cssClass="error"/>
-            </form:label>
-            <form:input path="amount" autofocus="true"/>
+                    <form:errors path="*" cssClass="errorBox"/>
+                </legend>
 
-            <form:label path="productUnit">
-                Unit: <form:errors path="productUnit" cssClass="error"/>
-            </form:label>
-            <form:input readonly="true" path="productUnit"/>
+                <form:hidden path="id"/>
 
-            <form:label path="productName">
-                Product: <form:errors path="productName" cssClass="error"/>
-            </form:label>
-            <form:input readonly="true" path="productName"/>
+                <form:label path="amount">
+                    Amount: <form:errors path="amount" cssClass="error"/>
+                </form:label>
+                <form:input id="focusedInput" path="amount"/>
 
-            <form:label path="points">
-                Points: <form:errors path="points" cssClass="error"/>
-            </form:label>
-            <form:input readonly="true" path="points"/>
-        </fieldset>
+                <form:label path="productUnit">
+                    Unit: <form:errors path="productUnit" cssClass="error"/>
+                </form:label>
+                <form:input readonly="true" path="productUnit"/>
 
-        <p>
-            <button type="submit">Submit</button>
-        </p>
-    </form:form>
+                <form:label path="productName">
+                    Product: <form:errors path="productName" cssClass="error"/>
+                </form:label>
+                <form:input readonly="true" path="productName"/>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#form").submit(function () {
-                $.post($(this).attr("action"), $(this).serialize(), function (html) {
-                    $("#myform").replaceWith(html);
-                    $('html, body').animate({ scrollTop: $("#message").offset().top }, 500);
-                });
-                return false;
-            });
-        });
-    </script>
+                <form:label path="points">
+                    Points: <form:errors path="points" cssClass="error"/>
+                </form:label>
+                <form:input readonly="true" path="points"/>
+            </fieldset>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form:form>
+
+    </div>
 </div>
+<jsp:include page="../scripts.jsp"/>
 </body>
 </html>

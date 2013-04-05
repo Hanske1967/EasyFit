@@ -2,67 +2,118 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>EasyFit - Agenda</title>
     <meta charset="UTF-8">
-    <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EasyFit, track what you eat and stay fit !">
+    <meta name="author" content="Hans Fortemaison">
+
+    <!-- Le styles -->
+    <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
+    <style type="text/css">
+        .well {
+            padding-left: 30px;
+
+        }
+    </style>
+
+    <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
+
+    <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
+
 </head>
-</head>
-<body>
-<jsp:include page="../navigation.jsp"/>
 
-<h2 class="date_header">
-    <p>${userForm.userName}</p>
-    <a href="./list?date=${consumptionForm.previousDate}"><img src="../images/Actions-go-previous-view-icon.png"
-                                                               alt="<<"></a>
+<body onload="javascript:; document.getElementById('nav_agenda').setAttribute('class', 'active');">
 
-    <p>${consumptionForm.title}</p>
-    <a href="./list?date=${consumptionForm.nextDate}"><img src="../images/Actions-go-next-view-icon.png" alt=">>"></a>
+<div id="container" class="container">
 
-    <p>Consumed: ${consumptionForm.pointsLabel} pts,
-        Available: ${consumptionForm.dayPointsLeftLabel}/${consumptionForm.dayPoints},
-        Extra: ${consumptionForm.extraPointsLeftLabel}/${consumptionForm.extraPoints}</p>
-</h2>
+    <!--  navigation  -->
+    <jsp:include page="../navigation.jsp"/>
 
-<c:forEach var="type" begin="1" end="6">
-    <form id="consumptionDetail${type}" method="post" modelAttribute="consumptionDetailForm">
-        <jsp:setProperty name="consumptionForm" property="typeIndex" value="${type}"/>
-        <h3>${consumptionForm.consumptionDetailTitleForIndex} - ${consumptionForm.consumptionDetailsPointsForIndex}
-            points
+    <div class="row-fluid">
+        <!-- left panel / infos -->
+        <div id="sidebar" class="well well-small span3">
+            <h4>This week:</h4>
 
-            <c:choose>
-                <c:when test="${empty consumptionForm.id}">
-                    <a href="javascript:;"
-                       onclick="document.getElementById('consumptionDetail${type}').setAttribute('action', './adddetail1?date=${consumptionForm.currentDate}&amp;consumptionDetailType=${type}') ;document.getElementById('consumptionDetail${type}').submit();">Add
-                        product...</a>
-                </c:when>
-                <c:otherwise>
-                    <a href="javascript:;"
-                       onclick="document.getElementById('consumptionDetail${type}').setAttribute('action', './adddetail1?key=${consumptionForm.id}&amp;consumptionDetailType=${type}') ;document.getElementById('consumptionDetail${type}').submit();">Add
-                        product...</a>
-                </c:otherwise>
-            </c:choose>
-        </h3>
-        <table>
-            <tr>
-                <th id="th_name">Product</th>
-                <th id="th_points">Points</th>
-                <th id="th_actions">Actions</th>
-            </tr>
+            <p>Consumed: ${consumptionForm.pointsLabel} pts</p>
 
-            <c:forEach items="${consumptionForm.consumptionDetailsForIndex}" var="detail">
-                <tr>
-                    <td id="td_name"><a
-                            href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">${detail.label}</a>
-                    </td>
-                    <td id="td_points">${detail.pointsLabel}</td>
-                    <td id="td_action" class="td"><a
-                            href="./removedetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">Delete</a></td>
-                </tr>
+            <p>Available: ${consumptionForm.dayPointsLeftLabel}/${consumptionForm.dayPoints}</p>
+
+            <p>Extra: ${consumptionForm.extraPointsLeftLabel}/${consumptionForm.extraPoints}</p>
+        </div>
+
+        <!--  main panel  -->
+        <div id="main" class="span9">
+
+            <!--  navigation  -->
+            <ul id="date_navigation" class="pager">
+                <li>
+                    <a href="./list?date=${consumptionForm.previousDate}">&larr;</a>
+                </li>
+                <li><strong><a href="javascript:;" onclick="$('#date_navigation').popover('show')"
+                               data-toggle="tooltip">${consumptionForm.title}</a></strong></li>
+                <li>
+                    <a href="./list?date=${consumptionForm.nextDate}">&rarr;</a>
+                </li>
+            </ul>
+
+            <c:forEach var="type" begin="1" end="6">
+                <form id="consumptionDetail${type}" method="post" modelAttribute="consumptionDetailForm">
+                    <jsp:setProperty name="consumptionForm" property="typeIndex" value="${type}"/>
+
+                    <h5>
+                        <c:choose>
+                            <c:when test="${empty consumptionForm.id}">
+                                <a class="btn btn-link pull-right" href="javascript:;"
+                                   onclick="document.getElementById('consumptionDetail${type}').setAttribute('action', './adddetail1?date=${consumptionForm.currentDate}&amp;consumptionDetailType=${type}') ;document.getElementById('consumptionDetail${type}').submit();">
+                                    <i class="icon-plus"></i></a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="btn btn-link pull-right" href="javascript:;"
+                                   onclick="document.getElementById('consumptionDetail${type}').setAttribute('action', './adddetail1?key=${consumptionForm.id}&amp;consumptionDetailType=${type}') ;document.getElementById('consumptionDetail${type}').submit();">
+                                    <i class="icon-plus"></i></a>
+                            </c:otherwise>
+                        </c:choose>
+
+                            ${consumptionForm.consumptionDetailTitleForIndex}
+                        - ${consumptionForm.consumptionDetailsPointsForIndex} pts
+                    </h5>
+
+
+                    <div id="consumptionPanelDetail${type}" class="row-fluid">
+
+                        <table class="table table-hover">
+                            <tbody>
+                            <c:forEach items="${consumptionForm.consumptionDetailsForIndex}" var="detail">
+                                <tr>
+                                    <td id="td_action" class="span1">
+                                        <a href="./removedetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">
+                                            <i class="icon-remove"></i>
+                                        </a>
+                                    </td>
+                                    <td id="td_name" class="span10"><a
+                                            href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">${detail.label}</a>
+                                    </td>
+                                    <td id="td_points" class="span1"><span
+                                            class="badge badge-info">${detail.pointsLabel}</span></td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </form>
             </c:forEach>
-        </table>
-    </form>
-</c:forEach>
+
+        </div>
+    </div>
+</div>
+
+<jsp:include page="../scripts.jsp"/>
+
 </body>
 </html>

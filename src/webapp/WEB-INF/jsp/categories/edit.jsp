@@ -1,63 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page session="false" %>
-<html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>EasyFit - Categories</title>
+    <title>EasyFit - New category</title>
     <meta charset="UTF-8">
-    <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EasyFit, track what you eat and stay fit !">
+    <meta name="author" content="Hans Fortemaison">
+
+    <!-- Le styles -->
+    <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
+    <style>
+        .btn {
+            margin-top: 20px;
+        }
+    </style>
+    <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
+    <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 </head>
-<body>
-<jsp:include page="../navigation.jsp"/>
-<div id="stylized" class="myform">
-    <form:form id="form" name="form" method="post" modelAttribute="productCategoryForm">
-        <div class="header">
-            <c:choose>
-                <c:when test="${empty categoryForm.id}"><h2>New category:</h2></c:when>
-                <c:otherwise><h2>Update category:</h2></c:otherwise>
-            </c:choose>
-            <c:if test="${not empty message}">
-                <div id="message" class="success">${message}</div>
-            </c:if>
-            <s:bind path="*">
-                <c:if test="${status.error}">
-                    <div id="message" class="error">Form has errors</div>
-                </c:if>
-            </s:bind>
-        </div>
-        <fieldset>
-            <form:hidden path="id"/>
+<body onload="
+    javascript:;
+    document.getElementById('nav_categories').setAttribute('class', 'active');
+    document.getElementById('focusedInput').focus()">
 
-            <form:label path="name">
-                Name <form:errors path="name" cssClass="error"/>
-            </form:label>
-            <form:input path="name" maxlength="50" size="50" autofocus="true"/>
+<div class="container">
+    <jsp:include page="../navigation.jsp"/>
+    <div class="form">
+        <form:form id="form" name="form" method="post" modelAttribute="productCategoryForm">
+            <fieldset>
+                <legend>
+                    <c:choose>
+                        <c:when test="${empty categoryForm.id}">New category:</c:when>
+                        <c:otherwise>Update category:</c:otherwise>
+                    </c:choose>
+                    <c:if test="${not empty message}">
+                        <div id="message" class="success">${message}</div>
+                    </c:if>
+                    <s:bind path="*">
+                        <c:if test="${status.error}">
+                            <div id="message" class="error">Form has errors</div>
+                        </c:if>
+                    </s:bind>
+                </legend>
+                <form:hidden path="id"/>
+                <form:label path="name">
+                    Name <form:errors path="name" cssClass="error"/>
+                </form:label>
+                <form:input id="focusedInput" path="name" maxlength="50" class="input-xlarge"/>
 
-            <form:label path="shared">
-                Shared <form:errors path="shared" cssClass="error"/>
-            </form:label>
-            <form:checkbox path="shared"/>
-        </fieldset>
-
-        <p>
-            <button type="submit">Submit</button>
-        </p>
-    </form:form>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#form").submit(function () {
-                $.post($(this).attr("action"), $(this).serialize(), function (html) {
-                    $("#myform").replaceWith(html);
-                    $('html, body').animate({ scrollTop: $("#message").offset().top }, 500);
-                });
-                return false;
-            });
-        });
-    </script>
-</div>
+                <form:label path="shared">
+                    Shared <form:errors path="shared" cssClass="error"/>
+                </form:label>
+                <form:checkbox path="shared"/>
+            </fieldset>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form:form>
+    </div>
+    <jsp:include page="../scripts.jsp"/>
 </body>
+
 </html>

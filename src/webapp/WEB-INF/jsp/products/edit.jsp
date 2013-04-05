@@ -1,95 +1,102 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page session="false" %>
-<html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>EasyFit - New product</title>
     <meta charset="UTF-8">
-    <link href="<c:url value="/theme.css" />" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EasyFit, track what you eat and stay fit !">
+    <meta name="author" content="Hans Fortemaison">
+
+    <!-- Le styles -->
+    <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
+    <style>
+        .btn {
+            margin-top: 20px;
+        }
+    </style>
+    <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
+
+    <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 </head>
-<body
-">
-<jsp:include page="../navigation.jsp"/>
-<div id="stylized" class="myform">
-    <form:form id="form" method="post" modelAttribute="productForm">
-        <div class="header">
-            <c:choose>
-                <c:when test="${empty productForm.id}"><h2>New product:</h2></c:when>
-                <c:otherwise><h2>Update product:</h2></c:otherwise>
-            </c:choose>
-            <c:if test="${not empty message}">
-                <div id="message" class="success">${message}</div>
-            </c:if>
-            <s:bind path="*">
-                <c:if test="${status.error}">
-                    <div id="message" class="error">Form has errors</div>
-                </c:if>
-            </s:bind>
-        </div>
-        <fieldset>
-            <form:hidden path="id"/>
+<body onload="
+    javascript:;
+    document.getElementById('nav_products').setAttribute('class', 'active');
+    document.getElementById('focusedInput').focus()">
 
-            <form:label path="name">
-                Name <form:errors path="name" cssClass="error"/>
-            </form:label>
-            <form:input path="name" size="50" maxlength="255" autofocus="true"/>
+<div class="container">
+    <jsp:include page="../navigation.jsp"/>
+    <div class="form">
+        <form:form id="form" method="post" modelAttribute="productForm">
+            <fieldset>
+                <legend>
+                    <c:choose>
+                        <c:when test="${empty productForm.id}">New product:</c:when>
+                        <c:otherwise>Update product:</c:otherwise>
+                    </c:choose>
+                    <c:if test="${not empty message}">
+                        <div id="message" class="success">${message}</div>
+                    </c:if>
+                    <s:bind path="*">
+                        <c:if test="${status.error}">
+                            <div id="message" class="error">Form has errors</div>
+                        </c:if>
+                    </s:bind>
+                </legend>
 
-            <form:label path="amount">
-                Amount <form:errors path="amount" cssClass="error"/>
-            </form:label>
-            <form:input path="amount"/>
+                <form:hidden path="id"/>
 
-            <form:label path="unitId">
-                Unit <form:errors path="unitId" cssClass="error"/>
-            </form:label>
-            <form:select path="unitId" items="${allUnits}"/>
+                <form:label path="name">
+                    Name <form:errors path="name" cssClass="error"/>
+                </form:label>
+                <form:input id="focusedInput" path="name" class="input-xlarge" maxlength="255"/>
 
-            <form:label path="points">
-                Points <form:errors path="points" cssClass="error"/>
-            </form:label>
-            <form:input path="points"/>
+                <form:label path="amount">
+                    Amount <form:errors path="amount" cssClass="error"/>
+                </form:label>
+                <form:input path="amount"/>
 
-            <form:label path="maxPoints">
-                Max Points <form:errors path="maxPoints" cssClass="error"/>
-            </form:label>
-            <form:input path="maxPoints"/>
+                <form:label path="unitId">
+                    Unit <form:errors path="unitId" cssClass="error"/>
+                </form:label>
+                <form:select path="unitId" items="${allUnits}"/>
 
-            <form:label path="categoryId">
-                Category <form:errors path="categoryId" cssClass="error"/>
-            </form:label>
-            <form:select path="categoryId" items="${allCategories}"/>
+                <form:label path="points">
+                    Points <form:errors path="points" cssClass="error"/>
+                </form:label>
+                <form:input path="points"/>
 
-            <form:label path="description">
-                Description <form:errors path="description" cssClass="error"/>
-            </form:label>
-            <form:input path="description" size="50" maxlength="255"/>
+                <form:label path="maxPoints">
+                    Max Points <form:errors path="maxPoints" cssClass="error"/>
+                </form:label>
+                <form:input path="maxPoints"/>
 
-            <form:label path="shared">
-                Shared <form:errors path="shared" cssClass="error"/>
-            </form:label>
-            <form:checkbox path="shared"/>
+                <form:label path="categoryId">
+                    Category <form:errors path="categoryId" cssClass="error"/>
+                </form:label>
+                <form:select path="categoryId" class="input-xlarge" items="${allCategories}"/>
 
-        </fieldset>
+                <form:label path="description">
+                    Description <form:errors path="description" cssClass="error"/>
+                </form:label>
+                <form:input path="description" class="input-xxlarge" maxlength="255"/>
 
-        <p>
-            <button type="submit">Submit</button>
-        </p>
-    </form:form>
+                <form:label path="shared">
+                    Shared <form:errors path="shared" cssClass="error"/>
+                </form:label>
+                <form:checkbox path="shared"/>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#form").submit(function () {
-                $.post($(this).attr("action"), $(this).serialize(), function (html) {
-                    $("#myform").replaceWith(html);
-                    $('html, body').animate({ scrollTop: $("#message").offset().top }, 500);
-                });
-                return false;
-            });
-        });
-    </script>
+            </fieldset>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form:form>
+
+    </div>
 </div>
+<jsp:include page="../scripts.jsp"/>
 </body>
 </html>

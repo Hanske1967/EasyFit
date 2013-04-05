@@ -46,7 +46,6 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-
     <context:component-scan base-package="be.fortemaison.easyfit.controller"/>
     <context:component-scan base-package="be.fortemaison.easyfit.interceptor"/>
 
