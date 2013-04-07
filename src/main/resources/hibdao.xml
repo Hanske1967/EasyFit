@@ -32,5 +32,8 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="weightDAO" class="be.fortemaison.easyfit.dao.hibernate.WeightHibDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
 </beans>

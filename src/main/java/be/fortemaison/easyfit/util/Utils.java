@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
  */
 public class Utils {
 
+    public static final DateFormat SHORT_DATE_FORMATTER = new SimpleDateFormat(IConstants.SHORT_DATE_FORMAT);
+
     public static final DateFormat DATE_FORMATTER = new SimpleDateFormat(IConstants.DATE_FORMAT);
 
     public static final DecimalFormat NUMBER_FORMATTER = new DecimalFormat(IConstants.DECIMAL_PATTERN);

@@ -47,11 +47,13 @@
       <foreign-key name="consumptiondetail_ibfk_2" columns="productid" ref-table="product" ref-schema="" ref-catalog="easyfit" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
     </table>
     <table name="favoriteproduct" schema="" catalog="easyfit" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
       <column name="productid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
       <column name="userid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
-      <primary-key name="PRIMARY" columns="productid,userid" />
+      <primary-key name="PRIMARY" columns="id" />
       <foreign-key name="FK_favoriteproduct_product_id" columns="productid" ref-table="product" ref-schema="" ref-catalog="easyfit" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <foreign-key name="FK_favoriteproduct_user_id" columns="userid" ref-table="user" ref-schema="" ref-catalog="easyfit" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <index name="UK_favoriteproduct" unique="true" columns="productid,userid" />
     </table>
     <table name="product" schema="" catalog="easyfit" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
@@ -84,8 +86,11 @@
       <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
       <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
       <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="parentid" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
       <primary-key name="PRIMARY" columns="id" />
+      <foreign-key name="FK_productcategory_productcategory_id" columns="parentid" ref-table="productcategory" ref-schema="" ref-catalog="easyfit" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
       <exported-key name="product_ibfk_2" table="product" schema="" catalog="easyfit" columns="productcategoryid" />
+      <exported-key name="FK_productcategory_productcategory_id" table="productcategory" schema="" catalog="easyfit" columns="parentid" />
       <index name="name_UNIQUE" unique="true" columns="name" />
     </table>
     <table name="recipe_product_link" schema="" catalog="easyfit" type="TABLE">
@@ -129,7 +134,20 @@
       <primary-key name="PRIMARY" columns="id" />
       <exported-key name="consumption_ibfk_1" table="consumption" schema="" catalog="easyfit" columns="userid" />
       <exported-key name="FK_favoriteproduct_user_id" table="favoriteproduct" schema="" catalog="easyfit" columns="userid" />
+      <exported-key name="FK_weigth_user_id" table="weigth" schema="" catalog="easyfit" columns="userid" />
       <index name="UK_user_username" unique="true" columns="username" />
+    </table>
+    <table name="weigth" schema="" catalog="easyfit" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="userid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91" />
+      <column name="weight" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="false" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="false" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <foreign-key name="FK_weigth_user_id" columns="userid" ref-table="user" ref-schema="" ref-catalog="easyfit" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
     </table>
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM TABLE">
       <column name="CHARACTER_SET_NAME" sqlType="VARCHAR" length="32" precision="0" nullable="false" jdbcType="12" def="Jyc=" />
@@ -2354,6 +2372,109 @@
       <exported-key name="fk_staff_store" table="staff" schema="" catalog="sakila" columns="store_id" />
       <index name="idx_unique_manager" unique="true" columns="manager_staff_id" />
       <index name="idx_fk_address_id" unique="false" columns="address_id" />
+    </table>
+    <table name="consumption" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="userid" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91" />
+      <column name="points" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <foreign-key name="consumption_ibfk_1" columns="userid" ref-table="user" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <exported-key name="consumptiondetail_ibfk_1" table="consumptiondetail" schema="" catalog="test" columns="consumptionid" />
+    </table>
+    <table name="consumptiondetail" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="type" sqlType="SMALLINT" length="5" precision="0" nullable="false" jdbcType="5" def="MA==" />
+      <column name="amount" sqlType="DOUBLE" length="22" precision="0" nullable="true" jdbcType="8" />
+      <column name="productid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="consumptionid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <foreign-key name="consumptiondetail_ibfk_1" columns="consumptionid" ref-table="consumption" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="consumptiondetail_ibfk_2" columns="productid" ref-table="product" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+    </table>
+    <table name="product" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="CHAR" length="255" precision="0" nullable="false" jdbcType="1" />
+      <column name="unitid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="amount" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
+      <column name="points" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
+      <column name="maxpoints" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="description" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="shared" sqlType="BIT" length="1" precision="0" nullable="false" jdbcType="-7" def="YicxJw==" />
+      <column name="classtype" sqlType="CHAR" length="1" precision="0" nullable="false" jdbcType="1" def="J1An" />
+      <column name="productcategoryid" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <foreign-key name="product_ibfk_1" columns="unitid" ref-table="unit" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="product_ibfk_2" columns="productcategoryid" ref-table="productcategory" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <exported-key name="consumptiondetail_ibfk_2" table="consumptiondetail" schema="" catalog="test" columns="productid" />
+      <exported-key name="recipe_product_link_ibfk_1" table="recipe_product_link" schema="" catalog="test" columns="productid" />
+      <exported-key name="recipe_product_link_ibfk_2" table="recipe_product_link" schema="" catalog="test" columns="recipeid" />
+    </table>
+    <table name="productcategory" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="CHAR" length="50" precision="0" nullable="false" jdbcType="1" />
+      <column name="shared" sqlType="BIT" length="1" precision="0" nullable="false" jdbcType="-7" def="YicxJw==" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <exported-key name="product_ibfk_2" table="product" schema="" catalog="test" columns="productcategoryid" />
+      <index name="name_UNIQUE" unique="true" columns="name" />
+    </table>
+    <table name="recipe_product_link" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="recipeid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="productid" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="amount" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <foreign-key name="recipe_product_link_ibfk_1" columns="productid" ref-table="product" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="recipe_product_link_ibfk_2" columns="recipeid" ref-table="product" ref-schema="" ref-catalog="test" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2" />
+    </table>
+    <table name="unit" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="name" sqlType="CHAR" length="5" precision="0" nullable="false" jdbcType="1" />
+      <column name="shared" sqlType="BIT" length="1" precision="0" nullable="false" jdbcType="-7" def="YicxJw==" />
+      <column name="description" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <exported-key name="product_ibfk_1" table="product" schema="" catalog="test" columns="unitid" />
+    </table>
+    <table name="user" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />
+      <column name="username" sqlType="CHAR" length="20" precision="0" nullable="false" jdbcType="1" />
+      <column name="password" sqlType="CHAR" length="28" precision="0" nullable="true" jdbcType="1" />
+      <column name="firstname" sqlType="CHAR" length="30" precision="0" nullable="true" jdbcType="1" />
+      <column name="lastname" sqlType="CHAR" length="100" precision="0" nullable="true" jdbcType="1" />
+      <column name="targetweight" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="daypoints" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4" />
+      <column name="extrapoints" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" def="MA==" />
+      <column name="creationdate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" />
+      <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1" />
+      <primary-key name="PRIMARY" columns="id" />
+      <exported-key name="consumption_ibfk_1" table="consumption" schema="" catalog="test" columns="userid" />
+      <index name="UK_user_username" unique="true" columns="username" />
     </table>
     <table name="city" schema="" catalog="world" type="TABLE">
       <column name="ID" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true" />

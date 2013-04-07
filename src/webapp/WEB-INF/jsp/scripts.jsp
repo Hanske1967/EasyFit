@@ -5,7 +5,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 
 <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<script src="<c:url value="/assets/js/jquery.js"/>"></script>
+<script src="<c:url value="/assets/js/jquery-ui-1.10.2/jquery-1.9.1.js"/>"></script>
 <script src="<c:url value="/assets/js/bootstrap-transition.js"/>"></script>
 <script src="<c:url value="/assets/js/bootstrap-alert.js"/>"></script>
 <script src="<c:url value="/assets/js/bootstrap-modal.js"/>"></script>

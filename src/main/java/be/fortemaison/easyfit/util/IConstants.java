@@ -9,6 +9,8 @@ package be.fortemaison.easyfit.util;
  */
 public interface IConstants {
 
+    String SHORT_DATE_FORMAT = "dd/MM/yyyy";
+
     String DATE_FORMAT = "E dd/MM/yyyy";
 
     String DECIMAL_PATTERN = "# ###.#;-# ###.#;0";

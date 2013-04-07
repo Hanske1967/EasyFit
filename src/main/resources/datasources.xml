@@ -23,6 +23,7 @@
                 <value>be/fortemaison/easyfit/model/user.hbm.xml</value>
                 <value>be/fortemaison/easyfit/model/consumption.hbm.xml</value>
                 <value>be/fortemaison/easyfit/model/consumptiondetail.hbm.xml</value>
+                <value>be/fortemaison/easyfit/model/weight.hbm.xml</value>
             </list>
         </property>
     </bean>

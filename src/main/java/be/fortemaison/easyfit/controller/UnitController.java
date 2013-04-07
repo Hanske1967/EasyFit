@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Hans
@@ -34,7 +37,12 @@ public class UnitController {
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String prepareList (Model model) {
-        model.addAttribute("units", this.unitDAO.findAll());
+        List<Unit> units = this.unitDAO.findAll();
+        List<UnitForm> unitForms = new ArrayList<UnitForm>(units.size());
+        for (Unit unit : units) {
+            unitForms.add(new UnitForm(unit));
+        }
+        model.addAttribute("units", unitForms);
         return "units/list";
     }
 

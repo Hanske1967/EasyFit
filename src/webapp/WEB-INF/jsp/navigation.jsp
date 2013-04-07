@@ -15,12 +15,14 @@
                 </a>
 
                 <!-- Be sure to leave the brand out there if you want it shown -->
-                <a class="brand" href="#">EasyFit</a>
+                <a class="brand" href="${pageContext.servletContext.contextPath}/home">EasyFit</a>
 
                 <div class="nav-collapse collapse navbar-responsive-collapse">
                     <ul class="nav">
                         <li id="nav_agenda"><a
                                 href="${pageContext.servletContext.contextPath}/consumptions/list">Agenda</a></li>
+                        <li id="nav_weights"><a
+                                href="${pageContext.servletContext.contextPath}/weights/list">Weights</a></li>
                         <li id="nav_recipes"><a
                                 href="${pageContext.servletContext.contextPath}/recipes/list">Recipes</a></li>
                         <li id="nav_products"><a
