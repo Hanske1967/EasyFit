@@ -31,23 +31,22 @@
     <jsp:include page="../navigation.jsp"/>
     <div class="form">
         <form:form id="form" name="form" method="post" modelAttribute="userForm">
-        <fieldset>
-            <legend>
-                <c:choose>
-                    <c:when test="${empty userForm.userName}">New user:</c:when>
-                    <c:otherwise>Update user:</c:otherwise>
-                </c:choose>
-                <c:if test="${not empty message}">
-                    <div id="message" class="success">${message}</div>
-                </c:if>
-                <s:bind path="*">
-                    <c:if test="${status.error}">
-                        <div id="message" class="error">Form has errors</div>
-                    </c:if>
-                </s:bind>
-            </legend>
-
             <fieldset>
+                <legend>
+                    <c:choose>
+                        <c:when test="${empty userForm.userName}">New user:</c:when>
+                        <c:otherwise>Update user:</c:otherwise>
+                    </c:choose>
+                    <c:if test="${not empty message}">
+                        <div id="message" class="success">${message}</div>
+                    </c:if>
+                    <s:bind path="*">
+                        <c:if test="${status.error}">
+                            <div id="message" class="error">Form has errors</div>
+                        </c:if>
+                    </s:bind>
+                </legend>
+
                 <form:hidden path="id"/>
 
                 <form:label path="userName">
@@ -79,11 +78,12 @@
                     Extra points:<form:errors path="extraPoints" cssClass="error"/>
                 </form:label>
                 <form:input path="extraPoints"/>
-
             </fieldset>
 
             <button class="btn btn-primary" type="submit">Submit</button>
-            </form:form>
+        </form:form>
     </div>
+    <jsp:include page="../footer.jsp"/>
+    <jsp:include page="../scripts.jsp"/>
 </body>
 </html>

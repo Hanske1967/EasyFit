@@ -13,9 +13,7 @@
 
     <!-- Le styles -->
     <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 
 </head>
@@ -71,6 +69,7 @@
     </table>
     </form>
 </div>
+<jsp:include page="../footer.jsp"/>
 <jsp:include page="../scripts.jsp"/>
 </body>
 </html>

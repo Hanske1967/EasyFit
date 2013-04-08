@@ -57,13 +57,10 @@
                 Favorite <form:errors path="shared" cssClass="error"/>
             </form:label>
             <form:checkbox path="shared"/>
-
         </fieldset>
-
 
         <table class="table">
             <caption>Products:</caption>
-
             <thead>
             <tr>
                 <th>Amount</th>
@@ -105,11 +102,11 @@
             </c:otherwise>
         </c:choose>
 
-        <p>
-            <button type="submit">Submit</button>
-        </p>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form:form>
 
 </div>
+<jsp:include page="../footer.jsp"/>
+<jsp:include page="../scripts.jsp"/>
 </body>
 </html>

@@ -89,14 +89,13 @@
                     Shared <form:errors path="shared" cssClass="error"/>
                 </form:label>
                 <form:checkbox path="shared"/>
-
             </fieldset>
 
             <button class="btn btn-primary" type="submit">Submit</button>
         </form:form>
-
     </div>
 </div>
+<jsp:include page="../footer.jsp"/>
 <jsp:include page="../scripts.jsp"/>
 </body>
 </html>
