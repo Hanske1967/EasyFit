@@ -5,7 +5,7 @@
 		 http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <display-name>Web Weights</display-name>
+    <display-name>Web Weights - 2.2</display-name>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
