@@ -15,7 +15,7 @@ public class ProductCategoryForm {
 
     private String name;
 
-    private Boolean shared;
+    private Boolean shared = Boolean.TRUE;
 
     /**
      *
