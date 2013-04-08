@@ -68,12 +68,12 @@
                 <form:label path="points">
                     Points <form:errors path="points" cssClass="error"/>
                 </form:label>
-                <form:input path="points"/>
+                <form:input path="points" autocomplete="false"/>
 
                 <form:label path="maxPoints">
                     Max Points <form:errors path="maxPoints" cssClass="error"/>
                 </form:label>
-                <form:input path="maxPoints"/>
+                <form:input path="maxPoints" autocomplete="false"/>
 
                 <form:label path="categoryId">
                     Category <form:errors path="categoryId" cssClass="error"/>

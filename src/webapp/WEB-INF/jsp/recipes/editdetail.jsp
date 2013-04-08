@@ -19,11 +19,8 @@
             margin-top: 20px;
         }
     </style>
-
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
-
 </head>
 <body onload="javascript:; document.getElementById('nav_recipes').setAttribute('class', 'active');
  document.getElementById('focusedInput').focus()">
@@ -34,11 +31,7 @@
         <form:form id="form" method="post" modelAttribute="recipeDetailForm" action="./adddetail3?">
             <fieldset>
                 <legend>
-                    <c:choose>
-                        <c:when test="${empty recipeDetailForm.id}">New recipe product:</c:when>
-                        <c:otherwise>Update recipe product:</c:otherwise>
-                    </c:choose>
-
+                    ${recipeDetailForm.product.name}
                     <form:errors path="*" cssClass="errorBox"/>
                 </legend>
 
@@ -47,22 +40,17 @@
                 <form:label path="amount">
                     Amount: <form:errors path="amount" cssClass="error"/>
                 </form:label>
-                <form:input id="focusedInput" path="amount"/>
+                <form:input id="focusedInput" path="amount" autocomplete="false"/>
 
                 <form:label path="product.unitLabel">
                     Unit:
                 </form:label>
                 <form:input readonly="true" path="product.unitLabel"/>
 
-                <form:label path="product.name">
-                    Product:
-                </form:label>
-                <form:input readonly="true" path="product.name"/>
+                <p class="text-info">${recipeDetailForm.product.pointsLabel} pts
+                    / ${recipeDetailForm.product.unitLabel}</p>
 
-                <form:label path="pointsLabel">
-                    Points: <form:errors path="pointsLabel" cssClass="error"/>
-                </form:label>
-                <form:input readonly="true" path="pointsLabel"/>
+                <p class="text-info">${recipeDetailForm.product.description}</p>
             </fieldset>
 
             <button class="btn btn-primary" type="submit">Submit</button>

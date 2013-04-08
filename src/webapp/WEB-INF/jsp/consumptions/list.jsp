@@ -16,12 +16,9 @@
     <style type="text/css">
         .well {
             padding-left: 30px;
-
         }
     </style>
-
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 
 </head>

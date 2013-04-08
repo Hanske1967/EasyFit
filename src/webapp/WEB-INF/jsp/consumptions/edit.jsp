@@ -51,7 +51,7 @@
             <form:label path="points">
                 Points: <form:errors path="points" cssClass="error"/>
             </form:label>
-            <form:input readonly="true" path="points"/>
+            <form:input readonly="true" path="points" autocomplete="false"/>
 
             <form:label path="shared">
                 Favorite <form:errors path="shared" cssClass="error"/>

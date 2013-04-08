@@ -14,9 +14,7 @@
 
     <!-- Le styles -->
     <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 </head>
 <body onload="
@@ -48,7 +46,7 @@
                 <form:label path="amount">
                     Amount <form:errors path="amount" cssClass="error"/>
                 </form:label>
-                <form:input path="amount" autofocus="true"/>
+                <form:input path="amount" autofocus="true" autocomplete="false"/>
 
                 <form:label path="unitId">
                     Unit <form:errors path="unitId" cssClass="error"/>

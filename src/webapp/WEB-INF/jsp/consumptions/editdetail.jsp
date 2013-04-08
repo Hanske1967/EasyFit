@@ -19,11 +19,8 @@
             margin-top: 20px;
         }
     </style>
-
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
-
 </head>
 <body onload="javascript:; document.getElementById('nav_agenda').setAttribute('class', 'active');
  document.getElementById('focusedInput').focus()">
@@ -34,11 +31,7 @@
         <form:form id="form" method="post" modelAttribute="consumptionDetailForm" action="./adddetail3?">
             <fieldset>
                 <legend>
-                    <c:choose>
-                        <c:when test="${empty consumptionDetailForm.id}">Add product:</c:when>
-                        <c:otherwise>Update product:</c:otherwise>
-                    </c:choose>
-
+                    ${consumptionDetailForm.product.name}
                     <form:errors path="*" cssClass="errorBox"/>
                 </legend>
 
@@ -47,22 +40,17 @@
                 <form:label path="amount">
                     Amount: <form:errors path="amount" cssClass="error"/>
                 </form:label>
-                <form:input id="focusedInput" path="amount"/>
+                <form:input id="focusedInput" path="amount" autocomplete="false"/>
 
                 <form:label path="productUnit">
                     Unit: <form:errors path="productUnit" cssClass="error"/>
                 </form:label>
                 <form:input readonly="true" path="productUnit"/>
 
-                <form:label path="productName">
-                    Product: <form:errors path="productName" cssClass="error"/>
-                </form:label>
-                <form:input readonly="true" path="productName"/>
+                <p class="text-info">${consumptionDetailForm.product.pointsLabel} pts
+                    / ${consumptionDetailForm.product.unitLabel}</p>
 
-                <form:label path="points">
-                    Points: <form:errors path="points" cssClass="error"/>
-                </form:label>
-                <form:input readonly="true" path="points"/>
+                <p class="text-info">${consumptionDetailForm.product.description}</p>
             </fieldset>
 
             <button class="btn btn-primary" type="submit">Submit</button>

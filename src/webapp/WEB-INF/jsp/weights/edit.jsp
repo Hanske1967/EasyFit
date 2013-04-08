@@ -59,7 +59,7 @@
                 <form:label path="weight">
                     Weight <form:errors path="weight" cssClass="error"/>
                 </form:label>
-                <form:input path="weight"/>
+                <form:input path="weight" autocomplete="false"/>
             </fieldset>
             <button class="btn btn-primary" type="submit">Submit</button>
             </form:form>
