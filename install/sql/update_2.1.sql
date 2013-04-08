@@ -1,3 +1,5 @@
+use easyfit;
+
 CREATE TABLE weigth
 (
   id           INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
