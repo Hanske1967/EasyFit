@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>EasyFit - Home</title>
     <meta charset="UTF-8">
@@ -24,9 +24,11 @@
 <body onload="
     javascript:;
     document.getElementById('nav_users').setAttribute('class', 'active');
-    document.getElementById('focusedInput').focus()">
+    document.getElementById('oldPassword').focus()">
 
-<div class="container">
+<div id="container" class="container">
+
+    <!--  navigation  -->
     <jsp:include page="../navigation.jsp"/>
     <div class="form">
         <form:form id="form" name="form" action="./changepwd" method="post" modelAttribute="userForm">
@@ -35,8 +37,11 @@
 
                 <form:hidden path="id"/>
 
-                <form:label path="password"/>Password:
-                <form:input path="password"/>
+                <form:label path="oldPassword">Old password:</form:label>
+                <form:input path="oldPassword" autocomplete="false"/>
+
+                <form:label path="password">New password:</form:label>
+                <form:input path="password" autocomplete="false"/>
             </fieldset>
 
             <button class="btn btn-primary" type="submit">Submit</button>

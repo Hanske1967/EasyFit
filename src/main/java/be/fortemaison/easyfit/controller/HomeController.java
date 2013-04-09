@@ -10,11 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.HttpSessionRequiredException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
@@ -32,6 +31,8 @@ import java.util.Map;
 @RequestMapping(value = "/")
 public class HomeController {
 
+
+    public static final String USER_FORM = "userForm";
 
     @Autowired
     private IUserDAO userDAO;
@@ -54,24 +55,22 @@ public class HomeController {
             userMap.put(user.getId(), mf.format(new String[]{user.getUsername(), user.getFirstName(), user.getLastName()}));
         }
         model.addAttribute("users", userMap);
-        model.addAttribute("userForm", new UserForm());
+        model.addAttribute(USER_FORM, new UserForm());
 
         return "home";
     }
 
     @RequestMapping(value = "/changepwd", method = RequestMethod.GET)
-    public String prepareChangePwd (@ModelAttribute("userForm") UserForm userForm, ModelMap model) {
-        if (userForm.getId() == null) {
-            return "home";
-        }
-
-        model.addAttribute("userForm", userForm);
+    public String prepareChangePwd (@RequestParam("userid") Integer userid, ModelMap model) {
+        UserForm userForm = new UserForm();
+        userForm.setId(userid);
+        model.addAttribute(USER_FORM, userForm);
 
         return "/users/changepwd";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String handleUserChoice (@ModelAttribute("userForm") UserForm userForm, Model model) {
+    public String handleUserChoice (@ModelAttribute(USER_FORM) UserForm userForm, Model model) {
         if (userForm.getId() == null) {
             return "redirect:home";
         }
@@ -80,6 +79,8 @@ public class HomeController {
         if (user != null) {
             //  TODO make password mandatory
             if (StringUtils.isEmpty(user.getPassword())) {
+                userForm.setOldPassword(null);
+                userForm.setPassword(null);
                 model.addAttribute("context", userForm);
                 return "/users/changepwd";
             }
@@ -97,27 +98,25 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/changepwd", method = RequestMethod.POST)
-    public String handleChangePassword (@ModelAttribute("userForm") UserForm userForm, Model model) {
+    public String handleChangePassword (@ModelAttribute(USER_FORM) UserForm userForm, Model model) {
         User user = this.userDAO.findById(userForm.getId());
 
         if (user != null) {
             //  TODO compare with old one
             ContextThreadLocal.set(getContext());
 
-            String hash = PasswordService.getInstance().encrypt(userForm.getPassword());
-            user.setPassword(hash);
-            getContext().setUser(user);
+            String oldHash = StringUtils.isEmpty(userForm.getOldPassword()) ? "" : PasswordService.getInstance().encrypt(userForm.getOldPassword());
+            String newHash = StringUtils.isEmpty(user.getPassword()) ? "" : user.getPassword();
+            if (oldHash.equals(newHash)) {
+                user.setPassword(PasswordService.getInstance().encrypt(userForm.getPassword()));
+                getContext().setUser(user);
+                this.userDAO.update(user);
 
-            this.userDAO.update(user);
-            return "redirect:consumptions/list";
+                return "redirect:consumptions/list";
+            }
         }
 
-        return "home";
-    }
-
-    @ExceptionHandler(HttpSessionRequiredException.class)
-    public String handleException () {
-        return "redirect:/home";
+        return "redirect:home";
     }
 
 }

@@ -17,12 +17,12 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean id="themeSource"
-          class="org.springframework.ui.context.support.ResourceBundleThemeSource">
-    </bean>
-
-    <bean id="themeResolver" class="org.springframework.web.servlet.theme.SessionThemeResolver">
-        <property name="defaultThemeName" value="theme"/>
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.SecurityException">redirect:/home</prop>
+            </props>
+        </property>
     </bean>
 
     <bean id="messageSource"

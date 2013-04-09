@@ -11,6 +11,10 @@ import be.fortemaison.easyfit.model.User;
  */
 public class UserForm {
 
+    public String password;
+
+    public String oldPassword;
+
     private Integer id;
 
     private String userName;
@@ -24,9 +28,6 @@ public class UserForm {
     private Integer dayPoints;
 
     private Integer extraPoints;
-
-    public String password;
-
 
     /**
      *
@@ -46,6 +47,14 @@ public class UserForm {
         this.targetWeight = user.getTargetWeight();
         this.dayPoints = user.getDayPoints();
         this.extraPoints = user.getExtraPoints();
+    }
+
+    public String getOldPassword () {
+        return oldPassword;
+    }
+
+    public void setOldPassword (String oldPassword) {
+        this.oldPassword = oldPassword;
     }
 
     public Integer getId () {

@@ -48,7 +48,7 @@
                 <form:input readonly="true" path="product.unitLabel"/>
 
                 <p class="text-info">${recipeDetailForm.product.pointsLabel} pts
-                    / ${recipeDetailForm.product.unitLabel}</p>
+                    / ${recipeDetailForm.product.amountLabel} ${recipeDetailForm.product.unitLabel}</p>
 
                 <p class="text-info">${recipeDetailForm.product.description}</p>
             </fieldset>

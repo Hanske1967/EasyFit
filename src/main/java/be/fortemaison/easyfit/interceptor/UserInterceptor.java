@@ -38,6 +38,14 @@ public class UserInterceptor implements WebRequestInterceptor {
     @Override
     public void preHandle (WebRequest request) throws Exception {
         Context ctx = getContext();
+
+        if (ctx.getUser() == null) {
+            String path = request.getDescription(false);
+            if ((path.indexOf("/login") == -1) && (path.indexOf("/changepwd") == -1)) {
+                throw new SecurityException("Must log in first !");
+            }
+        }
+
         ContextThreadLocal.set(ctx);
     }
 

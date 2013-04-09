@@ -48,7 +48,7 @@
                 <form:input readonly="true" path="productUnit"/>
 
                 <p class="text-info">${consumptionDetailForm.product.pointsLabel} pts
-                    / ${consumptionDetailForm.product.unitLabel}</p>
+                    / ${consumptionDetailForm.product.amountLabel} ${consumptionDetailForm.product.unitLabel}</p>
 
                 <p class="text-info">${consumptionDetailForm.product.description}</p>
             </fieldset>

@@ -2,8 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>EasyFit - Home</title>
     <meta charset="UTF-8">
@@ -46,17 +46,13 @@
             margin-bottom: 15px;
             padding: 7px 9px;
         }
-
     </style>
 
-
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
-
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
-
 </head>
-<body onload="document.getElementById('userid').focus()">
 
+<body onload="document.getElementById('userid').focus()">
 
 <div id="container" class="container">
     <div class="masthead">
@@ -72,7 +68,7 @@
                     <form:label path="id">User:</form:label>
 
                     <div class="controls">
-                        <form:select id="userid" path="id" items="${users}" autofocus="true"/>
+                        <form:select id="userid" path="id" items="${users}" autofocus="true" onselect="userSelected()"/>
                     </div>
                 </div>
 
@@ -80,17 +76,14 @@
                     <form:label path="password">Password:</form:label>
 
                     <div class="controls">
-                        <form:password path="password" size="20"/>
+                        <form:password path="password" size="20" autocomplete="false"/>
                     </div>
                 </div>
 
             </fieldset>
 
             <div class="control-group">
-                <p class="text-info"><a href="javascript:;"
-                                        onclick="document.getElementById('login').setAttribute('action', './changepwd');document.getElementById('login').submit();">Change
-                    password</a>
-                </p>
+                <p><a id="passwordaction" href="#">Change password</a></p>
             </div>
 
             <div class="control-group">
@@ -100,6 +93,15 @@
         </form:form>
     </div>
 </div>
+
+<script type="text/javascript">
+    document.getElementById('userid').onchange = function(x){
+        var combo =  document.getElementById('userid');
+        var userid = combo.options[combo.selectedIndex].value;
+        var changePwdUrl = "${pageContext.servletContext.contextPath}/changepwd?userid=" + userid;
+        document.getElementById("passwordaction").setAttribute("href", changePwdUrl);
+    };
+</script>
 
 </body>
 </html>

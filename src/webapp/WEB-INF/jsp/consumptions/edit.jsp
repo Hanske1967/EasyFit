@@ -26,6 +26,7 @@
 <div name="form" class="myform">
 
     <form:form id="form" action="./update" method="post" modelAttribute="recipeForm">
+        <fieldset>
         <legend>
             <c:choose>
                 <c:when test="${empty recipeForm.id}"><h2>New recipe:</h2></c:when>
@@ -35,7 +36,6 @@
             <form:errors path="*" cssClass="errorBox"/>
         </legend>
 
-        <fieldset>
             <form:hidden path="id"/>
 
             <form:label path="name">
