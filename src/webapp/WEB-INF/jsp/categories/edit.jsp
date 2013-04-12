@@ -35,7 +35,7 @@
                 <legend>
                     <c:choose>
                         <c:when test="${empty categoryForm.id}">New category:</c:when>
-                        <c:otherwise>Update category:</c:otherwise>
+                        <c:otherwise>${categoryForm.name}</c:otherwise>
                     </c:choose>
                     <c:if test="${not empty message}">
                         <div id="message" class="success">${message}</div>

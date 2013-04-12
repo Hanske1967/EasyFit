@@ -11,5 +11,6 @@ DELETE FROM productcategory;
 ALTER TABLE productcategory ADD CONSTRAINT FK_productcategory_productcategory_id FOREIGN KEY (parentid) REFERENCES productcategory (id)
   ON DELETE RESTRICT;
 
+DELETE FROM weight;
 DELETE FROM unit;
 DELETE FROM user;

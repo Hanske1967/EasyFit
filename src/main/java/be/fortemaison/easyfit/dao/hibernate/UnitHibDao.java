@@ -36,7 +36,7 @@ public class UnitHibDao implements IUnitDAO {
     @Transactional(readOnly = true)
     public List<Unit> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        List<Unit> result = (List<Unit>) session.createQuery("from Unit u where u.name like :name and (u.shared = :shared or u.technicalSegment.creationUser = :username)")
+        List<Unit> result = (List<Unit>) session.createQuery("from Unit u where u.name like :name and (u.shared = :shared or u.technicalSegment.creationUser = :username) order by name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
                 .setString("name", name)

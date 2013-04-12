@@ -38,7 +38,7 @@
             <legend>
                 <c:choose>
                     <c:when test="${empty weightForm.id}">New weight:</c:when>
-                    <c:otherwise>Update weight:</c:otherwise>
+                    <c:otherwise>${weightForm.date}</c:otherwise>
                 </c:choose>
                 <c:if test="${not empty message}">
                     <div id="message" class="success">${message}</div>

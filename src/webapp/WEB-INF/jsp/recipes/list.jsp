@@ -31,7 +31,7 @@
         <tr>
             <th>Name</th>
             <th>Points</th>
-            <span class="visible-desktop">
+            <span class="hidden-phone">
                 <th>Category</th>
                 <th>Description</th>
             </span>
@@ -44,7 +44,7 @@
             <tr>
                 <td><a href="./edit?key=${recipe.id}">${recipe.name}</a></td>
                 <td><span class="badge badge-info">${recipe.pointsLabel}</span></td>
-                <span class="visible-desktop">
+                <span class="hidden-phone">
                     <td>${recipe.categoryLabel}</td>
                     <td>${recipe.description}</td>
                 </span>
@@ -54,6 +54,49 @@
         </tbody>
 
     </table>
+
+
+    <c:if test="${pageCount >= 1}">
+        <div class="pagination pagination-centered">
+            <ul>
+                <c:choose>
+                    <c:when test="${currentPage == 1}">
+                        <li class="disabled"><a href="#">Prev</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="${pageContext.servletContext.contextPath}/recipes/list?page=${currentPage-1}">Prev</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
+                <c:forEach var="idx" begin="1" end="${pageCount}">
+                    <c:choose>
+                        <c:when test="${currentPage == idx}">
+                            <li class="active"><a
+                                    href="${pageContext.servletContext.contextPath}/recipes/list?page=${idx}">${idx}</a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.servletContext.contextPath}/recipes/list?page=${idx}">${idx}</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <c:choose>
+                    <c:when test="${currentPage >= pageCount}">
+                        <li class="disabled"><a href="#">Next</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="${pageContext.servletContext.contextPath}/recipes/list?page=${currentPage+1}">Next</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
+        </div>
+    </c:if>
 </div>
 <jsp:include page="../footer.jsp"/>
 <jsp:include page="../scripts.jsp"/>

@@ -30,7 +30,7 @@
                 <legend>
                     <c:choose>
                         <c:when test="${empty recipeForm.id}">New recipe:</c:when>
-                        <c:otherwise>Update recipe:</c:otherwise>
+                        <c:otherwise>${recipeForm.name}</c:otherwise>
                     </c:choose>
 
                     <form:errors path="*" cssClass="errorBox"/>

@@ -2,7 +2,6 @@
   <library name="aopalliance-1.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/aopalliance-1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/aopalliance.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

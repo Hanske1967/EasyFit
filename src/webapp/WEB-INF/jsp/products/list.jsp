@@ -21,18 +21,15 @@
 <div class="container">
     <jsp:include page="../navigation.jsp"/>
 
-    <div>
+    <div class="">
         <a class="btn btn-primary pull-right" href="./edit">New product</a>
 
         <form class="form-inline" action="./list" method="get">
-            <input type="text" name="queryName" value="${queryName}" placeholder="product name" autofocus="true"/>
-            <select name="category" value="${category}">
-                <option value="">---</option>
-                <c:forEach items="${allCategories}" var="cat">
-                    <option value="${cat.key}">${cat.value}</option>
-                </c:forEach>
-            </select>
-            <button type="submit" class="btn">Search</button>
+            <fieldset>
+                <input type="text" class="input-medium" name="queryName" value="${queryName}"
+                       placeholder="product name"
+                       autofocus="true"/>
+                <button type="submit" class="btn">Search</button>
             </fieldset>
         </form>
     </div>
@@ -45,7 +42,7 @@
             <th>Name</th>
             <th>Points</th>
             <th>Max Points</th>
-            <span class="visible-desktop">
+            <span class="hidden-phone">
                 <th>Category</th>
                 <th>Description</th>
             </span>
@@ -61,7 +58,7 @@
                 <td><a href="./edit?key=${product.id}">${product.name}</a></td>
                 <td><span class="badge badge-info">${product.pointsLabel}</span></td>
                 <td><span class="badge badge-success">${product.maxPoints}</span></td>
-                <span class="visible-desktop">
+                <span class="hidden-phone">
                     <td>${product.categoryLabel}</td>
                     <td>${product.description}</td>
                 </span>
@@ -70,6 +67,48 @@
         </c:forEach>
         </tbody>
     </table>
+
+    <c:if test="${pageCount >= 1}">
+        <div class="pagination pagination-centered">
+            <ul>
+                <c:choose>
+                    <c:when test="${currentPage == 1}">
+                        <li class="disabled"><a href="#">Prev</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="${pageContext.servletContext.contextPath}/products/list?page=${currentPage-1}">Prev</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
+                <c:forEach var="idx" begin="1" end="${pageCount}">
+                    <c:choose>
+                        <c:when test="${currentPage == idx}">
+                            <li class="active"><a
+                                    href="${pageContext.servletContext.contextPath}/products/list?page=${idx}">${idx}</a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.servletContext.contextPath}/products/list?page=${idx}">${idx}</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <c:choose>
+                    <c:when test="${currentPage >= pageCount}">
+                        <li class="disabled"><a href="#">Next</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="${pageContext.servletContext.contextPath}/products/list?page=${currentPage+1}">Next</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
+        </div>
+    </c:if>
 </div>
 <jsp:include page="../footer.jsp"/>
 <jsp:include page="../scripts.jsp"/>

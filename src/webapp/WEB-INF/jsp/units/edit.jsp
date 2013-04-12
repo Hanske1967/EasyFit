@@ -35,7 +35,7 @@
             <legend>
                 <c:choose>
                     <c:when test="${empty unitForm.id}">New unit:</c:when>
-                    <c:otherwise>Update unit:</c:otherwise>
+                    <c:otherwise>${unitForm.name}</c:otherwise>
                 </c:choose>
                 <c:if test="${not empty message}">
                     <div id="message" class="success">${message}</div>

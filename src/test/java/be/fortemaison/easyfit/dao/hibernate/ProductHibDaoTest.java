@@ -42,13 +42,13 @@ public class ProductHibDaoTest extends TestCase {
 
     @Test
     public void testFindByName () throws Exception {
-        List<Product> s = getProductDAO().findByName("gouda");
+        List<Product> s = getProductDAO().findByName("gouda", 1);
         assertNotNull(s);
     }
 
     @Test
     public void testFindAll () throws Exception {
-        List<Product> s = getProductDAO().findAll();
+        List<Product> s = getProductDAO().findAll(1);
         assertNotNull(s);
     }
 

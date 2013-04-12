@@ -1,10 +1,11 @@
 package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IProductDAO;
+import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
-import be.fortemaison.easyfit.util.IConstants;
+import be.fortemaison.easyfit.util.Utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -37,78 +38,166 @@ public class ProductHibDao implements IProductDAO {
     }
 
     @Transactional(readOnly = true)
-    public List<Product> findByName (String name) {
+    public Page<Product> findByName (String name, Integer currentPage) {
         if (StringUtils.isEmpty(name)) {
-            return this.findAll();
+            return this.findAll(currentPage);
         }
 
         String param = name;
-        if (!name.contains(IConstants.PROCENT)) {
+        if (!name.contains(Utils.PROCENT)) {
             StringBuilder sb = new StringBuilder(name.length() + 2);
-            sb.append(IConstants.PROCENT);
+            sb.append(Utils.PROCENT);
             sb.append(name);
-            sb.append(IConstants.PROCENT);
+            sb.append(Utils.PROCENT);
             param = sb.toString();
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
+
+        Long count = (Long) session.createQuery("select count(id) from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
                 .setString("name", param)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Product> resultList = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
+                .setString("name", param)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
-        return result;
+
+        Page<Product> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Product> findByCategory (ProductCategory category) {
+    public Page<Product> findByCategory (ProductCategory category, Integer currentPage) {
         if (category == null) {
-            return this.findAll();
+            return this.findAll(currentPage);
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and category = :cat order by name")
+
+        Long count = (Long) session.createQuery("select count(id) from Product where (shared = :shared or technicalSegment.creationUser = :username) and category = :cat order by name")
                 .setEntity("cat", category)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Product> resultList = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and category = :cat order by name")
+                .setEntity("cat", category)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
-        return result;
+
+        Page<Product> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Product> findByNameAndCategory (String name, ProductCategory category) {
+    public Page<Product> findByNameAndCategory (String name, ProductCategory category, Integer currentPage) {
         if (StringUtils.isEmpty(name) && (category == null)) {
-            return this.findAll();
+            return this.findAll(currentPage);
         }
 
         if (category == null) {
-            return this.findByName(name);
+            return this.findByName(name, currentPage);
         }
 
         if (StringUtils.isEmpty(name)) {
-            return this.findByCategory(category);
+            return this.findByCategory(category, currentPage);
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name and category = :cat order by name")
+
+        Long count = (Long) session.createQuery("select count(id) from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name and category = :cat order by name")
                 .setString("name", name)
                 .setEntity("cat", category)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Product> resultList = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) and name like :name and category = :cat order by name")
+                .setString("name", name)
+                .setEntity("cat", category)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
-        return result;
+
+        Page<Product> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Transactional(readOnly = true)
-    public List<Product> findAll () {
+    public Page<Product> findAll (Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<Product> result = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) order by name")
+
+        Long count = (Long) session.createQuery("select count(id) from Product where (shared = :shared or technicalSegment.creationUser = :username) order by name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Product> resultList = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) order by name")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
-        return result;
+
+        Page<Product> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Transactional

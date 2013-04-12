@@ -53,7 +53,7 @@ public class RecipeHibDaoTest extends TestCase {
 
     @Test
     public void testFindByName () throws Exception {
-        List<Recipe> recipes = getRecipeDAO().findByName("croissant confituur");
+        List<Recipe> recipes = getRecipeDAO().findByName("croissant confituur", 1);
         assertTrue(!recipes.isEmpty());
 
         for (Recipe recipe : recipes) {
@@ -63,7 +63,7 @@ public class RecipeHibDaoTest extends TestCase {
 
     @Test
     public void testFindByNameWithProducts () throws Exception {
-        List<Recipe> recipes = getRecipeDAO().findByNameWithDetails("croissant confituur");
+        List<Recipe> recipes = getRecipeDAO().findByNameWithDetails("croissant confituur", 1);
         assertTrue(!recipes.isEmpty());
 
         for (Recipe recipe : recipes) {

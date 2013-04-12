@@ -33,7 +33,7 @@
     <div class="form">
         <form:form id="form" name="form" action="./changepwd" method="post" modelAttribute="userForm">
             <fieldset>
-                <legend>Change password</legend>
+                <legend>Change password for user: ${userForm.userName}</legend>
 
                 <form:hidden path="id"/>
 

@@ -52,13 +52,17 @@ public class RecipeController {
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String prepareList (Model model) {
-        List<Recipe> recipes = this.recipeDAO.findAll();
+    public String prepareList (@RequestParam(value = "page", required = false) Integer pageIndex, Model model) {
+        Page<Recipe> recipes = this.recipeDAO.findAll(pageIndex);
         List<RecipeForm> forms = new ArrayList<RecipeForm>(recipes.size());
         for (Recipe recipe : recipes) {
             forms.add(new RecipeForm(recipe));
         }
         model.addAttribute("recipes", forms);
+
+        model.addAttribute("currentPage", recipes.getCurrentPage());
+        model.addAttribute("pageCount", recipes.getPageCount());
+
         return "recipes/list";
     }
 
@@ -218,7 +222,7 @@ public class RecipeController {
         modelMap.addAttribute("allCategories", categoryForms);
 
         //  Find product
-        List<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat);
+        Page<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat, pageIndex);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (ProductAncestor product : products) {
             forms.add(new ProductForm(product));
@@ -226,6 +230,9 @@ public class RecipeController {
 
         modelMap.addAttribute("products", forms);
         modelMap.addAttribute("queryName", queryName);
+
+        modelMap.addAttribute("currentPage", products.getCurrentPage());
+        modelMap.addAttribute("pageCount", products.getPageCount());
 
         return "products/findproduct";
     }

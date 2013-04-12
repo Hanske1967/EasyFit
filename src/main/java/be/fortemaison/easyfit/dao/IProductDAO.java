@@ -1,9 +1,8 @@
 package be.fortemaison.easyfit.dao;
 
+import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,13 +15,13 @@ public interface IProductDAO {
 
     public Product findById (Integer id);
 
-    public List<Product> findByName (String name);
+    public Page<Product> findByName (String name, Integer currentPage);
 
-    public List<Product> findByCategory (ProductCategory category);
+    public Page<Product> findByCategory (ProductCategory category, Integer currentPage);
 
-    public List<Product> findByNameAndCategory (String name, ProductCategory category);
+    public Page<Product> findByNameAndCategory (String name, ProductCategory category, Integer currentPage);
 
-    public List<Product> findAll ();
+    public Page<Product> findAll (Integer currentPage);
 
     public void insert (Product product);
 

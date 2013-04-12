@@ -164,6 +164,7 @@ public class ConsumptionController {
             @RequestParam(value = "key", required = false) Integer key,
             @RequestParam(value = "date", required = false) String date,
             @RequestParam(value = "consumptionDetailType", required = false) Integer consumptionDetailType,
+            @RequestParam(value = "currentPage", required = false) Integer pageIndex,
             ModelMap modelMap,
             final SessionStatus status) {
 
@@ -200,13 +201,16 @@ public class ConsumptionController {
 
         //  Find product
 
-        List<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat);
+        Page<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat, pageIndex);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (ProductAncestor product : products) {
             forms.add(new ProductForm(product));
         }
         modelMap.addAttribute("products", forms);
         modelMap.addAttribute("queryName", queryName);
+
+        modelMap.addAttribute("currentPage", products.getCurrentPage());
+        modelMap.addAttribute("pageCount", products.getPageCount());
 
         return "products/findproduct";
     }

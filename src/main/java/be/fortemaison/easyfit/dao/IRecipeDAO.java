@@ -1,8 +1,7 @@
 package be.fortemaison.easyfit.dao;
 
+import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Recipe;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,13 +16,13 @@ public interface IRecipeDAO {
 
     public Recipe findByIdWithDetails (Integer id);
 
-    public List<Recipe> findByName (String name);
+    public Page<Recipe> findByName (String name, Integer currentPage);
 
-    public List<Recipe> findByNameWithDetails (String name);
+    public Page<Recipe> findByNameWithDetails (String name, Integer currentPage);
 
-    public List<Recipe> findAll ();
+    public Page<Recipe> findAll (Integer currentPage);
 
-    public List<Recipe> findAllWithDetails ();
+    public Page<Recipe> findAllWithDetails (Integer currentPage);
 
     public void insert (Recipe recipe);
 

@@ -3,7 +3,7 @@ package be.fortemaison.easyfit.dao.hibernate;
 import be.fortemaison.easyfit.dao.IProductCategoryDAO;
 import be.fortemaison.easyfit.model.ProductCategory;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
-import be.fortemaison.easyfit.util.IConstants;
+import be.fortemaison.easyfit.util.Utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +32,7 @@ public class ProductCategoryHibDao implements IProductCategoryDAO {
     @Transactional(readOnly = true)
     public List<ProductCategory> findByName (String name) {
         Session session = sessionFactory.getCurrentSession();
-        String qName = IConstants.PROCENT + name + IConstants.PROCENT;
+        String qName = Utils.PROCENT + name + Utils.PROCENT;
         List<ProductCategory> categories = session.createQuery("from ProductCategory pc where (pc.shared = :shared or pc.technicalSegment.creationUser = :username) and pc.name like :name order by pc.name").setString("name", qName)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)

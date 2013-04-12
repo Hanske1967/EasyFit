@@ -4,6 +4,7 @@ import be.fortemaison.easyfit.dao.IProductCategoryDAO;
 import be.fortemaison.easyfit.dao.IProductDAO;
 import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.form.ProductForm;
+import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
 import be.fortemaison.easyfit.model.Unit;
@@ -42,7 +43,10 @@ public class ProductController {
     private IUnitDAO unitDAO;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String prepareList (@RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "category", required = false) Integer categoryId, Model model) {
+    public String prepareList (@RequestParam(value = "queryName", required = false) String queryName,
+                               @RequestParam(value = "category", required = false) Integer categoryId,
+                               @RequestParam(value = "page", required = false) Integer pageIndex,
+                               Model model) {
 
         ProductCategory category = null;
 
@@ -56,12 +60,15 @@ public class ProductController {
         }
         model.addAttribute("allCategories", categoryForms);
 
-        List<Product> products = this.productDAO.findByNameAndCategory(queryName, category);
+        Page<Product> products = this.productDAO.findByNameAndCategory(queryName, category, pageIndex);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (Product product : products) {
             forms.add(new ProductForm(product));
         }
         model.addAttribute("products", forms);
+
+        model.addAttribute("currentPage", products.getCurrentPage());
+        model.addAttribute("pageCount", products.getPageCount());
 
         model.addAttribute("queryName", queryName);
         model.addAttribute("category", category);

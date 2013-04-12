@@ -43,7 +43,7 @@
             <th>Name</th>
             <th>Points</th>
             <th>Max Points</th>
-            <span class="visible-desktop">
+            <span class="hidden-phone">
                 <th>Description</th>
             </span>
         </tr>
@@ -60,14 +60,56 @@
                 </td>
                 <td><span class="badge badge-info">${product.pointsLabel}</span></td>
                 <td><span class="badge badge-success">${product.maxPoints}</span></td>
-                <span class="visible-desktop">
+                <span class="hidden-phone">
                     <td>${product.description}</td>
                 </span>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-    </form>
+
+    <c:if test="${pageCount >= 1}">
+        <div class="pagination pagination-centered">
+            <ul>
+                <c:choose>
+                    <c:when test="${currentPage == 1}">
+                        <li class="disabled"><a href="#">Prev</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="${pageContext.servletContext.contextPath}/products/list?page=${currentPage-1}">Prev</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+
+                <c:forEach var="idx" begin="1" end="${pageCount}">
+                    <c:choose>
+                        <c:when test="${currentPage == idx}">
+                            <li class="active"><a
+                                    href="${pageContext.servletContext.contextPath}/products/list?page=${idx}">${idx}</a>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="${pageContext.servletContext.contextPath}/products/list?page=${idx}">${idx}</a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <c:choose>
+                    <c:when test="${currentPage >= pageCount}">
+                        <li class="disabled"><a href="#">Next</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="${pageContext.servletContext.contextPath}/products/list?page=${currentPage+1}">Next</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </ul>
+        </div>
+    </c:if>
+
 </div>
 <jsp:include page="../footer.jsp"/>
 <jsp:include page="../scripts.jsp"/>

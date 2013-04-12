@@ -1,4 +1,0 @@
-R( /recipes/adddetail/2)
-
-http://localhost:8080/recipes/edit?key=4
-

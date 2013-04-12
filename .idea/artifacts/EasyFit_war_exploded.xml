@@ -7,17 +7,13 @@
           <element id="module-output" name="EasyFit" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="commons-dbcp-1.4" />
+          <element id="library" level="application" name="spring-framework-3.2.1" />
+          <element id="library" level="application" name="hibernate-release-4.1.9" />
           <element id="library" level="project" name="aopalliance-1.0" />
-          <element id="library" level="project" name="commons-logging-1.1.1-javadoc" />
-          <element id="library" level="project" name="hibernate-4.1.1" />
-          <element id="library" level="project" name="mysql-connector-java-5.1.22-bin" />
-          <element id="library" level="project" name="joda-time-2.1" />
-          <element id="library" level="project" name="javax.servlet.jsp-api-2.2.1-javadoc" />
-          <element id="library" level="project" name="org.glassfish.web:javax.servlet.jsp.jstl:1.2.1" />
-          <element id="library" level="project" name="spring-framework-3.2.1.RELEASE" />
           <element id="library" level="project" name="commons-collections-3.1" />
-          <element id="library" level="project" name="commons-lang-2.6" />
+          <element id="library" level="project" name="joda-time-2.1" />
+          <element id="library" level="project" name="jstl-api-1.2" />
+          <element id="library" level="project" name="log4j-1.2.17" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="EasyFit/web/Web" />

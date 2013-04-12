@@ -1,10 +1,11 @@
 package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IProductAndRecipeDAO;
+import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.ProductAncestor;
 import be.fortemaison.easyfit.model.ProductCategory;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
-import be.fortemaison.easyfit.util.IConstants;
+import be.fortemaison.easyfit.util.Utils;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,66 +26,181 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProductAncestor> findByName (String name) {
+    public Page<ProductAncestor> findByName (String name, Integer currentPage) {
         String param = name;
-        if (!name.contains(IConstants.PROCENT)) {
+        if (!name.contains(Utils.PROCENT)) {
             StringBuilder sb = new StringBuilder(name.length() + 2);
-            sb.append(IConstants.PROCENT);
+            sb.append(Utils.PROCENT);
             sb.append(name);
-            sb.append(IConstants.PROCENT);
+            sb.append(Utils.PROCENT);
             param = sb.toString();
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor r where r.name like :name order by r.name").setString("name", param).list();
-        return result;
+
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
+                .setString("name", param)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
+                .setString("name", param)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
+                .list();
+
+        Page<ProductAncestor> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProductAncestor> findAll () {
+    public Page<ProductAncestor> findAll (Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p order by p.name").list();
-        return result;
+
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) order by name")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) order by name")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
+                .list();
+
+        Page<ProductAncestor> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProductAncestor> findFavorites () {
+    public Page<ProductAncestor> findFavorites (Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid order by p.name").setInteger("userid", ContextThreadLocal.get().getUser().getId()).list();
-        return result;
+
+        Long count = (Long) session.createQuery("select count(fav.id) from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid order by p.name")
+                .setInteger("userid", ContextThreadLocal.get().getUser().getId())
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid order by p.name")
+                .setInteger("userid", ContextThreadLocal.get().getUser().getId())
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
+                .list();
+
+        Page<ProductAncestor> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProductAncestor> findByCategory (ProductCategory category) {
+    public Page<ProductAncestor> findByCategory (ProductCategory category, Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.category = :category order by p.name").setEntity("category", category).list();
-        return result;
+
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where p.category = :category order by p.name")
+                .setEntity("category", category)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.category = :category order by p.name")
+                .setEntity("category", category)
+                .setFirstResult(currentPage * Page.PAGE_SIZE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .list();
+
+        Page<ProductAncestor> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<ProductAncestor> findByNameAndCategory (String name, ProductCategory category) {
+    public Page<ProductAncestor> findByNameAndCategory (String name, ProductCategory category, Integer currentPage) {
         if (StringUtils.isEmpty(name) && (category == null)) {
-            return this.findAll();
+            return this.findAll(currentPage);
         }
 
         if (category == null) {
-            return this.findByName(name);
+            return this.findByName(name, currentPage);
         }
 
         if (StringUtils.isEmpty(name)) {
-            return this.findByCategory(category);
+            return this.findByCategory(category, currentPage);
         }
 
         Session session = sessionFactory.getCurrentSession();
-        List<ProductAncestor> result = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.name like :queryName and p.category = :category order by p.name")
+
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where p.name like :queryName and p.category = :category order by p.name")
                 .setString("queryName", name)
                 .setEntity("category", category)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.name like :queryName and p.category = :category order by p.name")
+                .setString("queryName", name)
+                .setEntity("category", category)
+                .setFirstResult(currentPage * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
-        return result;
+
+        Page<ProductAncestor> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Override

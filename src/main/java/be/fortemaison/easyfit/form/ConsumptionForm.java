@@ -2,7 +2,6 @@ package be.fortemaison.easyfit.form;
 
 import be.fortemaison.easyfit.model.Consumption;
 import be.fortemaison.easyfit.model.ConsumptionDetailType;
-import be.fortemaison.easyfit.util.IConstants;
 import be.fortemaison.easyfit.util.Utils;
 import org.joda.time.DateMidnight;
 import org.springframework.format.annotation.NumberFormat;
@@ -24,7 +23,7 @@ public class ConsumptionForm {
 
     private Date date;
 
-    @NumberFormat(pattern = IConstants.DECIMAL_PATTERN)
+    @NumberFormat(pattern = Utils.DECIMAL_PATTERN)
     private Double points;
 
     private List<ConsumptionDetailForm> consumptionDetailForms = new ArrayList<ConsumptionDetailForm>();

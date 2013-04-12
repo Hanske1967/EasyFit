@@ -1,8 +1,10 @@
 package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IRecipeDAO;
+import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Recipe;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
+import be.fortemaison.easyfit.util.Utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,45 +45,140 @@ public class RecipeHibDao implements IRecipeDAO {
     }
 
     @Transactional(readOnly = true)
-    public List<Recipe> findByName (String name) {
+    public Page<Recipe> findByName (String name, Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r where (shared = :shared or technicalSegment.creationUser = :username) and r.name like :name order by r.name").setString("name", name).list();
-        return result;
+
+        String param = name;
+        if (!name.contains(Utils.PROCENT)) {
+            StringBuilder sb = new StringBuilder(name.length() + 2);
+            sb.append(Utils.PROCENT);
+            sb.append(name);
+            sb.append(Utils.PROCENT);
+            param = sb.toString();
+        }
+
+        Long count = (Long) session.createQuery("select count(id) from Recipe r where (shared = :shared or technicalSegment.creationUser = :username) and r.name like :name order by r.name")
+                .setString("name", param)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Recipe> resultList = (List<Recipe>) session.createQuery("from Recipe r where (shared = :shared or technicalSegment.creationUser = :username) and r.name like :name order by r.name")
+                .setString("name", param)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
+                .list();
+
+        Page<Recipe> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Transactional(readOnly = true)
-    public List<Recipe> findByNameWithDetails (String name) {
+    public Page<Recipe> findByNameWithDetails (String name, Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.shared = :shared or r.technicalSegment.creationUser = :username) and r.name like :name order by r.name")
+
+        Long count = (Long) session.createQuery("select count(r.id) from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.shared = :shared or r.technicalSegment.creationUser = :username) and r.name like :name order by r.name")
                 .setString("name", name)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Recipe> resultList = (List<Recipe>) session.createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.shared = :shared or r.technicalSegment.creationUser = :username) and r.name like :name order by r.name")
+                .setString("name", name)
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
-        return result;
+        Page<Recipe> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Transactional(readOnly = true)
-    public List<Recipe> findAll () {
+    public Page<Recipe> findAll (Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = (List<Recipe>) session.createQuery("from Recipe r where (technicalSegment.creationUser = :username or shared = :shared) order by r.name")
+
+        Long count = (Long) session.createQuery("select count(r.id) from Recipe r where (technicalSegment.creationUser = :username or shared = :shared) order by r.name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Recipe> resultList = (List<Recipe>) session.createQuery("from Recipe r where (technicalSegment.creationUser = :username or shared = :shared) order by r.name")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
-        return result;
+
+        Page<Recipe> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Transactional(readOnly = true)
-    public List<Recipe> findAllWithDetails () {
+    public Page<Recipe> findAllWithDetails (Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
-        List<Recipe> result = session
-                .createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.technicalSegment.creationUser = :username or r.shared = :shared) order by r.name")
+
+        Long count = (Long) session.createQuery("select count(r.id) from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.technicalSegment.creationUser = :username or r.shared = :shared) order by r.name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
+                .uniqueResult();
+
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+
+        if (currentPage == null || currentPage <= 0) {
+            currentPage = 1;
+        } else if (currentPage > pageCount) {
+            currentPage = pageCount;
+        }
+
+        List<Recipe> resultList = (List<Recipe>) session.createQuery("from Recipe r left join fetch r.recipeDetails link left join fetch link.product where (r.technicalSegment.creationUser = :username or r.shared = :shared) order by r.name")
+                .setString("username", ContextThreadLocal.get().getUser().getUsername())
+                .setBoolean("shared", Boolean.TRUE)
+                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
-        return result;
+        Page<Recipe> resultPage = new Page(resultList);
+        resultPage.setCurrentPage(currentPage);
+        resultPage.setPageCount(pageCount);
+
+        return resultPage;
     }
 
     @Transactional

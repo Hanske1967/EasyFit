@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" compressed="false" hash="76115506" />
+  <component name="DataSourceManagerImpl" format="xml" hash="76115506">
+    <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.6.10" jdbc-version="4.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.22 ( Revision: ${bzr.revision-id} )" uuid="7755aef8-ff49-48dc-8dd3-c5c5f4b1dccd">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/easyfit</jdbc-url>
+      <user-name>hans</user-name>
+      <user-password>dffedfc5dfc7dfd3dfdedfc5dfc7dfd3</user-password>
+      <libraries>
+        <library>
+          <url>file://$PROJECT_DIR$/lib/mysql-connector-java-5.1.22-bin.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Samsung" product="MySQL" version="5.6.10-log" jdbc-version="4.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.22 ( Revision: ${bzr.revision-id} )" uuid="abfab97c-9274-4ce4-806b-ad0648c6ccdd">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.0.177:3306/easyfit</jdbc-url>
+      <user-name>hans</user-name>
+      <user-password>dffedfc5dfc7dfd3dfdedfc5dfc7dfd3</user-password>
+      <libraries>
+        <library>
+          <url>file://$PROJECT_DIR$/../../apache-tomcat-7.0.35/lib/mysql-connector-java-5.1.22-bin.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
 </project>
 

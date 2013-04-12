@@ -36,7 +36,7 @@ public class UserHibDao implements IUserDAO {
     @Transactional(readOnly = true)
     public User findByUsername (String name) {
         Session session = sessionFactory.getCurrentSession();
-        User result = (User) session.createQuery("from User where username like :name").setString("name", name).uniqueResult();
+        User result = (User) session.createQuery("from User where username like :name order by username").setString("name", name).uniqueResult();
         return result;
     }
 
@@ -44,7 +44,7 @@ public class UserHibDao implements IUserDAO {
     @Transactional(readOnly = true)
     public List<User> findAll () {
         Session session = sessionFactory.getCurrentSession();
-        List<User> result = (List<User>) session.createQuery("from User").list();
+        List<User> result = (List<User>) session.createQuery("from User order by username").list();
         return result;
     }
 

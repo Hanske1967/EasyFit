@@ -1,9 +1,8 @@
 package be.fortemaison.easyfit.dao;
 
+import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.ProductAncestor;
 import be.fortemaison.easyfit.model.ProductCategory;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,15 +13,15 @@ import java.util.List;
  */
 public interface IProductAndRecipeDAO {
 
-    public List<ProductAncestor> findAll ();
+    public Page<ProductAncestor> findAll (Integer currentPage);
 
-    public List<ProductAncestor> findByName (String name);
+    public Page<ProductAncestor> findByName (String name, Integer currentPage);
 
-    public List<ProductAncestor> findFavorites ();
+    public Page<ProductAncestor> findFavorites (Integer currentPage);
 
-    public List<ProductAncestor> findByCategory (ProductCategory category);
+    public Page<ProductAncestor> findByCategory (ProductCategory category, Integer currentPage);
 
-    public List<ProductAncestor> findByNameAndCategory (String queryName, ProductCategory category);
+    public Page<ProductAncestor> findByNameAndCategory (String queryName, ProductCategory category, Integer currentPage);
 
     public ProductAncestor findById (Integer key);
 
