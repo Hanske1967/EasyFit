@@ -1,6 +1,7 @@
 package be.fortemaison.easyfit.dao;
 
 import be.fortemaison.easyfit.model.Page;
+import be.fortemaison.easyfit.model.ProductCategory;
 import be.fortemaison.easyfit.model.Recipe;
 
 /**
@@ -19,6 +20,10 @@ public interface IRecipeDAO {
     public Page<Recipe> findByName (String name, Integer currentPage);
 
     public Page<Recipe> findByNameWithDetails (String name, Integer currentPage);
+
+    public Page<Recipe> findByCategory (ProductCategory category, Integer currentPage);
+
+    public Page<Recipe> findByNameAndCategory (String name, ProductCategory category, Integer currentPage);
 
     public Page<Recipe> findAll (Integer currentPage);
 

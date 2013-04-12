@@ -16,6 +16,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -200,6 +201,15 @@ public class ConsumptionController {
         modelMap.addAttribute("allCategories", categoryForms);
 
         //  Find product
+        if (!StringUtils.isEmpty(queryName) && queryName.endsWith(",")) {
+            //  browser returns the param followed by a comma ??
+            queryName = queryName.substring(0, queryName.indexOf(','));
+
+            if (queryName.startsWith("%")) {
+                modelMap.addAttribute("queryName", queryName);
+            }
+        }
+        modelMap.addAttribute("category", categoryId);
 
         Page<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat, pageIndex);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
@@ -207,7 +217,6 @@ public class ConsumptionController {
             forms.add(new ProductForm(product));
         }
         modelMap.addAttribute("products", forms);
-        modelMap.addAttribute("queryName", queryName);
 
         modelMap.addAttribute("currentPage", products.getCurrentPage());
         modelMap.addAttribute("pageCount", products.getPageCount());

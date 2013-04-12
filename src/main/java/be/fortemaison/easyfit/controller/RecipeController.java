@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -52,8 +53,34 @@ public class RecipeController {
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String prepareList (@RequestParam(value = "page", required = false) Integer pageIndex, Model model) {
-        Page<Recipe> recipes = this.recipeDAO.findAll(pageIndex);
+    public String prepareList (@RequestParam(value = "queryName", required = false) String queryName,
+                               @RequestParam(value = "category", required = false) Integer categoryId,
+                               @RequestParam(value = "page", required = false) Integer pageIndex,
+                               Model model) {
+
+        ProductCategory category = null;
+
+        List<ProductCategory> categories = this.categoryDAO.findAll();
+        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>();
+        for (ProductCategory cat : categories) {
+            categoryForms.put(cat.getId(), cat.getName());
+            if (categoryId != null && cat.getId().equals(categoryId)) {
+                category = cat;
+            }
+        }
+        model.addAttribute("allCategories", categoryForms);
+
+        if (!StringUtils.isEmpty(queryName) && queryName.endsWith(",")) {
+            //  browser returns the param followed by a comma ??
+            queryName = queryName.substring(0, queryName.indexOf(','));
+
+            if (queryName.startsWith("%")) {
+                model.addAttribute("queryName", queryName);
+            }
+        }
+        model.addAttribute("category", categoryId);
+
+        Page<Recipe> recipes = this.recipeDAO.findByNameAndCategory(queryName, category, pageIndex);
         List<RecipeForm> forms = new ArrayList<RecipeForm>(recipes.size());
         for (Recipe recipe : recipes) {
             forms.add(new RecipeForm(recipe));
@@ -222,6 +249,17 @@ public class RecipeController {
         modelMap.addAttribute("allCategories", categoryForms);
 
         //  Find product
+        if (!StringUtils.isEmpty(queryName) && queryName.endsWith(",")) {
+            //  browser returns the param followed by a comma ??
+            queryName = queryName.substring(0, queryName.indexOf(','));
+
+            if (queryName.startsWith("%")) {
+                modelMap.addAttribute("queryName", queryName);
+            }
+        }
+        modelMap.addAttribute("category", categoryId);
+
+        //  Find product
         Page<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat, pageIndex);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (ProductAncestor product : products) {
@@ -229,7 +267,6 @@ public class RecipeController {
         }
 
         modelMap.addAttribute("products", forms);
-        modelMap.addAttribute("queryName", queryName);
 
         modelMap.addAttribute("currentPage", products.getCurrentPage());
         modelMap.addAttribute("pageCount", products.getPageCount());

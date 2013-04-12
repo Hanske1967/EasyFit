@@ -11,6 +11,7 @@ import be.fortemaison.easyfit.model.Unit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +61,16 @@ public class ProductController {
         }
         model.addAttribute("allCategories", categoryForms);
 
+        if (!StringUtils.isEmpty(queryName) && queryName.endsWith(",")) {
+            //  browser returns the param followed by a comma ??
+            queryName = queryName.substring(0, queryName.indexOf(','));
+
+            if (queryName.startsWith("%")) {
+                model.addAttribute("queryName", queryName);
+            }
+        }
+        model.addAttribute("category", categoryId);
+
         Page<Product> products = this.productDAO.findByNameAndCategory(queryName, category, pageIndex);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
         for (Product product : products) {
@@ -70,8 +81,6 @@ public class ProductController {
         model.addAttribute("currentPage", products.getCurrentPage());
         model.addAttribute("pageCount", products.getPageCount());
 
-        model.addAttribute("queryName", queryName);
-        model.addAttribute("category", category);
         return "products/list";
     }
 
