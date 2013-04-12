@@ -1,7 +1,7 @@
 package be.fortemaison.easyfit.controller;
 
+import be.fortemaison.easyfit.dao.IProductAndRecipeDAO;
 import be.fortemaison.easyfit.dao.IProductCategoryDAO;
-import be.fortemaison.easyfit.dao.IProductDAO;
 import be.fortemaison.easyfit.dao.IRecipeDAO;
 import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.form.ProductForm;
@@ -39,7 +39,7 @@ public class RecipeController {
     private IRecipeDAO recipeDAO;
 
     @Autowired
-    private IProductDAO productDAO;
+    private IProductAndRecipeDAO productAndRecipeDAO;
 
     @Autowired
     private IUnitDAO unitDAO;
@@ -182,7 +182,12 @@ public class RecipeController {
      */
 
     @RequestMapping(value = "/adddetail1", method = RequestMethod.POST)
-    public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key, @RequestParam(value = "queryName", required = false) String queryName, @RequestParam(value = "category", required = false) Integer categoryId, @Validated RecipeForm recipeForm, BindingResult result, ModelMap modelMap) {
+    public String processAddDetail1 (@RequestParam(value = "key", required = false) Integer key,
+                                     @RequestParam(value = "queryName", required = false) String queryName,
+                                     @RequestParam(value = "category", required = false) Integer categoryId,
+                                     @RequestParam(value = "page", required = false) Integer pageIndex,
+                                     @Validated RecipeForm recipeForm,
+                                     BindingResult result, ModelMap modelMap) {
 
         RecipeDetailForm recipeDetailForm = (RecipeDetailForm) modelMap.get(RECIPE_DETAIL_FORM);
         if (recipeDetailForm == null) {
@@ -213,9 +218,9 @@ public class RecipeController {
         modelMap.addAttribute("allCategories", categoryForms);
 
         //  Find product
-        List<Product> products = this.productDAO.findByNameAndCategory(queryName, cat);
+        List<ProductAncestor> products = this.productAndRecipeDAO.findByNameAndCategory(queryName, cat);
         List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
-        for (Product product : products) {
+        for (ProductAncestor product : products) {
             forms.add(new ProductForm(product));
         }
 
@@ -234,7 +239,7 @@ public class RecipeController {
     public String processAddDetail2 (@RequestParam("productKey") Integer
                                              productKey, @ModelAttribute(RECIPE_DETAIL_FORM) RecipeDetailForm recipeDetailForm, final Errors errors,
                                      final HttpServletResponse response) {
-        Product product = this.productDAO.findById(productKey);
+        ProductAncestor product = this.productAndRecipeDAO.findById(productKey);
         assert (product != null);
         recipeDetailForm.setProduct(new ProductForm(product));
 
@@ -251,7 +256,7 @@ public class RecipeController {
                                      final Errors errors, final SessionStatus status) {
 
         Recipe recipe = this.recipeDAO.findByIdWithDetails(recipeDetailForm.getRecipeId());
-        Product product = this.productDAO.findById(recipeDetailForm.getProduct().getId());
+        ProductAncestor product = this.productAndRecipeDAO.findById(recipeDetailForm.getProduct().getId());
         assert (recipe != null);
         assert (product != null);
 
@@ -343,7 +348,7 @@ public class RecipeController {
         recipe.setCategory(category);
 
         for (RecipeDetailForm linkForm : recipeForm.getRecipeDetailForms()) {
-            Product product = this.productDAO.findById(linkForm.getProduct().getId());
+            ProductAncestor product = this.productAndRecipeDAO.findById(linkForm.getProduct().getId());
             if (product != null) {
                 recipe.addRecipeDetail(new RecipeDetail(null, recipe, product, linkForm.getAmount()));
             }

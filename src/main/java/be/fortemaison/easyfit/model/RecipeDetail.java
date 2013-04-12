@@ -27,7 +27,7 @@ public class RecipeDetail extends CommonAncestor {
      * @param product
      * @param amount
      */
-    public RecipeDetail (Integer id, Recipe recipe, Product product, Double amount) {
+    public RecipeDetail (Integer id, Recipe recipe, ProductAncestor product, Double amount) {
         this.id = id;
         this.recipe = recipe;
         this.product = product;
