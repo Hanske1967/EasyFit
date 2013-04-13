@@ -126,14 +126,11 @@ public class ConsumptionController {
             for (ConsumptionDetail detail : consumption.getConsumptionDetails()) {
                 if (detail.getId().equals(detailKey)) {
                     editedDetail = detail;
+                    break;
                 }
             }
 
-            ConsumptionDetailForm consumptionDetailForm = (ConsumptionDetailForm) modelMap.get(CONSUMPTION_DETAIL_FORM);
-            if (consumptionDetailForm == null) {
-                consumptionDetailForm = new ConsumptionDetailForm(editedDetail);
-            }
-
+            ConsumptionDetailForm consumptionDetailForm = new ConsumptionDetailForm(editedDetail);
             consumptionDetailForm.setConsumptionId(key);
             modelMap.addAttribute(CONSUMPTION_DETAIL_FORM, consumptionDetailForm);
 
@@ -261,6 +258,7 @@ public class ConsumptionController {
             for (ConsumptionDetail detail : consumption.getConsumptionDetails()) {
                 if (detail.getId().equals(consumptionDetailForm.getId())) {
                     detail.setAmount(consumptionDetailForm.getAmount());
+                    break;
                 }
             }
         } else {
@@ -322,6 +320,7 @@ public class ConsumptionController {
         for (ConsumptionDetail detail : details) {
             if (detail.getId().equals(detailKey)) {
                 editedDetail = detail;
+                break;
             }
         }
 

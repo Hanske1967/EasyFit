@@ -102,7 +102,6 @@ public class HomeController {
         User user = this.userDAO.findById(userForm.getId());
 
         if (user != null) {
-            //  TODO compare with old one
             ContextThreadLocal.set(getContext());
 
             String oldHash = StringUtils.isEmpty(userForm.getOldPassword()) ? "" : PasswordService.getInstance().encrypt(userForm.getOldPassword());

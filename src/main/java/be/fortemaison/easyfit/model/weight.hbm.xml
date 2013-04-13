@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="be.fortemaison.easyfit.model">
 
-    <class name="Weight" table="weigth" batch-size="20">
+    <class name="Weight" table="weight" batch-size="20">
 
         <id name="id">
             <generator class="native"/>
