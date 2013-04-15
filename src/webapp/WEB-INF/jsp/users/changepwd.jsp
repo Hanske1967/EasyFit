@@ -38,10 +38,10 @@
                 <form:hidden path="id"/>
 
                 <form:label path="oldPassword">Old password:</form:label>
-                <form:input path="oldPassword" autocomplete="false"/>
+                <form:input path="oldPassword" autocomplete="off"/>
 
                 <form:label path="password">New password:</form:label>
-                <form:input path="password" autocomplete="false"/>
+                <form:input path="password" autocomplete="off"/>
             </fieldset>
 
             <button class="btn btn-primary" type="submit">Submit</button>

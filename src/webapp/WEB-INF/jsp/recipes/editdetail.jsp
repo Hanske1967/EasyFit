@@ -40,7 +40,7 @@
                 <form:label path="amount">
                     Amount: <form:errors path="amount" cssClass="error"/>
                 </form:label>
-                <form:input id="focusedInput" path="amount" autocomplete="false"/>
+                <form:input id="focusedInput" path="amount" autocomplete="off"/>
 
                 <form:label path="product.unitLabel">
                     Unit:

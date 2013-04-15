@@ -1,15 +1,15 @@
 ﻿"id";"name";"shared";"creationdate";"creationuser";"updatedate";"updateuser"
-1;"Fruit";true;12/03/2013 22:44:37;null;12/03/2013 22:44:37;null
-2;"Groenten";true;12/03/2013 22:44:37;null;12/03/2013 22:44:37;null
-3;"Zoetigheden";true;18/03/2013 22:29:18;null;18/03/2013 22:29:18;"INGE"
-4;"Vlees";true;12/03/2013 22:44:37;null;12/03/2013 22:44:37;null
-5;"Drank";true;12/03/2013 22:44:37;null;12/03/2013 22:44:37;null
-7;"Brood en ontbijtkoeken";true;18/03/2013 22:14:00;null;18/03/2013 22:14:00;"INGE"
-8;"Beleg";true;12/03/2013 22:44:37;null;12/03/2013 22:44:37;null
-9;"Zuivelproducten";true;17/03/2013 10:13:24;null;17/03/2013 10:13:24;"INGE"
-10;"Pasta & rijst";true;12/03/2013 22:44:37;null;12/03/2013 22:44:37;null
-11;"Sauzen, vinaigrettes en smaakmakers";true;20/03/2013 20:18:49;null;20/03/2013 20:18:49;"INGE"
-12;"Flakes";true;12/03/2013 22:44:37;null;12/03/2013 22:44:37;null
+1;"Fruit";true;12/03/2013 22:44:37;"INGE";12/03/2013 22:44:37;null
+2;"Groenten";true;12/03/2013 22:44:37;"INGE";12/03/2013 22:44:37;null
+3;"Zoetigheden";true;18/03/2013 22:29:18;"INGE";18/03/2013 22:29:18;"INGE"
+4;"Vlees";true;12/03/2013 22:44:37;"INGE";12/03/2013 22:44:37;null
+5;"Drank";true;12/03/2013 22:44:37;"INGE";12/03/2013 22:44:37;null
+7;"Brood en ontbijtkoeken";true;18/03/2013 22:14:00;"INGE";18/03/2013 22:14:00;"INGE"
+8;"Beleg";true;12/03/2013 22:44:37;"INGE";12/03/2013 22:44:37;null
+9;"Zuivelproducten";true;17/03/2013 10:13:24;"INGE";17/03/2013 10:13:24;"INGE"
+10;"Pasta & rijst";true;12/03/2013 22:44:37;"INGE";12/03/2013 22:44:37;null
+11;"Sauzen, vinaigrettes en smaakmakers";true;20/03/2013 20:18:49;"INGE";20/03/2013 20:18:49;"INGE"
+12;"Flakes";true;12/03/2013 22:44:37;"INGE";12/03/2013 22:44:37;null
 13;"Vis";true;13/03/2013 21:41:44;"INGE";13/03/2013 21:41:44;"INGE"
 14;"Warme dranken";true;17/03/2013 09:58:26;"INGE";17/03/2013 09:58:26;"INGE"
 15;"Koekjes";true;17/03/2013 13:35:07;"HANS";17/03/2013 13:35:07;"HANS"

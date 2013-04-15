@@ -76,7 +76,7 @@
                     <form:label path="password">Password:</form:label>
 
                     <div class="controls">
-                        <form:password path="password" size="20" autocomplete="false"/>
+                        <form:password path="password" size="20" autocomplete="off"/>
                     </div>
                 </div>
 
