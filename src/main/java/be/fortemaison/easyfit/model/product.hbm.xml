@@ -39,6 +39,8 @@
 
         <subclass name="Product" discriminator-value="P"/>
 
+        <subclass name="be.fortemaison.easyfit.model.Excercise" discriminator-value="E"/>
+
         <subclass name="Recipe" discriminator-value="R">
             <set name="recipeDetails" inverse="true" cascade="all-delete-orphan">
                 <key column="recipeid"/>

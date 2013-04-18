@@ -1,8 +1,11 @@
 package be.fortemaison.easyfit.dao;
 
+import be.fortemaison.easyfit.model.Excercise;
 import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,6 +31,12 @@ public interface IProductDAO {
     public void update (Product product);
 
     public void delete (Product product);
+
+    /**
+     * Exercises
+     */
+
+    public List<Excercise> findExcercises ();
 
 
 }

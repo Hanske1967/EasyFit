@@ -68,7 +68,7 @@ public class RecipeHibDao implements IRecipeDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -102,7 +102,7 @@ public class RecipeHibDao implements IRecipeDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -136,7 +136,7 @@ public class RecipeHibDao implements IRecipeDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -183,7 +183,7 @@ public class RecipeHibDao implements IRecipeDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -217,7 +217,7 @@ public class RecipeHibDao implements IRecipeDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -249,7 +249,7 @@ public class RecipeHibDao implements IRecipeDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;

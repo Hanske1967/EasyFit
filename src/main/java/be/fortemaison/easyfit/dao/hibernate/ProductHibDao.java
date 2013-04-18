@@ -1,6 +1,7 @@
 package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IProductDAO;
+import be.fortemaison.easyfit.model.Excercise;
 import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
@@ -60,7 +61,7 @@ public class ProductHibDao implements IProductDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -72,7 +73,7 @@ public class ProductHibDao implements IProductDAO {
                 .setString("name", param)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
@@ -98,7 +99,7 @@ public class ProductHibDao implements IProductDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -110,7 +111,7 @@ public class ProductHibDao implements IProductDAO {
                 .setEntity("cat", category)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
@@ -145,7 +146,7 @@ public class ProductHibDao implements IProductDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -158,7 +159,7 @@ public class ProductHibDao implements IProductDAO {
                 .setEntity("cat", category)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
@@ -178,7 +179,7 @@ public class ProductHibDao implements IProductDAO {
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -189,7 +190,7 @@ public class ProductHibDao implements IProductDAO {
         List<Product> resultList = (List<Product>) session.createQuery("from Product where (shared = :shared or technicalSegment.creationUser = :username) order by name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
@@ -222,6 +223,17 @@ public class ProductHibDao implements IProductDAO {
     public void delete (Product product) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(product);
+    }
+
+    /**
+     * Exercises
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Excercise> findExcercises () {
+        Session session = sessionFactory.getCurrentSession();
+        List<Excercise> resultList = (List<Excercise>) session.createQuery("from Excercise order by name").list();
+        return resultList;
     }
 
 }

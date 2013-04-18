@@ -22,38 +22,23 @@
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 
-    <script lang="javascript">
+    <script>
 
-        function updatePoints() {
+        function chooseProduct(){
 
-            var consummedAmount = document.getElementById('amount').value;
+            var productSelect = document.getElementById('product');
+            var excercice = ${exercises}[productSelect.selectedIndex];
 
-            var productPoints = '${consumptionDetailForm.product.points}';
-            var productAmount = '${consumptionDetailForm.product.amount}';
+            var unitLabel = document.getElementById('unitLabel');
+            unitLabel.innerHTML = excercice.unitLabel;
 
-            var resultPoints = (consummedAmount * productPoints / productAmount).toFixed(1);
-            document.getElementById("points").value = resultPoints;
-        }
-
-        function updateAmount() {
-            var points = document.getElementById('points').value;
-
-            var productPoints = '${consumptionDetailForm.product.points}';
-            var productAmount = '${consumptionDetailForm.product.amount}';
-
-            var resultAmount = (productAmount * points / productPoints).toFixed(1);
-            document.getElementById("amount").value = resultAmount;
-        }
-
-        function onload() {
-            document.getElementById('nav_agenda').setAttribute('class', 'active');
-            updatePoints();
-            document.getElementById('amount').focus();
+            var productDescription = document.getElementById('productDescription');
+            productDescription.innerHTML = excercice.pointsLabel + " pts / " + excercice.amountLabel + " " + excercice.unitLabel;
         }
 
     </script>
 </head>
-<body onload="javascript:onload()">
+<body>
 
 <div class="container">
     <jsp:include page="../navigation.jsp"/>
@@ -61,29 +46,30 @@
         <form:form id="form" method="post" modelAttribute="consumptionDetailForm" action="./adddetail3?">
             <fieldset>
                 <legend>
-                        ${consumptionDetailForm.product.name}
+                    Excercises
                     <form:errors path="*" cssClass="errorBox"/>
                 </legend>
 
                 <form:hidden path="id"/>
+
+                <form:label path="product">
+                    Product: <form:errors path="product" cssClass="error"/>
+                </form:label>
+                <form:select id="product" path="product" items="${excerciseLabels}" onchange="javascript:chooseProduct()"/>
 
                 <form:label path="amount">
                     Amount: <form:errors path="amount" cssClass="error"/>
                 </form:label>
 
                 <div class="controls controls-row">
-                    <form:input id="amount" cssClass="span3" path="amount" autocomplete="off" placeholder="amount"
-                                onchange="javascript:updatePoints()"/>
-                    <label class="span1">${consumptionDetailForm.productUnit}</label>
+                    <form:input id="amount" cssClass="span3" path="amount" autocomplete="off" placeholder="amount"/>
+                    <label id="unitLabel" class="span1"></label>
                 </div>
 
                 <label>Points:</label>
-                <input id="points" type="text" placeholder="points" onchange="javascript:updateAmount()"/>
+                <input id="points" type="text" placeholder="points">
 
-                <p class="text-info">${consumptionDetailForm.product.pointsLabel} pts
-                    / ${consumptionDetailForm.product.amountLabel} ${consumptionDetailForm.product.unitLabel}</p>
-
-                <p class="text-info">${consumptionDetailForm.product.description}</p>
+                <p id="productDescription" class="text-info"></p>
             </fieldset>
 
             <button class="btn btn-primary" type="submit">Submit</button>

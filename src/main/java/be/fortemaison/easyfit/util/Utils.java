@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
  */
 public class Utils {
 
+    public static final String WEEKDAY_DATE_FORMAT = "EEE";
+
     public static final String SHORT_DATE_FORMAT = "dd/MM/yyyy";
 
     public static final String DATE_FORMAT = "E dd/MM/yyyy";
@@ -23,6 +25,8 @@ public class Utils {
 
 
 
+
+    public static final DateFormat WEEKDAY_DATE_FORMATTER = new SimpleDateFormat(WEEKDAY_DATE_FORMAT);
 
     public static final DateFormat SHORT_DATE_FORMATTER = new SimpleDateFormat(SHORT_DATE_FORMAT);
 

@@ -17,6 +17,15 @@
         .well {
             padding-left: 30px;
         }
+
+        #sidebar ul {
+            margin-left: 0px;
+        }
+
+        #sidebar ul li {
+            padding-bottom: 10px;
+            list-style: none;
+        }
     </style>
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
@@ -34,12 +43,27 @@
         <!-- left panel / infos -->
         <div id="sidebar" class="well well-small span3">
             <h4>This week:</h4>
-
             <p>Consumed: ${consumptionForm.pointsLabel} pts</p>
-
             <p>Available: ${consumptionForm.dayPointsLeftLabel}/${consumptionForm.dayPoints}</p>
-
             <p>Extra: ${consumptionForm.extraPointsLeftLabel}/${consumptionForm.extraPoints}</p>
+            <hr/>
+            <ul>
+            <c:forEach items="${consumptionWeek}" var="weekDay">
+                <li>${weekDay.weekDay}:${weekDay.pointsLabel} pts
+                <c:choose>
+                    <c:when test="${weekDay.deltaPoints > 5}">
+                        <span class="text-error"><strong>(${weekDay.deltaPointsLabel})</strong></span>
+                    </c:when>
+                    <c:when test="${weekDay.deltaPoints > -5 && weekDay.deltaPoints <5}">
+                        <span class="text-success"><strong>(${weekDay.deltaPointsLabel})</strong></span>
+                    </c:when>
+                    <c:otherwise>
+                        <span class="text-warning"><strong>(${weekDay.deltaPointsLabel})</strong></span>
+                    </c:otherwise>
+                </c:choose>
+                </li>
+            </c:forEach>
+            </ul>
         </div>
 
         <!--  main panel  -->
@@ -57,6 +81,7 @@
                 </li>
             </ul>
 
+            <!--  Time of the day: morning, evening...  -->
             <c:forEach var="type" begin="1" end="6">
                 <form id="consumptionDetail${type}" method="post" modelAttribute="consumptionDetailForm">
                     <jsp:setProperty name="consumptionForm" property="typeIndex" value="${type}"/>
@@ -78,7 +103,6 @@
                             ${consumptionForm.consumptionDetailTitleForIndex}
                         - ${consumptionForm.consumptionDetailsPointsForIndex} pts
                     </h5>
-
 
                     <div id="consumptionPanelDetail${type}" class="row-fluid">
 
@@ -106,6 +130,52 @@
                 </form>
             </c:forEach>
 
+            <!--  Excecise part (ConsumptionDetailType 7) -->
+            <form id="consumptionDetail7" method="post" modelAttribute="consumptionDetailForm">
+                <jsp:setProperty name="consumptionForm" property="typeIndex" value="7"/>
+
+                <h5>
+                    <c:choose>
+                        <c:when test="${empty consumptionForm.id}">
+                            <a class="btn btn-link pull-right" href="javascript:;"
+                               onclick="document.getElementById('consumptionDetail7').setAttribute('action', './adddexcercise?date=${consumptionForm.currentDate}&amp;consumptionDetailType=7') ;document.getElementById('consumptionDetail7').submit();">
+                                <i class="icon-plus"></i></a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="btn btn-link pull-right" href="javascript:;"
+                               onclick="document.getElementById('consumptionDetail7').setAttribute('action', './adddexcercise?key=${consumptionForm.id}&amp;consumptionDetailType=7') ;document.getElementById('consumptionDetail7').submit();">
+                                <i class="icon-plus"></i></a>
+                        </c:otherwise>
+                    </c:choose>
+
+                    ${consumptionForm.consumptionDetailTitleForIndex}
+                    - ${consumptionForm.consumptionDetailsPointsForIndex} pts
+                </h5>
+
+                <div id="consumptionPanelDetail${type}" class="row-fluid">
+
+                    <table class="table table-hover">
+                        <tbody>
+                        <c:forEach items="${consumptionForm.consumptionDetailsForIndex}" var="detail">
+                            <tr>
+                                <td class="span1">
+                                    <a href="./removedetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">
+                                        <i class="icon-remove"></i>
+                                    </a>
+                                </td>
+                                <td class="span10"><a
+                                        href="./editdetail?key=${consumptionForm.id}&amp;detailKey=${detail.id}">${detail.label}</a>
+                                </td>
+                                <td class="span1"><span
+                                        class="badge badge-info">${detail.pointsLabel}</span></td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </form>
         </div>
     </div>
 </div>

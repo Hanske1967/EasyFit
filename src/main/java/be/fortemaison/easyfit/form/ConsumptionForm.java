@@ -255,4 +255,20 @@ public class ConsumptionForm {
         this.extraPointsLeft = extraPointsLeft;
     }
 
+    public String getWeekDay(){
+        return Utils.WEEKDAY_DATE_FORMATTER.format(this.date);
+    }
+
+    /**
+     *
+     * @return the extra points consummed (+) or points not consummed onthis day (-)
+     */
+    public double getDeltaPoints(){
+        return this.points - this.dayPoints;
+    }
+
+    public String getDeltaPointsLabel(){
+        return Utils.NUMBER_FORMATTER.format(getDeltaPoints());
+    }
+
 }

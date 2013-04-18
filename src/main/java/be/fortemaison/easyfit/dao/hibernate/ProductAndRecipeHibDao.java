@@ -38,13 +38,13 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
 
         Session session = sessionFactory.getCurrentSession();
 
-        Long count = (Long) session.createQuery("select count(id) from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where (shared = :shared or technicalSegment.creationUser = :username) and p.class != 'E' and p.class != 'E' and name like :name order by name")
                 .setString("name", param)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -52,7 +52,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
             currentPage = pageCount;
         }
 
-        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) and name like :name order by name")
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where (shared = :shared or technicalSegment.creationUser = :username) and p.class != 'E' and p.class != 'E' and name like :name order by name")
                 .setString("name", param)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
@@ -72,12 +72,12 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     public Page<ProductAncestor> findAll (Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
 
-        Long count = (Long) session.createQuery("select count(id) from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) order by name")
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where (shared = :shared or technicalSegment.creationUser = :username) and p.class != 'E' order by name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -85,7 +85,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
             currentPage = pageCount;
         }
 
-        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor where (shared = :shared or technicalSegment.creationUser = :username) order by name")
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where (shared = :shared or technicalSegment.creationUser = :username) and p.class != 'E' order by name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
                 .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
@@ -104,11 +104,11 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     public Page<ProductAncestor> findFavorites (Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
 
-        Long count = (Long) session.createQuery("select count(fav.id) from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid order by p.name")
+        Long count = (Long) session.createQuery("select count(fav.id) from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid and p.class != 'E' order by p.name")
                 .setInteger("userid", ContextThreadLocal.get().getUser().getId())
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -116,7 +116,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
             currentPage = pageCount;
         }
 
-        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid order by p.name")
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid and p.class != 'E' order by p.name")
                 .setInteger("userid", ContextThreadLocal.get().getUser().getId())
                 .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
@@ -134,11 +134,11 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
     public Page<ProductAncestor> findByCategory (ProductCategory category, Integer currentPage) {
         Session session = sessionFactory.getCurrentSession();
 
-        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where p.category = :category order by p.name")
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where p.class != 'E' and p.category = :category order by p.name")
                 .setEntity("category", category)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -146,7 +146,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
             currentPage = pageCount;
         }
 
-        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.category = :category order by p.name")
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.class != 'E' and p.category = :category order by p.name")
                 .setEntity("category", category)
                 .setFirstResult(currentPage * Page.PAGE_SIZE)
                 .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
@@ -176,12 +176,12 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
 
         Session session = sessionFactory.getCurrentSession();
 
-        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where p.name like :queryName and p.category = :category order by p.name")
+        Long count = (Long) session.createQuery("select count(id) from ProductAncestor p where p.class != 'E' and p.name like :queryName and p.category = :category order by p.name")
                 .setString("queryName", name)
                 .setEntity("category", category)
                 .uniqueResult();
 
-        int pageCount = new Double(count / Page.PAGE_SIZE).intValue();
+        int pageCount = new Double(count / Page.PAGE_SIZE).intValue() + 1;
 
         if (currentPage == null || currentPage <= 0) {
             currentPage = 1;
@@ -189,7 +189,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
             currentPage = pageCount;
         }
 
-        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.name like :queryName and p.category = :category order by p.name")
+        List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.class != 'E' and p.name like :queryName and p.category = :category order by p.name")
                 .setString("queryName", name)
                 .setEntity("category", category)
                 .setFirstResult(currentPage * Page.PAGE_SIZE)

@@ -21,7 +21,9 @@ public class ConsumptionDetailType {
 
     public static final ConsumptionDetailType SOIREE = new ConsumptionDetailType(6);
 
-    public static final ConsumptionDetailType[] ALL = new ConsumptionDetailType[]{MATIN, DIX_HEURE, MIDI, QUATRE_HEURE, SOIR, SOIREE};
+    public static final ConsumptionDetailType EXCERCISE = new ConsumptionDetailType(7);
+
+    public static final ConsumptionDetailType[] ALL = new ConsumptionDetailType[]{MATIN, DIX_HEURE, MIDI, QUATRE_HEURE, SOIR, SOIREE, EXCERCISE};
 
     private final int type;
 

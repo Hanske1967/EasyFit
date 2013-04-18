@@ -2,6 +2,7 @@ package be.fortemaison.easyfit.controller;
 
 import be.fortemaison.easyfit.dao.IProductAndRecipeDAO;
 import be.fortemaison.easyfit.dao.IProductCategoryDAO;
+import be.fortemaison.easyfit.dao.IProductDAO;
 import be.fortemaison.easyfit.dao.IUnitDAO;
 import be.fortemaison.easyfit.form.ConsumptionDetailForm;
 import be.fortemaison.easyfit.form.ConsumptionForm;
@@ -10,6 +11,7 @@ import be.fortemaison.easyfit.form.UserForm;
 import be.fortemaison.easyfit.model.*;
 import be.fortemaison.easyfit.service.IConsumptionService;
 import be.fortemaison.easyfit.util.Utils;
+import org.apache.log4j.Logger;
 import org.joda.time.DateTimeConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -25,7 +27,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.support.RequestContext;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.text.MessageFormat;
 import java.text.ParseException;
 import java.util.*;
 
@@ -48,6 +50,9 @@ public class ConsumptionController {
 
     @Autowired
     private IProductAndRecipeDAO productAndRecipeDAO;
+
+    @Autowired
+    private IProductDAO productDAO;
 
     @Autowired
     private MessageSource messageSource;
@@ -73,11 +78,20 @@ public class ConsumptionController {
         try {
             aDate = date == null ? new Date() : Utils.DATE_FORMATTER.parse(date);
         } catch (ParseException e) {
-            System.err.println("Date not recognized");
+            Logger.getLogger(this.getClass()).debug("Date not recognized");
             aDate = new Date();
         }
 
         ConsumptionWeek week = this.consumptionService.findForWeek(aDate, DateTimeConstants.MONDAY);
+        List<ConsumptionForm> weekForms = new ArrayList<ConsumptionForm>(7);
+        for (Consumption day: week.getConsumptions()){
+            ConsumptionForm consumptionForm = new ConsumptionForm(day);
+            consumptionForm.setDayPoints(week.getDayPoints());
+            consumptionForm.setExtraPoints(week.getExtraPoints());
+            weekForms.add(consumptionForm);
+        }
+        model.addAttribute("consumptionWeek", weekForms);
+
         Consumption consumption = week.getCurrentConsumption();
         ConsumptionForm consumptionForm = null;
         if (consumption == null) {
@@ -107,7 +121,7 @@ public class ConsumptionController {
         }
         consumptionForm.setConsumptionDetailHeaders(sectionTitles);
 
-        model.addAttribute("userForm", new UserForm(getContext().getUser()));
+        model.addAttribute("userForm", new UserForm(this.getContext().getUser()));
 
         return "consumptions/list";
     }
@@ -137,9 +151,9 @@ public class ConsumptionController {
 
             //  store all units for combo
             List<Unit> units = unitDAO.findAll();
-            Map<String, String> allUnits = new LinkedHashMap<String, String>();
+            Map<String, String> allUnits = new LinkedHashMap<String, String>(units.size());
             for (Unit unit : units) {
-                allUnits.put("" + unit.getId(), unit.getName());
+                allUnits.put(unit.getId().toString(), unit.getName());
             }
             modelMap.addAttribute("allUnits", allUnits);
             return "/consumptions/editdetail";
@@ -162,7 +176,7 @@ public class ConsumptionController {
             @RequestParam(value = "key", required = false) Integer key,
             @RequestParam(value = "date", required = false) String date,
             @RequestParam(value = "consumptionDetailType", required = false) Integer consumptionDetailType,
-            @RequestParam(value = "currentPage", required = false) Integer pageIndex,
+            @RequestParam(value = "page", required = false) Integer pageIndex,
             ModelMap modelMap,
             final SessionStatus status) {
 
@@ -175,7 +189,7 @@ public class ConsumptionController {
             try {
                 aDate = date == null ? new Date() : Utils.DATE_FORMATTER.parse(date);
             } catch (ParseException e) {
-                System.err.println("Date not recognized");
+                Logger.getLogger(this.getClass()).debug("Date not recognized");
                 aDate = new Date();
             }
 
@@ -188,7 +202,7 @@ public class ConsumptionController {
         //  all product categories for filtering
         ProductCategory cat = null;
         List<ProductCategory> categories = this.productCategoryDAO.findAll();
-        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>();
+        Map<Integer, String> categoryForms = new LinkedHashMap<Integer, String>(categories.size());
         for (ProductCategory category : categories) {
             categoryForms.put(category.getId(), category.getName());
             if (categoryId != null && category.getId().equals(categoryId)) {
@@ -217,8 +231,9 @@ public class ConsumptionController {
 
         modelMap.addAttribute("currentPage", products.getCurrentPage());
         modelMap.addAttribute("pageCount", products.getPageCount());
+        modelMap.addAttribute("finderMode", true);
 
-        return "products/findproduct";
+        return "products/list";
     }
 
     /**
@@ -230,12 +245,54 @@ public class ConsumptionController {
     public String processAddDetail2 (
             @RequestParam("productKey") Integer productKey,
             @ModelAttribute(CONSUMPTION_DETAIL_FORM) ConsumptionDetailForm consumptionDetailForm,
-            final Errors errors, final HttpServletResponse response) {
+            final Errors errors) {
+
         ProductAncestor product = this.productAndRecipeDAO.findById(productKey);
         assert (product != null);
         consumptionDetailForm.setProduct(new ProductForm(product));
 
         return "/consumptions/editdetail";
+    }
+
+    /**
+     * Second page of AddDetail wizard
+     *
+     * @return
+     */
+    @RequestMapping(value = "/adddexcercise", method = RequestMethod.POST)
+    public String processAddExercise (
+            @RequestParam(value = "key", required = false) Integer key,
+            @RequestParam(value = "date", required = false) String date,
+            ModelMap modelMap) {
+
+        ConsumptionDetailForm consumptionDetailForm = new ConsumptionDetailForm();
+        consumptionDetailForm.setConsumptionId(key);
+
+        Date aDate = null;
+        try {
+            aDate = date == null ? new Date() : Utils.DATE_FORMATTER.parse(date);
+        } catch (ParseException e) {
+            Logger.getLogger(this.getClass()).debug("Date not recognized");
+            aDate = new Date();
+        }
+
+        consumptionDetailForm.setDate(aDate);
+        consumptionDetailForm.setType(ConsumptionDetailType.EXCERCISE);
+        modelMap.addAttribute(CONSUMPTION_DETAIL_FORM, consumptionDetailForm);
+
+        List<Excercise> excercises = this.productDAO.findExcercises();
+        List<String> excerciseForms = new ArrayList<String>(excercises.size());
+        Map<Integer, String> excerciseLabels = new HashMap<Integer, String>(excercises.size());
+        MessageFormat format = new MessageFormat("id: \"{0}\", unitLabel: \"{1}\", pointsLabel: \"{2}\", amountLabel: \"{3}\"");
+        for (Excercise excercise: excercises){
+            ProductForm form = new ProductForm(excercise);
+            excerciseForms.add("{" + format.format(new Object[]{excercise.getId(), form.getUnitLabel(), form.getPointsLabel(), form.getAmountLabel()}) + "}");
+            excerciseLabels.put(excercise.getId(), excercise.getName());
+        }
+        modelMap.addAttribute("exercises", excerciseForms);
+        modelMap.addAttribute("excerciseLabels", excerciseLabels);
+
+        return "/consumptions/editexcercise";
     }
 
     /**
@@ -296,7 +353,7 @@ public class ConsumptionController {
             }
         }
 
-        if (consumption != null && removedDetail != null) {
+        if (removedDetail != null) {
             consumption.removeConsumptionDetail(removedDetail);
             this.consumptionService.update(consumption);
         }
@@ -324,7 +381,7 @@ public class ConsumptionController {
             }
         }
 
-        if (consumption != null && editedDetail != null) {
+        if (editedDetail != null) {
             editedDetail.setAmount(detailForm.getAmount());
             this.consumptionService.update(consumption);
         }
