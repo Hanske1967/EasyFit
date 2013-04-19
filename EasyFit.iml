@@ -15,12 +15,11 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset1" name="XML Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/hibdao.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/services.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/jndi-datasources.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/datasources.xml</file>
-          <file>jar://$MODULE_DIR$/../../spring-framework-3.2.1.RELEASE/libs/spring-jdbc-3.2.1.RELEASE.jar!/org/springframework/jdbc/support/sql-error-codes.xml</file>
+        <fileset id="web application context" name="MVC application context" removed="true">
+          <file>file://$MODULE_DIR$/src/webapp/WEB-INF/applicationContext.xml</file>
+        </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/webapp/WEB-INF/applicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -51,6 +50,7 @@
     <orderEntry type="library" scope="PROVIDED" name="lib" level="project" />
     <orderEntry type="library" exported="" name="spring-framework-3.2.1" level="application" />
     <orderEntry type="library" exported="" name="hibernate-release-4.1.9" level="application" />
+    <orderEntry type="library" name="lambdaj-2.4-with-dependencies" level="project" />
   </component>
 </module>
 

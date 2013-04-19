@@ -19,6 +19,8 @@ public class Consumption extends CommonAncestor {
 
     private Double points;
 
+    private Double excercisePoints;
+
     private Set<ConsumptionDetail> consumptionDetails = new HashSet<ConsumptionDetail>();
 
     /**
@@ -76,21 +78,43 @@ public class Consumption extends CommonAncestor {
         this.date = date;
     }
 
+    /**
+     * Take in account only all consumptions related to products and recipes.
+     */
     public Double getPoints () {
-        return this.points;
+        return this.points == null ? 0.0 : this.points;
     }
 
     public void setPoints (Double points) {
         this.points = points;
     }
 
+    public Double getExcercisePoints () {
+        return this.excercisePoints == null ? 0.0 : this.excercisePoints;
+    }
+
+    public void setExcercisePoints (Double extraPoints) {
+        this.excercisePoints = extraPoints;
+    }
+
+    /**
+     * take in account only all consumptions related to products and recipes.
+     */
     public void updatePoints () {
         if (!this.consumptionDetails.isEmpty()) {
             this.points = 0.0;
+            this.excercisePoints = 0.0;
             for (ConsumptionDetail detail : this.consumptionDetails) {
-                Double morePoints = detail.getPoints();
-                this.points += morePoints == null ? 0.0 : morePoints;
+                if (ConsumptionDetailType.EXCERCISE.equals(detail.getConsumptionDetailType())) {
+                    Double morePoints = detail.getPoints();
+                    excercisePoints -= morePoints == null ? 0.0 : morePoints; //  exercise consumption are -, extra are +
+                } else {
+                    Double morePoints = detail.getPoints();
+                    this.points += morePoints == null ? 0.0 : morePoints;
+                }
             }
         }
     }
+
+
 }

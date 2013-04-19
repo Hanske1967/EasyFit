@@ -10,7 +10,6 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
@@ -50,7 +49,11 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <context:component-scan base-package="be.fortemaison.easyfit.controller"/>
-    <context:component-scan base-package="be.fortemaison.easyfit.interceptor"/>
 
+    <import resource="classpath:jndi-datasources.xml"/>
+    <import resource="classpath:datasources.xml"/>
+
+    <context:component-scan base-package="be.fortemaison.easyfit"/>
+
+    <mvc:annotation-driven/>
 </beans>

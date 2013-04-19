@@ -1,6 +1,7 @@
 package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IProductAndRecipeDAO;
+import be.fortemaison.easyfit.model.Excercise;
 import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.ProductAncestor;
 import be.fortemaison.easyfit.model.ProductCategory;
@@ -9,6 +10,8 @@ import be.fortemaison.easyfit.util.Utils;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -20,8 +23,10 @@ import java.util.List;
  * Time: 22:35
  * To change this template use File | Settings | File Templates.
  */
+@Repository
 public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -56,7 +61,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
                 .setString("name", param)
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
@@ -88,7 +93,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
         List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where (shared = :shared or technicalSegment.creationUser = :username) and p.class != 'E' order by name")
                 .setString("username", ContextThreadLocal.get().getUser().getUsername())
                 .setBoolean("shared", Boolean.TRUE)
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
@@ -118,7 +123,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
 
         List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from FavoriteProduct fav join fetch fav.productAncestor p where fav.user.id = :userid and p.class != 'E' order by p.name")
                 .setInteger("userid", ContextThreadLocal.get().getUser().getId())
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .setMaxResults(Page.PAGE_SIZE)
                 .list();
 
@@ -149,7 +154,7 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
         List<ProductAncestor> resultList = (List<ProductAncestor>) session.createQuery("from ProductAncestor p where p.class != 'E' and p.category = :category order by p.name")
                 .setEntity("category", category)
                 .setFirstResult(currentPage * Page.PAGE_SIZE)
-                .setFirstResult((currentPage-1) * Page.PAGE_SIZE)
+                .setFirstResult((currentPage - 1) * Page.PAGE_SIZE)
                 .list();
 
         Page<ProductAncestor> resultPage = new Page(resultList);
@@ -211,7 +216,14 @@ public class ProductAndRecipeHibDao implements IProductAndRecipeDAO {
         return result;
     }
 
-    public void setSessionFactory (SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    /**
+     * Exercises
+     */
+    @Override
+    @Transactional(readOnly = true)
+    public List<Excercise> findExcercises () {
+        Session session = sessionFactory.getCurrentSession();
+        List<Excercise> resultList = (List<Excercise>) session.createQuery("from Excercise order by name").list();
+        return resultList;
     }
 }

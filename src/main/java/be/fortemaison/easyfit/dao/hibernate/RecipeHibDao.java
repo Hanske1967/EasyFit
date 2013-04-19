@@ -8,6 +8,8 @@ import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.Utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
@@ -20,13 +22,11 @@ import java.util.List;
  * Time: 22:43
  * To change this template use File | Settings | File Templates.
  */
+@Repository
 public class RecipeHibDao implements IRecipeDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
-
-    public void setSessionFactory (SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     @Override
     @Transactional(readOnly = true)

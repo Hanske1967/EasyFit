@@ -8,6 +8,7 @@ import be.fortemaison.easyfit.model.ConsumptionWeek;
 import be.fortemaison.easyfit.model.User;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
 import org.joda.time.DateMidnight;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,26 +22,17 @@ import java.util.List;
  * Time: 22:41
  * To change this template use File | Settings | File Templates.
  */
-@Service
+@Service("consumptionService")
 public class ConsumptionServiceImpl implements IConsumptionService {
 
+   @Autowired
     private IConsumptionDAO consumptionDAO;
 
+    @Autowired
     private IProductDAO productDAO;
 
+    @Autowired
     private IUserDAO userDAO;
-
-    public void setUserDAO (IUserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
-
-    public void setProductDAO (IProductDAO productDAO) {
-        this.productDAO = productDAO;
-    }
-
-    public void setConsumptionDAO (IConsumptionDAO consumptionDAO) {
-        this.consumptionDAO = consumptionDAO;
-    }
 
     @Transactional(readOnly = true)
     public Consumption findById (Integer id) {
@@ -117,15 +109,25 @@ public class ConsumptionServiceImpl implements IConsumptionService {
         User user = ContextThreadLocal.get().getUser();
 
         Double extraPointsLeft = user.getExtraPoints().doubleValue();
+        Double excercisePoints = 0.0;
         for (Consumption c : consumptions) {
             if (c.getPoints() != null && c.getPoints() > user.getDayPoints()) {
                 extraPointsLeft -= (c.getPoints() - user.getDayPoints());
             }
+            excercisePoints += c.getExcercisePoints();
         }
-        result.setExtraPointsLeft(extraPointsLeft);
+
+        Double exercisePointsLeft = excercisePoints;
+        if (extraPointsLeft < 0){
+            exercisePointsLeft += extraPointsLeft; // extraPointsLeft negatif
+            extraPointsLeft = 0.0;
+        }
 
         result.setDayPoints(user.getDayPoints());
         result.setExtraPoints(user.getExtraPoints());
+        result.setExcercisePoints(excercisePoints);
+        result.setExtraPointsLeft(extraPointsLeft);
+        result.setExcercisePointsLeft(exercisePointsLeft);
 
         Double pointsLeft = user.getDayPoints().doubleValue() - (consumption == null ? 0.0 : consumption.getPoints());
         pointsLeft = pointsLeft < 0 ? 0 : pointsLeft;

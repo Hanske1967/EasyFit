@@ -91,17 +91,17 @@ CREATE TABLE recipe_product_link
 
 CREATE TABLE consumption
 (
-  id           INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
-  userid       INT,
-  date         DATE                                NOT NULL,
-  points       DECIMAL(10, 2),
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  userid INT,
+  date DATE NOT NULL,
+  points DECIMAL(10,2),
+  excercisepoints DECIMAL(10,2),
   creationdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   creationuser CHAR(20),
-  updatedate   TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-  updateuser   CHAR(20),
-  FOREIGN KEY (userid) REFERENCES user (id)
+  updatedate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  updateuser CHAR(20),
+  FOREIGN KEY ( userid ) REFERENCES user ( id )
 );
-
 
 CREATE TABLE consumptiondetail
 (

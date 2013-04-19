@@ -35,6 +35,12 @@
             <c:when test="${finderMode}">
             $("#form").attr("method", "post");
             $('#nav_agenda').attr('class', 'active').focus();
+
+            <c:if test="${hideNavigation}">
+            $("#sidebar").hide();
+            $("#form").hide();
+            $("#paging").hide();
+            </c:if>
             </c:when>
             <c:otherwise>
             $('#nav_products').attr('class', 'active').focus();
@@ -119,7 +125,7 @@
             form.submit();
             </c:when>
             <c:otherwise>
-                window.location = './edit?key=' + productId;
+            window.location = './edit?key=' + productId;
             </c:otherwise>
             </c:choose>
 
@@ -205,52 +211,54 @@
             </table>
 
             <!--  Pagination  -->
-
-            <c:if test="${pageCount >= 1}">
-                <div class="pagination pagination-centered">
-                    <ul>
-                        <c:choose>
-                            <c:when test="${currentPage == 1}">
-                                <li id="li_page_previous" class="disabled"><a href="#">Prev</a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li id="li_page_previous">
-                                    <a href="javascript:goToPage(${currentPage-1})">Prev</a>
-                                </li>
-                            </c:otherwise>
-                        </c:choose>
-
-                        <c:forEach var="idx" begin="1" end="${pageCount}">
+            <div id="paging">
+                <c:if test="${pageCount >= 1}">
+                    <div class="pagination pagination-centered">
+                        <ul>
                             <c:choose>
-                                <c:when test="${currentPage == idx}">
-                                    <li id="li_page_${idx}" class="active">
-                                        <a href="javascript:goToPage(${idx})">${idx}</a>
-                                    </li>
+                                <c:when test="${currentPage == 1}">
+                                    <li id="li_page_previous" class="disabled"><a href="#">Prev</a></li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li id="li_page_${idx}">
-                                        <a href="javascript:goToPage(${idx})">${idx}</a>
+                                    <li id="li_page_previous">
+                                        <a href="javascript:goToPage(${currentPage-1})">Prev</a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
-                        </c:forEach>
 
-                        <c:choose>
-                            <c:when test="${currentPage >= pageCount}">
-                                <li id="li_page_next" class="disabled"><a href="#">Next</a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li id="li_page_next">
-                                    <a href="javascript:goToPage(${currentPage+1})">Next</a>
-                                </li>
-                            </c:otherwise>
-                        </c:choose>
-                    </ul>
-                </div>
-            </c:if>
+                            <c:forEach var="idx" begin="1" end="${pageCount}">
+                                <c:choose>
+                                    <c:when test="${currentPage == idx}">
+                                        <li id="li_page_${idx}" class="active">
+                                            <a href="javascript:goToPage(${idx})">${idx}</a>
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li id="li_page_${idx}">
+                                            <a href="javascript:goToPage(${idx})">${idx}</a>
+                                        </li>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:forEach>
+
+                            <c:choose>
+                                <c:when test="${currentPage >= pageCount}">
+                                    <li id="li_page_next" class="disabled"><a href="#">Next</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li id="li_page_next">
+                                        <a href="javascript:goToPage(${currentPage+1})">Next</a>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
+                        </ul>
+                    </div>
+                </c:if>
+            </div>
         </div>
     </div>
-    <jsp:include page="../footer.jsp"/>
-    <jsp:include page="../scripts.jsp"/>
+</div>
+<jsp:include page="../footer.jsp"/>
+<jsp:include page="../scripts.jsp"/>
 </body>
 </html>

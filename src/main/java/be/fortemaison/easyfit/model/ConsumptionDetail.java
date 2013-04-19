@@ -39,6 +39,10 @@ public class ConsumptionDetail extends CommonAncestor {
         this.type = type;
     }
 
+    public ConsumptionDetailType getConsumptionDetailType(){
+            return ConsumptionDetailType.get(this.type);
+    }
+
     public Double getAmount () {
         return amount;
     }

@@ -29,6 +29,7 @@
       <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1"/>
       <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
       <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1"/>
+      <column name="excercisepoints" sqlType="DECIMAL" length="10" precision="2" nullable="true" jdbcType="3"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="consumption_ibfk_1" columns="userid" ref-table="user" ref-schema="" ref-catalog="easyfit" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="consumptiondetail_ibfk_1" table="consumptiondetail" schema="" catalog="easyfit" columns="consumptionid"/>

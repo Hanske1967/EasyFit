@@ -1,7 +1,6 @@
 package be.fortemaison.easyfit.dao.hibernate;
 
 import be.fortemaison.easyfit.dao.IProductDAO;
-import be.fortemaison.easyfit.model.Excercise;
 import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.Product;
 import be.fortemaison.easyfit.model.ProductCategory;
@@ -9,6 +8,7 @@ import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.Utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -25,11 +25,8 @@ import java.util.List;
 @Repository
 public class ProductHibDao implements IProductDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
-
-    public void setSessionFactory (SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 
     @Transactional(readOnly = true)
     public Product findById (Integer id) {
@@ -225,16 +222,6 @@ public class ProductHibDao implements IProductDAO {
         session.delete(product);
     }
 
-    /**
-     * Exercises
-     */
-    @Override
-    @Transactional(readOnly = true)
-    public List<Excercise> findExcercises () {
-        Session session = sessionFactory.getCurrentSession();
-        List<Excercise> resultList = (List<Excercise>) session.createQuery("from Excercise order by name").list();
-        return resultList;
-    }
 
 }
 

@@ -92,6 +92,8 @@
 
         </form:form>
     </div>
+
+    <jsp:include page="footer.jsp"/>
 </div>
 
 <script type="text/javascript">

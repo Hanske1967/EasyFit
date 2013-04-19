@@ -27,7 +27,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.support.RequestContext;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.MessageFormat;
 import java.text.ParseException;
 import java.util.*;
 
@@ -109,6 +108,8 @@ public class ConsumptionController {
         consumptionForm.setDayPoints(week.getDayPoints());
         consumptionForm.setExtraPoints(week.getExtraPoints());
         consumptionForm.setDayPointsLeft(week.getDayPointsLeft());
+        consumptionForm.setExcercisePoints(week.getExcercisePoints());
+        consumptionForm.setExcercisePointsLeft(week.getExcercisePointsLeft());
 
         model.addAttribute("consumptionForm", consumptionForm);
 
@@ -160,6 +161,45 @@ public class ConsumptionController {
         }
 
         return "consumptions/list";
+    }
+
+    /**
+     * Second page of AddDetail wizard
+     *
+     * @return
+     */
+    @RequestMapping(value = "/adddexcercise", method = RequestMethod.POST)
+    public String processAddExercise (
+            @RequestParam(value = "key", required = false) Integer key,
+            @RequestParam(value = "date", required = false) String date,
+            ModelMap modelMap) {
+
+        ConsumptionDetailForm consumptionDetailForm = new ConsumptionDetailForm();
+        consumptionDetailForm.setConsumptionId(key);
+
+        Date aDate = null;
+        try {
+            aDate = date == null ? new Date() : Utils.DATE_FORMATTER.parse(date);
+        } catch (ParseException e) {
+            Logger.getLogger(this.getClass()).debug("Date not recognized");
+            aDate = new Date();
+        }
+
+        consumptionDetailForm.setDate(aDate);
+        consumptionDetailForm.setType(ConsumptionDetailType.EXCERCISE);
+        modelMap.addAttribute(CONSUMPTION_DETAIL_FORM, consumptionDetailForm);
+
+        List<Excercise> products = this.productAndRecipeDAO.findExcercises();
+        List<ProductForm> forms = new ArrayList<ProductForm>(products.size());
+        for (ProductAncestor product : products) {
+            forms.add(new ProductForm(product));
+        }
+        modelMap.addAttribute("products", forms);
+
+        modelMap.addAttribute("hideNavigation", true);
+        modelMap.addAttribute("finderMode", true);
+
+        return "/products/list";
     }
 
     /**
@@ -254,48 +294,7 @@ public class ConsumptionController {
         return "/consumptions/editdetail";
     }
 
-    /**
-     * Second page of AddDetail wizard
-     *
-     * @return
-     */
-    @RequestMapping(value = "/adddexcercise", method = RequestMethod.POST)
-    public String processAddExercise (
-            @RequestParam(value = "key", required = false) Integer key,
-            @RequestParam(value = "date", required = false) String date,
-            ModelMap modelMap) {
-
-        ConsumptionDetailForm consumptionDetailForm = new ConsumptionDetailForm();
-        consumptionDetailForm.setConsumptionId(key);
-
-        Date aDate = null;
-        try {
-            aDate = date == null ? new Date() : Utils.DATE_FORMATTER.parse(date);
-        } catch (ParseException e) {
-            Logger.getLogger(this.getClass()).debug("Date not recognized");
-            aDate = new Date();
-        }
-
-        consumptionDetailForm.setDate(aDate);
-        consumptionDetailForm.setType(ConsumptionDetailType.EXCERCISE);
-        modelMap.addAttribute(CONSUMPTION_DETAIL_FORM, consumptionDetailForm);
-
-        List<Excercise> excercises = this.productDAO.findExcercises();
-        List<String> excerciseForms = new ArrayList<String>(excercises.size());
-        Map<Integer, String> excerciseLabels = new HashMap<Integer, String>(excercises.size());
-        MessageFormat format = new MessageFormat("id: \"{0}\", unitLabel: \"{1}\", pointsLabel: \"{2}\", amountLabel: \"{3}\"");
-        for (Excercise excercise: excercises){
-            ProductForm form = new ProductForm(excercise);
-            excerciseForms.add("{" + format.format(new Object[]{excercise.getId(), form.getUnitLabel(), form.getPointsLabel(), form.getAmountLabel()}) + "}");
-            excerciseLabels.put(excercise.getId(), excercise.getName());
-        }
-        modelMap.addAttribute("exercises", excerciseForms);
-        modelMap.addAttribute("excerciseLabels", excerciseLabels);
-
-        return "/consumptions/editexcercise";
-    }
-
-    /**
+     /**
      * Second page of AddDetail wizard
      *
      * @return

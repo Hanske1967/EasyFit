@@ -14,6 +14,7 @@
           <element id="library" level="project" name="joda-time-2.1" />
           <element id="library" level="project" name="jstl-api-1.2" />
           <element id="library" level="project" name="log4j-1.2.17" />
+          <element id="library" level="project" name="lambdaj-2.4-with-dependencies" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="EasyFit/web/Web" />

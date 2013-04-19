@@ -6,6 +6,8 @@ import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.Utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -17,8 +19,10 @@ import java.util.List;
  * Time: 21:25
  * To change this template use File | Settings | File Templates.
  */
+@Repository
 public class ProductCategoryHibDao implements IProductCategoryDAO {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -77,7 +81,4 @@ public class ProductCategoryHibDao implements IProductCategoryDAO {
         session.delete(category);
     }
 
-    public void setSessionFactory (SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 }

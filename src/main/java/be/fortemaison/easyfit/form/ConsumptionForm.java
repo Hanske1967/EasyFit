@@ -32,7 +32,6 @@ public class ConsumptionForm {
 
     private String[] sectionTitle;
 
-
     private Integer dayPoints;
 
     private Integer extraPoints;
@@ -41,6 +40,9 @@ public class ConsumptionForm {
 
     private Double extraPointsLeft;
 
+    private Double excercisePoints;
+
+    private Double excercisePointsLeft;
 
     /**
      *
@@ -56,6 +58,22 @@ public class ConsumptionForm {
      */
     public ConsumptionForm (Date date) {
         this.date = date;
+    }
+
+    public Double getExcercisePointsLeft () {
+        return excercisePointsLeft;
+    }
+
+    public void setExcercisePointsLeft (Double excercisePointsLeft) {
+        this.excercisePointsLeft = excercisePointsLeft;
+    }
+
+    public Double getExcercisePoints () {
+        return excercisePoints;
+    }
+
+    public void setExcercisePoints (Double excercisePoints) {
+        this.excercisePoints = excercisePoints;
     }
 
     public int getTypeIndex () {
@@ -184,7 +202,8 @@ public class ConsumptionForm {
             total += detail.getPoints();
         }
 
-        return Utils.NUMBER_FORMATTER.format(total);
+        String result = Utils.NUMBER_FORMATTER.format(total);
+        return result;
     }
 
     /**
@@ -214,7 +233,6 @@ public class ConsumptionForm {
         return result;
     }
 
-
     public Integer getDayPoints () {
         return dayPoints;
     }
@@ -235,40 +253,49 @@ public class ConsumptionForm {
         return dayPointsLeft;
     }
 
-    public String getDayPointsLeftLabel () {
-        return Utils.NUMBER_FORMATTER.format(dayPointsLeft);
-    }
-
     public void setDayPointsLeft (Double dayPointsLeft) {
         this.dayPointsLeft = dayPointsLeft;
+    }
+
+    public String getDayPointsLeftLabel () {
+        return Utils.NUMBER_FORMATTER.format(dayPointsLeft);
     }
 
     public Double getExtraPointsLeft () {
         return extraPointsLeft;
     }
 
-    public String getExtraPointsLeftLabel () {
-        return Utils.NUMBER_FORMATTER.format(extraPointsLeft);
-    }
-
     public void setExtraPointsLeft (Double extraPointsLeft) {
         this.extraPointsLeft = extraPointsLeft;
     }
 
-    public String getWeekDay(){
+    public String getExtraPointsLeftLabel () {
+        return Utils.NUMBER_FORMATTER.format(extraPointsLeft);
+    }
+
+    public String getWeekDay () {
         return Utils.WEEKDAY_DATE_FORMATTER.format(this.date);
     }
 
     /**
-     *
      * @return the extra points consummed (+) or points not consummed onthis day (-)
      */
-    public double getDeltaPoints(){
+    public double getDeltaPoints () {
         return this.points - this.dayPoints;
     }
 
-    public String getDeltaPointsLabel(){
+    public String getDeltaPointsLabel () {
         return Utils.NUMBER_FORMATTER.format(getDeltaPoints());
     }
+
+    public String getExcercisePointsLabel () {
+        return Utils.NUMBER_FORMATTER.format(getExcercisePoints());
+    }
+
+    public String getExcercisePointsLeftLabel () {
+        return Utils.NUMBER_FORMATTER.format(getExcercisePointsLeft());
+    }
+
+
 
 }

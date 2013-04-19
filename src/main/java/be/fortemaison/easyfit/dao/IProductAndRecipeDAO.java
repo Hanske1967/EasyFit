@@ -1,8 +1,11 @@
 package be.fortemaison.easyfit.dao;
 
+import be.fortemaison.easyfit.model.Excercise;
 import be.fortemaison.easyfit.model.Page;
 import be.fortemaison.easyfit.model.ProductAncestor;
 import be.fortemaison.easyfit.model.ProductCategory;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,6 +27,13 @@ public interface IProductAndRecipeDAO {
     public Page<ProductAncestor> findByNameAndCategory (String queryName, ProductCategory category, Integer currentPage);
 
     public ProductAncestor findById (Integer key);
+
+
+    /**
+     * Exercises
+     */
+
+    public List<Excercise> findExcercises ();
 
 }
 

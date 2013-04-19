@@ -44,17 +44,18 @@
         <div id="sidebar" class="well well-small span3">
             <h4>This week:</h4>
             <p>Consumed: ${consumptionForm.pointsLabel} pts</p>
-            <p>Available: ${consumptionForm.dayPointsLeftLabel}/${consumptionForm.dayPoints}</p>
-            <p>Extra: ${consumptionForm.extraPointsLeftLabel}/${consumptionForm.extraPoints}</p>
+            <p>Available: ${consumptionForm.dayPointsLeftLabel}/ ${consumptionForm.dayPoints} pts</p>
+            <p>Extra: ${consumptionForm.extraPointsLeftLabel}/ ${consumptionForm.extraPoints} pts</p>
+            <p>Excercises: ${consumptionForm.excercisePointsLeftLabel}/ ${consumptionForm.excercisePointsLabel} pts</p>
             <hr/>
             <ul>
             <c:forEach items="${consumptionWeek}" var="weekDay">
-                <li>${weekDay.weekDay}:${weekDay.pointsLabel} pts
+                <li><a href="./list?date=${weekDay.currentDate}">${weekDay.weekDay}:${weekDay.pointsLabel} pts</a>
                 <c:choose>
                     <c:when test="${weekDay.deltaPoints > 5}">
                         <span class="text-error"><strong>(${weekDay.deltaPointsLabel})</strong></span>
                     </c:when>
-                    <c:when test="${weekDay.deltaPoints > -5 && weekDay.deltaPoints <5}">
+                    <c:when test="${weekDay.deltaPoints >= -5 && weekDay.deltaPoints <= 5}">
                         <span class="text-success"><strong>(${weekDay.deltaPointsLabel})</strong></span>
                     </c:when>
                     <c:otherwise>
@@ -74,8 +75,7 @@
                 <li>
                     <a href="./list?date=${consumptionForm.previousDate}">&larr;</a>
                 </li>
-                <li><strong><a href="javascript:;" onclick="$('#date_navigation').popover('show')"
-                               data-toggle="tooltip">${consumptionForm.title}</a></strong></li>
+                <li><strong>${consumptionForm.title}</strong></li>
                 <li>
                     <a href="./list?date=${consumptionForm.nextDate}">&rarr;</a>
                 </li>
@@ -148,7 +148,7 @@
                         </c:otherwise>
                     </c:choose>
 
-                    ${consumptionForm.consumptionDetailTitleForIndex}
+                    <i class="icon-gift"></i>${consumptionForm.consumptionDetailTitleForIndex}
                     - ${consumptionForm.consumptionDetailsPointsForIndex} pts
                 </h5>
 

@@ -26,14 +26,33 @@ public class ConsumptionWeek {
 
     private Double extraPointsLeft;
 
-    private List<Consumption> consumptions = new ArrayList<Consumption>(7);
+    private Double excercisePoints;
 
+    private Double excercisePointsLeft;
+
+    private List<Consumption> consumptions = new ArrayList<Consumption>(8);
 
     /**
      * @param date
      */
     public ConsumptionWeek (Date date) {
         this.currentDate = date;
+    }
+
+    public Double getExcercisePointsLeft () {
+        return excercisePointsLeft;
+    }
+
+    public void setExcercisePointsLeft (Double excercisePointsLeft) {
+        this.excercisePointsLeft = excercisePointsLeft;
+    }
+
+    public Double getExcercisePoints () {
+        return excercisePoints;
+    }
+
+    public void setExcercisePoints (Double excercisePoints) {
+        this.excercisePoints = excercisePoints;
     }
 
     public Date getCurrentDate () {
