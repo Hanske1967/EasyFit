@@ -27,26 +27,8 @@
         </c:otherwise>
     </c:choose>
 
-    <script src="<c:url value="/assets/js/jquery-1.9.1.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
     <script language="javascript">
-
-        function onLoad() {
-            <c:choose>
-            <c:when test="${finderMode}">
-            $("#form").attr("method", "post");
-            $('#nav_agenda').attr('class', 'active').focus();
-
-            <c:if test="${hideNavigation}">
-            $("#sidebar").hide();
-            $("#form").hide();
-            $("#paging").hide();
-            </c:if>
-            </c:when>
-            <c:otherwise>
-            $('#nav_products').attr('class', 'active').focus();
-            </c:otherwise>
-            </c:choose>
-        }
 
         function replaceMain(data) {
             var newData = $.parseHTML(data);
@@ -128,11 +110,29 @@
             window.location = './edit?key=' + productId;
             </c:otherwise>
             </c:choose>
-
         }
+
+        $(document).ready(function(){
+            <c:choose>
+            <c:when test="${finderMode}">
+            $("#form").attr("method", "post");
+            $('#nav_agenda').attr('class', 'active').focus();
+
+            <c:if test="${hideNavigation}">
+            $("#sidebar").hide();
+            $("#form").hide();
+            $("#paging").hide();
+            </c:if>
+            </c:when>
+            <c:otherwise>
+            $('#nav_products').attr('class', 'active').focus();
+            </c:otherwise>
+            </c:choose>
+        });
+
     </script>
 </head>
-<body onload="javascript:onLoad()">
+<body>
 <div class="container" id="container">
     <jsp:include page="../navigation.jsp"/>
 
@@ -212,7 +212,7 @@
 
             <!--  Pagination  -->
             <div id="paging">
-                <c:if test="${pageCount >= 1}">
+                <c:if test="${pageCount > 1}">
                     <div class="pagination pagination-centered">
                         <ul>
                             <c:choose>

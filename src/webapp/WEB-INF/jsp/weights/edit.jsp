@@ -13,28 +13,40 @@
     <meta name="author" content="Hans Fortemaison">
 
     <!-- Le styles -->
-    <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="<c:url value="/assets/css/bootstrap.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/assets/css/bootstrap-responsive.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>"/>
+
+    <link rel="stylesheet" href="<c:url value="/assets/js/jquery-ui-1.10.2/themes/base/jquery-ui.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/assets/js/jquery-ui-1.10.2/themes/base/jquery.ui.datepicker.css"/>"/>
+
     <style>
         .btn {
             margin-top: 20px;
         }
     </style>
-    <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
-    <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
+    <script src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/jquery-ui-1.10.2/ui/jquery-ui.js"/>"></script>
 
-    <!-- jquery ui style -->
-    <link rel="stylesheet" href="/assets/js/jquery-ui-1.10.2/themes/base/jquery.ui.datepicker.css">
+    <script>
+        $(document).ready(function () {
+            $('#nav_weights').attr('class', 'active');
+            $('#datepicker').focus();
+        });
+
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+
 </head>
-<body onload="
-    javascript:;
-    document.getElementById('nav_weights').setAttribute('class', 'active');
-    document.getElementById('datepicker').focus()">
+
+<body>
 
 <div class="container">
     <jsp:include page="../navigation.jsp"/>
     <div class="form">
         <form:form id="form" name="form" method="post" modelAttribute="weightForm">
-        <fieldset>
             <legend>
                 <c:choose>
                     <c:when test="${empty weightForm.id}">New weight:</c:when>
@@ -54,7 +66,7 @@
                 <form:label path="date">
                     Date <form:errors path="date" cssClass="error"/>
                 </form:label>
-                <form:input id="datepicker" path="dateStr"/>
+                <form:input id="datepicker" type="text" path="dateStr"/>
 
                 <form:label path="weight">
                     Weight <form:errors path="weight" cssClass="error"/>
@@ -64,21 +76,7 @@
             <button class="btn btn-primary" type="submit">Submit</button>
             </form:form>
     </div>
+    <jsp:include page="../footer.jsp"/>
     <jsp:include page="../scripts.jsp"/>
-
-    <!--
-
-    <script src="<c:url value="/assets/js/jquery-ui-1.10.2/ui/jquery.ui.core.js"/>"></script>
-    <script src="<c:url value="/assets/js/jquery-ui-1.10.2/ui/jquery.ui.widget.js"/>"></script>
-    <script src="<c:url value="/assets/js/jquery-ui-1.10.2/ui/jquery.ui.datepicker.js"/>"></script>
-    <script>
-        $(function () {
-            $("#datepicker").datepicker();
-        });
-    </script>
-
--->
 </body>
-<jsp:include page="../footer.jsp"/>
-<jsp:include page="../scripts.jsp"/>
 </html>

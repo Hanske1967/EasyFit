@@ -21,12 +21,18 @@
     </style>
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
-</head>
-<body onload="
-    javascript:;
-    document.getElementById('nav_units').setAttribute('class', 'active');
-    document.getElementById('focusedInput').focus()">
 
+    <script src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
+    <script>
+        $(document).ready(function(){
+            $('#nav_units').attr('class', 'active');
+            $('#focusedInput').focus();
+        });
+    </script>
+
+</head>
+
+<body>
 <div class="container">
     <jsp:include page="../navigation.jsp"/>
     <div class="form">

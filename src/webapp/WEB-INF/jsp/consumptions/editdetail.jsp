@@ -22,38 +22,46 @@
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 
+    <script src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
     <script lang="javascript">
 
         function updatePoints() {
 
-            var consummedAmount = document.getElementById('amount').value;
+            var consummedAmount = $('#amount').val();
 
             var productPoints = '${consumptionDetailForm.product.points}';
             var productAmount = '${consumptionDetailForm.product.amount}';
 
             var resultPoints = (consummedAmount * productPoints / productAmount).toFixed(1);
-            document.getElementById("points").value = resultPoints;
+            $("#points").val(resultPoints);
         }
 
         function updateAmount() {
-            var points = document.getElementById('points').value;
+            var points = $('#points').val();
 
             var productPoints = '${consumptionDetailForm.product.points}';
             var productAmount = '${consumptionDetailForm.product.amount}';
 
             var resultAmount = (productAmount * points / productPoints).toFixed(1);
-            document.getElementById("amount").value = resultAmount;
+            $("#amount").val(resultAmount);
         }
 
-        function onload() {
-            document.getElementById('nav_agenda').setAttribute('class', 'active');
+        $(document).ready(function() {
+            $('#nav_agenda').attr('class', 'active');
             updatePoints();
-            document.getElementById('amount').focus();
-        }
+            $('#amount').focus();
 
+            $("#amount").change(function(){
+                updatePoints();
+            });
+
+            $("#points").change(function(){
+                updateAmount();
+            });
+        });
     </script>
 </head>
-<body onload="javascript:onload()">
+<body>
 
 <div class="container">
     <jsp:include page="../navigation.jsp"/>
@@ -72,13 +80,12 @@
                 </form:label>
 
                 <div class="controls controls-row">
-                    <form:input id="amount" cssClass="span3" path="amount" autocomplete="off" placeholder="amount"
-                                onchange="javascript:updatePoints()"/>
+                    <form:input id="amount" cssClass="span3" path="amount" autocomplete="off" placeholder="amount"/>
                     <label class="span1">${consumptionDetailForm.productUnit}</label>
                 </div>
 
                 <label>Points:</label>
-                <input id="points" type="text" placeholder="points" onchange="javascript:updateAmount()"/>
+                <input id="points" type="text" placeholder="points"/>
 
                 <p class="text-info">${consumptionDetailForm.product.pointsLabel} pts
                     / ${consumptionDetailForm.product.amountLabel} ${consumptionDetailForm.product.unitLabel}</p>

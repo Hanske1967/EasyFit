@@ -271,7 +271,10 @@ public class RecipeController {
         modelMap.addAttribute("currentPage", products.getCurrentPage());
         modelMap.addAttribute("pageCount", products.getPageCount());
 
-        return "products/findproduct";
+        modelMap.addAttribute("hideNavigation", true);
+        modelMap.addAttribute("finderMode", true);
+
+        return "/products/list";
     }
 
     /**
