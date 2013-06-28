@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>EasyFit - Recipes</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -50,7 +51,7 @@
         <div id="main" class="">
 
             <div class="">
-                <a class="btn btn-primary pull-right" href="./edit">New recipe</a>
+                <a class="btn btn-primary pull-right" href="./edit"><fmt:message key="recipes.list.newRecipe"/></a>
 
                 <form id="form" class="form-inline" action="./list" method="get">
                     <fieldset>
@@ -63,7 +64,7 @@
                                 <option value="${cat.key}">${cat.value}</option>
                             </c:forEach>
                         </select>
-                        <button type="submit" class="btn">Search</button>
+                        <button type="submit" class="btn"><fmt:message key="action.search"/></button>
                     </fieldset>
                 </form>
             </div>
@@ -71,10 +72,10 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Points</th>
-                    <th class="hidden-phone">Category</th>
-                    <th class="hidden-phone">Description</th>
+                    <th><fmt:message key="products.list.name"/></th>
+                    <th><fmt:message key="products.list.points"/></th>
+                    <th class="hidden-phone"><fmt:message key="products.list.category"/></th>
+                    <th class="hidden-phone"><fmt:message key="products.list.description"/></th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -100,11 +101,11 @@
                     <ul>
                         <c:choose>
                             <c:when test="${currentPage == 1}">
-                                <li class="disabled"><a href="#">Prev</a></li>
+                                <li class="disabled"><a href="#"><fmt:message key="action.previous"/></a></li>
                             </c:when>
                             <c:otherwise>
                                 <li>
-                                    <a href="${pageContext.servletContext.contextPath}/recipes/list?page=${currentPage-1}">Prev</a>
+                                    <a href="${pageContext.servletContext.contextPath}/recipes/list?page=${currentPage-1}"><fmt:message key="action.previous"/></a>
                                 </li>
                             </c:otherwise>
                         </c:choose>
@@ -126,11 +127,11 @@
 
                         <c:choose>
                             <c:when test="${currentPage >= pageCount}">
-                                <li class="disabled"><a href="#">Next</a></li>
+                                <li class="disabled"><a href="#"><fmt:message key="action.next"/></a></li>
                             </c:when>
                             <c:otherwise>
                                 <li>
-                                    <a href="${pageContext.servletContext.contextPath}/recipes/list?page=${currentPage+1}">Next</a>
+                                    <a href="${pageContext.servletContext.contextPath}/recipes/list?page=${currentPage+1}"><fmt:message key="action.next"/></a>
                                 </li>
                             </c:otherwise>
                         </c:choose>

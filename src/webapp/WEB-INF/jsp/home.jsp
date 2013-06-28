@@ -2,10 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<fmt:setBundle basename="messages"/>
+<html>
 <head>
-    <title>EasyFit - Home</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -70,11 +72,11 @@
 
     <div class="form-signin">
         <form:form id="login" name="form" method="post" action="/login" modelAttribute="userForm">
-            <h2 class="form-signin-heading">Please sign in</h2>
+            <h2 class="form-signin-heading"><fmt:message key="home.singin"/></h2>
 
             <fieldset>
                 <div class="control-group">
-                    <form:label path="id">User:</form:label>
+                    <form:label path="id"><fmt:message key="home.user"/></form:label>
 
                     <div class="controls">
                         <form:select id="userid" path="id" items="${users}" autofocus="true" onselect="userSelected()"/>
@@ -82,7 +84,7 @@
                 </div>
 
                 <div class="control-group">
-                    <form:label path="password">Password:</form:label>
+                    <form:label path="password"><fmt:message key="home.password"/></form:label>
 
                     <div class="controls">
                         <form:password path="password" size="20" autocomplete="off"/>
@@ -92,11 +94,11 @@
             </fieldset>
 
             <div class="control-group">
-                <p><a id="passwordaction" href="#">Change password</a></p>
+                <p><a id="passwordaction" href="#"><fmt:message key="home.changepassword"/></a></p>
             </div>
 
             <div class="control-group">
-                <button class="btn btn-primary" type="submit" class="btn">Submit</button>
+                <button class="btn btn-primary" type="submit" class="btn"><fmt:message key="action.submit"/></button>
             </div>
 
         </form:form>

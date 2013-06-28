@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>EasyFit - Products</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -152,7 +153,7 @@
         <div class="">
 
             <c:if test="${!finderMode}">
-                <a class="btn btn-primary pull-right" href="./edit">New product</a>
+                <a class="btn btn-primary pull-right" href="./edit"><fmt:message key="products.list.newProduct"/></a>
             </c:if>
 
             <form id="form" class="form-inline" method="${formMethod}">
@@ -166,22 +167,22 @@
                             <option value="${cat.key}">${cat.value}</option>
                         </c:forEach>
                     </select>
-                    <button onclick="javascript:queryProduct()" class="btn">Search</button>
+                    <button onclick="javascript:queryProduct()" class="btn"><fmt:message key="products.list.search"/></button>
                 </fieldset>
             </form>
 
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Amount</th>
-                    <th>Unit</th>
-                    <th>Name</th>
-                    <th>Points</th>
-                    <th>Max Points</th>
-                    <th class="hidden-phone">Category</th>
-                    <th class="hidden-phone">Description</th>
+                    <th><fmt:message key="products.list.amount"/></th>
+                    <th><fmt:message key="products.list.unit"/></th>
+                    <th><fmt:message key="products.list.name"/></th>
+                    <th><fmt:message key="products.list.points"/></th>
+                    <th><fmt:message key="products.list.maxPoints"/></th>
+                    <th class="hidden-phone"><fmt:message key="products.list.category"/></th>
+                    <th class="hidden-phone"><fmt:message key="products.list.description"/></th>
                     <c:if test="${!finderMode}">
-                        <th>Action</th>
+                        <th><fmt:message key="products.list.action"/></th>
                     </c:if>
                 </tr>
                 </thead>
@@ -217,11 +218,11 @@
                         <ul>
                             <c:choose>
                                 <c:when test="${currentPage == 1}">
-                                    <li id="li_page_previous" class="disabled"><a href="#">Prev</a></li>
+                                    <li id="li_page_previous" class="disabled"><a href="#"><fmt:message key="action.previous"/></a></li>
                                 </c:when>
                                 <c:otherwise>
                                     <li id="li_page_previous">
-                                        <a href="javascript:goToPage(${currentPage-1})">Prev</a>
+                                        <a href="javascript:goToPage(${currentPage-1})"><fmt:message key="action.previous"/></a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>
@@ -243,11 +244,11 @@
 
                             <c:choose>
                                 <c:when test="${currentPage >= pageCount}">
-                                    <li id="li_page_next" class="disabled"><a href="#">Next</a></li>
+                                    <li id="li_page_next" class="disabled"><a href="#"><fmt:message key="action.next"/></a></li>
                                 </c:when>
                                 <c:otherwise>
                                     <li id="li_page_next">
-                                        <a href="javascript:goToPage(${currentPage+1})">Next</a>
+                                        <a href="javascript:goToPage(${currentPage+1})"><fmt:message key="action.next"/></a>
                                     </li>
                                 </c:otherwise>
                             </c:choose>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>EasyFit - Users</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -35,13 +36,14 @@
     <table class="table table-hover">
         <thead>
         <tr class="th">
-            <th>User name</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Target weight</th>
-            <th>Day points</th>
-            <th>Extra points</th>
-            <th>Action</th>
+            <th><fmt:message key="users.list.userName"/></th>
+            <th><fmt:message key="users.list.firstName"/></th>
+            <th><fmt:message key="users.list.lastName"/></th>
+            <th><fmt:message key="users.list.targetWeight"/></th>
+            <th><fmt:message key="users.list.dayPoints"/></th>
+            <th><fmt:message key="users.list.extraPoints"/></th>
+            <th><fmt:message key="users.list.language"/></th>
+            <th><fmt:message key="users.list.action"/></th>
         </tr>
         </thead>
         <tbody>
@@ -53,6 +55,7 @@
                 <td class="td">${user.targetWeight}</td>
                 <td class="td">${user.dayPoints}</td>
                 <td class="td">${user.extraPoints}</td>
+                <td class="td">${user.language}</td>
                 <td class="td"><a href="./delete?key=${user.id}"><i title="Delete" class="icon-remove"></i></a></td>
             </tr>
         </c:forEach>

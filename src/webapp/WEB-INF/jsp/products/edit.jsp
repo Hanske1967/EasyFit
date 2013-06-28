@@ -2,11 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>EasyFit - New product</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -40,7 +42,7 @@
             <fieldset>
                 <legend>
                     <c:choose>
-                        <c:when test="${empty productForm.id}">New product:</c:when>
+                        <c:when test="${empty productForm.id}"><fmt:message key="products.edit.newProduct"/></c:when>
                         <c:otherwise>${productForm.name}</c:otherwise>
                     </c:choose>
                     <c:if test="${not empty message}">
@@ -48,7 +50,7 @@
                     </c:if>
                     <s:bind path="*">
                         <c:if test="${status.error}">
-                            <div id="message" class="error">Form has errors</div>
+                            <div id="message" class="error"><fmt:message key="error.formHasErrors"/></div>
                         </c:if>
                     </s:bind>
                 </legend>
@@ -56,47 +58,47 @@
                 <form:hidden path="id"/>
 
                 <form:label path="name">
-                    Name <form:errors path="name" cssClass="error"/>
+                    <fmt:message key="products.edit.name"/><form:errors path="name" cssClass="error"/>
                 </form:label>
                 <form:input id="focusedInput" path="name" class="input-xlarge" maxlength="255"/>
 
                 <form:label path="amount">
-                    Amount <form:errors path="amount" cssClass="error"/>
+                    <fmt:message key="products.edit.amount"/><form:errors path="amount" cssClass="error"/>
                 </form:label>
                 <form:input path="amount"/>
 
                 <form:label path="unitId">
-                    Unit <form:errors path="unitId" cssClass="error"/>
+                    <fmt:message key="products.edit.unit"/><form:errors path="unitId" cssClass="error"/>
                 </form:label>
                 <form:select path="unitId" items="${allUnits}"/>
 
                 <form:label path="points">
-                    Points <form:errors path="points" cssClass="error"/>
+                    <fmt:message key="products.edit.points"/><form:errors path="points" cssClass="error"/>
                 </form:label>
                 <form:input path="points" autocomplete="off"/>
 
                 <form:label path="maxPoints">
-                    Max Points <form:errors path="maxPoints" cssClass="error"/>
+                    <fmt:message key="products.edit.maxPoints"/><form:errors path="maxPoints" cssClass="error"/>
                 </form:label>
                 <form:input path="maxPoints" autocomplete="off"/>
 
                 <form:label path="categoryId">
-                    Category <form:errors path="categoryId" cssClass="error"/>
+                    <fmt:message key="products.edit.category"/><form:errors path="categoryId" cssClass="error"/>
                 </form:label>
                 <form:select path="categoryId" class="input-xlarge" items="${allCategories}"/>
 
                 <form:label path="description">
-                    Description <form:errors path="description" cssClass="error"/>
+                    <fmt:message key="products.edit.description"/><form:errors path="description" cssClass="error"/>
                 </form:label>
                 <form:input path="description" class="input-xxlarge" maxlength="255"/>
 
                 <form:label path="shared">
-                    Shared <form:errors path="shared" cssClass="error"/>
+                    <fmt:message key="products.edit.shared"/><form:errors path="shared" cssClass="error"/>
                 </form:label>
                 <form:checkbox path="shared"/>
             </fieldset>
 
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit"><fmt:message key="action.submit"/></button>
         </form:form>
     </div>
 </div>

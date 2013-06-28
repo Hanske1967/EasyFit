@@ -4,20 +4,21 @@ USE easyfit;
 
 CREATE TABLE user
 (
-  id           INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
-  username     CHAR(20)                            NOT NULL,
-  password     CHAR(28),
-  firstname    CHAR(30),
-  lastname     CHAR(100),
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  username CHAR(20) NOT NULL,
+  password CHAR(28),
+  firstname CHAR(30),
+  lastname CHAR(100),
   targetweight INT,
-  daypoints    INT,
-  extrapoints  INT DEFAULT 0                       NOT NULL,
+  daypoints INT,
+  extrapoints INT DEFAULT 0 NOT NULL,
+  language CHAR(2),
   creationdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   creationuser CHAR(20),
-  updatedate   TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-  updateuser   CHAR(20)
+  updatedate TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  updateuser CHAR(20)
 );
-CREATE UNIQUE INDEX UK_user_username ON user (username);
+CREATE UNIQUE INDEX UK_user_username ON user ( username );
 
 CREATE TABLE unit
 (

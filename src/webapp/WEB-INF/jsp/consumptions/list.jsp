@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<fmt:setBundle basename="messages"/>
+<html>
 <head>
-    <title>EasyFit - Agenda</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -32,7 +33,7 @@
 
     <script src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#nav_agenda').attr('class', 'active');
         });
     </script>
@@ -49,28 +50,28 @@
     <div class="row-fluid">
         <!-- left panel / infos -->
         <div id="sidebar" class="well well-small span3">
-            <h4>This week:</h4>
-            <p>Consumed: ${consumptionForm.pointsLabel} pts</p>
-            <p>Available: ${consumptionForm.dayPointsLeftLabel}/ ${consumptionForm.dayPoints} pts</p>
-            <p>Extra: ${consumptionForm.extraPointsLeftLabel}/ ${consumptionForm.extraPoints} pts</p>
-            <p>Excercises: ${consumptionForm.excercisePointsLeftLabel}/ ${consumptionForm.excercisePointsLabel} pts</p>
+            <h4><fmt:message key="consumptions.list.thisweek"/></h4>
+            <p><fmt:message key="consumptions.list.consumed"/>${consumptionForm.pointsLabel}<fmt:message key="consumptions.list.pts"/></p>
+            <p><fmt:message key="consumptions.list.available"/>${consumptionForm.dayPointsLeftLabel}/ ${consumptionForm.dayPoints}<fmt:message key="consumptions.list.pts"/></p>
+            <p><fmt:message key="consumptions.list.extra"/>${consumptionForm.extraPointsLeftLabel}/ ${consumptionForm.extraPoints}<fmt:message key="consumptions.list.pts"/></p>
+            <p><fmt:message key="consumptions.list.excercises"/>${consumptionForm.excercisePointsLeftLabel}/ ${consumptionForm.excercisePointsLabel}<fmt:message key="consumptions.list.pts"/></p>
             <hr/>
             <ul>
-            <c:forEach items="${consumptionWeek}" var="weekDay">
-                <li><a href="./list?date=${weekDay.currentDate}">${weekDay.weekDay}:${weekDay.pointsLabel} pts</a>
-                <c:choose>
-                    <c:when test="${weekDay.deltaPoints > 5}">
-                        <span class="text-error"><strong>(${weekDay.deltaPointsLabel})</strong></span>
-                    </c:when>
-                    <c:when test="${weekDay.deltaPoints >= -5 && weekDay.deltaPoints <= 5}">
-                        <span class="text-success"><strong>(${weekDay.deltaPointsLabel})</strong></span>
-                    </c:when>
-                    <c:otherwise>
-                        <span class="text-warning"><strong>(${weekDay.deltaPointsLabel})</strong></span>
-                    </c:otherwise>
-                </c:choose>
-                </li>
-            </c:forEach>
+                <c:forEach items="${consumptionWeek}" var="weekDay">
+                    <li><a href="./list?date=${weekDay.currentDate}">${weekDay.weekDay}:${weekDay.pointsLabel}<fmt:message key="consumptions.list.pts"/></a>
+                        <c:choose>
+                            <c:when test="${weekDay.deltaPoints > 5}">
+                                <span class="text-error"><strong>(${weekDay.deltaPointsLabel})</strong></span>
+                            </c:when>
+                            <c:when test="${weekDay.deltaPoints >= -5 && weekDay.deltaPoints <= 5}">
+                                <span class="text-success"><strong>(${weekDay.deltaPointsLabel})</strong></span>
+                            </c:when>
+                            <c:otherwise>
+                                <span class="text-warning"><strong>(${weekDay.deltaPointsLabel})</strong></span>
+                            </c:otherwise>
+                        </c:choose>
+                    </li>
+                </c:forEach>
             </ul>
         </div>
 
@@ -108,7 +109,7 @@
                         </c:choose>
 
                             ${consumptionForm.consumptionDetailTitleForIndex}
-                        - ${consumptionForm.consumptionDetailsPointsForIndex} pts
+                        - ${consumptionForm.consumptionDetailsPointsForIndex}<fmt:message key="consumptions.list.pts"/>
                     </h5>
 
                     <div id="consumptionPanelDetail${type}" class="row-fluid">

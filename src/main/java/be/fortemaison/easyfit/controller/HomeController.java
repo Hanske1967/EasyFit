@@ -6,18 +6,17 @@ import be.fortemaison.easyfit.model.User;
 import be.fortemaison.easyfit.util.ContextThreadLocal;
 import be.fortemaison.easyfit.util.PasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -40,17 +39,21 @@ public class HomeController {
     @Autowired
     private Context context;
 
+    @Autowired
+    private MessageSource messageSource;
+
+
     @ModelAttribute("context")
     public Context getContext () {
         return context;
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String prepareHome (ModelMap model) {
+    public String prepareHome (@RequestHeader("Accept-Language") String lang, ModelMap model) {
         Map<Integer, String> userMap = new HashMap<Integer, String>();
         MessageFormat mf = new MessageFormat("{0} - {1} {2}");
         List<User> users = this.userDAO.findAll();
-        userMap.put(null, "-- Choose a user --");
+        userMap.put(null, messageSource.getMessage("home.chooseUser", null, Locale.forLanguageTag(lang)));
         for (User user : users) {
             userMap.put(user.getId(), mf.format(new String[]{user.getUsername(), user.getFirstName(), user.getLastName()}));
         }
@@ -62,21 +65,22 @@ public class HomeController {
 
     @RequestMapping(value = "/changepwd", method = RequestMethod.GET)
     public String prepareChangePwd (@RequestParam("userid") Integer userid, ModelMap model) {
-        UserForm userForm = new UserForm();
-        userForm.setId(userid);
+        User user = this.userDAO.findById(userid);
+        UserForm userForm = new UserForm(user);
         model.addAttribute(USER_FORM, userForm);
 
         return "/users/changepwd";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String handleUserChoice (@ModelAttribute(USER_FORM) UserForm userForm, Model model) {
-        if (userForm.getId() == null) {
+    public String handleUserChoice (@RequestHeader("Accept-Language") String lang, @ModelAttribute(USER_FORM) UserForm userForm, Model model) {
+        if (userForm == null || userForm.getId() == null){
             return "redirect:home";
         }
-        User user = this.userDAO.findById(userForm.getId());
 
-        if (user != null) {
+        User user = this.userDAO.findById(userForm.getId());
+        if (isLoginValid(userForm, user)){
+
             //  TODO make password mandatory
             if (StringUtils.isEmpty(user.getPassword())) {
                 userForm.setOldPassword(null);
@@ -85,16 +89,26 @@ public class HomeController {
                 return "/users/changepwd";
             }
 
-            if (!StringUtils.isEmpty(userForm.getPassword())) {
-                String hash = PasswordService.getInstance().encrypt(userForm.getPassword());
-                if (user.getPassword().equals(hash)) {
-                    getContext().setUser(user);
-                    return "redirect:consumptions/list";
-                }
+            getContext().setUser(user);
+
+            if (user.getLanguage() == null){
+                user.setLocale(Locale.forLanguageTag(lang));
             }
+            return "redirect:consumptions/list";
         }
 
         return "redirect:/home";
+    }
+
+    private boolean isLoginValid(UserForm userForm, User user){
+        boolean result = false;
+        if (result = (user != null)) {
+            //  TODO make password mandatory
+            result = StringUtils.isEmpty(user.getPassword()) ||
+                user.getPassword().equals(PasswordService.getInstance().encrypt(userForm.getPassword()));
+        }
+
+        return result;
     }
 
     @RequestMapping(value = "/changepwd", method = RequestMethod.POST)

@@ -25,6 +25,8 @@
 
         <property name="password"/>
 
+        <property name="language"/>
+
         <component name="technicalSegment" class="TechnicalSegment">
             <property name="creationDate" column="creationdate" type="timestamp"/>
             <property name="creationUser" column="creationuser"/>

@@ -2,11 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>EasyFit - New recipe</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -34,7 +35,7 @@
             <fieldset>
                 <legend>
                     <c:choose>
-                        <c:when test="${empty recipeForm.id}">New recipe:</c:when>
+                        <c:when test="${empty recipeForm.id}"><fmt:message key="recipes.edit.newRecipe"/></c:when>
                         <c:otherwise>${recipeForm.name}</c:otherwise>
                     </c:choose>
 
@@ -44,37 +45,37 @@
                 <form:hidden path="id"/>
 
                 <form:label path="name">
-                    Name <form:errors path="name" cssClass="error"/>
+                    <fmt:message key="products.edit.name"/><form:errors path="name" cssClass="error"/>
                 </form:label>
                 <form:input id="focusedInput" path="name" class="input-xlarge" maxlength="255"/>
 
                 <form:label path="amount">
-                    Amount <form:errors path="amount" cssClass="error"/>
+                    <fmt:message key="products.edit.amount"/><form:errors path="amount" cssClass="error"/>
                 </form:label>
                 <form:input path="amount" autofocus="true" autocomplete="off"/>
 
                 <form:label path="unitId">
-                    Unit <form:errors path="unitId" cssClass="error"/>
+                    <fmt:message key="products.edit.unit"/><form:errors path="unitId" cssClass="error"/>
                 </form:label>
                 <form:select path="unitId" items="${allUnits}"/>
 
                 <form:label path="categoryId">
-                    Category <form:errors path="categoryId" cssClass="error"/>
+                    <fmt:message key="products.edit.category"/><form:errors path="categoryId" cssClass="error"/>
                 </form:label>
                 <form:select path="categoryId" items="${allCategories}"/>
 
                 <form:label path="description">
-                    Description <form:errors path="description" cssClass="error"/>
+                    <fmt:message key="products.edit.description"/><form:errors path="description" cssClass="error"/>
                 </form:label>
                 <form:input path="description" class="input-xxlarge" maxlength="255"/>
 
                 <form:label path="pointsLabel">
-                    Points: <form:errors path="pointsLabel" cssClass="error"/>
+                    <fmt:message key="products.edit.points"/><form:errors path="pointsLabel" cssClass="error"/>
                 </form:label>
                 <form:input readonly="true" path="pointsLabel"/>
 
                 <form:label path="shared">
-                    Shared <form:errors path="shared" cssClass="error"/>
+                    <fmt:message key="products.edit.shared"/><form:errors path="shared" cssClass="error"/>
                 </form:label>
                 <form:checkbox path="shared"/>
 
@@ -87,24 +88,22 @@
                     <c:choose>
                         <c:when test="${empty recipeForm.id}">
                             <a class="btn btn-primary pull-right" href="javascript:;"
-                               onclick="document.getElementById('form').setAttribute('action', './adddetail1') ;document.getElementById('form').submit();">Add
-                                product...</a>
+                               onclick="document.getElementById('form').setAttribute('action', './adddetail1') ;document.getElementById('form').submit();"><fmt:message key="recipes.edit.addProduct"/></a>
                         </c:when>
                         <c:otherwise>
                             <a class="btn btn-primary pull-right" href="javascript:;"
-                               onclick="document.getElementById('form').setAttribute('action', './adddetail1?key=' + ${recipeForm.id}) ;document.getElementById('form').submit();">Add
-                                product...</a>
+                               onclick="document.getElementById('form').setAttribute('action', './adddetail1?key=' + ${recipeForm.id}) ;document.getElementById('form').submit();"><fmt:message key="recipes.edit.addProduct"/></a>
                         </c:otherwise>
                     </c:choose>
-                    <h4>Products:</h4>
+                    <h4><fmt:message key="recipes.edit.products"/></h4>
                 </caption>
                 <thead>
                 <tr>
-                    <th>Amount</th>
-                    <th>Unit</th>
-                    <th>Name</th>
-                    <th>Points</th>
-                    <th colspan="2">Actions</th>
+                    <th><fmt:message key="products.list.amount"/></th>
+                    <th><fmt:message key="products.list.unit"/></th>
+                    <th><fmt:message key="products.list.name"/></th>
+                    <th><fmt:message key="products.list.points"/></th>
+                    <th colspan="2"><fmt:message key="recipes.edit.actions"/></th>
                 </tr>
                 </thead>
 
@@ -128,7 +127,7 @@
 
             <hr/>
 
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit"><fmt:message key="action.submit"/></button>
         </form:form>
     </div>
 </div>

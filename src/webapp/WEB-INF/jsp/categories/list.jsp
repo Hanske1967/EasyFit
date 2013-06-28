@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>EasyFit - Categories</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -31,14 +32,14 @@
 <div class="container">
     <jsp:include page="../navigation.jsp"/>
 
-    <a class="btn btn-primary pull-right" href="./edit">New category</a>
+    <a class="btn btn-primary pull-right" href="./edit"><fmt:message key="categories.list.newCategory"/></a>
 
 
     <table class="table table-hover">
         <thead>
         <tr class="th">
-            <th>Name</th>
-            <th>Action</th>
+            <th><fmt:message key="categories.list.name"/></th>
+            <th><fmt:message key="categories.list.action"/></th>
         </tr>
         </thead>
         <tbody>

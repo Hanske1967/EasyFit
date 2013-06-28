@@ -2,10 +2,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>EasyFit - Home</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -40,18 +41,18 @@
     <div class="form">
         <form:form id="form" name="form" action="./changepwd" method="post" modelAttribute="userForm">
             <fieldset>
-                <legend>Change password for user: ${userForm.userName}</legend>
+                <legend><fmt:message key="users.changepwd.changePwdForUser"/> ${userForm.userName}</legend>
 
                 <form:hidden path="id"/>
 
-                <form:label path="oldPassword">Old password:</form:label>
+                <form:label path="oldPassword"><fmt:message key="users.changepwd.oldPassword"/></form:label>
                 <form:input path="oldPassword" autocomplete="off"/>
 
-                <form:label path="password">New password:</form:label>
+                <form:label path="password"><fmt:message key="users.changepwd.newPassword"/></form:label>
                 <form:input path="password" autocomplete="off"/>
             </fieldset>
 
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit"><fmt:message key="action.submit"/></button>
         </form:form>
     </div>
 </div>

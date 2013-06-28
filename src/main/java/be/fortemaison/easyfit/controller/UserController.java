@@ -96,6 +96,7 @@ public class UserController {
             user.setExtraPoints(userForm.getExtraPoints());
             user.setFirstName(userForm.getFirstName());
             user.setLastName(userForm.getLastName());
+            user.setLanguage(userForm.getLanguage());
             user.setTargetWeight(userForm.getTargetWeight());
         }
 

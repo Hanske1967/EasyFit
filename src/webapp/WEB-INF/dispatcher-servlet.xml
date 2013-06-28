@@ -16,12 +16,11 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <props>
-                <prop key="java.lang.SecurityException">redirect:/home</prop>
-            </props>
-        </property>
+    <bean id="localeResolver"  class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"/>
+
+    <bean id="localeChangeInterceptor"
+          class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="siteLanguage"/>
     </bean>
 
     <bean id="messageSource"

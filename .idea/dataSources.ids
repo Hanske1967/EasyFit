@@ -133,10 +133,11 @@
       <column name="creationuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1"/>
       <column name="updatedate" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
       <column name="updateuser" sqlType="CHAR" length="20" precision="0" nullable="true" jdbcType="1"/>
+      <column name="language" sqlType="CHAR" length="2" precision="0" nullable="true" jdbcType="1"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="consumption_ibfk_1" table="consumption" schema="" catalog="easyfit" columns="userid"/>
-      <exported-key name="FK_favoriteproduct_user_id" table="favoriteproduct" schema="" catalog="easyfit" columns="userid"/>
-      <exported-key name="FK_weigth_user_id" table="weight" schema="" catalog="easyfit" columns="userid"/>
+      <exported-key name="favoriteproduct_ibfk_2" table="favoriteproduct" schema="" catalog="easyfit" columns="userid"/>
+      <exported-key name="weight_ibfk_1" table="weight" schema="" catalog="easyfit" columns="userid"/>
       <index name="UK_user_username" unique="true" columns="username"/>
     </table>
     <table name="weight" schema="" catalog="easyfit" type="TABLE">

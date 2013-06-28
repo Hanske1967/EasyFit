@@ -2,11 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>EasyFit - New category</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -40,7 +42,7 @@
             <fieldset>
                 <legend>
                     <c:choose>
-                        <c:when test="${empty categoryForm.id}">New category:</c:when>
+                        <c:when test="${empty categoryForm.id}"><fmt:message key="categories.edit.newCategory"/></c:when>
                         <c:otherwise>${categoryForm.name}</c:otherwise>
                     </c:choose>
                     <c:if test="${not empty message}">
@@ -48,22 +50,22 @@
                     </c:if>
                     <s:bind path="*">
                         <c:if test="${status.error}">
-                            <div id="message" class="error">Form has errors</div>
+                            <div id="message" class="error"><fmt:message key="error.formHasErrors"/></div>
                         </c:if>
                     </s:bind>
                 </legend>
                 <form:hidden path="id"/>
                 <form:label path="name">
-                    Name <form:errors path="name" cssClass="error"/>
+                    <fmt:message key="categories.edit.name"/><form:errors path="name" cssClass="error"/>
                 </form:label>
                 <form:input id="focusedInput" path="name" maxlength="50" class="input-xlarge"/>
 
                 <form:label path="shared">
-                    Shared <form:errors path="shared" cssClass="error"/>
+                    <fmt:message key="categories.edit.shared"/><form:errors path="shared" cssClass="error"/>
                 </form:label>
                 <form:checkbox path="shared"/>
             </fieldset>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit"><fmt:message key="action.submit"/></button>
         </form:form>
     </div>
     <jsp:include page="../footer.jsp"/>

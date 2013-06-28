@@ -1,5 +1,7 @@
 package be.fortemaison.easyfit.model;
 
+import java.util.Locale;
+
 /**
  * Created with IntelliJ IDEA.
  * User: hansk_000
@@ -23,6 +25,8 @@ public class User extends CommonAncestor {
 
     private String password;
 
+    private String language;
+
     /**
      *
      */
@@ -30,12 +34,19 @@ public class User extends CommonAncestor {
         //
     }
 
-
     /**
      * @param username
      */
     public User (String username) {
         this.username = username;
+    }
+
+    public String getLanguage () {
+        return language;
+    }
+
+    public void setLanguage (String language) {
+        this.language = language;
     }
 
     public String getPassword () {
@@ -92,6 +103,22 @@ public class User extends CommonAncestor {
 
     public void setUsername (String username) {
         this.username = username;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Locale getLocale(){
+       return this.language ==  null ? Locale.getDefault() : Locale.forLanguageTag(this.language);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public void setLocale(Locale locale){
+        this.language = locale.getLanguage();
     }
 
 }

@@ -29,6 +29,8 @@ public class UserForm {
 
     private Integer extraPoints;
 
+    private String language;
+
     /**
      *
      */
@@ -47,6 +49,15 @@ public class UserForm {
         this.targetWeight = user.getTargetWeight();
         this.dayPoints = user.getDayPoints();
         this.extraPoints = user.getExtraPoints();
+        this.language = user.getLanguage();
+    }
+
+    public String getLanguage () {
+        return language;
+    }
+
+    public void setLanguage (String language) {
+        this.language = language;
     }
 
     public String getOldPassword () {
@@ -132,6 +143,7 @@ public class UserForm {
         user.setDayPoints(dayPoints);
         user.setExtraPoints(extraPoints);
         user.setTargetWeight(targetWeight);
+        user.setLanguage(language);
         return user;
     }
 }

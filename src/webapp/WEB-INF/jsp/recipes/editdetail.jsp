@@ -2,11 +2,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>EasyFit - Recipe</title>
+    <title><fmt:message key="title"/></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EasyFit, track what you eat and stay fit !">
@@ -47,22 +48,22 @@
                 <form:hidden path="id"/>
 
                 <form:label path="amount">
-                    Amount: <form:errors path="amount" cssClass="error"/>
+                    <fmt:message key="products.edit.amount"/><form:errors path="amount" cssClass="error"/>
                 </form:label>
                 <form:input id="focusedInput" path="amount" autocomplete="off"/>
 
                 <form:label path="product.unitLabel">
-                    Unit:
+                    <fmt:message key="products.edit.unit"/>
                 </form:label>
                 <form:input readonly="true" path="product.unitLabel"/>
 
-                <p class="text-info">${recipeDetailForm.product.pointsLabel} pts
+                <p class="text-info">${recipeDetailForm.product.pointsLabel} <fmt:message key="products.edit.points"/>
                     / ${recipeDetailForm.product.amountLabel} ${recipeDetailForm.product.unitLabel}</p>
 
                 <p class="text-info">${recipeDetailForm.product.description}</p>
             </fieldset>
 
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit"><fmt:message key="action.submit"/></button>
         </form:form>
     </div>
 </div>
