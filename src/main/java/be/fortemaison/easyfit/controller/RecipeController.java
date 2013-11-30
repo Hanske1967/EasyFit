@@ -271,7 +271,7 @@ public class RecipeController {
         modelMap.addAttribute("currentPage", products.getCurrentPage());
         modelMap.addAttribute("pageCount", products.getPageCount());
 
-        modelMap.addAttribute("hideNavigation", true);
+        //modelMap.addAttribute("hideNavigation", true);
         modelMap.addAttribute("finderMode", true);
 
         return "/products/list";

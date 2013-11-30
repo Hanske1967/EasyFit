@@ -80,7 +80,10 @@ public class ProductController {
 
         model.addAttribute("currentPage", products.getCurrentPage());
         model.addAttribute("pageCount", products.getPageCount());
-        model.addAttribute("finderMode", false);
+
+        if (!model.containsAttribute("finderMode")) {
+            model.addAttribute("finderMode", false);
+        }
 
         return "products/list";
     }
