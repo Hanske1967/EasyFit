@@ -6,13 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18431e8e-9c4c-48c0-a616-79efbf85a915" name="EasyFit-83 Add most used consummed product proposal" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/ProductController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java" afterPath="$PROJECT_DIR$/src/main/java/be/fortemaison/easyfit/controller/RecipeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="18431e8e-9c4c-48c0-a616-79efbf85a915" name="EasyFit-83 Add most used consummed product proposal" comment="EasyFit-83 Add most used consummed product proposal" />
     <ignored path="WebWeights.iws" />
     <ignored mask="*/workspace.xml" />
     <file path="/sessionFactory" changelist="1448e788-bbe3-44ca-b8d6-282f58f49e4a" time="1363297503048" ignored="false" />
@@ -29,7 +23,7 @@
     <file path="/clear.sql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1360880207193" ignored="false" />
     <file path="/Data Source" changelist="9d3c7678-bc17-4a2c-ab1b-951596ee2b2d" time="1366056225186" ignored="false" />
     <file path="/a.regexp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359410205111" ignored="false" />
-    <file path="/Dummy.txt" changelist="18431e8e-9c4c-48c0-a616-79efbf85a915" time="1385818948231" ignored="false" />
+    <file path="/Dummy.txt" changelist="18431e8e-9c4c-48c0-a616-79efbf85a915" time="1385821326161" ignored="false" />
     <file path="/product.hbm.xml" changelist="9d3c7678-bc17-4a2c-ab1b-951596ee2b2d" time="1366054333077" ignored="false" />
     <file path="/example.hql" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359912598562" ignored="false" />
     <file path="/product_all.jsp" changelist="32bad4ac-c0c5-4a96-806a-3355ab51012c" time="1359456053944" ignored="false" />
@@ -1920,7 +1914,11 @@
       <option name="type" value="BUG" />
       <updated>1372427205348</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="EasyFit-83 Add most used consummed product proposal">
+      <created>1385821341945</created>
+      <updated>1385821341945</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <option name="clearContext" value="false" />
     <servers>
       <GitHub shared="false">
@@ -2038,7 +2036,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-1 Add i18n for labels" />
+    <option name="LAST_COMMIT_MESSAGE" value="EasyFit-83 Add most used consummed product proposal" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -2053,7 +2051,6 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <confirmRemoveEmptyChangelist value="2" />
-    <MESSAGE value="EasyFit-14 Add green products" />
     <MESSAGE value="EasyFit-4 Datasource management via JNDI" />
     <MESSAGE value="EasyFit-7 Add week total points" />
     <MESSAGE value="EasyFit-24 Foreign key error (consumption - user)" />
@@ -2078,6 +2075,7 @@
     <MESSAGE value="EasyFit-48 Add excercices concepts" />
     <MESSAGE value="EasyFit-82 Recipe - add productt not working" />
     <MESSAGE value="EasyFit-1 Add i18n for labels" />
+    <MESSAGE value="EasyFit-83 Add most used consummed product proposal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
