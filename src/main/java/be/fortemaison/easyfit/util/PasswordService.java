@@ -1,11 +1,11 @@
 package be.fortemaison.easyfit.util;
 
 import org.apache.log4j.Logger;
-import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,11 +37,11 @@ public final class PasswordService {
             MessageDigest md = MessageDigest.getInstance("SHA");
             md.update(plaintext.getBytes("UTF-8"));
             byte raw[] = md.digest(); //step 4
-            hash = (new BASE64Encoder()).encode(raw);
+            hash = Base64.getEncoder().encodeToString(raw);
             return hash;
-        } catch (NoSuchAlgorithmException e) {
-            LOGGER.error(e.getMessage(), e);
         } catch (UnsupportedEncodingException e) {
+            LOGGER.error(e.getMessage(), e);
+        } catch (NoSuchAlgorithmException e) {
             LOGGER.error(e.getMessage(), e);
         }
 
