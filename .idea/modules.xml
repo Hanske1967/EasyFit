@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EasyFit.iml" filepath="$PROJECT_DIR$/EasyFit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easyfit.iml" filepath="$PROJECT_DIR$/.idea/modules/easyfit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easyfit_main.iml" filepath="$PROJECT_DIR$/.idea/modules/easyfit_main.iml" group="easyfit" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easyfit_test.iml" filepath="$PROJECT_DIR$/.idea/modules/easyfit_test.iml" group="easyfit" />
     </modules>
   </component>
 </project>
