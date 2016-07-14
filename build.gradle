@@ -13,19 +13,6 @@ sourceSets {
     }
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: "${nexusUrl}/repository/maven-releases/") {
-                authentication(userName: m999hfo, password: Tomytomy)
-            }
-            snapshotRepository(url: "${nexusUrl}/repository/maven-snapshots") {
-                authentication(userName: m999hfo, password: Tomytomy)
-            }
-        }
-    }
-}
-
 dependencies {
     compile group: 'joda-time', name: 'joda-time', version: '2.9.+'
     compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
