@@ -1,0 +1,9 @@
+GRANT ALL ON "weigth" TO usreasy;
+GRANT ALL ON "consumptiondetail" TO usreasy;
+GRANT ALL ON "consumption" TO usreasy;
+GRANT ALL ON "recipe_product_link" TO usreasy;
+GRANT ALL ON "favoriteproduct" TO usreasy;
+GRANT ALL ON "product" TO usreasy;
+GRANT ALL ON "productcategory" TO usreasy;
+GRANT ALL ON "unit" TO usreasy;
+GRANT ALL ON "users" TO usreasy;
