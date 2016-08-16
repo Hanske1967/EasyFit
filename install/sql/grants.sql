@@ -7,3 +7,13 @@ GRANT ALL ON "product" TO usreasy;
 GRANT ALL ON "productcategory" TO usreasy;
 GRANT ALL ON "unit" TO usreasy;
 GRANT ALL ON "users" TO usreasy;
+
+GRANT ALL ON "weigth" TO m999hfo;
+GRANT ALL ON "consumptiondetail" TO m999hfo;
+GRANT ALL ON "consumption" TO m999hfo;
+GRANT ALL ON "recipe_product_link" TO m999hfo;
+GRANT ALL ON "favoriteproduct" TO m999hfo;
+GRANT ALL ON "product" TO m999hfo;
+GRANT ALL ON "productcategory" TO m999hfo;
+GRANT ALL ON "unit" TO m999hfo;
+GRANT ALL ON "users" TO m999hfo;

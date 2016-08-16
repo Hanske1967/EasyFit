@@ -122,7 +122,7 @@ CREATE TABLE consumptiondetail
   FOREIGN KEY (productid) REFERENCES product (id)
 );
 
-CREATE TABLE weigth
+CREATE TABLE weight
 (
   id           SERIAL                              PRIMARY KEY,
   userid       INTEGER                                 NOT NULL,
