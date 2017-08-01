@@ -1,4 +1,4 @@
-CREATE DATABASE easyfit;
+// CREATE DATABASE easyfit;
 
 USE easyfit;
 

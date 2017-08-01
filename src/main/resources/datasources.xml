@@ -15,15 +15,15 @@
         <property name="entityInterceptor" ref="technicalSegmentInterceptor"/>
         <property name="mappingResources">
             <list>
-                <value>be/fortemaison/easyfit/model/unit.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/product.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/productcategory.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/recipeproductlink.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/favoriteproduct.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/user.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/consumption.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/consumptiondetail.hbm.xml</value>
-                <value>be/fortemaison/easyfit/model/weight.hbm.xml</value>
+                <value>hibernate/unit.hbm.xml</value>
+                <value>hibernate/product.hbm.xml</value>
+                <value>hibernate/productcategory.hbm.xml</value>
+                <value>hibernate/recipeproductlink.hbm.xml</value>
+                <value>hibernate/favoriteproduct.hbm.xml</value>
+                <value>hibernate/user.hbm.xml</value>
+                <value>hibernate/consumption.hbm.xml</value>
+                <value>hibernate/consumptiondetail.hbm.xml</value>
+                <value>hibernate/weight.hbm.xml</value>
             </list>
         </property>
     </bean>

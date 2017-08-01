@@ -1,43 +1,16 @@
-apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'idea'
-apply plugin: 'eclipse'
 apply plugin: 'maven'
 
 group 'be.fortemaison'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.5
-
-def nexusUrl = "http://localhost:8081"
-def nexusUser = "m999hfo"
-def nexusPwd = "Tomytomy"
-
+sourceCompatibility = 1.8
 
 repositories {
     mavenLocal()
-    maven { url "${nexusUrl}/repository/maven-public" }
+    mavenCentral()
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: "${nexusUrl}/repository/maven-releases/") {
-                authentication(userName: "${nexusUser}", password: "${nexusPwd}")
-            }
-            snapshotRepository(url: "${nexusUrl}/repository/maven-snapshots") {
-                authentication(userName: "${nexusUser}", password: "${nexusPwd}")
-            }
-        }
-    }
-}
-
-sourceSets {
-    main {
-        resources {
-            srcDirs = ['src/main/java','src/main/resources']
-        }
-    }
-}
 
 dependencies {
     compile group: 'joda-time', name: 'joda-time', version: '2.9.+'

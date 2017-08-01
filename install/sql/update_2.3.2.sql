@@ -1,5 +1,3 @@
-use easyfit;
-
 update product set creationuser = 'INGE' where creationuser is null ;
 update product set creationdate = updatedate where creationdate is null ;
 

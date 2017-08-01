@@ -2,7 +2,7 @@ use easyfit;
 
 CREATE TABLE weigth
 (
-  id           INT PRIMARY KEY                     NOT NULL AUTO_INCREMENT,
+  id           INT PRIMARY KEY                     NOT NULL auto_increment,
   userid       INT                                 NOT NULL,
   date         DATE                                NOT NULL,
   weight       DOUBLE                              NOT NULL,
