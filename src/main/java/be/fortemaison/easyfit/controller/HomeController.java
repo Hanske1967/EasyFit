@@ -27,7 +27,7 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping(value = "/")
+//@RequestMapping(value = "/")
 public class HomeController {
 
 
@@ -60,7 +60,7 @@ public class HomeController {
         model.addAttribute("users", userMap);
         model.addAttribute(USER_FORM, new UserForm());
 
-        return "home";
+        return "logindialog";
     }
 
     @RequestMapping(value = "/changepwd", method = RequestMethod.GET)

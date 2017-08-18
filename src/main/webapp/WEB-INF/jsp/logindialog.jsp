@@ -71,7 +71,7 @@
     </div>
 
     <div class="form-signin">
-        <form:form id="login" name="form" method="post" action="/login" modelAttribute="userForm">
+        <form:form id="login" name="form" method="post" action="./login" modelAttribute="userForm">
             <h2 class="form-signin-heading"><fmt:message key="home.singin"/></h2>
 
             <fieldset>
