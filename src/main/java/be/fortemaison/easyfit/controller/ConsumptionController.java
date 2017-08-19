@@ -227,7 +227,7 @@ public class ConsumptionController {
 
             Date aDate = null;
             try {
-                aDate = date == null ? new Date() : Utils.DATE_FORMATTER.parse(date);
+                aDate = date == null ? new Date() : Utils.URL_DATE_FORMATTER.parse(date);
             } catch (ParseException e) {
                 Logger.getLogger(this.getClass()).debug("Date not recognized");
                 aDate = new Date();
@@ -330,7 +330,7 @@ public class ConsumptionController {
         this.consumptionService.update(consumption);
         status.setComplete();
 
-        return "redirect:/consumptions/list?date=" + Utils.DATE_FORMATTER.format(consumption.getDate());
+        return "redirect:list?date=" + Utils.URL_DATE_FORMATTER.format(consumption.getDate());
     }
 
     /**
@@ -357,7 +357,7 @@ public class ConsumptionController {
             this.consumptionService.update(consumption);
         }
 
-        return "redirect:/consumptions/list?date=" + Utils.DATE_FORMATTER.format(consumption.getDate());
+        return "redirect:/consumptions/list?date=" + Utils.URL_DATE_FORMATTER.format(consumption.getDate());
     }
 
     /**
@@ -386,7 +386,7 @@ public class ConsumptionController {
         }
 
         status.setComplete();
-        return "redirect:/consumptions/list?date=" + Utils.DATE_FORMATTER.format(consumption.getDate());
+        return "redirect:/consumptions/list?date=" + Utils.URL_DATE_FORMATTER.format(consumption.getDate());
     }
 
 }

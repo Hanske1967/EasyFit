@@ -1,9 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="masthead">
-    <h2>EasyFit
-        <small>Track what you eat and stay fit !</small>
-    </h2>
-
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">

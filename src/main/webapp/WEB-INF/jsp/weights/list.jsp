@@ -15,6 +15,7 @@
     <!-- Le styles -->
     <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
+    <link href="<c:url value="/assets/css/custom.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
 
     <script src="<c:url value="/assets/js/jquery-2.0.0.min.js"/>"></script>
