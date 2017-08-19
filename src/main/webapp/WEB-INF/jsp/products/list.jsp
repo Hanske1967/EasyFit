@@ -16,6 +16,7 @@
     <link href="<c:url value="/assets/css/bootstrap.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/css/bootstrap-responsive.css"/>" rel="stylesheet">
     <link href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="<c:url value="/assets/css/custom.css"/>">
 
     <c:choose>
         <c:when test="${finderMode}">

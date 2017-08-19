@@ -330,7 +330,7 @@ public class ConsumptionController {
         this.consumptionService.update(consumption);
         status.setComplete();
 
-        return "redirect:/consumptions/list?date=" + Utils.DATE_FORMATTER.format(consumption.getDate());
+        return "redirect:list?date=" + Utils.DATE_FORMATTER.format(consumption.getDate());
     }
 
     /**

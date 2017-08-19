@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="<c:url value="/assets/css/bootstrap.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/assets/css/bootstrap-responsive.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/assets/js/google-code-prettify/prettify.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/assets/css/custom.css"/>">
 
     <link rel="stylesheet" href="<c:url value="/assets/js/jquery-ui-1.10.2/themes/base/jquery-ui.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/assets/js/jquery-ui-1.10.2/themes/base/jquery.ui.datepicker.css"/>"/>
